@@ -5,7 +5,7 @@ import Footer from '@/components/layout/Footer';
 export const metadata: Metadata = {
   title: 'DIANA | Digital Infrastructure for Animal Networks and Advocacy',
   description:
-    'The financial ecosystem bridging conscious consumers, ethical merchants, and animal sanctuaries. Every daily action quietly supports animals.',
+    'The financial ecosystem bridging conscious consumers, ethical merchants, and animal sanctuaries.',
 };
 
 export default function RootLayout({
@@ -15,14 +15,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark h-full antialiased">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          rel="stylesheet"
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Outfit:wght@700&family=Inter:wght@400&family=JetBrains+Mono:wght@500&display=swap"
-        />
-      </head>
       <body className="min-h-full flex flex-col selection:bg-primary selection:text-white">
         {children}
         <Footer />
@@ -30,4 +22,3 @@ export default function RootLayout({
     </html>
   );
 }
-

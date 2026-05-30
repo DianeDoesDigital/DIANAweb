@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Outfit:wght@400;700&amp;family=Inter:wght@400;500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "secondary-container": "#5a4250",
+                        "surface-variant": "#3b3236",
+                        "secondary": "#debece",
+                        "surface-bright": "#40373a",
+                        "on-error-container": "#ffdad6",
+                        "secondary-fixed-dim": "#debece",
+                        "on-background": "#FFDDEE",
+                        "tertiary": "#FF0099",
+                        "on-primary-fixed-variant": "#8d0052",
+                        "inverse-on-surface": "#372e31",
+                        "on-secondary": "#3f2a37",
+                        "on-surface": "#FFDDEE",
+                        "tertiary-fixed": "#FFDDEE",
+                        "tertiary-fixed-dim": "#FFDDEE",
+                        "on-error": "#690005",
+                        "on-tertiary": "#640039",
+                        "inverse-primary": "#b8006d",
+                        "on-tertiary-fixed-variant": "#145200",
+                        "tertiary-container": "#FF0099",
+                        "on-primary-container": "#0A0507",
+                        "primary": "#FF0099",
+                        "primary-fixed-dim": "#FF0099",
+                        "outline": "#aa8893",
+                        "on-primary": "#0A0507",
+                        "primary-fixed": "#ffd9e4",
+                        "surface-container": "#130c0f",
+                        "on-secondary-fixed": "#291521",
+                        "on-primary-fixed": "#3e0021",
+                        "surface-tint": "#FF0099",
+                        "background": "#0A0507",
+                        "on-tertiary-fixed": "#042100",
+                        "surface-dim": "#0A0507",
+                        "surface-container-low": "#11090d",
+                        "on-surface-variant": "#e3bdc8",
+                        "surface-container-high": "#1a1215",
+                        "on-secondary-fixed-variant": "#57404d",
+                        "outline-variant": "#5b3f49",
+                        "on-tertiary-container": "#FFDDEE",
+                        "primary-container": "#FF0099",
+                        "glow": "rgba(255, 0, 153, 0.12)",
+                        "on-secondary-container": "#cfb0c0",
+                        "secondary-fixed": "#fbd9ea",
+                        "border": "rgba(255, 221, 238, 0.15)",
+                        "surface": "rgba(255, 221, 238, 0.04)",
+                        "error-container": "#93000a",
+                        "success": "#FFDDEE",
+                        "surface-container-highest": "#211a1d",
+                        "error": "#FF4444",
+                        "inverse-surface": "#FFDDEE",
+                        "surface-container-lowest": "#050304"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "sm": "12px",
+                        "xl": "80px",
+                        "xs": "4px",
+                        "md": "24px",
+                        "base": "8px",
+                        "lg": "48px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                        "headline-md-mobile": ["Playfair Display"],
+                        "label-md": ["Outfit"],
+                        "headline-md": ["Playfair Display"],
+                        "body-lg": ["Inter"],
+                        "title-lg": ["Outfit"],
+                        "body-md": ["Inter"],
+                        "display-lg": ["Playfair Display"],
+                        "display-lg-mobile": ["Playfair Display"],
+                        "label-sm": ["Outfit"]
+                    },
+                    "fontSize": {
+                        "headline-md-mobile": ["24px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "label-md": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "700" }],
+                        "headline-md": ["32px", { "lineHeight": "1.3", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "title-lg": ["20px", { "lineHeight": "1.4", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                        "display-lg": ["48px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "1.2", "fontWeight": "700" }],
+                        "label-sm": ["12px", { "lineHeight": "1.2", "letterSpacing": "0.08em", "fontWeight": "700" }]
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .ambient-glow {
+            box-shadow: 0 0 40px 10px rgba(255, 0, 153, 0.15);
+        }
+
+        .glass-card {
+            background: rgba(255, 221, 238, 0.04);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 221, 238, 0.15);
+        }
+
+        .hot-pink-gradient {
+            background: linear-gradient(135deg, #FF0099 0%, #ff45a2 100%);
+        }
+
+        .selection\:bg-primary-container ::selection {
+            background-color: #FF0099;
+            color: #0A0507;
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+    <!-- TopNavBar -->
+    <header
+        class="bg-background dark:bg-background docked full-width top-0 sticky z-50 border-b border-border flex justify-between items-center w-full px-margin-desktop py-base max-w-full">
+        <div class="font-display-lg text-headline-md font-bold text-primary tracking-tighter">DIANA</div>
+        <nav class="hidden md:flex items-center gap-lg">
+            <a class="text-primary font-bold border-b-2 border-primary pb-1 font-label-md text-label-md transition-all duration-300"
+                href="#">Guardians</a>
+            <a class="text-on-surface-variant font-medium hover:text-primary hover:bg-glow/10 font-label-md text-label-md transition-all duration-300"
+                href="#">Allies</a>
+            <a class="text-on-surface-variant font-medium hover:text-primary hover:bg-glow/10 font-label-md text-label-md transition-all duration-300"
+                href="#">Sanctuaries</a>
+        </nav>
+        <button
+            class="bg-primary text-on-primary px-md py-sm rounded-lg font-label-md text-label-md font-bold scale-95 active:scale-90 transition-transform hover:ambient-glow"
+            style="background-color: #FF0099;">
+            Join DIANA
+        </button>
+    </header>
+    <!-- Hero Section -->
+    <section
+        class="relative w-full min-h-[819px] flex items-center justify-center px-margin-mobile md:px-margin-desktop py-xl overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <div class="absolute top-1/4 left-1/4 w-[400px] h-[400px] bg-primary/10 rounded-full blur-[120px]"></div>
+            <div
+                class="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-secondary-container/10 rounded-full blur-[150px]">
+            </div>
+        </div>
+        <div class="relative z-10 text-center max-w-4xl mx-auto">
+            <h1
+                class="font-display-lg text-display-lg-mobile md:text-display-lg mb-md leading-tight text-on-background">
+                Every daily action funds <br class="hidden md:block" />
+                <span class="text-primary">animal protection.</span>
+            </h1>
+            <p class="font-body-lg text-body-lg text-on-surface-variant mb-lg max-w-2xl mx-auto">
+                Join a global ecosystem where your commerce, travel, and lifestyle choices directly fuel the world's
+                most critical animal sanctuaries.
+            </p>
+            <div class="flex flex-col md:flex-row items-center justify-center gap-md">
+                <button
+                    class="w-full md:w-auto bg-primary text-on-primary font-label-md text-label-md px-lg py-md rounded-xl font-bold ambient-glow hover:scale-105 transition-all"
+                    style="background-color: #FF0099;">
+                    Become a Guardian
+                </button>
+                <button
+                    class="w-full md:w-auto glass-card text-on-background px-lg py-md rounded-xl font-bold font-label-md text-label-md hover:bg-surface-variant transition-all border-on-surface/20">
+                    Explore Sanctuaries
+                </button>
+            </div>
+        </div>
+    </section>
+    <!-- Section 1: Double-Impact Engine -->
+    <section class="w-full px-margin-mobile md:px-margin-desktop py-xl">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-lg items-center">
+                <div>
+                    <h2 class="font-headline-md text-headline-md mb-md text-on-background">The "Double-Impact" Engine
+                    </h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-md leading-relaxed">
+                        DIANA operates on a radical transparency model. Every transaction through our Ally network
+                        triggers a fixed 5% platform fee—half of which fuels our global operations, while the other half
+                        goes directly to sanctuary infrastructure.
+                    </p>
+                    <ul class="space-y-md">
+                        <li class="flex items-start gap-md">
+                            <span class="material-symbols-outlined text-primary"
+                                data-icon="account_balance_wallet">account_balance_wallet</span>
+                            <div>
+                                <h4 class="font-title-lg text-title-lg mb-xs text-on-background">Transparent Ledger</h4>
+                                <p class="font-body-md text-body-md text-on-surface-variant">Real-time verification of
+                                    every cent moved from Guardian to Sanctuary.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-md">
+                            <span class="material-symbols-outlined text-primary"
+                                data-icon="rocket_launch">rocket_launch</span>
+                            <div>
+                                <h4 class="font-title-lg text-title-lg mb-xs text-on-background">Infrastructure Growth
+                                </h4>
+                                <p class="font-body-md text-body-md text-on-surface-variant">Fees are reinvested into
+                                    sanctuary medical bays, perimeter security, and habitat expansion.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="glass-card rounded-xl p-lg relative overflow-hidden">
+                    <div class="flex flex-col gap-lg">
+                        <div class="flex justify-between items-end border-b border-border pb-md">
+                            <div>
+                                <p class="font-label-sm text-label-sm text-primary mb-xs uppercase tracking-widest">
+                                    Transaction Flow</p>
+                                <p class="font-headline-md text-headline-md text-on-background">$1,240.00 USD</p>
+                            </div>
+                            <div class="text-right">
+                                <p class="font-label-sm text-label-sm text-on-surface mb-xs uppercase"
+                                    style="color: #FFDDEE;">5% Platform Fee</p>
+                                <p class="font-headline-md text-headline-md text-primary">$62.00</p>
+                            </div>
+                        </div>
+                        <div class="grid grid-cols-2 gap-md">
+                            <div class="p-md bg-surface-container rounded-lg border border-border">
+                                <span class="material-symbols-outlined text-primary mb-sm"
+                                    data-icon="shield">shield</span>
+                                <p class="font-label-md text-label-md mb-xs text-on-surface-variant">DIANA Operations
+                                </p>
+                                <p class="font-headline-md text-headline-md text-on-background">$31.00</p>
+                            </div>
+                            <div class="p-md bg-surface-container rounded-lg border border-border">
+                                <span class="material-symbols-outlined text-primary mb-sm"
+                                    data-icon="favorite">favorite</span>
+                                <p class="font-label-md text-label-md mb-xs text-on-surface-variant">Sanctuary Fund</p>
+                                <p class="font-headline-md text-headline-md text-on-background">$31.00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 2: User Roles (Bento Style) -->
+    <section class="w-full px-margin-mobile md:px-margin-desktop py-xl bg-surface-container-low">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-xl">
+                <h2 class="font-headline-md text-headline-md mb-md text-on-background">Our Ecosystem Pillars</h2>
+                <p class="font-body-md text-body-md text-on-surface-variant">United by technology, driven by compassion.
+                </p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-md">
+                <!-- Guardians -->
+                <div class="glass-card p-lg rounded-xl flex flex-col hover:border-primary/50 transition-all group">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-md group-hover:bg-primary/20 transition-all">
+                        <span class="material-symbols-outlined text-primary" data-icon="person">person</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md mb-sm text-on-background">Guardians</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-lg flex-grow">
+                        The heartbeat of the movement. Conscious consumers who direct their spending power toward
+                        verified animal protection.
+                    </p>
+                    <div class="font-label-md text-label-md text-primary flex items-center gap-xs">
+                        Join the collective <span class="material-symbols-outlined"
+                            data-icon="arrow_forward">arrow_forward</span>
+                    </div>
+                </div>
+                <!-- Allies -->
+                <div
+                    class="glass-card p-lg rounded-xl flex flex-col hover:border-primary/50 transition-all group border-primary/30 ambient-glow">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-md group-hover:bg-primary/20 transition-all">
+                        <span class="material-symbols-outlined text-primary" data-icon="storefront">storefront</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md mb-sm text-on-background">Allies</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-lg flex-grow">
+                        Merchants and service providers who integrate DIANA into their business model to attract a
+                        loyal, ethical customer base.
+                    </p>
+                    <div class="font-label-md text-label-md text-primary flex items-center gap-xs">
+                        Partner with us <span class="material-symbols-outlined"
+                            data-icon="arrow_forward">arrow_forward</span>
+                    </div>
+                </div>
+                <!-- Sanctuaries -->
+                <div class="glass-card p-lg rounded-xl flex flex-col hover:border-primary/50 transition-all group">
+                    <div
+                        class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-md group-hover:bg-primary/20 transition-all">
+                        <span class="material-symbols-outlined text-primary" data-icon="nature">nature</span>
+                    </div>
+                    <h3 class="font-headline-md text-headline-md mb-sm text-on-background">The Heart</h3>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-lg flex-grow">
+                        Global sanctuaries receiving direct, verified funding for rescue, rehabilitation, and permanent
+                        protection missions.
+                    </p>
+                    <div class="font-label-md text-label-md text-primary flex items-center gap-xs">
+                        View Directory <span class="material-symbols-outlined"
+                            data-icon="arrow_forward">arrow_forward</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 3: The Infinity Shield -->
+    <section class="w-full px-margin-mobile md:px-margin-desktop py-xl">
+        <div
+            class="max-w-5xl mx-auto glass-card rounded-2xl p-lg md:p-xl relative overflow-hidden border-2 border-primary/20">
+            <div class="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full -mr-32 -mt-32 blur-3xl"></div>
+            <div class="relative z-10 grid grid-cols-1 md:grid-cols-2 gap-lg items-center">
+                <div>
+                    <span
+                        class="bg-primary/20 text-primary px-md py-xs rounded-full font-label-sm text-label-sm uppercase mb-md inline-block">Impact
+                        Membership</span>
+                    <h2 class="font-display-lg text-headline-md md:text-display-lg mb-md text-on-background">The
+                        Infinity Shield</h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant mb-lg">
+                        Our Champion Membership is the ultimate commitment. 100% of your contribution goes directly to
+                        the field. No marketing, no overhead—just pure protection.
+                    </p>
+                    <div class="flex flex-col gap-md">
+                        <div class="flex items-center gap-md">
+                            <span class="material-symbols-outlined text-on-surface" data-icon="check_circle"
+                                data-weight="fill" style="color: #FFDDEE;">check_circle</span>
+                            <p class="font-body-md text-body-md text-on-background">100% Efficiency Guarantee</p>
+                        </div>
+                        <div class="flex items-center gap-md">
+                            <span class="material-symbols-outlined text-on-surface" data-icon="check_circle"
+                                data-weight="fill" style="color: #FFDDEE;">check_circle</span>
+                            <p class="font-body-md text-body-md text-on-background">Exclusive Guardian Portal Access</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="text-center p-lg bg-surface-container rounded-xl border border-border ambient-glow">
+                    <p class="font-label-md text-label-md text-on-surface-variant mb-xs">Champion Tier</p>
+                    <div class="flex justify-center items-end gap-xs mb-lg">
+                        <span class="font-display-lg text-display-lg text-primary">$20</span>
+                        <span class="font-body-md text-body-md text-on-surface-variant mb-md">/ month</span>
+                    </div>
+                    <button
+                        class="w-full bg-primary text-on-primary font-label-md text-label-md py-md rounded-lg font-bold hover:scale-105 transition-all"
+                        style="background-color: #FF0099;">
+                        Upgrade to Champion
+                    </button>
+                    <p class="font-label-sm text-label-sm text-on-surface-variant mt-md">Cancel anytime. Impact forever.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Section 4: Global Directory -->
+    <section class="w-full px-margin-mobile md:px-margin-desktop py-xl">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-xl gap-md">
+                <div>
+                    <h2 class="font-headline-md text-headline-md mb-sm text-on-background">Every action creates a story
+                    </h2>
+                    <p class="font-body-md text-body-md text-on-surface-variant">"Enjoyed a meal and helped <strong>the
+                            rescued elephants at Phangan Sanctuary</strong>"</p>
+                </div>
+                <button class="text-primary font-label-md text-label-md flex items-center gap-xs">
+                    View All Global Projects <span class="material-symbols-outlined"
+                        data-icon="open_in_new">open_in_new</span>
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-lg">
+                <!-- Phangan Sanctuary -->
+                <div class="group cursor-pointer">
+                    <div class="relative rounded-xl overflow-hidden aspect-[16/9] mb-md">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            data-alt="A majestic rescued elephant standing peacefully in a lush tropical jungle environment."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuAHnismD8dwDF-fSt2U4MsbHSQ9YTkZTLTJJC9KtwXKm-eHihjxmz03OHTil_VTi6DUedfyhvYHFZ3FSRdG1LoibSDKSBujnWJ9Zhuh2nl75ewq9eTmGIDjOxdfCz4gWbzqtAX6sTLKyEWVkvQEg6ZBgTHZiAuBtn2K7ODjyMhfI2V_QYhqEzzWn6baOi0xRjeqtdBnewhI0p5QA8uWIToOIxSp515HrSnVhG54ak4BTT7ny840ch2qLOkFmZn5XcA68ZqhvvpoAWM" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-md left-md">
+                            <span
+                                class="bg-primary/20 text-on-surface border border-primary/30 px-sm py-xs rounded-full font-label-sm text-label-sm mb-xs inline-block backdrop-blur-md"
+                                style="color: #FFDDEE;">Active Project</span>
+                            <h3 class="font-headline-md text-headline-md text-on-surface" style="color: #FFDDEE;">
+                                Phangan Sanctuary</h3>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="font-body-md text-body-md text-on-surface-variant italic">Koh Phangan, Thailand</p>
+                        <div class="flex items-center gap-xs text-primary">
+                            <span class="material-symbols-outlined"
+                                data-icon="volunteer_activism">volunteer_activism</span>
+                            <span class="font-label-md text-label-md">$14.2k Funded</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Villa Kitty -->
+                <div class="group cursor-pointer">
+                    <div class="relative rounded-xl overflow-hidden aspect-[16/9] mb-md">
+                        <img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                            data-alt="A warm and safe animal rescue shelter interior in Bali."
+                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtmbZYInfcTS3mvp3wMQ_xnKpDsJQFUIVL4AD8vkG00VivMu_UMNL9BXm7muUvOYDISlzDehcJEJ86Khm1Cw1q_VLEnxe4M9yTGrvpUZTxGu5gAcaMDDqtGKqV6mgbTw75xENYzs-FcYsCEcI9z7sfvSPIZSRJpzvy20FVpDQ9cNgbhqVp_F9MaeLiH-IkSORQjYchyl0vgY5k8RIoLFjfFYT82eNlzva5G2PVFEqinv_YyU2kUSRSAhTe37MuTquklcuE4bgSVmQ" />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                        <div class="absolute bottom-md left-md">
+                            <span
+                                class="bg-primary/20 text-on-surface border border-primary/30 px-sm py-xs rounded-full font-label-sm text-label-sm mb-xs inline-block backdrop-blur-md"
+                                style="color: #FFDDEE;">Active Project</span>
+                            <h3 class="font-headline-md text-headline-md text-on-surface" style="color: #FFDDEE;">Villa
+                                Kitty</h3>
+                        </div>
+                    </div>
+                    <div class="flex justify-between items-center">
+                        <p class="font-body-md text-body-md text-on-surface-variant italic">Ubud, Bali</p>
+                        <div class="flex items-center gap-xs text-primary">
+                            <span class="material-symbols-outlined"
+                                data-icon="volunteer_activism">volunteer_activism</span>
+                            <span class="font-label-md text-label-md">$8.9k Funded</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer -->
+    <footer
+        class="bg-surface-container-lowest dark:bg-surface-container-lowest border-t border-border grid grid-cols-1 md:grid-cols-2 gap-gutter px-margin-desktop py-xl w-full">
+        <div>
+            <div class="font-title-lg text-title-lg font-bold text-primary mb-md">DIANA</div>
+            <p class="font-body-md text-body-md text-on-surface-variant max-w-sm mb-lg">
+                © 2024 DIANA Social Enterprise. Empowering global animal protection through every action.
+            </p>
+            <div class="flex gap-md">
+                <span
+                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-100 transition-opacity opacity-80"
+                    data-icon="public">public</span>
+                <span
+                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-100 transition-opacity opacity-80"
+                    data-icon="share">share</span>
+                <span
+                    class="material-symbols-outlined text-primary cursor-pointer hover:opacity-100 transition-opacity opacity-80"
+                    data-icon="campaign">campaign</span>
+            </div>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-md">
+            <div class="flex flex-col gap-sm">
+                <p class="font-label-md text-label-md text-primary mb-xs">Mission</p>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-opacity opacity-80 hover:opacity-100"
+                    href="#">Our Story</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-opacity opacity-80 hover:opacity-100"
+                    href="#">Transparency</a>
+            </div>
+            <div class="flex flex-col gap-sm">
+                <p class="font-label-md text-label-md text-primary mb-xs">Community</p>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-opacity opacity-80 hover:opacity-100"
+                    href="#">Guardians</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-opacity opacity-80 hover:opacity-100"
+                    href="#">Allies</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-opacity opacity-80 hover:opacity-100"
+                    href="#">Contact</a>
+            </div>
+            <div class="flex flex-col gap-sm">
+                <p class="font-label-md text-label-md text-primary mb-xs">Legal</p>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-opacity opacity-80 hover:opacity-100"
+                    href="#">Privacy</a>
+                <a class="font-label-sm text-label-sm text-on-surface-variant hover:text-primary underline-offset-4 hover:underline transition-opacity opacity-80 hover:opacity-100"
+                    href="#">Legal</a>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

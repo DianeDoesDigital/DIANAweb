@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>DIANA | Digital Infrastructure for Animal Networks and Advocacy</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&amp;family=Outfit:wght@700&amp;family=Inter:wght@400&amp;family=JetBrains+Mono:wght@500&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .neon-glow {
+            text-shadow: 0 0 10px rgba(255, 0, 153, 0.4);
+        }
+
+        .neon-border {
+            box-shadow: 0 0 15px rgba(255, 0, 153, 0.2);
+        }
+
+        .glass-surface {
+            background: rgba(255, 221, 238, 0.04);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 221, 238, 0.15);
+        }
+
+        .glass-surface:hover {
+            background: rgba(255, 221, 238, 0.08);
+        }
+    </style>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "#FF0099",
+                        "secondary": "#FFDDEE",
+                        "background": "#0A0507",
+                        "surface": "rgba(255, 221, 238, 0.04)",
+                        "surface-hover": "rgba(255, 221, 238, 0.08)",
+                        "surface-light": "rgba(255, 221, 238, 0.12)",
+                        "border-main": "rgba(255, 221, 238, 0.15)",
+                        "text-muted": "rgba(255, 221, 238, 0.6)",
+                        "text-subtle": "rgba(255, 221, 238, 0.4)",
+                        "success": "#00FF88",
+                        "error": "#FF4444"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "sm": "8px",
+                        "md": "12px",
+                        "lg": "16px",
+                        "xl": "20px",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-desktop": "64px",
+                        "container-max-width": "1280px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Playfair Display"],
+                        "label-caps": ["Outfit"],
+                        "impact-stat": ["Outfit"],
+                        "headline-md": ["Playfair Display"],
+                        "body-sm": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg-mobile": ["Playfair Display"],
+                        "body-md": ["Inter"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "label-caps": ["13px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "impact-stat": ["40px", { "lineHeight": "48px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }],
+                        "headline-lg-mobile": ["26px", { "lineHeight": "32px", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+
+<body class="bg-background text-secondary font-body-md selection:bg-primary selection:text-white">
+    <!-- TopAppBar Section -->
+    <header class="bg-background/80 backdrop-blur-md docked full-width top-0 sticky z-50 border-b border-border-main">
+        <nav class="flex justify-between items-center w-full px-margin-desktop max-w-container-max-width mx-auto h-20">
+            <div class="font-headline-lg text-headline-lg font-bold text-primary tracking-tight neon-glow">DIANA</div>
+            <div class="hidden md:flex items-center gap-8">
+                <a class="font-label-caps text-label-caps text-text-muted hover:text-secondary transition-colors"
+                    href="#directory">Global Directory</a>
+                <a class="font-label-caps text-label-caps text-text-muted hover:text-secondary transition-colors"
+                    href="#ledger">Impact Ledger</a>
+                <a class="font-label-caps text-label-caps text-text-muted hover:text-secondary transition-colors"
+                    href="#membership">Champion Membership</a>
+            </div>
+            <button onclick="openGuardianModal()"
+                class="font-label-caps text-label-caps text-white bg-primary px-8 py-2 rounded-md hover:brightness-110 active:scale-95 transition-all duration-200 neon-border">ACTIVATE</button>
+        </nav>
+    </header>
+    <main>
+        <!-- Hero Section -->
+        <section
+            class="relative w-full overflow-hidden bg-background pt-32 pb-48 md:pt-48 md:pb-64 border-b border-border-main">
+            <div class="absolute inset-0 z-0">
+                <img alt="Majestic Elephant Sanctuary"
+                    class="w-full h-full object-cover opacity-40 grayscale animate-[pulse_8s_infinite]"
+                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuCIBfmCdpoFCzbdrPFZXE10k5PqwQYKpQdDcJbvtY5s1jUvJi2GGobavMnAowtRk3_r_BaDctQm3rosHpeI_yZuqOZxAQY9wuAl0ngC04LjYZn8UqxMPt2E1et0T2JJ9JY-D2wt2XmnbZ7n2BmGmxWZrQyL4Re2KhIvtiEMAC6WBq-30o3mE8-XM9NDLptNqC_wjCVdgWZrcBslmlgTIM0RzGq-LP33HqqkDMGMLOs_CZCjCObSQp4CulJ6K-anzgXZ7JMiOF27vuA" />
+                <div class="absolute inset-0 bg-gradient-to-b from-background/60 via-background/40 to-background"></div>
+            </div>
+            <div class="relative z-10 max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="max-w-2xl">
+                    <h1
+                        class="font-headline-lg text-[40px] md:text-[64px] leading-[1.1] text-secondary mb-6 select-none">
+                        Quietly fund animal protection with every daily action.
+                    </h1>
+                    <p class="font-body-lg text-text-muted mb-10 max-w-lg select-none">
+                        The financial ecosystem bridging conscious consumers, ethical merchants, and animal sanctuaries.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button onclick="openGuardianModal()"
+                            class="bg-primary text-white px-8 py-4 rounded-md font-label-caps text-body-md hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all neon-border">
+                            Join the Nexus
+                        </button>
+                        <button onclick="openMerchantModal()"
+                            class="border border-border-main text-secondary px-8 py-4 rounded-md font-label-caps text-body-md hover:bg-surface-light hover:scale-[1.02] active:scale-[0.98] transition-all">
+                            Claim My Profile
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Double-Impact Engine -->
+        <section class="py-24 bg-background">
+            <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="text-center mb-16">
+                    <span
+                        class="font-label-caps text-xs text-primary bg-primary/10 px-4 py-1.5 rounded-full mb-4 inline-block border border-primary/20 select-none">The
+                        5% Protocol</span>
+                    <h2 class="font-headline-lg text-headline-lg text-secondary select-none">Double-Impact Engine</h2>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-base items-center">
+                    <!-- Flow Card 1 -->
+                    <div
+                        class="glass-surface p-8 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:translate-y-[-4px]">
+                        <div
+                            class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 border border-primary/20">
+                            <span class="material-symbols-outlined text-primary">storefront</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-secondary mb-2 select-none">Merchant Pledge
+                        </h3>
+                        <p class="font-body-sm text-text-muted select-none">5% of your daily transaction value is
+                            allocated.</p>
+                    </div>
+                    <div class="flex justify-center py-4">
+                        <span class="material-symbols-outlined text-primary animate-pulse">arrow_forward</span>
+                    </div>
+                    <!-- Flow Card 2 -->
+                    <div
+                        class="glass-surface p-8 rounded-xl flex flex-col items-center text-center transition-all duration-300 hover:translate-y-[-4px]">
+                        <div
+                            class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 border border-primary/20">
+                            <span class="material-symbols-outlined text-primary">add_moderator</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-secondary mb-2 select-none">DIANA Match</h3>
+                        <p class="font-body-sm text-text-muted select-none">We add 0.25% to every merchant contribution.
+                        </p>
+                    </div>
+                    <div class="flex justify-center py-4">
+                        <span class="material-symbols-outlined text-primary animate-pulse">arrow_forward</span>
+                    </div>
+                    <!-- Flow Card 3 (Featured) -->
+                    <div
+                        class="md:col-span-4 mt-8 glass-surface p-12 rounded-xl text-center border border-primary/30 relative overflow-hidden transition-all duration-500 hover:border-primary/50">
+                        <div class="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+                        <span class="font-label-caps text-xs text-primary mb-4 block select-none">Final
+                            Destination</span>
+                        <div id="stat-counter"
+                            class="font-impact-stat text-impact-stat text-primary mb-4 neon-glow select-none">$0.00
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-secondary mb-6 select-none">Total Sanctuary
+                            Payout</h3>
+                        <div class="w-full bg-surface-light h-2 rounded-full max-w-md mx-auto overflow-hidden">
+                            <div id="progress-bar"
+                                class="h-full bg-primary w-[0%] neon-border transition-all duration-1000 ease-out">
+                            </div>
+                        </div>
+                        <p class="mt-4 font-body-sm text-text-muted select-none">Towards monthly collective sanctuary
+                            goals</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Impact Ledger (Real-time) -->
+        <section id="ledger" class="py-24 border-y border-border-main bg-background">
+            <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="flex justify-between items-end mb-12">
+                    <div>
+                        <h2 class="font-headline-lg text-headline-lg text-secondary select-none">Impact Ledger</h2>
+                        <p class="font-body-md text-text-muted select-none">Every action has an echo in the sanctuary.
+                        </p>
+                    </div>
+                    <span class="flex items-center gap-2 font-label-caps text-xs text-primary select-none">
+                        Live Stream <span class="w-2.5 h-2.5 rounded-full bg-success inline-block animate-ping"></span>
+                    </span>
+                </div>
+                <div id="ledger-container"
+                    class="bg-surface rounded-xl overflow-hidden border border-border-main transition-all duration-300">
+                    <!-- Ledger rows will be dynamically simulated here -->
+                    <div
+                        class="flex flex-col md:flex-row md:items-center justify-between p-6 border-b border-border-main hover:bg-surface-hover transition-colors">
+                        <div class="flex items-center gap-4 mb-4 md:mb-0">
+                            <div
+                                class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
+                                <span class="material-symbols-outlined text-primary">pets</span>
+                            </div>
+                            <p class="font-body-md">Enjoyed a meal and helped <strong class="text-secondary">the rescued
+                                    elephants at Phangan Sanctuary</strong></p>
+                        </div>
+                        <div class="flex items-center gap-4">
+                            <span class="font-label-caps text-xs text-text-subtle">Just now</span>
+                            <div
+                                class="bg-primary/10 text-primary px-3 py-1 rounded text-[11px] font-bold border border-primary/20">
+                                From DIANA Match +$0.12</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Champion Membership -->
+        <section id="membership" class="py-24 bg-background relative overflow-hidden">
+            <div class="absolute inset-0 bg-primary/5 pointer-events-none blur-3xl"></div>
+            <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                    <div>
+                        <span class="font-label-caps text-xs text-primary mb-4 block select-none">Tiered Advocacy</span>
+                        <h2 class="font-headline-lg text-[48px] leading-tight mb-8 select-none">Champion Membership</h2>
+                        <p class="font-body-lg text-text-muted mb-8 select-none">
+                            Join the elite circle of animal advocates through our 90/5/5 protocol. Your commitment
+                            ensures that 90% of your membership goes directly to operational sanctuary support.
+                        </p>
+                        <div class="flex items-start gap-4 mb-6">
+                            <span class="material-symbols-outlined text-primary mt-1">water_drop</span>
+                            <div>
+                                <h4 class="font-headline-md text-lg mb-2 select-none">The Drip Narrative</h4>
+                                <p class="font-body-sm text-text-muted select-none">Every single day, $1.00 is dripped
+                                    to the
+                                    sanctuary fund to honor your commitment, providing a steady, predictable flow of
+                                    life-saving capital.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-gutter">
+                        <!-- Monthly Tier -->
+                        <div
+                            class="glass-surface p-8 rounded-xl border border-border-main hover:border-primary/50 transition-all duration-300 hover:scale-[1.02]">
+                            <h3 class="font-headline-md text-xl mb-2 select-none">Monthly</h3>
+                            <div class="font-impact-stat text-3xl text-primary mb-6">$30<span
+                                    class="text-sm text-text-subtle">/mo</span></div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2 font-body-sm text-text-muted"><span
+                                        class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                    90/5/5 Protocol</li>
+                                <li class="flex items-center gap-2 font-body-sm text-text-muted"><span
+                                        class="material-symbols-outlined text-primary text-sm">check_circle</span> Daily
+                                    Drip ($1.00/day)</li>
+                                <li class="flex items-center gap-2 font-body-sm text-text-muted"><span
+                                        class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                    Impact Ledger Access</li>
+                            </ul>
+                            <button onclick="openGuardianModal()"
+                                class="w-full py-4 bg-primary text-white font-label-caps rounded-md hover:brightness-110 transition-all neon-border active:scale-95">Become
+                                a Champion</button>
+                        </div>
+                        <!-- Yearly Tier -->
+                        <div
+                            class="glass-surface p-8 rounded-xl border-2 border-primary relative transition-all duration-300 hover:scale-[1.02]">
+                            <div
+                                class="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-white px-4 py-1 text-[10px] font-bold rounded-full neon-border">
+                                MOST IMPACTFUL</div>
+                            <h3 class="font-headline-md text-xl mb-2 select-none">Yearly</h3>
+                            <div class="font-impact-stat text-3xl text-primary mb-6">$300<span
+                                    class="text-sm text-text-subtle">/yr</span></div>
+                            <ul class="space-y-4 mb-8">
+                                <li class="flex items-center gap-2 font-body-sm text-text-muted"><span
+                                        class="material-symbols-outlined text-primary text-sm">check_circle</span> 2
+                                    Months Free</li>
+                                <li class="flex items-center gap-2 font-body-sm text-text-muted"><span
+                                        class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                    Premium Ally Access</li>
+                                <li class="flex items-center gap-2 font-body-sm text-text-muted"><span
+                                        class="material-symbols-outlined text-primary text-sm">check_circle</span>
+                                    Voting & Ledger Rights</li>
+                            </ul>
+                            <button onclick="openGuardianModal()"
+                                class="w-full py-4 bg-primary text-white font-label-caps rounded-md hover:brightness-110 transition-all neon-border active:scale-95">Become
+                                a Champion</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- User Roles (The Buckets) -->
+        <section id="directory" class="py-24 border-t border-border-main bg-background">
+            <div class="max-w-container-max-width mx-auto px-margin-mobile md:px-margin-desktop text-center">
+                <h2 class="font-headline-lg text-headline-lg text-secondary mb-16 select-none">The Trinity of Change
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <!-- Guardian -->
+                    <div
+                        class="glass-surface p-10 rounded-xl border border-border-main hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 hover:translate-y-[-4px]">
+                        <div
+                            class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 border border-primary/20">
+                            <span class="material-symbols-outlined text-primary text-3xl"
+                                data-weight="fill">shield_person</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-secondary mb-4 select-none">The Guardian</h3>
+                        <p class="font-label-caps text-xs text-primary mb-6 uppercase tracking-widest">Consumer</p>
+                        <p class="font-body-sm text-text-muted select-none">Shop with verified allies and track your
+                            personal impact
+                            on the global ledger with every purchase.</p>
+                    </div>
+                    <!-- Ally -->
+                    <div
+                        class="glass-surface p-10 rounded-xl border border-border-main hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 hover:translate-y-[-4px]">
+                        <div
+                            class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 border border-primary/20">
+                            <span class="material-symbols-outlined text-primary text-3xl"
+                                data-weight="fill">handshake</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-secondary mb-4 select-none">The Ally</h3>
+                        <p class="font-label-caps text-xs text-primary mb-6 uppercase tracking-widest">Merchant</p>
+                        <p class="font-body-sm text-text-muted select-none">Pledge 5% of your sales to animal protection
+                            and earn
+                            the trust of the world's most conscious consumers.</p>
+                    </div>
+                    <!-- Heart -->
+                    <div
+                        class="glass-surface p-10 rounded-xl border border-border-main hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 hover:translate-y-[-4px]">
+                        <div
+                            class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 border border-primary/20">
+                            <span class="material-symbols-outlined text-primary text-3xl"
+                                data-weight="fill">favorite</span>
+                        </div>
+                        <h3 class="font-headline-md text-headline-md text-secondary mb-4 select-none">The Heart</h3>
+                        <p class="font-label-caps text-xs text-primary mb-6 uppercase tracking-widest">Sanctuary</p>
+                        <p class="font-body-sm text-text-muted select-none">Focus on care while DIANA provides stable,
+                            transparent
+                            funding through our decentralized advocate network.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <!-- Footer Section -->
+    <footer class="bg-background border-t border-border-main text-secondary py-12">
+        <div class="max-w-container-max-width mx-auto px-margin-desktop flex flex-col gap-8">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+                <div class="font-headline-md text-headline-md font-bold text-primary neon-glow select-none">DIANA</div>
+                <div class="flex flex-wrap gap-8">
+                    <a class="font-label-caps text-xs text-text-muted hover:text-primary transition-colors"
+                        href="#">Mission Statement</a>
+                    <a class="font-label-caps text-xs text-text-muted hover:text-primary transition-colors"
+                        href="#">Transparency Reports</a>
+                    <a class="font-label-caps text-xs text-text-muted hover:text-primary transition-colors"
+                        href="#">Legal</a>
+                    <a class="font-label-caps text-xs text-text-muted hover:text-primary transition-colors"
+                        href="#">Privacy Policy</a>
+                </div>
+            </div>
+            <div
+                class="pt-8 border-t border-border-main/50 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
+                <p class="font-body-sm text-xs text-text-subtle">
+                    © 2026 DIANA - Digital Infrastructure for Animal Networks and Advocacy. DRGM Pty Ltd.
+                </p>
+                <div class="flex items-center gap-4 select-none">
+                    <span class="font-label-caps text-xs text-primary">Vegan Integrity Pledge</span>
+                    <span class="material-symbols-outlined text-primary">verified</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Guardian Waitlist Modal -->
+    <div id="guardian-modal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-background/80 backdrop-blur-md transition-opacity duration-300">
+        <div class="glass-surface p-8 md:p-10 rounded-2xl max-w-md w-full border border-primary/30 relative shadow-2xl">
+            <button onclick="closeGuardianModal()"
+                class="absolute top-4 right-4 text-text-muted hover:text-secondary transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="text-center mb-6">
+                <div
+                    class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 border border-primary/20">
+                    <span class="material-symbols-outlined text-primary text-3xl">shield_person</span>
+                </div>
+                <h3 class="font-headline-md text-2xl text-secondary mb-2">Join as a Guardian</h3>
+                <p class="font-body-sm text-text-muted">Enter your details to join the global waitlist and help save
+                    animal sanctuaries automatically.</p>
+            </div>
+            <form id="guardian-form" onsubmit="handleGuardianSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block font-label-caps text-[11px] text-primary uppercase mb-1.5">Full Name</label>
+                    <input required type="text" placeholder="Diana Mejilla"
+                        class="w-full bg-background/50 border border-border-main rounded-md px-4 py-3 text-secondary focus:outline-none focus:border-primary transition-colors font-body-sm">
+                </div>
+                <div>
+                    <label class="block font-label-caps text-[11px] text-primary uppercase mb-1.5">Email Address</label>
+                    <input required type="email" placeholder="diana@dianafortheanimals.org"
+                        class="w-full bg-background/50 border border-border-main rounded-md px-4 py-3 text-secondary focus:outline-none focus:border-primary transition-colors font-body-sm">
+                </div>
+                <button type="submit"
+                    class="w-full bg-primary text-white font-label-caps py-4 rounded-md hover:brightness-110 active:scale-95 transition-all neon-border">Request
+                    Access</button>
+            </form>
+            <div id="guardian-success" class="hidden text-center py-6">
+                <span class="material-symbols-outlined text-success text-5xl mb-4">check_circle</span>
+                <h4 class="font-headline-md text-xl text-secondary mb-2">You're on the list!</h4>
+                <p class="font-body-sm text-text-muted">Thank you for committing to animal protection. We'll send your
+                    onboarding package shortly.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Merchant Ally Waitlist Modal -->
+    <div id="merchant-modal"
+        class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-background/80 backdrop-blur-md transition-opacity duration-300">
+        <div class="glass-surface p-8 md:p-10 rounded-2xl max-w-md w-full border border-primary/30 relative shadow-2xl">
+            <button onclick="closeMerchantModal()"
+                class="absolute top-4 right-4 text-text-muted hover:text-secondary transition-colors">
+                <span class="material-symbols-outlined">close</span>
+            </button>
+            <div class="text-center mb-6">
+                <div
+                    class="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 border border-primary/20">
+                    <span class="material-symbols-outlined text-primary text-3xl">storefront</span>
+                </div>
+                <h3 class="font-headline-md text-2xl text-secondary mb-2">Register as an Ally</h3>
+                <p class="font-body-sm text-text-muted">Apply to list your brand in the DIANA directory and attract
+                    ethical, mission-driven spenders.</p>
+            </div>
+            <form id="merchant-form" onsubmit="handleMerchantSubmit(event)" class="space-y-4">
+                <div>
+                    <label class="block font-label-caps text-[11px] text-primary uppercase mb-1.5">Business Name</label>
+                    <input required type="text" placeholder="Indulge Vegan Pizzeria"
+                        class="w-full bg-background/50 border border-border-main rounded-md px-4 py-3 text-secondary focus:outline-none focus:border-primary transition-colors font-body-sm">
+                </div>
+                <div>
+                    <label class="block font-label-caps text-[11px] text-primary uppercase mb-1.5">Business Type</label>
+                    <select required
+                        class="w-full bg-background/50 border border-border-main rounded-md px-4 py-3 text-secondary focus:outline-none focus:border-primary transition-colors font-body-sm appearance-none">
+                        <option value="fnb">Food & Beverage</option>
+                        <option value="ecommerce">E-Commerce & Retail</option>
+                        <option value="wellness">Wellness & Fitness</option>
+                        <option value="travel">Travel & Hospitality</option>
+                        <option value="other">Other Ethical Services</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block font-label-caps text-[11px] text-primary uppercase mb-1.5">Contact Email</label>
+                    <input required type="email" placeholder="hello@indulge.ph"
+                        class="w-full bg-background/50 border border-border-main rounded-md px-4 py-3 text-secondary focus:outline-none focus:border-primary transition-colors font-body-sm">
+                </div>
+                <div class="flex items-center gap-2 pt-2">
+                    <input required type="checkbox" id="pledge"
+                        class="rounded bg-background/50 border-border-main text-primary focus:ring-0 focus:ring-offset-0">
+                    <label for="pledge" class="font-body-sm text-xs text-text-muted select-none">We commit to the 5%
+                        Sanctuary Pledge.</label>
+                </div>
+                <button type="submit"
+                    class="w-full bg-primary text-white font-label-caps py-4 rounded-md hover:brightness-110 active:scale-95 transition-all neon-border">Claim
+                    Profile</button>
+            </form>
+            <div id="merchant-success" class="hidden text-center py-6">
+                <span class="material-symbols-outlined text-success text-5xl mb-4">verified</span>
+                <h4 class="font-headline-md text-xl text-secondary mb-2">Pledge Received!</h4>
+                <p class="font-body-sm text-text-muted">Your Ally profile request has been sent for verification. We are
+                    thrilled to welcome you to the network!</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Smooth scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Statistics Counter Animation
+        function animateCounter(targetValue, duration) {
+            const counterElement = document.getElementById('stat-counter');
+            const progressBar = document.getElementById('progress-bar');
+            let startValue = 0;
+            const startTime = performance.now();
+
+            function updateCounter(currentTime) {
+                const elapsedTime = currentTime - startTime;
+                const progress = Math.min(elapsedTime / duration, 1);
+
+                // Ease out cubic
+                const easeProgress = 1 - Math.pow(1 - progress, 3);
+                const currentValue = startValue + easeProgress * (targetValue - startValue);
+
+                // Format as Currency
+                counterElement.textContent = '$' + currentValue.toLocaleString('en-US', {
+                    minimumFractionDigits: 2,
+                    maximumFractionDigits: 2
+                });
+
+                if (progress < 1) {
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    progressBar.style.width = '78%'; // Target payout progress percentage
+                }
+            }
+
+            requestAnimationFrame(updateCounter);
+        }
+
+        // Initialize Animate Counter on Load
+        window.addEventListener('DOMContentLoaded', () => {
+            setTimeout(() => {
+                animateCounter(482903.00, 2500);
+            }, 500);
+        });
+
+        // Modals Management
+        function openGuardianModal() {
+            const modal = document.getElementById('guardian-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeGuardianModal() {
+            const modal = document.getElementById('guardian-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+            // Reset state
+            document.getElementById('guardian-form').classList.remove('hidden');
+            document.getElementById('guardian-success').classList.add('hidden');
+        }
+
+        function openMerchantModal() {
+            const modal = document.getElementById('merchant-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMerchantModal() {
+            const modal = document.getElementById('merchant-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+            document.body.style.overflow = '';
+            // Reset state
+            document.getElementById('merchant-form').classList.remove('hidden');
+            document.getElementById('merchant-success').classList.add('hidden');
+        }
+
+        function handleGuardianSubmit(event) {
+            event.preventDefault();
+            document.getElementById('guardian-form').classList.add('hidden');
+            document.getElementById('guardian-success').classList.remove('hidden');
+        }
+
+        function handleMerchantSubmit(event) {
+            event.preventDefault();
+            document.getElementById('merchant-form').classList.add('hidden');
+            document.getElementById('merchant-success').classList.remove('hidden');
+        }
+
+        // Dynamic Ledger Simulation
+        const sanctuaries = [
+            'PART (Camarines Norte, Philippines)',
+            'Villa Kitty (Ubud, Bali)',
+            'Phangan Sanctuary (Koh Phangan, Thailand)',
+            'A Better Life (Perth, Australia)',
+            'Empire State Haven (New York, USA)',
+            'Jersey Equine Rescue (New Jersey, USA)',
+            'Wildwood Sanctuary (Oregon, USA)',
+            'Somerset Sanctuary (Glastonbury, UK)',
+            'London Fox Initiative (London, UK)',
+            'Bavarian Animal Retreat (Bavaria, Germany)',
+            'Berlin Paws (Berlin, Germany)'
+        ];
+
+        const activities = [
+            { text: 'Enjoyed a plant-based meal and helped', icon: 'restaurant' },
+            { text: 'Took an ethical yoga class and helped', icon: 'spa' },
+            { text: 'Booked a sustainable travel stay and helped', icon: 'flight_takeoff' },
+            { text: 'Bought cruelty-free apparel and helped', icon: 'shopping_bag' },
+            { text: 'Shared organic espresso and helped', icon: 'local_cafe' }
+        ];
+
+        const timeSuffixes = ['Just now', '1 min ago', '2 mins ago', '3 mins ago'];
+
+        function simulateLedgerEvent() {
+            const container = document.getElementById('ledger-container');
+            const randomSanctuary = sanctuaries[Math.floor(Math.random() * sanctuaries.length)];
+            const randomActivity = activities[Math.floor(Math.random() * activities.length)];
+            const randomPledge = (Math.random() * 0.9 + 0.1).toFixed(2);
+
+            // Create new row element
+            const newRow = document.createElement('div');
+            newRow.className = 'flex flex-col md:flex-row md:items-center justify-between p-6 border-b border-border-main hover:bg-surface-hover transition-all duration-500 opacity-0 translate-y-[-10px]';
+
+            newRow.innerHTML = `
+                <div class="flex items-center gap-4 mb-4 md:mb-0">
+                    <div class="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center shrink-0 border border-primary/20">
+                        <span class="material-symbols-outlined text-primary">${randomActivity.icon}</span>
+                    </div>
+                    <p class="font-body-md">${randomActivity.text} <strong class="text-secondary">${randomSanctuary}</strong></p>
+                </div>
+                <div class="flex items-center gap-4">
+                    <span class="font-label-caps text-xs text-text-subtle">Just now</span>
+                    <div class="bg-primary/10 text-primary px-3 py-1 rounded text-[11px] font-bold border border-primary/20">From DIANA Match +$${randomPledge}</div>
+                </div>
+            `;
+
+            // Insert at the top of the container
+            container.insertBefore(newRow, container.firstChild);
+
+            // Trigger animation
+            setTimeout(() => {
+                newRow.classList.remove('opacity-0', 'translate-y-[-10px]');
+            }, 50);
+
+            // Remove last row to maintain ledger size
+            if (container.children.length > 5) {
+                const lastChild = container.lastChild;
+                lastChild.classList.add('opacity-0', 'translate-y-[10px]');
+                setTimeout(() => {
+                    lastChild.remove();
+                }, 500);
+            }
+        }
+
+        // Run ledger simulation every 5 to 7 seconds
+        setInterval(simulateLedgerEvent, Math.random() * 2000 + 5000);
+    </script>
+</body>
+
+</html>

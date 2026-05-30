@@ -1,0 +1,129 @@
+'use client';
+
+import Link from 'next/link';
+import Image from 'next/image';
+import { usePathname } from 'next/navigation';
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+
+const navLinks = [
+  { href: '/merchants', label: 'Merchants' },
+  { href: '/sanctuaries', label: 'Sanctuaries' },
+  { href: '/about', label: 'Mission' },
+  { href: '/get-involved', label: 'Build' },
+];
+
+interface TopNavProps {
+  onActivate?: () => void;
+}
+
+export default function TopNav({ onActivate }: TopNavProps) {
+  const pathname = usePathname();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  return (
+    <header className="bg-background/80 backdrop-blur-md w-full top-0 sticky z-50 border-b border-border-main">
+      <nav className="flex justify-between items-center w-full px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] max-w-[var(--spacing-container-max-width)] mx-auto h-20">
+        {/* Logo + Wordmark */}
+        <Link
+          href="/"
+          className="flex items-center gap-3 select-none"
+        >
+          <div className="relative w-[42px] h-[42px] flex-shrink-0">
+            <Image
+              src="/diana-logo.png"
+              alt="DIANA"
+              fill
+              className="object-contain"
+            />
+          </div>
+          <span className="text-[30px] font-headline-lg text-secondary tracking-[0.12em] neon-glow">
+            DIANA
+          </span>
+        </Link>
+
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className={`text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] uppercase transition-colors ${
+                pathname === link.href
+                  ? 'text-primary'
+                  : 'text-secondary hover:text-primary'
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+        </div>
+
+        {/* Desktop CTA */}
+        <div className="hidden md:flex items-center gap-4">
+          {onActivate ? (
+            <button
+              id="nav-activate-btn"
+              onClick={onActivate}
+              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] text-white bg-primary px-8 py-2 rounded-md hover:brightness-110 active:scale-95 transition-all duration-200 neon-border uppercase"
+            >
+              ACTIVATE
+            </button>
+          ) : (
+            <Link
+              href="/#activate"
+              id="nav-activate-link"
+              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] text-white bg-primary px-8 py-2 rounded-md hover:brightness-110 active:scale-95 transition-all duration-200 neon-border uppercase"
+            >
+              ACTIVATE
+            </Link>
+          )}
+        </div>
+
+        {/* Mobile hamburger */}
+        <button
+          id="nav-mobile-menu-btn"
+          className="md:hidden text-secondary cursor-pointer"
+          onClick={() => setMenuOpen((v) => !v)}
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <X size={24} /> : <Menu size={24} />}
+        </button>
+      </nav>
+
+      {/* Mobile drawer */}
+      {menuOpen && (
+        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border-main px-[var(--spacing-margin-mobile)] py-6 flex flex-col gap-6">
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              onClick={() => setMenuOpen(false)}
+              className={`text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] uppercase transition-colors ${
+                pathname === link.href ? 'text-primary' : 'text-secondary hover:text-primary'
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
+          {onActivate ? (
+            <button
+              onClick={() => { setMenuOpen(false); onActivate(); }}
+              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] text-white bg-primary px-8 py-3 rounded-md neon-border uppercase w-full"
+            >
+              ACTIVATE
+            </button>
+          ) : (
+            <Link
+              href="/#activate"
+              onClick={() => setMenuOpen(false)}
+              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] text-white bg-primary px-8 py-3 rounded-md neon-border uppercase text-center"
+            >
+              ACTIVATE
+            </Link>
+          )}
+        </div>
+      )}
+    </header>
+  );
+}

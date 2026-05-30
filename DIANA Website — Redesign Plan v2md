@@ -1,0 +1,195 @@
+# DIANA Website — Redesign Plan v2
+
+> **Archive:** The v1 build is safely preserved in `DIANA-web/v1-archive/`.
+
+---
+
+## Corrections from App Deep-Dive
+
+| Item | Was | Is |
+|---|---|---|
+| Middle tab name | "Pay" | **Connect** (Explore · Connect · Support mirrors the explainer slides) |
+| Tab structure | 5 tabs | **Nexus** (global pulse) · **Explore** · **Connect** · **Support** · **Profile** (personal pulse) |
+| Payment flow | QR only | QR scan **or** item selection directly from Explore (menu/collection/services → total → pay without scanning) |
+| Merchant categories | 7 | **8** — added **Entertainment** (vegan artists, musicians, filmmakers, event producers) |
+| Sanctuaries | "Partner" | All 11 are **mock/demo data** |
+
+### 8 Merchant Categories
+Food & Drink · Retail · Wellness · Experiences · Travel · Professionals · Resources · **Entertainment**
+
+---
+
+## Decided
+
+| Question | Decision |
+|---|---|
+| Single-page vs multi-page | **Multi-page** (tight landing page + dedicated partner/investor routes) |
+| Sections 4/5/6 (Nexus, Directory, Sanctuaries) | **Replaced by embedded iframe** of the live app demo |
+| How It Works + Double Impact Engine | **Kept** as lightweight explainers above the iframe (passive scan before active engagement) |
+| Champion Membership on landing page | **No** — lives in-app only; premature for top-of-funnel |
+| "I AM DIANA" campaign | **Deferred** to post-launch when there's community traction |
+| "Digital Infrastructure for Animal Networks and Advocacy" | **Moved to Footer / About** — not in the hero |
+| Merchant / Sanctuary pages | **Yes** — dedicated partner pages with different messaging |
+| Founder section | **Yes** — brief, elegant section on the site |
+| Investor page | **Yes** — separate, potentially gated route |
+| Section ordering | **Follows app flow** — Splash → Explain → Proof → Activate |
+
+---
+
+## Site Architecture
+
+```
+diana.com/
+├── /                     → Home (single-page scroll)
+├── /merchants            → For Ethical Merchants
+├── /sanctuaries          → For Animal Sanctuaries
+├── /about                → About DIANA + Founder
+└── /investors            → Investor Portal (potentially gated)
+```
+
+---
+
+## Page 1: Home `/`
+
+A premium single-page scroll. The primary conversion funnel.
+
+### Section 1 — Hero
+- Full-viewport cinematic DIANA logo reveal (matching app splash animation)
+- Tagline: *"where daily actions quietly support animals"*
+- Primary CTA: `ACTIVATE` → scrolls to signup section
+- Secondary: *"learn how it works"* → scrolls to Section 2
+- No technical subtitle in hero — pure emotion
+
+### Section 2 — How It Works (The Three Pillars)
+Mirrors the app's Explainer Slides:
+- **Explore** — discover a curated, global network of ethical businesses, events, and services aligned with your values
+- **Connect** — use a payment method where your daily transactions also cater to the needs of a rescued animal without you spending extra
+- **Support** — a minimum of 5% flows automatically to sanctuaries, recurring and continuous support built directly into the system
+
+> Visual treatment: 3 cards/columns with animated icons (Map, QrCode, Heart), appearing on scroll.
+
+### Section 3 — The Quadruple Impact Engine
+DIANA operates on a proprietary **Quadruple Impact Engine** business model. Every transaction routed through the platform leverages four distinct, compounding value channels:
+1. **The Merchant Pledge (Base):** Participating ethical merchants commit a minimum 5% pledge (Php 50.00 on a Php 1,000 transaction) of the purchase value directly to registered, verified animal sanctuaries.
+2. **The Platform Contribution:** DIANA contributes 5% of its own 5% platform fee (Php 2.50 on a Php 1,000 transaction), channeling corporate revenue back into the ecosystem.
+3. **The Consumer Micro-Extra (Optional Boost):** Advocates can easily add an optional extra donation or round up their transaction at checkout (e.g., Php 42.50).
+4. **The Sponsor-Funded Doubler:** By opting to view a brief, ethical, value-aligned ad, sponsor funds match the base contribution to double the total outcome to Php 145.00.
+
+> Interactive element: A slider/calculator — *"If you spend Php 1,000/month at ethical merchants, Php 145 flows to sanctuaries automatically"*
+
+### Section 4 — Try the Demo (Embedded App)
+- Full-width embedded iframe of the live DIANA app (`expo web` build)
+- Framed within a premium device mockup or clean container
+- Brief intro text: *"Experience the full DIANA ecosystem — browse merchants, simulate a purchase, explore sanctuaries"*
+
+### Section 5 — Activate (Signup / Waitlist)
+- Signup form: **Name, Email, Role** (Individual Advocate / Ethical Merchant / Animal Sanctuary)
+- Role-specific redirect: Merchants → `/merchants`, Sanctuaries → `/sanctuaries`
+
+### Section 6 — Footer
+- DIANA wordmark with neon glow
+- *"Digital Infrastructure for Animal Networks and Advocacy"*
+- Navigation links (Home, Merchants, Sanctuaries, About, Investors)
+- Legal / Privacy / Terms
+- Social links
+- © DRGM Pty Ltd
+
+---
+
+## Page 2: For Ethical Merchants `/merchants`
+
+A dedicated page addressing merchant-specific concerns and benefits.
+
+### Content
+- Hero: *"Your business already makes a difference. Let DIANA prove it."*
+- What's in it for them:
+  - Free listing in a curated ethical directory
+  - Automatic impact attribution (customers see exactly how their purchase helped)
+  - Storefront management tools
+  - Promotions system
+  - Supporter feed visibility
+- The Pledge explained (merchant sets their own 5%+ commitment)
+- How the merchant Explore experience works (their storefront, "Viewing As Consumer" mode)
+- Application form / Full signup flow
+
+---
+
+## Page 3: For Animal Sanctuaries `/sanctuaries`
+
+A dedicated page for sanctuaries to understand the DIANA support pipeline.
+
+### Content
+- Hero: *"A continuous stream of care, built into everyday life."*
+- What's in it for them:
+  - Passive recurring income from merchant pledge network
+  - Monthly Care from individual supporters
+  - One-Time Gifts
+  - Rich sanctuary profile (video, gallery, resident profiles, visitor quotes, fund breakdown)
+  - Supporter network visibility
+  - Sanctuary recruitment tools
+- How funds flow to them (Merchant Pledge → DIANA Platform Contribution → Direct Donations)
+- Application form / Full signup flow
+
+---
+
+## Page 4: About DIANA `/about`
+
+### Content
+- **What is DIANA**: Digital Infrastructure for Animal Networks and Advocacy
+- **The Vision**: Brief, emotive mission statement
+- **The Founder**: Diane (Diana Rose G. Mejilla) — photo, brief story, what drives the mission
+- **DRGM Pty Ltd**: The entity behind DIANA
+- **The Nexus**: How Advocates, Ethical Merchants, and Sanctuaries form an interconnected ecosystem
+- Link back to Home CTA
+
+---
+
+## Page 5: Investors `/investors`
+
+### Content (potentially gated with password/email)
+- Platform overview and traction metrics
+- Market Innovation Analysis summary (referencing the existing doc)
+- The Infinity Shield / competitive moat
+- Valuation summary
+- Founder Hours / sweat equity
+- Pitch Deck download or inline
+- Contact / Meeting request form
+
+---
+
+## Open Question for Diane
+
+> [!IMPORTANT]
+> ### Waitlist vs Full Signup
+> Should the site's signup forms:
+> - **Option A: Waitlist** — capture name/email/role into `beta_waiting_list` (current behaviour, creates scarcity)
+> - **Option B: Full Signup** — actually create user accounts and onboard them into the app directly from the website
+> 
+> This affects all signup forms across Home, Merchants, and Sanctuaries pages. What's the current launch status of the app?
+
+---
+
+## Design Tokens (Unchanged — exact match to Theme.ts)
+
+| Token | Value |
+|---|---|
+| Background | `#0A0507` (Polished Obsidian) |
+| Primary | `#FF0099` (Hot Pink) |
+| Secondary / Text | `#FFDDEE` (Soft Pink) |
+| Surface | `rgba(255, 221, 238, 0.04)` |
+| Surface Hover | `rgba(255, 221, 238, 0.08)` |
+| Surface Light | `rgba(255, 221, 238, 0.12)` |
+| Border | `rgba(255, 221, 238, 0.15)` |
+| Text Muted | `rgba(255, 221, 238, 0.6)` |
+| Text Subtle | `rgba(255, 221, 238, 0.4)` |
+| Success | `#00FF88` |
+| Error | `#FF4444` |
+
+**Typography:** Playfair Display (headings) · Outfit (labels/bold) · Inter (body)
+
+## Technical Stack
+- **Framework:** Next.js 16 (App Router) — already scaffolded
+- **Styling:** Tailwind CSS v4
+- **Images:** Generated via `generate_image` tool (no placeholders)
+- **Scrollbar:** Hidden globally
+- **Demo Iframe:** Points to the DIANA app's Expo web build
