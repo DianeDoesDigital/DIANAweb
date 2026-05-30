@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import { User, Store, PawPrint, Building2 } from 'lucide-react';
 import TopNav from '@/components/layout/TopNav';
 
@@ -77,12 +78,14 @@ export default function AboutPage() {
               <div className="flex justify-center lg:order-2">
                 <div className="relative w-72 h-72 md:w-96 md:h-96">
                   <div className="absolute inset-0 rounded-full bg-primary/10 blur-[40px]" />
-                  <div className="relative w-full h-full rounded-full glass-surface border border-primary/30 flex items-center justify-center overflow-hidden">
-                    {/* Replace src with Diane's photo */}
-                    <div className="flex flex-col items-center gap-3 text-center px-8">
-                      <User className="text-primary" size={48} />
-                      <span className="font-label-caps text-xs text-text-muted uppercase tracking-[0.1em] select-none">Founder photo</span>
-                    </div>
+                  <div className="relative w-full h-full rounded-full border border-primary/30 flex items-center justify-center overflow-hidden">
+                    <Image 
+                      src="/diane.jpg"
+                      alt="Diane Mejilla - Founder of DIANA"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 288px, 384px"
+                    />
                   </div>
                 </div>
               </div>
