@@ -80,7 +80,7 @@ export default function AboutPage() {
                   <div className="absolute inset-0 rounded-full bg-primary/10 blur-[40px]" />
                   <div className="relative w-full h-full rounded-full border border-primary/30 flex items-center justify-center overflow-hidden">
                     <Image 
-                      src="/diane.jpg"
+                      src="/founder.jpg"
                       alt="Diane Mejilla - Founder of DIANA"
                       fill
                       className="object-cover"
