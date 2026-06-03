@@ -38,24 +38,12 @@ export default function AppDemo() {
             {/* Iframe */}
             <iframe
               id="diana-app-demo-iframe"
-              src="about:blank"
+              src="https://appdemo.dianafortheanimals.org/nexus"
               title="DIANA App Demo"
-              className="w-full h-full border-none"
+              className="w-full h-full border-none relative z-10 bg-background"
               style={{ paddingTop: '32px' }}
               allow="camera; microphone"
             />
-
-            {/* Placeholder overlay (shown while iframe is blank / not yet connected) */}
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-6 bg-background/90 pointer-events-none"
-              style={{ paddingTop: '32px' }}>
-              <div className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-4xl text-primary neon-glow select-none">
-                DIANA
-              </div>
-              <Smartphone className="text-primary animate-pulse" size={48} />
-              <p className="font-body-sm text-[var(--text-body-sm)] text-text-muted text-center px-8 select-none">
-                App demo loading. Connect your Expo web build to see the live experience here.
-              </p>
-            </div>
           </div>
 
           {/* Feature callouts */}
