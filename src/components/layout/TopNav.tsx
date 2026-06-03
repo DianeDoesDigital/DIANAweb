@@ -7,11 +7,10 @@ import { useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
-  { href: 'https://appdemo.dianafortheanimals.org/nexus', label: 'App Demo' },
   { href: '/merchants', label: 'Merchants' },
   { href: '/sanctuaries', label: 'Sanctuaries' },
-  { href: '/mission', label: 'Mission' },
-  { href: '/build', label: 'Build' },
+  { href: '/about', label: 'Mission' },
+  { href: '/get-involved', label: 'Build' },
 ];
 
 interface TopNavProps {
@@ -23,12 +22,11 @@ export default function TopNav({ onActivate }: TopNavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-[#0A0507]/60 backdrop-blur-[80px] w-full top-0 sticky z-50 border-b border-border-main shadow-[0_4px_30px_rgba(0,0,0,0.5)]">
+    <header className="bg-background/80 backdrop-blur-md w-full top-0 sticky z-50 border-b border-border-main">
       <nav className="flex justify-between items-center w-full px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] max-w-[var(--spacing-container-max-width)] mx-auto h-20">
         {/* Logo + Wordmark */}
         <Link
           href="/"
-          id="topnav-brand-logo"
           className="flex items-center gap-3 select-none"
         >
           <div className="relative w-[42px] h-[42px] flex-shrink-0">
@@ -49,7 +47,6 @@ export default function TopNav({ onActivate }: TopNavProps) {
           {navLinks.map((link) => (
             <Link
               key={link.href}
-              id={`topnav-desktop-${link.label.toLowerCase()}`}
               href={link.href}
               className={`text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] uppercase transition-colors ${
                 pathname === link.href
@@ -100,7 +97,6 @@ export default function TopNav({ onActivate }: TopNavProps) {
           {navLinks.map((link) => (
             <Link
               key={link.href}
-              id={`topnav-mobile-${link.label.toLowerCase()}`}
               href={link.href}
               onClick={() => setMenuOpen(false)}
               className={`text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] uppercase transition-colors ${
