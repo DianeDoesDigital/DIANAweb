@@ -4,8 +4,7 @@ import Footer from '@/components/layout/Footer';
 
 export const metadata: Metadata = {
   title: 'DIANA | Digital Infrastructure for Animal Networks and Advocacy',
-  description:
-    'The financial ecosystem bridging conscious consumers, ethical merchants, and animal sanctuaries. Every daily action quietly supports animals.',
+  description: 'DIANA is the Digital Infrastructure for Animal Networks and Advocacy. We are the financial clearinghouse connecting conscious consumers, ethical merchants, and animal sanctuaries. Here, our daily actions quietly support animals.',
 };
 
 export default function RootLayout({

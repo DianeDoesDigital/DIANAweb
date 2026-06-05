@@ -3,8 +3,8 @@ import { HandHeart, HeartPulse, Gift, Image as ImageIcon, Network, UserPlus, Sto
 import TopNav from '@/components/layout/TopNav';
 
 export const metadata: Metadata = {
-  title: 'For Animal Sanctuaries | DIANA',
-  description: 'Register your animal sanctuary with DIANA. Receive continuous, automatic funding from ethical merchant purchases without lifting a finger.',
+  title: 'ANIMAL SANCTUARIES - Receive Continuous Funding through DIANA | Digital Infrastructure for Animal Networks and Advocacy',
+  description: 'Register your animal sanctuary with DIANA. Receive continuous, automatic funding from our community of conscious consumers and ethical merchants without lifting a finger.',
 };
 
 const benefits = [
@@ -51,7 +51,7 @@ export default function SanctuariesPage() {
               <a href="#apply" id="sanctuary-hero-cta" className="bg-primary text-white px-10 py-4 rounded-md font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] uppercase hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all neon-border text-center">
                 Register Your Sanctuary
               </a>
-              <a href="#fund-flow" className="border border-border-main text-secondary px-10 py-4 rounded-md font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] uppercase hover:bg-surface-hover hover:scale-[1.02] transition-all text-center">
+              <a href="#fund-flow" id="sanctuary-flow-link" className="border border-border-main text-secondary px-10 py-4 rounded-md font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] uppercase hover:bg-surface-hover hover:scale-[1.02] transition-all text-center">
                 How Funds Flow
               </a>
             </div>

@@ -4,8 +4,8 @@ import { User, Store, PawPrint, Building2 } from 'lucide-react';
 import TopNav from '@/components/layout/TopNav';
 
 export const metadata: Metadata = {
-  title: 'About DIANA | Digital Infrastructure for Animal Networks and Advocacy',
-  description: 'Learn about DIANA, the financial ecosystem quietly connecting ethical merchants, conscious advocates, and animal sanctuaries. Founded by Diane Mejilla.',
+  title: 'OUR MISSION - This is Why DIANA Exists | Digital Infrastructure for Animal Networks and Advocacy',
+  description: 'Learn about the mission behind the Digital Infrastructure for Animal Networks and Advocacy. Discover why DIANA was built and how our ecosystem silently redirects resources to animal protection.',
 };
 
 const nexusNodes = [

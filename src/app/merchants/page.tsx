@@ -3,8 +3,8 @@ import { LayoutGrid, BarChart3, Store, Megaphone, Users, BadgeCheck } from 'luci
 import TopNav from '@/components/layout/TopNav';
 
 export const metadata: Metadata = {
-  title: 'For Ethical Merchants | DIANA',
-  description: 'List your ethical business on DIANA. Pledge 5%+ of every sale to animal sanctuaries and connect with the world\'s most conscious consumers.',
+  title: 'ETHICAL MERCHANTS - Pledge & Grow through DIANA | Digital Infrastructure for Animal Networks and Advocacy',
+  description: 'List your ethical business or services on DIANA. Pledge a minimum of 5% to animal sanctuaries and connect directly with the world\'s most conscious consumers.',
 };
 
 const benefits = [
@@ -48,7 +48,7 @@ export default function MerchantsPage() {
               <a href="#apply" id="merchant-hero-cta" className="bg-primary text-white px-10 py-4 rounded-md font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] uppercase hover:brightness-110 hover:scale-[1.02] active:scale-[0.98] transition-all neon-border text-center">
                 Apply as Merchant
               </a>
-              <a href="#pledge" className="border border-border-main text-secondary px-10 py-4 rounded-md font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] uppercase hover:bg-surface-hover hover:scale-[1.02] transition-all text-center">
+              <a href="#pledge" id="merchant-pledge-link" className="border border-border-main text-secondary px-10 py-4 rounded-md font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] uppercase hover:bg-surface-hover hover:scale-[1.02] transition-all text-center">
                 How the Pledge Works
               </a>
             </div>

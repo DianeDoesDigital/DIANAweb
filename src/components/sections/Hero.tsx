@@ -41,10 +41,16 @@ export default function Hero({ onActivate }: HeroProps) {
 
   return (
     <section className="relative w-full min-h-screen overflow-hidden bg-background flex flex-col items-center justify-center">
+      {/* Top ambient glow */}
+      <div className="absolute inset-x-0 top-0 h-[600px] bg-ambient-glow pointer-events-none" />
+
       {/* Ambient glow behind logo */}
       <div className="absolute inset-0 z-0 pointer-events-none">
-        <div className="absolute bottom-0 right-1/4 w-[300px] h-[300px] bg-primary/5 blur-[80px] rounded-full" />
+        <div className="absolute bottom-1/4 right-1/4 w-[300px] h-[300px] bg-primary/5 blur-[80px] rounded-full" />
       </div>
+
+      {/* Bottom hero fade full to blend into the next section */}
+      <div className="absolute inset-x-0 bottom-0 h-48 bg-hero-fade pointer-events-none z-20" />
 
       <div className="relative z-10 max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] flex flex-col items-center text-center">
         {/* Logo reveal */}

@@ -3,8 +3,8 @@ import { Users, Globe, TrendingUp, Handshake, Play } from 'lucide-react';
 import TopNav from '@/components/layout/TopNav';
 
 export const metadata: Metadata = {
-  title: 'Get Involved | DIANA',
-  description: 'Join the DIANA movement. Build the team, become an ambassador, invest or advise, partner with us, or advertise on the platform.',
+  title: 'BUILD WITH US - Get Involved with the DIANA Movement | Digital Infrastructure for Animal Networks and Advocacy',
+  description: 'Get Involved with the DIANA movement to help build the Digital Infrastructure for Animal Networks and Advocacy. Join the team, be an ambassador, invest in our mission, list as a partner org, or advertise your plant-based products.',
 };
 
 const categories = [

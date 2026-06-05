@@ -88,8 +88,8 @@ export default function Activate({ onAdvocateSubmit }: ActivateProps) {
                       onClick={() => setRole(r.id)}
                       className={`flex items-center gap-4 p-4 rounded-xl border text-left transition-all duration-200 ${
                         role === r.id
-                          ? 'border-primary/50 bg-primary/8'
-                          : 'border-border-main hover:bg-surface-hover'
+                          ? 'border-primary/50 bg-gradient-to-br from-[rgba(255,0,153,0.4)] to-[rgba(255,0,153,0.1)] shadow-[inset_0_0_0_1px_rgba(255,0,153,0.2)]'
+                          : 'border-border-main bg-surface hover:bg-surface-hover'
                       }`}
                     >
                       <div className={`w-10 h-10 rounded-full flex items-center justify-center flex-shrink-0 border transition-colors ${role === r.id ? 'bg-primary/20 border-primary/30' : 'bg-surface border-border-main'}`}>

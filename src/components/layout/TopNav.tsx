@@ -9,8 +9,8 @@ import { Menu, X } from 'lucide-react';
 const navLinks = [
   { href: '/merchants', label: 'Merchants' },
   { href: '/sanctuaries', label: 'Sanctuaries' },
-  { href: '/about', label: 'Mission' },
-  { href: '/get-involved', label: 'Build' },
+  { href: '/mission', label: 'Mission' },
+  { href: '/build', label: 'Build' },
 ];
 
 interface TopNavProps {
@@ -22,7 +22,7 @@ export default function TopNav({ onActivate }: TopNavProps) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <header className="bg-background/80 backdrop-blur-md w-full top-0 sticky z-50 border-b border-border-main">
+    <header className="nav-blur w-full top-0 sticky z-50 border-b border-border-main">
       <nav className="flex justify-between items-center w-full px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] max-w-[var(--spacing-container-max-width)] mx-auto h-20">
         {/* Logo + Wordmark */}
         <Link
@@ -93,7 +93,7 @@ export default function TopNav({ onActivate }: TopNavProps) {
 
       {/* Mobile drawer */}
       {menuOpen && (
-        <div className="md:hidden bg-background/95 backdrop-blur-md border-t border-border-main px-[var(--spacing-margin-mobile)] py-6 flex flex-col gap-6">
+        <div className="md:hidden nav-blur border-t border-border-main px-[var(--spacing-margin-mobile)] py-6 flex flex-col gap-6">
           {navLinks.map((link) => (
             <Link
               key={link.href}

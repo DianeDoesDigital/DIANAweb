@@ -6,8 +6,8 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/merchants', label: 'Merchants' },
   { href: '/sanctuaries', label: 'Sanctuaries' },
-  { href: '/about', label: 'Mission' },
-  { href: '/get-involved', label: 'Build' },
+  { href: '/mission', label: 'Mission' },
+  { href: '/build', label: 'Build' },
 ];
 
 const legalLinks = [
@@ -78,13 +78,13 @@ export default function Footer() {
                 Register as Sanctuary
               </Link>
               <Link
-                href="/get-involved"
+                href="/build"
                 className="text-[var(--text-body-sm)] font-[var(--text-body-sm--font-weight)] font-body-sm text-text-muted hover:text-primary transition-colors"
               >
                 Build
               </Link>
               <Link
-                href="/get-involved#sponsor"
+                href="/build#sponsor"
                 className="text-[var(--text-body-sm)] font-[var(--text-body-sm--font-weight)] font-body-sm text-text-muted hover:text-primary transition-colors"
               >
                 Sponsor / Advertise
