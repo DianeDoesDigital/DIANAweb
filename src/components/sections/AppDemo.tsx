@@ -16,11 +16,11 @@ export default function AppDemo() {
           {/* Left: Device mockup + iframe */}
           <div className="flex justify-center">
             <div className="relative w-[260px] h-[520px] rounded-[40px] border-[6px] border-[#0A0507] bg-[#0A0507] shadow-2xl overflow-hidden">
-              {/* Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-[#0A0507] rounded-b-2xl z-20"></div>
-
-              {/* Explainer Overlay */}
+              {/* Explainer Overlay & Notch */}
               {showExplainer && (
+                <>
+                  {/* Notch */}
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-[#0A0507] rounded-b-2xl z-40"></div>
                 <div className="absolute inset-0 z-30 bg-[#FFDDEE] flex flex-col items-center justify-center p-4 text-center overflow-hidden">
                   <div className="bg-white/80 backdrop-blur-sm rounded-[24px] p-5 w-[90%] flex flex-col items-center shadow-sm border border-white/50">
                     <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3">
@@ -41,6 +41,7 @@ export default function AppDemo() {
                     </p>
                   </div>
                 </div>
+                </>
               )}
 
               {/* Iframe */}
