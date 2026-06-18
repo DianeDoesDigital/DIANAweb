@@ -26,31 +26,23 @@ export default function AppDemo() {
 
               {/* Explainer Overlay */}
               {showExplainer && (
-                <div className="absolute inset-0 z-30 bg-[#FFDDEE] flex flex-col items-center justify-center p-4 text-center">
-                  <div className="bg-white/80 backdrop-blur-sm rounded-[24px] p-6 w-[90%] flex flex-col items-center shadow-sm border border-white/50">
-                    <div className="w-12 h-12 rounded-full flex items-center justify-center mb-4">
+                <div className="absolute inset-0 z-30 bg-[#FFDDEE] flex flex-col items-center justify-center p-4 text-center overflow-hidden">
+                  <div className="bg-white/80 backdrop-blur-sm rounded-[24px] p-5 w-[90%] flex flex-col items-center shadow-sm border border-white/50">
+                    <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3">
                       <img src="/diana-logo.png" alt="DIANA" className="w-full h-full object-contain drop-shadow-md" />
                     </div>
-                    
-                    <h3 className="font-headline-lg text-[24px] text-primary mb-4" style={{ fontFamily: 'Playfair Display' }}>App Demo</h3>
-                    
-                    <p className="font-body-sm text-secondary font-medium leading-relaxed mb-4 text-xs">
-                      you are about to enter the demo version of the DIANA app where you can try any feature first-hand without entering any of your personal or payment details
+                    <h3 className="font-headline-lg text-[22px] text-primary mb-3" style={{ fontFamily: 'Playfair Display' }}>App Demo</h3>
+                    <p className="font-body-sm text-secondary font-medium leading-tight mb-4 text-xs">
+                      Try any feature first-hand without entering personal or payment details.
                     </p>
-                    
-                    <p className="font-body-sm text-secondary italic font-bold mb-6 text-xs">
-                      experience the nexus, simulate payments, and see our impact flow in real-time
-                    </p>
-                    
                     <button
                       onClick={() => setShowExplainer(false)}
                       className="w-full py-3 bg-primary text-white rounded-full font-label-caps tracking-[0.2em] text-xs uppercase hover:scale-105 transition-transform shadow-[0_4px_14px_rgba(255,0,153,0.39)]"
                     >
                       LET'S GO!
                     </button>
-                    
-                    <p className="text-[8px] text-text-muted mt-6 leading-relaxed font-body-sm px-1">
-                      All current data and transactions are strictly for demo purposes only. Explore everything entirely risk-free. When you're ready to ACTIVATE, just tap DIANA.
+                    <p className="text-[8px] text-text-muted mt-4 leading-tight px-1 font-body-sm">
+                      Data is for demo purposes only. Risk-free exploration.
                     </p>
                   </div>
                 </div>
