@@ -58,10 +58,10 @@ export default function HowItWorks() {
         {/* Header */}
         <div className="text-center mb-20">
           <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-6 mt-4 select-none">
-            The Global Currency of Compassion<br /><span className="text-primary">and Celebration</span>
+            Three Pillars, <span className="text-primary">One Ecosystem</span>
           </h2>
           <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-xl mx-auto mt-4 select-none">
-            Compassion for the animals we share this world with. Celebration of every conscious choice we make within it. DIANA is the infrastructure that makes both happen automatically.
+            DIANA turns the way you already live into a continuous source of care for animals.
           </p>
         </div>
 
