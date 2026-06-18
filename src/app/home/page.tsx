@@ -1,7 +1,6 @@
 'use client';
 
 import TopNav from '@/components/layout/TopNav';
-import TaglineSection from '@/components/sections/TaglineSection';
 import HowItWorks from '@/components/sections/HowItWorks';
 import MultiImpactEngine from '@/components/sections/MultiImpactEngine';
 import GlobalTravelWallet from '@/components/sections/GlobalTravelWallet';
@@ -17,7 +16,6 @@ export default function Home() {
     <>
       <TopNav onActivate={scrollToActivate} />
       <main>
-        <TaglineSection />
         <HowItWorks />
         <MultiImpactEngine />
         <GlobalTravelWallet />
@@ -27,4 +25,5 @@ export default function Home() {
     </>
   );
 }
+
 

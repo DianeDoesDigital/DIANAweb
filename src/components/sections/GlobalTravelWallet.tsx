@@ -56,29 +56,29 @@ export default function GlobalTravelWallet() {
           {/* Visual side */}
           <div className="flex justify-center items-center">
             <div className="relative w-full max-w-sm">
-              <div className="glass-surface rounded-3xl p-10 border border-border-main text-center">
-                <span className="font-label-caps text-xs text-text-muted uppercase tracking-[0.15em] select-none">Your DIANA Wallet</span>
-                <div className="font-impact-stat text-6xl text-primary mt-4 mb-2 select-none">$439,402</div>
-                <span className="font-body-sm text-text-muted text-sm select-none">Total sanctuary impact globally</span>
-                <div className="mt-8 pt-6 border-t border-border-main grid grid-cols-3 gap-4 text-center">
-                  <div>
-                    <span className="font-impact-stat text-xl text-secondary block select-none">AUD</span>
+              <div className="glass-surface rounded-3xl p-10 border border-border-main text-center space-y-6">
+                <span className="font-label-caps text-xs text-text-muted uppercase tracking-[0.15em] select-none">Pay anywhere. In any currency.</span>
+                <div className="grid grid-cols-3 gap-4 text-center py-4">
+                  <div className="glass-surface rounded-2xl p-4 border border-border-main">
+                    <span className="font-impact-stat text-2xl text-secondary block select-none">AUD</span>
                     <span className="font-body-sm text-xs text-text-muted select-none">Australia</span>
                   </div>
-                  <div>
-                    <span className="font-impact-stat text-xl text-primary block select-none">PHP</span>
+                  <div className="glass-surface rounded-2xl p-4 border border-primary/40">
+                    <span className="font-impact-stat text-2xl text-primary block select-none">PHP</span>
                     <span className="font-body-sm text-xs text-text-muted select-none">Philippines</span>
                   </div>
-                  <div>
-                    <span className="font-impact-stat text-xl text-secondary block select-none">USD</span>
+                  <div className="glass-surface rounded-2xl p-4 border border-border-main">
+                    <span className="font-impact-stat text-2xl text-secondary block select-none">USD</span>
                     <span className="font-body-sm text-xs text-text-muted select-none">Global</span>
                   </div>
                 </div>
-                <div className="mt-6 bg-primary/10 rounded-xl px-4 py-3 border border-primary/20">
+                <div className="flex items-center justify-center gap-2 text-text-muted font-body-sm text-sm select-none">
+                  <span>and every other currency in between</span>
+                </div>
+                <div className="bg-primary/10 rounded-xl px-4 py-3 border border-primary/20">
                   <span className="font-body-sm text-sm text-primary select-none font-medium">Zero conversion fees. Always.</span>
                 </div>
               </div>
-              {/* Glow */}
               <div className="absolute inset-0 rounded-3xl bg-primary/5 blur-2xl -z-10 scale-110" />
             </div>
           </div>
