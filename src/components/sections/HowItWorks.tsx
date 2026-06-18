@@ -57,8 +57,8 @@ export default function HowItWorks() {
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-6 mt-4 select-none">
-            Three Pillars, <span className="text-primary">One Ecosystem</span>
+          <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-6 mt-4 select-none italic">
+            the global currency of <span className="text-primary">compassion and celebration</span>
           </h2>
           <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-xl mx-auto mt-4 select-none">
             DIANA turns the way you already live into a continuous source of care for animals.

@@ -84,12 +84,6 @@ export default function Hero() {
           >
             Digital Infrastructure for Animal Networks and Advocacy
           </h2>
-          <p
-            className="font-body-lg italic text-[#ff0099] text-[20px] mb-6 select-none"
-            style={{ textShadow: '0 0 30px rgba(255,221,238,1), 0 0 15px rgba(255,221,238,0.8)' }}
-          >
-            the global currency of compassion and celebration
-          </p>
           <p 
             className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-2xl mb-12 select-none"
             style={{ textShadow: '0 0 30px rgba(255,221,238,1), 0 0 15px rgba(255,221,238,0.8)' }}
