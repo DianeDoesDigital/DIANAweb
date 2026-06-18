@@ -12,9 +12,9 @@ export default function AppDemo() {
 
 
         {/* Two-column layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
+        <div className="flex flex-col lg:flex-row justify-center items-center gap-12 lg:gap-20 max-w-6xl mx-auto">
           {/* Left: Device mockup + iframe */}
-          <div className="flex justify-center">
+          <div className="flex-shrink-0">
             <div className="relative w-[260px] h-[520px] rounded-[40px] border-[6px] border-[#0A0507] bg-[#0A0507] shadow-2xl overflow-hidden">
               {/* Explainer Overlay & Notch */}
               {showExplainer && (
@@ -68,7 +68,7 @@ export default function AppDemo() {
           </div>
 
           {/* Right: Feature callouts */}
-          <div className="flex flex-col gap-6 lg:pl-8">
+          <div className="flex flex-col gap-6 w-full max-w-xl">
             <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main select-none">
               The <span className="text-primary">DIANA App</span>
             </h2>
