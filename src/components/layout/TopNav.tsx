@@ -97,7 +97,7 @@ export default function TopNav({ onActivate }: TopNavProps) {
             </button>
           ) : (
             <Link
-              href="/#activate"
+              href="/home#activate"
               id="nav-activate-link"
               className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] bg-primary px-8 py-2 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] hover:scale-[1.03] active:scale-95 transition-all duration-200 uppercase"
               style={{ color: '#FFDDEE' }}
@@ -143,7 +143,7 @@ export default function TopNav({ onActivate }: TopNavProps) {
             </button>
           ) : (
             <Link
-              href="/#activate"
+              href="/home#activate"
               onClick={() => setMenuOpen(false)}
               className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] bg-primary px-8 py-3 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] active:scale-95 transition-all duration-200 uppercase text-center"
               style={{ color: '#FFDDEE' }}
