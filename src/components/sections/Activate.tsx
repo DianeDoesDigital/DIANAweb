@@ -23,19 +23,27 @@ export default function Activate({ onAdvocateSubmit }: ActivateProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!name.trim() || !email.trim()) return;
     
-    // Always submit the data to our theoretical waitlist backend first
-    onAdvocateSubmit?.({ name, email, role });
+    const hasData = name.trim() && email.trim();
+    
+    // Always submit the data to our theoretical waitlist backend first if provided
+    if (hasData) {
+      onAdvocateSubmit?.({ name, email, role });
+    }
     
     if (role === 'merchant') {
-      router.push(`/merchants?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`);
+      const query = hasData ? `?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}` : '';
+      router.push(`/merchants${query}`);
       return;
     }
     if (role === 'sanctuary') {
-      router.push(`/sanctuaries?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`);
+      const query = hasData ? `?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}` : '';
+      router.push(`/sanctuaries${query}`);
       return;
     }
+    
+    // For advocates, data is strictly required
+    if (!hasData) return;
     
     setSubmitted(true);
   };
