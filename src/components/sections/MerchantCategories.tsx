@@ -19,7 +19,7 @@ export default function MerchantCategories() {
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
         <div className="text-center mb-16">
           <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-text-main mt-4 select-none">
-            Where do you <span className="text-primary">fit in?</span>
+            Where You <span className="text-primary">Fit In</span>
           </h2>
           <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-2xl mx-auto mt-4 select-none">
             We organize ethical businesses so advocates can find exactly what they're looking for.
