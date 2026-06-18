@@ -356,7 +356,7 @@ const slides = [
         <div className="relative w-[260px] h-[520px] bg-[#0A0507] rounded-[40px] border-[6px] border-[#0A0507] overflow-hidden">
           <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-[#0A0507] rounded-b-2xl z-10"></div>
           <iframe
-            src="http://localhost:8081/?view=demo_preview"
+            src="https://appdemo.dianafortheanimals.org/nexus"
             style={{
               position: 'absolute',
               top: 0,
