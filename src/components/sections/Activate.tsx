@@ -23,17 +23,20 @@ export default function Activate({ onAdvocateSubmit }: ActivateProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!name.trim() || !email.trim()) return;
+    
+    // Always submit the data to our theoretical waitlist backend first
+    onAdvocateSubmit?.({ name, email, role });
+    
     if (role === 'merchant') {
-      router.push('/merchants');
+      router.push(`/merchants?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}#apply`);
       return;
     }
     if (role === 'sanctuary') {
-      router.push('/sanctuaries');
+      router.push(`/sanctuaries?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}#apply`);
       return;
     }
     
-    if (!name.trim() || !email.trim()) return;
-    onAdvocateSubmit?.({ name, email, role });
     setSubmitted(true);
   };
 
