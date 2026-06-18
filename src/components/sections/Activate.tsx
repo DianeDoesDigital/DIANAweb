@@ -23,6 +23,15 @@ export default function Activate({ onAdvocateSubmit }: ActivateProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (role === 'merchant') {
+      router.push('/merchants');
+      return;
+    }
+    if (role === 'sanctuary') {
+      router.push('/sanctuaries');
+      return;
+    }
+    
     if (!name.trim() || !email.trim()) return;
     onAdvocateSubmit?.({ name, email, role });
     setSubmitted(true);
@@ -82,15 +91,7 @@ export default function Activate({ onAdvocateSubmit }: ActivateProps) {
                       key={r.id}
                       id={`activate-role-${r.id}`}
                       type="button"
-                      onClick={() => {
-                        if (r.id === 'merchant') {
-                          router.push('/merchants#apply');
-                        } else if (r.id === 'sanctuary') {
-                          router.push('/sanctuaries#apply');
-                        } else {
-                          setRole(r.id);
-                        }
-                      }}
+                      onClick={() => setRole(r.id)}
                       className={`flex items-center gap-4 p-4 rounded-xl border text-left transition-all duration-200 ${
                         role === r.id
                           ? 'border-primary bg-surface shadow-[inset_0_0_0_1px_var(--color-primary)]'
@@ -123,7 +124,7 @@ export default function Activate({ onAdvocateSubmit }: ActivateProps) {
                   <input
                     id="activate-name"
                     type="text"
-                    required
+                    required={role === 'advocate'}
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                     placeholder="Your name"
@@ -137,7 +138,7 @@ export default function Activate({ onAdvocateSubmit }: ActivateProps) {
                   <input
                     id="activate-email"
                     type="email"
-                    required
+                    required={role === 'advocate'}
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     placeholder="you@example.com"
