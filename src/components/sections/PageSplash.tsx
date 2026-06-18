@@ -95,7 +95,8 @@ export default function PageSplash({
                 onClick={() => {
                   setShowSplash(false);
                   if (btn.targetId) {
-                    setTimeout(() => document.getElementById(btn.targetId)?.scrollIntoView({ behavior: 'smooth' }), 100);
+                    const id = btn.targetId;
+                    setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 100);
                   } else if (btn.href) {
                     window.location.href = btn.href;
                   }
