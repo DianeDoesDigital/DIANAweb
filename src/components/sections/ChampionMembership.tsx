@@ -7,12 +7,12 @@ interface ChampionMembershipProps {
 export default function ChampionMembership({ onActivate }: ChampionMembershipProps) {
   return (
     <section id="membership" className="py-24 bg-background relative overflow-hidden">
-      <div className="absolute inset-0 bg-primary/5 pointer-events-none blur-3xl"></div>
+      <div className="absolute inset-0 pointer-events-none"></div>
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="font-[var(--text-headline-lg--font-weight)] font-headline-lg text-[48px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] mb-8 select-none">
-              Champion Status Required
+            <h2 className="font-[var(--text-headline-lg--font-weight)] font-headline-lg text-[48px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-8 select-none">
+              Champion Status <span className="text-primary">Required.</span>
             </h2>
             <p className="font-[var(--text-body-lg--font-weight)] font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mb-8 select-none">
               Monthly life-lines are exclusive to our Champions. By becoming a member, you shield your impact from bank tolls and ensure 100% of your support reaches the mission.

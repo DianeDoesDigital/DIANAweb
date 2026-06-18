@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const navLinks = [
@@ -20,14 +20,41 @@ interface TopNavProps {
 export default function TopNav({ onActivate }: TopNavProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [hideNav, setHideNav] = useState(false);
+
+  useEffect(() => {
+    if (pathname === '/home') {
+      setMenuOpen(false);
+    }
+
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+      
+      const footer = document.getElementById('global-footer');
+      if (footer) {
+        const rect = footer.getBoundingClientRect();
+        // Hide the nav the moment the footer enters the viewport
+        setHideNav(rect.top < window.innerHeight - 10);
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    // Initial check
+    setTimeout(handleScroll, 100);
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [pathname]);
 
   return (
-    <header className="nav-blur w-full top-0 sticky z-50 border-b border-border-main">
+    <header className={`w-full top-0 fixed z-50 transition-all duration-700 ${hideNav ? '-translate-y-full opacity-0 pointer-events-none' : 'translate-y-0 opacity-100'} bg-white`}>
       <nav className="flex justify-between items-center w-full px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] max-w-[var(--spacing-container-max-width)] mx-auto h-20">
         {/* Logo + Wordmark */}
         <Link
           href="/"
-          className="flex items-center gap-3 select-none"
+          className="flex items-center gap-3 select-none transition-all duration-500 opacity-100 translate-y-0"
         >
           <div className="relative w-[42px] h-[42px] flex-shrink-0">
             <Image
@@ -37,13 +64,12 @@ export default function TopNav({ onActivate }: TopNavProps) {
               className="object-contain"
             />
           </div>
-          <span className="text-[30px] font-headline-lg text-secondary tracking-[0.12em] neon-glow">
+          <span className="text-[30px] font-headline-lg text-primary tracking-[0.12em]">
             DIANA
           </span>
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-8 transition-all duration-500 opacity-100 translate-y-0">
           {navLinks.map((link) => (
             <Link
               key={link.href}
@@ -59,13 +85,13 @@ export default function TopNav({ onActivate }: TopNavProps) {
           ))}
         </div>
 
-        {/* Desktop CTA */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-4 transition-all duration-500 opacity-100 translate-y-0">
           {onActivate ? (
             <button
               id="nav-activate-btn"
               onClick={onActivate}
-              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] text-white bg-primary px-8 py-2 rounded-md hover:brightness-110 active:scale-95 transition-all duration-200 neon-border uppercase"
+              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] bg-primary px-8 py-2 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] hover:scale-[1.03] active:scale-95 transition-all duration-200 uppercase"
+              style={{ color: '#FFDDEE' }}
             >
               ACTIVATE
             </button>
@@ -73,7 +99,8 @@ export default function TopNav({ onActivate }: TopNavProps) {
             <Link
               href="/#activate"
               id="nav-activate-link"
-              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] text-white bg-primary px-8 py-2 rounded-md hover:brightness-110 active:scale-95 transition-all duration-200 neon-border uppercase"
+              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] bg-primary px-8 py-2 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] hover:scale-[1.03] active:scale-95 transition-all duration-200 uppercase"
+              style={{ color: '#FFDDEE' }}
             >
               ACTIVATE
             </Link>
@@ -109,7 +136,8 @@ export default function TopNav({ onActivate }: TopNavProps) {
           {onActivate ? (
             <button
               onClick={() => { setMenuOpen(false); onActivate(); }}
-              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] text-white bg-primary px-8 py-3 rounded-md neon-border uppercase w-full"
+              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] bg-primary px-8 py-3 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] active:scale-95 transition-all duration-200 uppercase w-full"
+              style={{ color: '#FFDDEE' }}
             >
               ACTIVATE
             </button>
@@ -117,7 +145,8 @@ export default function TopNav({ onActivate }: TopNavProps) {
             <Link
               href="/#activate"
               onClick={() => setMenuOpen(false)}
-              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] text-white bg-primary px-8 py-3 rounded-md neon-border uppercase text-center"
+              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] bg-primary px-8 py-3 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] active:scale-95 transition-all duration-200 uppercase text-center"
+              style={{ color: '#FFDDEE' }}
             >
               ACTIVATE
             </Link>

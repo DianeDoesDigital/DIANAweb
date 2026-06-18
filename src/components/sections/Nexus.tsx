@@ -1,14 +1,14 @@
 export default function Nexus() {
   return (
-    <section id="directory" className="py-24 border-b border-border-main bg-background">
+    <section id="directory" className="py-24 bg-background">
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] text-center">
-        <h2 className="font-[var(--text-headline-lg--font-weight)] text-[var(--text-headline-lg)] leading-[var(--text-headline-lg--line-height)] tracking-[var(--text-headline-lg--letter-spacing)] text-secondary mb-16 select-none font-headline-lg">
-          Join the Nexus
+        <h2 className="font-[var(--text-headline-lg--font-weight)] text-[var(--text-headline-lg)] leading-[var(--text-headline-lg--line-height)] tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-16 select-none font-headline-lg">
+          Join the <span className="text-primary">Nexus.</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Consumer */}
-          <div className="glass-surface p-10 rounded-xl border border-border-main hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 hover:translate-y-[-4px]">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 border border-primary/20">
+          <div className="glass-surface p-10 rounded-xl border border-border-main hover:shadow-2xl hover:border-primary transition-all duration-300 hover:translate-y-[-4px]">
+            <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 border border-border-main">
               <span className="material-symbols-outlined text-primary text-3xl">
                 shield_person
               </span>
@@ -24,8 +24,8 @@ export default function Nexus() {
             </p>
           </div>
           {/* Merchant */}
-          <div className="glass-surface p-10 rounded-xl border border-border-main hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 hover:translate-y-[-4px]">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 border border-primary/20">
+          <div className="glass-surface p-10 rounded-xl border border-border-main hover:shadow-2xl hover:border-primary transition-all duration-300 hover:translate-y-[-4px]">
+            <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 border border-border-main">
               <span className="material-symbols-outlined text-primary text-3xl">
                 storefront
               </span>
@@ -41,8 +41,8 @@ export default function Nexus() {
             </p>
           </div>
           {/* Sanctuary */}
-          <div className="glass-surface p-10 rounded-xl border border-border-main hover:shadow-2xl hover:shadow-primary/5 transition-all duration-300 hover:translate-y-[-4px]">
-            <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-6 border border-primary/20">
+          <div className="glass-surface p-10 rounded-xl border border-border-main hover:shadow-2xl hover:border-primary transition-all duration-300 hover:translate-y-[-4px]">
+            <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6 border border-border-main">
               <span className="material-symbols-outlined text-primary text-3xl">
                 favorite
               </span>
@@ -54,7 +54,7 @@ export default function Nexus() {
               Sanctuary
             </p>
             <p className="font-[var(--text-body-sm--font-weight)] text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none font-body-sm">
-              Focus on care while DIANA provides stable, transparent funding through our decentralized advocate network.
+              Focus on care while DIANA provides stable, recurring funding through our automated advocacy network.
             </p>
           </div>
         </div>

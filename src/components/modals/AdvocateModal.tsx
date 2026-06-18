@@ -17,7 +17,7 @@ export default function AdvocateModal({
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-background/80 backdrop-blur-md transition-opacity duration-300">
-      <div className="glass-surface p-8 md:p-10 rounded-2xl max-w-md w-full border border-primary/30 relative shadow-2xl">
+      <div className="glass-surface p-8 md:p-10 rounded-2xl max-w-md w-full border border-border-main relative shadow-2xl">
         <button
           onClick={onClose}
           className="absolute top-4 right-4 text-text-subtle hover:text-primary transition-colors"
@@ -25,13 +25,13 @@ export default function AdvocateModal({
           <span className="material-symbols-outlined">close</span>
         </button>
         <div className="text-center mb-6">
-          <div className="w-16 h-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto mb-4 border border-primary/20">
+          <div className="w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4 border border-border-main">
             <span className="material-symbols-outlined text-primary text-3xl">
               shield_person
             </span>
           </div>
-          <h3 className="font-headline-md text-2xl text-secondary mb-2">
-            Join as an Advocate
+          <h3 className="font-headline-md text-2xl text-text-main mb-2">
+            Join as an <span className="text-primary">Advocate.</span>
           </h3>
           <p className="font-body-sm text-text-muted">
             Enter your details to join the global waitlist and help save animal sanctuaries automatically.

@@ -1,39 +1,65 @@
 'use client';
 
+import { useState } from 'react';
 import { Smartphone, Compass, QrCode, Heart, User } from 'lucide-react';
 
 export default function AppDemo() {
+  const [showExplainer, setShowExplainer] = useState(true);
+
   return (
-    <section id="demo" className="py-24 md:py-32 bg-background border-t border-border-main">
+    <section id="demo" className="py-24 md:py-32 bg-background">
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
         {/* Header */}
         <div className="text-center mb-16">
-          <span className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs text-primary bg-primary/10 px-4 py-1.5 rounded-full mb-4 inline-block border border-primary/20 uppercase select-none">
-            Live Demo
-          </span>
-          <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-secondary select-none mt-4">
-            Try the DIANA app
+          <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main select-none mt-4">
+            try the <span className="text-primary">DIANA app</span>
           </h2>
-          <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-xl mx-auto mt-4 select-none">
-            Browse merchants, simulate a purchase, explore sanctuaries to experience the full flow.
-          </p>
         </div>
 
         {/* Device mockup + iframe */}
         <div className="relative flex justify-center">
-          {/* Outer glow */}
-          <div className="absolute inset-0 flex justify-center items-center pointer-events-none">
-            <div className="w-[400px] h-[600px] rounded-full bg-primary/10 blur-[80px]" />
-          </div>
+          {/* Outer glow removed */}
 
           {/* Phone frame */}
-          <div className="relative w-[375px] md:w-[420px] rounded-[48px] border-2 border-border-main bg-surface shadow-2xl shadow-primary/10 overflow-hidden"
+          <div className="relative w-[375px] md:w-[420px] rounded-[48px] border-2 border-border-main bg-surface shadow-2xl overflow-hidden"
             style={{ height: '780px' }}>
             {/* Notch */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-8 bg-background rounded-b-2xl z-20 flex items-center justify-center gap-2">
               <div className="w-2 h-2 rounded-full bg-border-main" />
               <div className="w-16 h-1.5 rounded-full bg-border-main" />
             </div>
+
+            {/* Explainer Overlay */}
+            {showExplainer && (
+              <div className="absolute inset-0 z-20 bg-[#FFDDEE] flex flex-col items-center justify-center p-6 text-center">
+                <div className="bg-white/80 backdrop-blur-sm rounded-[32px] p-8 w-full max-w-[320px] flex flex-col items-center shadow-sm border border-white/50">
+                  <div className="w-16 h-16 rounded-full flex items-center justify-center mb-6">
+                    <img src="/diana-logo.png" alt="DIANA" className="w-full h-full object-contain drop-shadow-md" />
+                  </div>
+                  
+                  <h3 className="font-headline-lg text-[32px] text-primary mb-6" style={{ fontFamily: 'Playfair Display' }}>App Demo</h3>
+                  
+                  <p className="font-body-sm text-secondary font-medium leading-relaxed mb-6">
+                    you are about to enter the demo version of the DIANA app where you can try any feature first-hand without entering any of your personal or payment details
+                  </p>
+                  
+                  <p className="font-body-sm text-secondary italic font-bold mb-8">
+                    experience the nexus, simulate payments, and see our impact flow in real-time
+                  </p>
+                  
+                  <button
+                    onClick={() => setShowExplainer(false)}
+                    className="w-full py-4 bg-primary text-white rounded-full font-label-caps tracking-[0.2em] text-sm uppercase hover:scale-105 transition-transform shadow-[0_4px_14px_rgba(255,0,153,0.39)]"
+                  >
+                    LET'S GO!
+                  </button>
+                  
+                  <p className="text-[9px] text-text-muted mt-8 leading-relaxed font-body-sm px-2">
+                    All current data and transactions are strictly for demo purposes only. Explore everything entirely risk-free. When you're ready to ACTIVATE, just tap DIANA.
+                  </p>
+                </div>
+              </div>
+            )}
 
             {/* Iframe */}
             <iframe

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Footer from '@/components/layout/Footer';
+import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
   title: 'DIANA | Digital Infrastructure for Animal Networks and Advocacy',
@@ -13,7 +14,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark h-full antialiased">
+    <html lang="en" className="h-full antialiased scroll-smooth">
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
@@ -25,6 +26,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col selection:bg-primary selection:text-white">
         {children}
         <Footer />
+        <Analytics />
       </body>
     </html>
   );

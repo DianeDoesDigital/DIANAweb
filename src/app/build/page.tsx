@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Users, Globe, TrendingUp, Handshake, Play } from 'lucide-react';
 import TopNav from '@/components/layout/TopNav';
+import PageSplash from '@/components/sections/PageSplash';
 
 export const metadata: Metadata = {
   title: 'BUILD WITH US - Get Involved with the DIANA Movement | Digital Infrastructure for Animal Networks and Advocacy',
@@ -105,21 +106,24 @@ const categories = [
 export default function GetInvolvedPage() {
   return (
     <>
+      <PageSplash 
+        title={<>Build with <span className="text-primary">Us.</span></>}
+        subtitle="Help build the infrastructure of care. We're looking for people who want to be part of a movement."
+        images={[
+          'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80',
+          'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80'
+        ]}
+        enterText="GET INVOLVED"
+      />
       <TopNav />
 
       <main className="bg-background text-secondary">
         {/* Hero */}
         <section className="relative py-32 md:py-48 border-b border-border-main overflow-hidden">
-          <div className="absolute inset-0 pointer-events-none">
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-primary/6 blur-[140px] rounded-full" />
-          </div>
           <div className="relative z-10 max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] text-center">
-            <span className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs text-primary bg-primary/10 px-4 py-1.5 rounded-full mb-6 inline-block border border-primary/20 uppercase select-none">
-              Get Involved
-            </span>
-            <h1 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[48px] md:text-[72px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-secondary mb-6 select-none">
+            <h1 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[48px] md:text-[72px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-6 select-none">
               Help build the<br />
-              <span className="text-primary neon-glow">infrastructure of care.</span>
+              infrastructure of <span className="text-primary">care.</span>
             </h1>
             <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-xl mx-auto mb-12 select-none">
               DIANA is more than an app. It's a movement. There are five ways to be part of it.
@@ -157,12 +161,14 @@ export default function GetInvolvedPage() {
                 {/* Content */}
                 <div>
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 rounded-xl bg-primary/10 border border-primary/20 flex items-center justify-center">
+                    <div className="w-12 h-12 flex items-center justify-center">
                       <cat.icon className="text-primary" size={24} />
                     </div>
                     <span className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs text-primary uppercase select-none">0{i + 1}</span>
                   </div>
-                  <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-secondary mb-3 select-none">{cat.label}</h2>
+                  <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-text-main mb-3 select-none">
+                    {cat.label}<span className="text-primary">.</span>
+                  </h2>
                   <p className="font-body-md text-[var(--text-body-md)] text-primary italic mb-6 select-none">{cat.tagline}</p>
                   <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mb-8 select-none">{cat.body}</p>
 
@@ -198,7 +204,7 @@ export default function GetInvolvedPage() {
                         </select>
                       </div>
                     )}
-                    <button id={`gi-${cat.id}-submit`} type="submit" className="w-full py-4 bg-primary text-white font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-md hover:brightness-110 transition-all neon-border active:scale-95 uppercase mt-2">
+                    <button id={`gi-${cat.id}-submit`} type="submit" className="w-full py-4 bg-primary text-[#FFDDEE] font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-full border-2 border-primary hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95 uppercase mt-2">
                       {cat.cta}
                     </button>
                   </form>
