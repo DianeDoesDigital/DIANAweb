@@ -68,12 +68,14 @@ export default function AppDemo() {
 
           {/* Right: Feature callouts */}
           <div className="flex flex-col gap-6 w-full max-w-xl">
-            <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main select-none">
-              Try It <span className="text-primary">Yourself</span>
-            </h2>
-            <p className="font-body-lg text-[var(--color-text-subtle)] mb-4 select-none">
-              Get hands-on with the features that power the global currency of compassion and celebration.
-            </p>
+            <div className="text-center">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main select-none">
+                Try It <span className="text-primary">Yourself</span>
+              </h2>
+              <p className="font-body-lg text-[var(--color-text-subtle)] mt-2 mb-4 select-none max-w-md mx-auto">
+                Get hands-on with the features that power the global currency of compassion and celebration.
+              </p>
+            </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2 gap-4">
               {[
                 { icon: Compass, label: 'Browse the Nexus', sub: 'Global ethical merchant directory' },
