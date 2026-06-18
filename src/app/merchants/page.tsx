@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { LayoutGrid, BarChart3, Store, Globe, Users, FileText } from 'lucide-react';
 import TopNav from '@/components/layout/TopNav';
 import PageSplash from '@/components/sections/PageSplash';
+import MerchantCategories from '@/components/sections/MerchantCategories';
 
 export const metadata: Metadata = {
   title: 'ETHICAL MERCHANTS - Pledge & Grow through DIANA | Digital Infrastructure for Animal Networks and Advocacy',
@@ -73,6 +74,9 @@ export default function MerchantsPage() {
             </div>
           </div>
         </section>
+
+        {/* Categories */}
+        <MerchantCategories />
 
         {/* The Pledge */}
         <section id="pledge" className="py-24 md:py-32">
