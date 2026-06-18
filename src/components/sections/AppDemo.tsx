@@ -59,7 +59,6 @@ export default function AppDemo() {
                   transform: 'scale(0.7)',
                   transformOrigin: 'top left',
                   border: 'none',
-                  paddingTop: '24px',
                   backgroundColor: 'var(--color-background)',
                   zIndex: 10
                 }}
