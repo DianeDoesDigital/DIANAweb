@@ -17,8 +17,8 @@ export default function Home() {
       <TopNav onActivate={scrollToActivate} />
       <main>
         <HowItWorks />
-        <MultiImpactEngine />
         <GlobalTravelWallet />
+        <MultiImpactEngine />
         <AppDemo />
         <Activate />
       </main>
