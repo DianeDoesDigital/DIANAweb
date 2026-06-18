@@ -14,7 +14,7 @@ const meanings = [
   {
     number: '01',
     full: 'Digital Infrastructure for Animal Networks and Advocacy',
-    description: `The platform's technical identity. A financial clearinghouse built to route daily consumer actions into sanctuary survival.`,
+    description: `The platform's technical identity. A financial clearinghouse built to route daily consumer actions into consistent, reliable funding for animal sanctuaries.`,
   },
   {
     number: '02',
@@ -123,7 +123,7 @@ export default function MissionPage() {
               <div className="mt-12 glass-surface rounded-2xl p-8 border border-border-main relative">
                 <div className="absolute -top-3 left-8 bg-primary text-secondary text-2xl font-headline-lg px-3 py-0 rounded leading-none select-none">&ldquo;</div>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-secondary italic select-none">
-                  There is no transparent financial plumbing connecting daily purchases to sanctuary survival. DIANA is my life&rsquo;s work to bridge that gap.
+                  The desire to spend with purpose has always existed. What has never existed is the infrastructure to make it consistently mean something for the animals who need it most. DIANA is the culmination of my life&rsquo;s work, built to be the global currency of compassion and celebration.
                 </p>
                 <p className="mt-4 font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs text-primary uppercase select-none">
                   — Diane, Founder
@@ -142,13 +142,13 @@ export default function MissionPage() {
               </h2>
               <div className="space-y-6 font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted">
                 <p>
-                  Every system in the world was designed by someone. DIANA was designed with animals as the silent beneficiary of every ethical transaction that flows through it.
+                  Commerce has always shaped the world. DIANA was designed to make sure that as it does, the animals we share this world with are never left behind. Every transaction is an opportunity to protect them, and DIANA makes sure that opportunity is never wasted.
                 </p>
                 <p>
-                  The goal is not to make advocacy feel like a sacrifice. It is to make it feel like nothing at all — because it is already happening, built invisibly into the infrastructure of daily life.
+                  The goal is not to make advocacy feel like a sacrifice. It is to make it feel like nothing at all, because it is already happening, built invisibly into the infrastructure of daily life.
                 </p>
                 <p>
-                  You shop. You eat. You move through the world. DIANA makes sure it quietly counts.
+                  You shop. You eat. You move through the world. DIANA makes sure it counts.
                 </p>
               </div>
             </div>
