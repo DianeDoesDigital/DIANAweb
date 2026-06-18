@@ -20,12 +20,9 @@ export default function AppDemo() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center max-w-5xl mx-auto">
           {/* Left: Device mockup + iframe */}
           <div className="flex justify-center">
-            <div className="relative w-[260px] h-[520px] rounded-[40px] border-2 border-border-main bg-surface shadow-2xl overflow-hidden">
+            <div className="relative w-[260px] h-[520px] rounded-[40px] border-[6px] border-[#0A0507] bg-[#0A0507] shadow-2xl overflow-hidden">
               {/* Notch */}
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-background rounded-b-2xl z-20 flex items-center justify-center gap-2">
-                <div className="w-1.5 h-1.5 rounded-full bg-border-main" />
-                <div className="w-12 h-1 rounded-full bg-border-main" />
-              </div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-[#0A0507] rounded-b-2xl z-20"></div>
 
               {/* Explainer Overlay */}
               {showExplainer && (
