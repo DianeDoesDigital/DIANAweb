@@ -578,20 +578,24 @@ const slides = [
     <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Assets</h2>
     <div className="space-y-6 font-body-md text-[var(--color-text-subtle)]">
       <h3 className="font-headline-md text-2xl text-[var(--color-secondary)] border-b border-[var(--color-primary)]/30 pb-2">Valuation Breakdown</h3>
-      <div className="grid grid-cols-2 gap-8 mt-8">
-        <div className="bg-white/40 p-8 rounded-xl border-t-4 border-[var(--color-primary)] flex flex-col">
-          <div className="flex justify-between items-start mb-6">
-            <h4 className="font-label-caps text-xl text-[var(--color-primary)] pr-4">Technical Cost</h4>
-            <span className="font-impact-stat text-3xl text-[var(--color-primary)]">$450,000</span>
+      <div className="grid grid-cols-2 gap-8 mt-12">
+        <div className="bg-white/40 p-12 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between min-h-[280px] shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex flex-col mb-8">
+            <h4 className="font-label-caps text-2xl text-[var(--color-primary)] mb-4">Technical Cost</h4>
+            <span className="font-impact-stat text-5xl text-[var(--color-primary)]">$450,000</span>
           </div>
-          <p className="text-sm flex-grow">Based on 73.5K LOC & 1,800+ Dev Hours. Includes all proprietary source code across DIANA App and Web platforms.</p>
+          <p className="font-body-lg text-[var(--color-text-subtle)] leading-relaxed">
+            A fully-engineered digital asset comprising 73,500+ lines of proprietary code. This encompasses both the Next.js web platform and the React Native application, representing over 1,800+ logged development hours and bypassing massive initial agency burn rates.
+          </p>
         </div>
-        <div className="bg-white/40 p-8 rounded-xl border-t-4 border-[var(--color-secondary)] flex flex-col">
-          <div className="flex justify-between items-start mb-6">
-            <h4 className="font-label-caps text-xl text-[var(--color-secondary)] pr-4">Network Premium</h4>
-            <span className="font-impact-stat text-3xl text-[var(--color-secondary)]">$185,000</span>
+        <div className="bg-white/40 p-12 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between min-h-[280px] shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex flex-col mb-8">
+            <h4 className="font-label-caps text-2xl text-[var(--color-secondary)] mb-4">Network Premium</h4>
+            <span className="font-impact-stat text-5xl text-[var(--color-secondary)]">$185,000</span>
           </div>
-          <p className="text-sm flex-grow">Pre-wired merchant pipeline, exclusive 145K+ community access, and zero initial marketing spend required.</p>
+          <p className="font-body-lg text-[var(--color-text-subtle)] leading-relaxed">
+            A commanding first-mover advantage backed by a pre-wired pipeline of anchor merchants and exclusive gateway access to over 145,000 highly-engaged community members, achieving massive initial scale with zero required marketing spend.
+          </p>
         </div>
       </div>
     </div>
