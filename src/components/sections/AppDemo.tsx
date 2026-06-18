@@ -69,7 +69,7 @@ export default function AppDemo() {
           {/* Right: Feature callouts */}
           <div className="flex flex-col gap-6 w-full max-w-xl">
             <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main select-none">
-              The <span className="text-primary">DIANA App</span>
+              Try It <span className="text-primary">Yourself</span>
             </h2>
             <p className="font-body-lg text-[var(--color-text-subtle)] mb-4 select-none">
               Get hands-on with the features that power the global currency of compassion and celebration.
