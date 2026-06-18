@@ -29,11 +29,11 @@ export default function Activate({ onAdvocateSubmit }: ActivateProps) {
     onAdvocateSubmit?.({ name, email, role });
     
     if (role === 'merchant') {
-      router.push(`/merchants?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}#apply`);
+      router.push(`/merchants?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`);
       return;
     }
     if (role === 'sanctuary') {
-      router.push(`/sanctuaries?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}#apply`);
+      router.push(`/sanctuaries?name=${encodeURIComponent(name)}&email=${encodeURIComponent(email)}`);
       return;
     }
     
