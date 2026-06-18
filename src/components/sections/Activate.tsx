@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 import { User, Store, PawPrint, CheckCircle2 } from 'lucide-react';
 
 const roles = [
@@ -14,6 +15,7 @@ interface ActivateProps {
 }
 
 export default function Activate({ onAdvocateSubmit }: ActivateProps) {
+  const router = useRouter();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [role, setRole] = useState('advocate');
@@ -80,7 +82,15 @@ export default function Activate({ onAdvocateSubmit }: ActivateProps) {
                       key={r.id}
                       id={`activate-role-${r.id}`}
                       type="button"
-                      onClick={() => setRole(r.id)}
+                      onClick={() => {
+                        if (r.id === 'merchant') {
+                          router.push('/merchants#apply');
+                        } else if (r.id === 'sanctuary') {
+                          router.push('/sanctuaries#apply');
+                        } else {
+                          setRole(r.id);
+                        }
+                      }}
                       className={`flex items-center gap-4 p-4 rounded-xl border text-left transition-all duration-200 ${
                         role === r.id
                           ? 'border-primary bg-surface shadow-[inset_0_0_0_1px_var(--color-primary)]'
