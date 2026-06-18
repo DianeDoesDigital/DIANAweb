@@ -28,9 +28,8 @@ export default function GlobalTravelWallet() {
 
           {/* Text side */}
           <div>
-            <span className="font-label-caps text-xs text-primary uppercase tracking-[0.2em] select-none">The Global Travel Wallet</span>
-            <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight text-text-main mt-3 mb-4 select-none">
-              One Wallet.<br /><span className="text-primary">The Whole World.</span>
+            <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight text-text-main mb-4 select-none">
+              The <span className="text-primary">Global Travel Wallet</span>
             </h2>
             <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mb-10 select-none">
               A borderless financial ecosystem designed for the conscious consumer who moves through the world and wants every transaction to mean something wherever they are.
