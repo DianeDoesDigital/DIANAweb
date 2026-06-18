@@ -1,16 +1,16 @@
 'use client';
 
-import { Utensils, ShoppingBag, Leaf, Map, Plane, Briefcase, BookOpen, Music } from 'lucide-react';
+import { Utensils, ShoppingBag, Zap, Ticket, Plane, Briefcase, Library, Drama } from 'lucide-react';
 
 const categories = [
   { icon: Utensils, label: 'Food & Drink', desc: 'Restaurants, cafes, bakeries, and grocers.' },
   { icon: ShoppingBag, label: 'Retail', desc: 'Clothing, homewares, cosmetics, and lifestyle.' },
-  { icon: Leaf, label: 'Wellness', desc: 'Salons, spas, fitness, and holistic health.' },
-  { icon: Map, label: 'Experiences', desc: 'Tours, workshops, classes, and retreats.' },
+  { icon: Zap, label: 'Wellness', desc: 'Salons, spas, fitness, and holistic health.' },
+  { icon: Ticket, label: 'Experiences', desc: 'Tours, workshops, classes, and retreats.' },
   { icon: Plane, label: 'Travel', desc: 'Hotels, transport, and travel agencies.' },
   { icon: Briefcase, label: 'Professionals', desc: 'Services, agencies, consultants, and trades.' },
-  { icon: BookOpen, label: 'Resources', desc: 'Education, platforms, and advocacy tools.' },
-  { icon: Music, label: 'Entertainment', desc: 'Events, venues, ticketing, and media.' },
+  { icon: Library, label: 'Resources', desc: 'Education, platforms, and advocacy tools.' },
+  { icon: Drama, label: 'Entertainment', desc: 'Events, venues, ticketing, and media.' },
 ];
 
 export default function MerchantCategories() {
@@ -18,7 +18,6 @@ export default function MerchantCategories() {
     <section className="py-24 md:py-32 bg-background border-t border-border-main/50">
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
         <div className="text-center mb-16">
-          <span className="font-label-caps text-xs text-primary uppercase tracking-[0.2em] select-none">The Categories</span>
           <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-text-main mt-4 select-none">
             Where do you <span className="text-primary">fit in?</span>
           </h2>
