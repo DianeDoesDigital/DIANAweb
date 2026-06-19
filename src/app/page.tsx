@@ -1,11 +1,11 @@
 'use client';
 
-import Hero from '@/components/sections/Hero';
+import MissionHero from '@/components/sections/MissionHero';
 
 export default function Splash() {
   return (
     <main>
-      <Hero />
+      <MissionHero playVideo={true} />
     </main>
   );
 }

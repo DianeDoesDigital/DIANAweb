@@ -4,12 +4,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Cat } from 'lucide-react';
 
 const navLinks = [
+  { href: '/mission', label: 'Mission' },
+  { href: '/advocates', label: 'Advocates' },
   { href: '/merchants', label: 'Merchants' },
   { href: '/sanctuaries', label: 'Sanctuaries' },
-  { href: '/mission', label: 'Mission' },
   { href: '/build', label: 'Build' },
 ];
 
@@ -31,12 +32,8 @@ export default function TopNav({ onActivate }: TopNavProps) {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
       
-      const footer = document.getElementById('global-footer');
-      if (footer) {
-        const rect = footer.getBoundingClientRect();
-        // Hide the nav the moment the footer enters the viewport
-        setHideNav(rect.top < window.innerHeight - 10);
-      }
+      const isAtBottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
+      setHideNav(isAtBottom);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -86,25 +83,14 @@ export default function TopNav({ onActivate }: TopNavProps) {
         </div>
 
         <div className="hidden md:flex items-center gap-4 transition-all duration-500 opacity-100 translate-y-0">
-          {onActivate ? (
-            <button
-              id="nav-activate-btn"
-              onClick={onActivate}
-              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] bg-primary px-8 py-2 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] hover:scale-[1.03] active:scale-95 transition-all duration-200 uppercase"
-              style={{ color: '#FFDDEE' }}
-            >
-              ACTIVATE
-            </button>
-          ) : (
-            <Link
-              href="/home#activate"
-              id="nav-activate-link"
-              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] bg-primary px-8 py-2 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] hover:scale-[1.03] active:scale-95 transition-all duration-200 uppercase"
-              style={{ color: '#FFDDEE' }}
-            >
-              ACTIVATE
-            </Link>
-          )}
+          <button
+            id="nav-try-demo-btn"
+            onClick={() => window.dispatchEvent(new Event('openAppDemo'))}
+            className="flex items-center gap-2 text-[#FFDDEE] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[0.1em] text-xs bg-primary px-6 h-10 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] hover:scale-[1.03] active:scale-95 transition-all duration-200 uppercase"
+          >
+            <span>TRY THE APP</span>
+            <Cat size={16} />
+          </button>
         </div>
 
         {/* Mobile hamburger */}
@@ -133,24 +119,13 @@ export default function TopNav({ onActivate }: TopNavProps) {
               {link.label}
             </Link>
           ))}
-          {onActivate ? (
-            <button
-              onClick={() => { setMenuOpen(false); onActivate(); }}
-              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] bg-primary px-8 py-3 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] active:scale-95 transition-all duration-200 uppercase w-full"
-              style={{ color: '#FFDDEE' }}
-            >
-              ACTIVATE
-            </button>
-          ) : (
-            <Link
-              href="/home#activate"
-              onClick={() => setMenuOpen(false)}
-              className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] bg-primary px-8 py-3 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] active:scale-95 transition-all duration-200 uppercase text-center"
-              style={{ color: '#FFDDEE' }}
-            >
-              ACTIVATE
-            </Link>
-          )}
+          <button
+            onClick={() => { setMenuOpen(false); window.dispatchEvent(new Event('openAppDemo')); }}
+            className="flex items-center justify-center gap-2 text-[#FFDDEE] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[0.1em] text-xs bg-primary px-6 h-12 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] active:scale-95 transition-all duration-200 uppercase w-full"
+          >
+            <span>TRY THE APP</span>
+            <Cat size={18} />
+          </button>
         </div>
       )}
     </header>

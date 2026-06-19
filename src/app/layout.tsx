@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import './globals.css';
 import Footer from '@/components/layout/Footer';
+import GlobalAppDemo from '@/components/layout/GlobalAppDemo';
 import { Analytics } from '@vercel/analytics/react';
 
 export const metadata: Metadata = {
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col selection:bg-primary selection:text-white">
         {children}
         <Footer />
+        <GlobalAppDemo />
         <Analytics />
       </body>
     </html>

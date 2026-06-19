@@ -149,6 +149,28 @@ export default function GetInvolvedPage() {
           </div>
         </section>
 
+        {/* The Problem */}
+        <section className="py-24 md:py-32 border-b border-border-main bg-surface">
+          <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="max-w-3xl mx-auto">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[36px] md:text-[48px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mt-4 mb-8 select-none">
+                A $500B economy with a broken <span className="text-primary">heart.</span>
+              </h2>
+              <div className="space-y-6 font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted">
+                <p>
+                  The global vegan economy is valued at over <strong className="text-secondary">$500 billion</strong>. Yet the animal sanctuaries that form its ethical heart are surviving on goodwill and GoFundMe.
+                </p>
+                <p>
+                  Consumers want to support animal welfare. Businesses want to give back meaningfully. Sanctuaries need consistent, reliable funding to survive. But there has never been transparent financial plumbing connecting all three.
+                </p>
+                <p>
+                  The desire exists. The infrastructure did not. Until DIANA.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
         {/* Category sections */}
         {categories.map((cat, i) => (
           <section

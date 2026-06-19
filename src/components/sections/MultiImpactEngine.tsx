@@ -46,7 +46,7 @@ export default function MultiImpactEngine() {
             Multi-Impact <span className="text-primary">Engine</span>
           </h2>
           <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-xl mx-auto mt-4 select-none">
-            Every transaction through DIANA activates multiple compounding streams of sanctuary support — automatically.
+            Every transaction through DIANA activates multiple compounding streams of sanctuary support, automatically.
           </p>
         </div>
 
