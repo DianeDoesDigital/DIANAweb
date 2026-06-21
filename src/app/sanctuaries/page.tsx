@@ -103,12 +103,14 @@ export default function SanctuariesPage() {
         {/* Fund flow */}
         <section id="fund-flow" className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="text-center mb-16">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
+                How Funds <span className="text-primary">Flow to You</span>
+              </h2>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left - Title and 2x2 Grid of Steps */}
-              <div className="lg:col-span-7 space-y-8">
-                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main select-none">
-                  How Funds <span className="text-primary">Flow to You</span>
-                </h2>
+              {/* Left - 2x2 Grid of Steps */}
+              <div className="lg:col-span-7">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {fundFlow.map((step, i) => (
                     <div key={step.label} className="glass-surface p-8 rounded-2xl flex flex-col items-center text-center border border-border-main hover:border-primary/30 transition-all duration-300 h-full">
@@ -171,6 +173,11 @@ export default function SanctuariesPage() {
         {/* FAQ Section */}
         <section className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="text-center mb-16">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
+                No Fine <span className="text-primary">Print</span>
+              </h2>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left - Photo */}
               <div className="lg:col-span-5">
@@ -184,11 +191,8 @@ export default function SanctuariesPage() {
                 </div>
               </div>
 
-              {/* Right - Title and FAQs Grid */}
-              <div className="lg:col-span-7 space-y-8">
-                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main select-none">
-                  No Fine <span className="text-primary">Print</span>
-                </h2>
+              {/* Right - FAQs Grid */}
+              <div className="lg:col-span-7">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {faqs.map((faq, i) => (
                     <div key={i} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm h-full flex flex-col">
