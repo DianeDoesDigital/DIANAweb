@@ -1,5 +1,9 @@
 import type { Metadata } from 'next';
-import { HandHeart, HeartPulse, Gift, Image as ImageIcon, Network, UserPlus, Store, MoonStar, Cat, Heart, BanknoteArrowUp, ArrowRight } from 'lucide-react';
+import { 
+  HandHeart, HeartPulse, Gift, Image as ImageIcon, Network, UserPlus, 
+  Store, MoonStar, Cat, Heart, BanknoteArrowUp, ArrowRight, 
+  Shield, CheckCircle2, HelpCircle 
+} from 'lucide-react';
 import TopNav from '@/components/layout/TopNav';
 import PageSplash from '@/components/sections/PageSplash';
 import SanctuaryApplicationForm from '@/components/forms/SanctuaryApplicationForm';
@@ -10,15 +14,6 @@ export const metadata: Metadata = {
   description: 'Register your animal sanctuary with DIANA. Receive continuous, automatic funding from our community of conscious consumers and ethical merchants without lifting a finger.',
 };
 
-const benefits = [
-  { icon: HandHeart, title: 'Passive Recurring Funding', body: 'Every purchase made at any DIANA merchant automatically allocates a portion to you continuously, every cycle, without fundraising.' },
-  { icon: HeartPulse, title: 'Monthly Care Subscriptions', body: 'Individual advocates can assign you as their chosen sanctuary for recurring monthly support for stable, predictable funding.' },
-  { icon: Gift, title: 'One-Time Gifts', body: 'Advocates can make spontaneous one-time funding gifts directly to your sanctuary in a few taps.' },
-  { icon: ImageIcon, title: 'Rich Sanctuary Profile', body: 'Showcase your residents with video, gallery, resident profiles, visitor quotes, and a transparent fund breakdown.' },
-  { icon: Network, title: 'Supporter Network Visibility', body: 'Your sanctuary appears across the Global Nexus and in individual advocate impact reports for authentic, earned visibility.' },
-  { icon: UserPlus, title: 'Sanctuary Recruitment Tools', body: 'Attract volunteers, mentors, and long-term advocates directly through your DIANA profile.' },
-];
-
 const fundFlow = [
   { icon: Store, label: 'Merchant Pledge', body: 'At least 5% of every ethical purchase flows into the network.' },
   { icon: Cat, label: 'Platform Contribution', body: 'DIANA boosts every payout with a contribution from its own platform fee.' },
@@ -26,7 +21,34 @@ const fundFlow = [
   { icon: BanknoteArrowUp, label: 'Sanctuary Disbursal', body: 'Funds distributed to your registered sanctuary for every cycle.' },
 ];
 
+const benefits = [
+  { icon: HandHeart, title: 'Passive Recurring Funding', body: 'Every purchase made at any DIANA merchant automatically allocates a portion to you continuously, every cycle, without fundraising.' },
+  { icon: Gift, title: 'One-Time Gifts', body: 'Advocates can make spontaneous one-time funding gifts directly to your sanctuary in a few taps.' },
+  { icon: HeartPulse, title: 'Monthly Care Subscriptions', body: 'Individual advocates can assign you as their chosen sanctuary for recurring monthly support for stable, predictable funding.' },
+  { icon: ImageIcon, title: 'Rich Sanctuary Profile', body: 'Showcase your residents with video, gallery, resident profiles, visitor quotes, and a transparent fund breakdown.' },
+  { icon: Network, title: 'Supporter Network Visibility', body: 'Your sanctuary appears across the Global Nexus and in individual advocate impact reports for authentic, earned visibility.' },
+  { icon: UserPlus, title: 'Sanctuary Recruitment Tools', body: 'Attract volunteers, mentors, and long-term advocates directly through your DIANA profile.' },
+];
 
+const standards = [
+  { icon: Shield, title: 'No Exploitation', body: 'A haven for rescues where they are always treated with respect and never as commodities for commercial use.' },
+  { icon: Heart, title: 'Lifetime Care', body: 'Commitment to the lifelong well-being of every resident, providing necessary veterinary care, space, and enrichment.' },
+  { icon: CheckCircle2, title: 'Transparency', body: 'Clear, verifiable accounting of how funds are used to directly support the animals and sanctuary operations.' },
+];
+
+const faqs = [
+  { q: 'Is there a cost to join?', a: 'No. DIANA is completely free for sanctuaries. The platform is funded through a separate allocation from merchant pledges, ensuring your distributions remain yours.' },
+  { q: 'How much time does it take to manage?', a: 'Very little. Once your profile is set up and verified, funds flow automatically. We encourage occasional updates to your gallery and resident stories, but no ongoing fundraising campaigns are required.' },
+  { q: 'When and how are funds distributed?', a: 'Funds are aggregated in real-time as purchases are made across the network, and distributed via direct bank transfer at the end of each funding cycle.' },
+  { q: 'Do we need to be a registered charity?', a: 'Yes. To maintain the integrity of the network and comply with financial regulations, we require proof of registered non-profit or charitable status in your jurisdiction.' },
+];
+
+const checklist = [
+  'Proof of non-profit or charitable status',
+  '3-5 high-quality photos of your sanctuary and residents',
+  'A brief breakdown of your monthly operating costs',
+  'A clear description of your sanctuary\'s mission and standard of care'
+];
 
 export default function SanctuariesPage() {
   return (
@@ -43,25 +65,29 @@ export default function SanctuariesPage() {
         align="left"
         actionButtons={[
           { label: 'REGISTER SANCTUARY', targetId: 'apply', primary: true },
-          { label: 'HOW FUNDS FLOW', primary: false }
+          { label: 'WHAT WE OFFER', primary: false }
         ]}
       />
       <TopNav />
 
-      <main className="bg-background text-secondary pt-24 md:pt-32">
+      <main className="bg-[#FFDDEE] text-secondary pt-24 md:pt-32">
+        
         {/* Benefits */}
-        <section className="pb-24 md:pb-32 pt-8 md:pt-12">
+        <section id="benefits" className="pb-24 md:pb-32 pt-8 md:pt-12">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="text-center mb-16">
               <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
                 Focus on Care, <span className="text-primary">DIANA Handles the Rest</span>
               </h2>
+              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-2xl mx-auto mt-4 select-none">
+                A suite of tools and automated income streams designed to let you spend less time fundraising and more time with the animals.
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {benefits.map((b) => {
                 const BenefitIcon = b.icon;
                 return (
-                  <div key={b.title} className="glass-surface p-8 rounded-2xl border border-border-main hover:border-primary/30 hover:translate-y-[-4px] transition-all duration-300">
+                  <div key={b.title} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 hover:translate-y-[-4px] transition-all duration-300">
                     <div className="w-12 h-12 flex items-center justify-center mb-6">
                       <BenefitIcon className="text-primary" size={24} />
                     </div>
@@ -84,14 +110,12 @@ export default function SanctuariesPage() {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {fundFlow.map((step, i) => {
-                const FlowIcon = step.icon;
                 return (
                   <div key={step.label} className="relative">
                     <div className="glass-surface p-8 rounded-2xl flex flex-col items-center text-center border border-border-main hover:border-primary/30 transition-all duration-300 h-full">
-                      <div className="w-12 h-12 flex items-center justify-center mb-4">
-                        <FlowIcon className="text-primary" size={20} />
+                      <div className="font-label-caps tracking-[0.1em] text-[32px] md:text-[40px] leading-none text-primary mb-6 select-none">
+                        0{i + 1}
                       </div>
-                      <span className="font-label-caps text-xs text-primary uppercase tracking-[0.1em] mb-2 select-none">0{i + 1}</span>
                       <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary mb-2 select-none">{step.label}</h3>
                       <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{step.body}</p>
                     </div>
@@ -107,6 +131,56 @@ export default function SanctuariesPage() {
           </div>
         </section>
 
+        {/* Sanctuary Standards */}
+        <section className="py-24 md:py-32">
+          <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="text-center mb-16">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
+                Sanctuary <span className="text-primary">Standards</span>
+              </h2>
+              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-2xl mx-auto mt-4 select-none">
+                To maintain the integrity of the ecosystem and ensure the highest quality of life for residents, we only support sanctuaries that meet these core commitments.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {standards.map((s) => {
+                const StandardIcon = s.icon;
+                return (
+                  <div key={s.title} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 hover:translate-y-[-4px] transition-all duration-300 flex flex-col items-center text-center">
+                    <div className="w-16 h-16 rounded-full border-2 border-primary/20 flex items-center justify-center mb-4">
+                      <StandardIcon className="text-primary" size={28} />
+                    </div>
+                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary mb-3 select-none">{s.title}</h3>
+                    <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{s.body}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-24 md:py-32">
+          <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="text-center mb-16">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
+                No Fine <span className="text-primary">Print</span>
+              </h2>
+            </div>
+            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+              {faqs.map((faq, i) => (
+                <div key={i} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm">
+                  <div className="flex gap-4 items-start mb-4">
+                    <HelpCircle className="text-primary shrink-0 mt-1" size={20} />
+                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-lg text-secondary select-none">{faq.q}</h3>
+                  </div>
+                  <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none ml-9">{faq.a}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
         {/* Registration form */}
         <section id="apply" className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
@@ -117,6 +191,20 @@ export default function SanctuariesPage() {
                 </h2>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">We review all sanctuaries manually to ensure quality and alignment. We'll be in touch within 48 hours.</p>
               </div>
+
+              {/* Checklist */}
+              <div className="mb-10 bg-surface rounded-2xl p-8 border border-border-main shadow-sm">
+                <h3 className="font-label-caps tracking-[0.1em] text-xs text-primary uppercase mb-4">Before you start, please prepare:</h3>
+                <ul className="space-y-3">
+                  {checklist.map((item, i) => (
+                    <li key={i} className="flex items-start gap-3">
+                      <CheckCircle2 className="text-primary shrink-0 mt-0.5" size={16} />
+                      <span className="font-body-sm text-[var(--text-body-sm)] text-text-muted select-none">{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
               <Suspense fallback={<div className="h-64 glass-surface rounded-2xl flex items-center justify-center"><div className="animate-pulse w-8 h-8 rounded-full border-2 border-primary border-t-transparent" /></div>}>
                 <SanctuaryApplicationForm />
               </Suspense>
