@@ -171,6 +171,11 @@ export default function SanctuariesPage() {
         {/* FAQ Section */}
         <section className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="text-center mb-16">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
+                No Fine <span className="text-primary">Print</span>
+              </h2>
+            </div>
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left - Photo */}
               <div className="lg:col-span-5">
@@ -184,19 +189,16 @@ export default function SanctuariesPage() {
                 </div>
               </div>
 
-              {/* Right - Title and FAQs List */}
-              <div className="lg:col-span-7 space-y-6">
-                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main select-none">
-                  No Fine <span className="text-primary">Print</span>
-                </h2>
-                <div className="space-y-4">
+              {/* Right - FAQs Grid */}
+              <div className="lg:col-span-7">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   {faqs.map((faq, i) => (
-                    <div key={i} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm">
+                    <div key={i} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm h-full flex flex-col">
                       <div className="flex gap-4 items-start mb-4">
                         <HelpCircle className="text-primary shrink-0 mt-1" size={20} />
                         <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-lg text-secondary select-none">{faq.q}</h3>
                       </div>
-                      <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none ml-9">{faq.a}</p>
+                      <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none ml-9 mt-auto">{faq.a}</p>
                     </div>
                   ))}
                 </div>
