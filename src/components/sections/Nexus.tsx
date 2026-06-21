@@ -2,7 +2,7 @@ export default function Nexus() {
   return (
     <section id="directory" className="py-24 bg-background">
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] text-center">
-        <h2 className="font-[var(--text-headline-lg--font-weight)] text-[var(--text-headline-lg)] leading-[var(--text-headline-lg--line-height)] tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-16 select-none font-headline-lg">
+        <h2 className="font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[var(--text-headline-lg)] leading-[var(--text-headline-lg--line-height)] tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-16 select-none font-headline-lg">
           Join the <span className="text-primary">Nexus.</span>
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

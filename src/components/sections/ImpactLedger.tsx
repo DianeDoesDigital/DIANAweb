@@ -64,9 +64,9 @@ export default function ImpactLedger() {
   return (
     <section id="ledger" className="py-24 bg-background">
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
-        <div className="flex justify-between items-end mb-12">
+        <div className="flex flex-col md:flex-row justify-between items-center md:items-end mb-12 gap-6 md:gap-0 text-center md:text-left">
           <div>
-            <h2 className="font-[var(--text-headline-lg--font-weight)] text-[var(--text-headline-lg)] leading-[var(--text-headline-lg--line-height)] tracking-[var(--text-headline-lg--letter-spacing)] text-text-main select-none font-headline-lg">
+            <h2 className="font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[var(--text-headline-lg)] leading-[var(--text-headline-lg--line-height)] tracking-[var(--text-headline-lg--letter-spacing)] text-text-main select-none font-headline-lg">
               Global Impact <span className="text-primary">Ledger.</span>
             </h2>
             <p className="font-[var(--text-body-md--font-weight)] text-[var(--text-body-md)] leading-[var(--text-body-md--line-height)] text-text-muted select-none font-body-md">

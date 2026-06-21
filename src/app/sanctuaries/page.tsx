@@ -53,7 +53,7 @@ export default function SanctuariesPage() {
         <section className="pb-24 md:pb-32 pt-8 md:pt-12">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="text-center mb-16">
-              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-text-main mt-4 select-none">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
                 Focus on Care, <span className="text-primary">DIANA Handles the Rest</span>
               </h2>
             </div>
@@ -78,7 +78,7 @@ export default function SanctuariesPage() {
         <section id="fund-flow" className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="text-center mb-16">
-              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-text-main mt-4 select-none">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
                 How Funds <span className="text-primary">Flow to You</span>
               </h2>
             </div>
@@ -112,7 +112,7 @@ export default function SanctuariesPage() {
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-text-main mt-4 select-none">
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
                   Register <span className="text-primary">Sanctuary</span>
                 </h2>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">We review all sanctuaries manually to ensure quality and alignment. We'll be in touch within 48 hours.</p>

@@ -11,7 +11,7 @@ export default function ChampionMembership({ onActivate }: ChampionMembershipPro
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <div>
-            <h2 className="font-[var(--text-headline-lg--font-weight)] font-headline-lg text-[48px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-8 select-none">
+            <h2 className="font-[var(--text-headline-lg--font-weight)] font-headline-lg text-[28px] md:text-[48px] text-center md:text-left leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-8 select-none">
               Champion Status <span className="text-primary">Required.</span>
             </h2>
             <p className="font-[var(--text-body-lg--font-weight)] font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mb-8 select-none">

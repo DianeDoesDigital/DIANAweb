@@ -1,7 +1,7 @@
 'use client';
 
 import { ShieldCheck, RefreshCw, Bubbles } from 'lucide-react';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
 const impactSteps = [
   {
@@ -23,7 +23,6 @@ const impactSteps = [
 
 export default function ImpactFlow() {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const [activeNode, setActiveNode] = useState<number | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -48,19 +47,18 @@ export default function ImpactFlow() {
     <section ref={sectionRef} className="py-24 md:py-32 bg-background overflow-hidden">
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] relative">
         <div className="text-center mb-16 md:mb-24 animate-on-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out">
-          <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[56px] leading-tight select-none tracking-tight">
+          <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] sm:text-[40px] md:text-[56px] leading-tight select-none tracking-tight">
             <span className="text-secondary">and Impact is</span> <span className="text-primary">Undeniable</span>
           </h2>
         </div>
 
-        {/* Desktop View */}
-        <div className="hidden md:grid grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
           {impactSteps.map((step, index) => {
             const StepIcon = step.icon;
             return (
               <div 
                 key={step.label}
-                className="glass-surface p-8 md:p-10 rounded-2xl w-full hover:border-primary/30 transition-all duration-300 flex flex-col items-center text-center animate-on-scroll opacity-0 translate-y-12 ease-out" 
+                className="glass-surface p-8 md:p-10 rounded-2xl w-full hover:border-primary/30 transition-all duration-300 flex flex-col items-center text-center animate-on-scroll opacity-0 translate-y-12 ease-out border border-border-main" 
                 style={{ transitionDuration: '700ms', transitionDelay: `${index * 150}ms` }}
               >
                 <div className="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mb-6">
@@ -73,58 +71,6 @@ export default function ImpactFlow() {
               </div>
             );
           })}
-        </div>
-
-        {/* Mobile View */}
-        <div className="block md:hidden">
-          <div className="grid grid-cols-3 gap-3 items-start mb-6">
-            {impactSteps.map((step, index) => {
-              const StepIcon = step.icon;
-              const isActive = activeNode === index;
-              const labelParts = step.label.split(' ');
-              
-              // Hide other cards if one is active
-              if (activeNode !== null && !isActive) {
-                return null;
-              }
-
-              return (
-                <button
-                  key={step.label}
-                  onClick={() => setActiveNode(isActive ? null : index)}
-                  className={`glass-surface rounded-2xl transition-all duration-300 flex flex-col items-center text-center focus:outline-none ${
-                    isActive
-                      ? 'col-span-3 border-primary bg-primary/5 shadow-[0_8px_30px_rgba(255,0,153,0.15)] p-6'
-                      : 'col-span-1 border-border-main hover:border-primary/20 aspect-square justify-center p-3'
-                  }`}
-                >
-                  <div className={`flex items-center justify-center transition-all duration-300 ${
-                    isActive ? 'w-16 h-16 bg-primary/20' : 'w-12 h-12 bg-primary/10'
-                  }`}>
-                    <StepIcon className="text-primary" size={isActive ? 32 : 20} />
-                  </div>
-                  
-                  <div className={`font-headline-sm leading-tight text-secondary select-none font-semibold transition-all duration-300 ${
-                    isActive ? 'text-base mb-2' : 'text-[10px]'
-                  }`}>
-                    {isActive ? (
-                      step.label
-                    ) : (
-                      labelParts.map((word, wIdx) => (
-                        <span key={wIdx} className="block">{word}</span>
-                      ))
-                    )}
-                  </div>
-
-                  {isActive && (
-                    <p className="font-body-sm text-xs leading-relaxed text-text-muted select-none animate-fadeIn max-w-sm">
-                      {step.body}
-                    </p>
-                  )}
-                </button>
-              );
-            })}
-          </div>
         </div>
 
       </div>

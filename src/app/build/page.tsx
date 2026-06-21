@@ -153,7 +153,7 @@ export default function GetInvolvedPage() {
         <section className="py-24 md:py-32 border-b border-border-main bg-surface">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="max-w-3xl mx-auto">
-              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[36px] md:text-[48px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mt-4 mb-8 select-none">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[48px] text-center md:text-left leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mt-4 mb-8 select-none">
                 A $500B economy with a broken <span className="text-primary">heart.</span>
               </h2>
               <div className="space-y-6 font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted">
@@ -188,7 +188,7 @@ export default function GetInvolvedPage() {
                     </div>
                     <span className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs text-primary uppercase select-none">0{i + 1}</span>
                   </div>
-                  <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-text-main mb-3 select-none">
+                  <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] text-center md:text-left leading-tight text-text-main mb-3 select-none">
                     {cat.label}<span className="text-primary">.</span>
                   </h2>
                   <p className="font-body-md text-[var(--text-body-md)] text-primary italic mb-6 select-none">{cat.tagline}</p>

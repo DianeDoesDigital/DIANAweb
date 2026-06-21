@@ -56,7 +56,7 @@ export default function MerchantsPage() {
         <section className="pb-24 md:pb-32 pt-8 md:pt-12">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="text-center mb-16">
-              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-text-main mt-4 select-none">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
                 Built for <span className="text-primary">Ethical Businesses</span>
               </h2>
             </div>
@@ -84,7 +84,7 @@ export default function MerchantsPage() {
         <section id="pledge" className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="text-center mb-16">
-              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-text-main mt-4 select-none">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
                 Simple, Economic, <span className="text-primary">Meaningful</span>
               </h2>
             </div>
@@ -105,7 +105,7 @@ export default function MerchantsPage() {
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-text-main mt-4 select-none">
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
                   Ready <span className="text-primary">to join?</span>
                 </h2>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">

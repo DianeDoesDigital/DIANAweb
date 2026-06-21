@@ -58,7 +58,7 @@ export default function Activate({ onAdvocateSubmit }: ActivateProps) {
             <div className="w-20 h-20 rounded-full border border-border-main flex items-center justify-center mx-auto mb-8">
               <CheckCircle2 className="text-primary animate-pulse" size={40} />
             </div>
-            <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] leading-tight text-text-main mb-4 select-none">
+            <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mb-4 select-none text-center">
               Welcome to DIANA, <span className="text-primary">{name.split(' ')[0]}.</span>
             </h2>
             <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mb-8 select-none">
@@ -85,7 +85,7 @@ export default function Activate({ onAdvocateSubmit }: ActivateProps) {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             {/* Left: copy */}
             <div>
-              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-6 select-none mt-4">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[52px] text-center md:text-left leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-6 select-none mt-4">
                 Your Daily Life,<br />
                 <span className="text-primary">Quietly Doing More</span>
               </h2>

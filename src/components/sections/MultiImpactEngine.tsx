@@ -42,7 +42,7 @@ export default function MultiImpactEngine() {
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
         {/* Header */}
         <div className="text-center mb-20">
-          <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[40px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main select-none mt-4">
+          <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[52px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main select-none mt-4">
             Multi-Impact <span className="text-primary">Engine</span>
           </h2>
           <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-xl mx-auto mt-4 select-none">
