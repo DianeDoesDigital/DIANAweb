@@ -38,7 +38,7 @@ export default function Footer() {
         <div className="pt-8 border-t border-border-main/50 flex flex-col md:flex-row justify-between items-center gap-4 text-center md:text-left">
           <p className="text-[var(--text-body-sm)] font-[var(--text-body-sm--font-weight)] font-body-sm text-xs text-text-subtle">
             © 2026 DIANA - Digital Infrastructure for Animal Networks and
-            Advocacy. DRGM Pty Ltd.
+            Advocacy. DRGM DEV PTY LTD.
           </p>
           <div className="flex items-center gap-4 select-none">
             <span className="text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] text-xs text-primary uppercase">

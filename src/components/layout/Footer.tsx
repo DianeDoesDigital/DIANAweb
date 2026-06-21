@@ -2,15 +2,15 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { BadgeCheck, House, Store, PawPrint, HandFist, Wrench } from 'lucide-react';
+import { BadgeCheck, User, Store, PawPrint, HandFist, Blocks } from 'lucide-react';
 import { usePathname } from 'next/navigation';
 
 const navLinks = [
-  { href: '/', label: 'Home', icon: House },
+  { href: '/mission', label: 'Mission', icon: HandFist },
+  { href: '/advocates', label: 'Advocates', icon: User },
   { href: '/merchants', label: 'Merchants', icon: Store },
   { href: '/sanctuaries', label: 'Sanctuaries', icon: PawPrint },
-  { href: '/mission', label: 'Mission', icon: HandFist },
-  { href: '/build', label: 'Build', icon: Wrench },
+  { href: '/build', label: 'Build', icon: Blocks },
 ];
 
 const legalLinks = [
@@ -56,7 +56,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[var(--text-body-sm)] font-[var(--text-body-sm--font-weight)] font-body-sm text-primary leading-[var(--text-body-sm--line-height)] hover:text-secondary transition-colors"
             >
-              A DRGM Pty Ltd product
+              A DRGM DEV PTY LTD product
             </a>
           </div>
 
@@ -77,7 +77,7 @@ export default function Footer() {
                       title={link.label}
                     >
                       <Icon className="md:hidden" size={28} strokeWidth={1.5} />
-                      <span className="hidden md:inline text-[var(--text-body-sm)] font-[var(--text-body-sm--font-weight)] font-body-sm">{link.label}</span>
+                      <span className="hidden md:inline text-[var(--text-body-sm)] font-[var(--text-body-sm--font-weight)] font-body-sm uppercase tracking-wider">{link.label}</span>
                     </Link>
                   );
                 })}

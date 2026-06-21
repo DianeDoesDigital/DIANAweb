@@ -259,7 +259,7 @@ export default function TermsPage() {
                     <a href="mailto:legal@dianafortheanimals.org" className="text-primary hover:underline">
                       legal@dianafortheanimals.org
                     </a>
-                    . DRGM.
+                    . DRGM DEV PTY LTD.
                   </p>
                 </div>
               </div>
