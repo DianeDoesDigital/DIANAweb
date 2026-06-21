@@ -34,7 +34,7 @@ export default function SanctuaryApplicationForm() {
         <textarea id="sanctuary-animals" rows={3} placeholder="e.g. We care for rescued pigs, cows, and chickens..." className="bg-surface border border-border-main rounded-lg px-4 py-3 text-secondary font-body-md text-[var(--text-body-md)] placeholder:text-text-subtle focus:outline-none focus:border-primary/50 transition-colors resize-none" />
       </div>
       <button id="sanctuary-apply-btn" type="submit" className="w-full py-4 bg-primary text-[#FFDDEE] font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-full border-2 border-primary hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95 uppercase mt-2">
-        Submit Registration
+        Submit
       </button>
       <p className="font-body-sm text-[var(--text-body-sm)] text-text-subtle text-center select-none">All sanctuaries are verified to be cruelty-free and genuinely rescue-focused.</p>
     </form>
