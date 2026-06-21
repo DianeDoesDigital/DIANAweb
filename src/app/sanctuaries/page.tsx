@@ -108,25 +108,34 @@ export default function SanctuariesPage() {
                 How Funds <span className="text-primary">Flow to You</span>
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-              {fundFlow.map((step, i) => {
-                return (
-                  <div key={step.label} className="relative">
-                    <div className="glass-surface p-8 rounded-2xl flex flex-col items-center text-center border border-border-main hover:border-primary/30 transition-all duration-300 h-full">
-                      <div className="font-label-caps tracking-[0.1em] text-[32px] md:text-[40px] leading-none text-primary mb-6 select-none">
-                        0{i + 1}
-                      </div>
-                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary mb-2 select-none">{step.label}</h3>
-                      <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{step.body}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left - 2x2 Grid of Steps */}
+              <div className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                {fundFlow.map((step, i) => (
+                  <div key={step.label} className="glass-surface p-8 rounded-2xl flex flex-col items-center text-center border border-border-main hover:border-primary/30 transition-all duration-300 h-full">
+                    <div className="font-label-caps tracking-[0.1em] text-[32px] md:text-[40px] leading-none text-primary mb-6 select-none">
+                      0{i + 1}
                     </div>
-                    {i < fundFlow.length - 1 && (
-                      <div className="hidden md:flex absolute -right-3 top-1/2 -translate-y-1/2 z-10 w-6 h-6 rounded-full bg-background items-center justify-center">
-                        <ArrowRight className="text-primary" size={12} />
-                      </div>
-                    )}
+                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary mb-2 select-none">{step.label}</h3>
+                    <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{step.body}</p>
                   </div>
-                );
-              })}
+                ))}
+              </div>
+
+              {/* Right - Video */}
+              <div className="lg:col-span-5">
+                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[4/5] shadow-lg group">
+                  <video 
+                    src="/fund-flow.mp4" 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -167,16 +176,31 @@ export default function SanctuariesPage() {
                 No Fine <span className="text-primary">Print</span>
               </h2>
             </div>
-            <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
-              {faqs.map((faq, i) => (
-                <div key={i} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm">
-                  <div className="flex gap-4 items-start mb-4">
-                    <HelpCircle className="text-primary shrink-0 mt-1" size={20} />
-                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-lg text-secondary select-none">{faq.q}</h3>
-                  </div>
-                  <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none ml-9">{faq.a}</p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left - Photo */}
+              <div className="lg:col-span-5">
+                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
+                  <img 
+                    src="/diane-at-vk.jpg" 
+                    alt="Diane caring for a cat at sanctuary"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
                 </div>
-              ))}
+              </div>
+
+              {/* Right - FAQs List */}
+              <div className="lg:col-span-7 space-y-4">
+                {faqs.map((faq, i) => (
+                  <div key={i} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm">
+                    <div className="flex gap-4 items-start mb-4">
+                      <HelpCircle className="text-primary shrink-0 mt-1" size={20} />
+                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-lg text-secondary select-none">{faq.q}</h3>
+                    </div>
+                    <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none ml-9">{faq.a}</p>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </section>
