@@ -48,7 +48,7 @@ export default function ImpactFlow() {
       <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] relative">
         <div className="text-center mb-16 md:mb-24 animate-on-scroll opacity-0 translate-y-12 transition-all duration-700 ease-out">
           <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] sm:text-[40px] md:text-[56px] leading-tight select-none tracking-tight">
-            <span className="text-secondary">and Impact is</span> <span className="text-primary">Undeniable</span>
+            <span className="text-secondary">and Impact</span> <span className="text-primary">is Undeniable</span>
           </h2>
         </div>
 

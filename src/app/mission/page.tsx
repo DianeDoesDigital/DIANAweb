@@ -103,7 +103,7 @@ export default function MissionPage() {
 
               <ScrollReveal delay={200}>
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight select-none text-center mb-8">
-                  <span className="text-secondary">We Are</span> <span className="text-primary">DIANA</span>
+                  <span className="text-secondary">We are</span> <span className="text-primary">DIANA</span>
                 </h2>
                 <div className="space-y-5 font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted text-center flex flex-col items-center">
                   <p>
@@ -154,7 +154,7 @@ export default function MissionPage() {
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <ScrollReveal className="text-center mb-16">
               <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight select-none mb-6">
-                <span className="text-secondary">Ready to Join</span> <span className="text-primary">the Nexus?</span>
+                <span className="text-secondary">Join the</span> <span className="text-primary">Nexus</span>
               </h2>
               <p className="font-body-lg text-[var(--text-body-lg)] text-text-muted">
                 Tell us who you are so we can route you to the correct place in the DIANA ecosystem.
