@@ -30,7 +30,7 @@ export default function MissionPage() {
             <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-12 lg:gap-20 items-center">
               {/* Content Side */}
               <ScrollReveal>
-                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight mb-8 select-none tracking-tight text-center lg:text-left">
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight mb-8 select-none tracking-tight text-center lg:text-left">
                   <span className="text-secondary block whitespace-nowrap">Where Compassion</span>
                   <span className="text-primary block whitespace-nowrap">is the Default</span>
                 </h2>
@@ -102,7 +102,7 @@ export default function MissionPage() {
               </ScrollReveal>
 
               <ScrollReveal delay={200}>
-                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight select-none text-center mb-8">
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight select-none text-center mb-8">
                   <span className="text-secondary">We are</span> <span className="text-primary">DIANA</span>
                 </h2>
                 <div className="space-y-5 font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted text-center flex flex-col items-center">
@@ -153,7 +153,7 @@ export default function MissionPage() {
         <section className="py-24 md:py-32 bg-[#FFDDEE]">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <ScrollReveal className="text-center mb-16">
-              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight select-none mb-6">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight select-none mb-6">
                 <span className="text-secondary">Join the</span> <span className="text-primary">Nexus</span>
               </h2>
               <p className="font-body-lg text-[var(--text-body-lg)] text-text-muted">
