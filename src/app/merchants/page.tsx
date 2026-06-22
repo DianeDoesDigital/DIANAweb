@@ -37,7 +37,7 @@ const standards = [
 
 const faqs = [
   { q: 'How is the 5% pledge tracked?', a: 'DIANA seamlessly tracks sales and calculates your pledge automatically at the end of each cycle. You\'ll receive a transparent breakdown before any funds are moved.' },
-  { q: 'Are there any platform fees?', a: 'The only fee is the 5% merchant platform fee, all of which goes directly to funding the animal sanctuaries.' },
+  { q: 'Are there any platform fees?', a: 'Yes. DIANA charges a flat 5% platform fee on all transactions. This covers payment processing, operational costs, and global scaling. Additionally, from this 5% fee, DIANA pledges a portion directly back to the sanctuaries!' },
   { q: 'Can I change my pledge amount?', a: 'Yes! While the minimum is 5%, you can adjust your pledge higher at any time through your merchant dashboard.' },
   { q: 'What do I need to apply?', a: 'Just basic details about your business and confirmation that your operations align with our cruelty-free and ethical standards.' },
 ];
