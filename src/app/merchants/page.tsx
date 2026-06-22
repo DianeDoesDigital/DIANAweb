@@ -213,7 +213,7 @@ export default function MerchantsPage() {
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
-                  Ready <span className="text-primary">to join?</span>
+                  Join Our Curated <span className="text-primary">Global Directory</span>
                 </h2>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">
                   Tell us about your business. We'll reach out within 48 hours.
