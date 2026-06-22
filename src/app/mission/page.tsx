@@ -174,8 +174,8 @@ export default function MissionPage() {
                       <User className="text-primary group-hover:text-white transition-colors duration-500 w-6 h-6" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-base sm:text-lg md:text-2xl text-secondary mb-1">I am an Individual Advocate</h3>
-                      <p className="font-body-sm text-[13px] leading-snug md:text-[var(--text-body-sm)] text-text-muted mt-1">Fuel sanctuary rescues effortlessly through your daily purchases.</p>
+                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[15px] sm:text-base md:text-2xl text-secondary mb-0.5 md:mb-1">I am an Individual Advocate</h3>
+                      <p className="font-body-sm text-[12px] sm:text-[13px] leading-snug md:text-[var(--text-body-sm)] text-text-muted mt-0.5 md:mt-1">Fuel sanctuary rescues effortlessly through your daily purchases.</p>
                     </div>
                   </div>
                   <div className="relative w-10 h-10 shrink-0 rounded-full border border-border-main flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500 z-10 ml-4">
@@ -196,8 +196,8 @@ export default function MissionPage() {
                       <Store className="text-primary group-hover:text-white transition-colors duration-500 w-6 h-6" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-base sm:text-lg md:text-2xl text-secondary mb-1">I am an Ethical Merchant</h3>
-                      <p className="font-body-sm text-[13px] leading-snug md:text-[var(--text-body-sm)] text-text-muted mt-1">Transform your commerce into continuous impact and consumer trust.</p>
+                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[15px] sm:text-base md:text-2xl text-secondary mb-0.5 md:mb-1">I am an Ethical Merchant</h3>
+                      <p className="font-body-sm text-[12px] sm:text-[13px] leading-snug md:text-[var(--text-body-sm)] text-text-muted mt-0.5 md:mt-1">Transform your commerce into continuous impact and consumer trust.</p>
                     </div>
                   </div>
                   <div className="relative w-10 h-10 shrink-0 rounded-full border border-border-main flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500 z-10 ml-4">
@@ -218,8 +218,8 @@ export default function MissionPage() {
                       <PawPrint className="text-primary group-hover:text-white transition-colors duration-500 w-6 h-6" />
                     </div>
                     <div className="text-left">
-                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-base sm:text-lg md:text-2xl text-secondary mb-1">I represent an Animal Sanctuary</h3>
-                      <p className="font-body-sm text-[13px] leading-snug md:text-[var(--text-body-sm)] text-text-muted mt-1">Receive steady, dependable financial support without asking.</p>
+                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[15px] sm:text-base md:text-2xl text-secondary mb-0.5 md:mb-1">I represent an Animal Sanctuary</h3>
+                      <p className="font-body-sm text-[12px] sm:text-[13px] leading-snug md:text-[var(--text-body-sm)] text-text-muted mt-0.5 md:mt-1">Receive steady, dependable financial support without asking.</p>
                     </div>
                   </div>
                   <div className="relative w-10 h-10 shrink-0 rounded-full border border-border-main flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500 z-10 ml-4">
