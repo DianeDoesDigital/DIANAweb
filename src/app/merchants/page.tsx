@@ -39,7 +39,7 @@ const faqs = [
   { q: 'How is the 5% pledge tracked?', a: 'DIANA seamlessly tracks sales and calculates your pledge automatically at the end of each cycle. You\'ll receive a transparent breakdown before any funds are moved.' },
   { q: 'Are there any platform fees?', a: 'Yes. DIANA charges a flat 5% platform fee on all transactions. This covers payment processing, operational costs, and global scaling. Additionally, from this 5% fee, DIANA pledges a portion directly back to the sanctuaries!' },
   { q: 'Can I change my pledge amount?', a: 'Yes! While the minimum is 5%, you can adjust your pledge higher at any time through your merchant dashboard.' },
-  { q: 'What types of businesses can join?', a: 'We welcome ethical businesses across 8 categories: Food & Dining, Fashion & Apparel, Beauty & Personal Care, Home & Living, Experiences & Travel, Pet Care, Professional Services, and Wellness & Fitness. All must align with our cruelty-free and ethical standards.' },
+  { q: 'What types of businesses can join?', a: 'We welcome ethical businesses across 8 categories: Food & Drink, Retail, Wellness, Experiences, Travel, Professionals, Resources, and Entertainment. All must align with our cruelty-free and ethical standards.' },
 ];
 
 const checklist = [
