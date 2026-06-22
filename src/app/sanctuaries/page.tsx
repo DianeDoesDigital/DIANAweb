@@ -107,7 +107,7 @@ export default function SanctuariesPage() {
               {/* Left - Title and Vertical Stack of Steps */}
               <div className="lg:col-span-7 flex flex-col items-center gap-8">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main text-center select-none w-full">
-                  How Funds <span className="text-primary">Flow to You</span>
+                  How Funds Flow <span className="text-primary">to You</span>
                 </h2>
                 <div className="flex flex-col gap-4 w-full">
                   {fundFlow.map((step, i) => (
