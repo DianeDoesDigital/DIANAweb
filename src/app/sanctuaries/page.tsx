@@ -186,19 +186,19 @@ export default function SanctuariesPage() {
                 </div>
               </div>
 
-              {/* Right - FAQs Grid */}
+              {/* Right - Title and FAQs Stack */}
               <div className="lg:col-span-7 flex flex-col items-center gap-8">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main text-center select-none w-full">
                   No Fine <span className="text-primary">Print</span>
                 </h2>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full">
+                <div className="flex flex-col gap-4 w-full">
                   {faqs.map((faq, i) => (
-                    <div key={i} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm h-full flex flex-col">
-                      <div className="flex gap-4 items-start mb-4">
-                        <HelpCircle className="text-primary shrink-0 mt-1" size={20} />
-                        <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-lg text-secondary select-none">{faq.q}</h3>
+                    <div key={i} className="glass-surface bg-background p-6 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm w-full flex items-start gap-4">
+                      <HelpCircle className="text-primary shrink-0 mt-1" size={20} />
+                      <div className="text-left">
+                        <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-lg text-secondary mb-1 select-none">{faq.q}</h3>
+                        <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{faq.a}</p>
                       </div>
-                      <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none ml-9 mt-auto">{faq.a}</p>
                     </div>
                   ))}
                 </div>
