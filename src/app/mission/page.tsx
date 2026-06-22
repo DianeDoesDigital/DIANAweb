@@ -162,8 +162,30 @@ export default function MissionPage() {
             </ScrollReveal>
 
             <div className="flex flex-col gap-4 max-w-3xl mx-auto">
-              {/* Advocate Bar */}
+              {/* Sanctuary Bar */}
               <ScrollReveal className="w-full" delay={0}>
+                <Link
+                  href="/sanctuaries"
+                  className="group relative w-full bg-background overflow-hidden border border-border-main p-4 md:p-6 rounded-2xl hover:border-primary/30 transition-all duration-500 flex items-center justify-between shadow-sm hover:shadow-[0_8px_30px_rgba(255,0,153,0.15)] hover:scale-[1.01] active:scale-[0.99]"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out" />
+                  <div className="relative flex items-center gap-4 md:gap-6 z-10">
+                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary/10 flex shrink-0 items-center justify-center group-hover:bg-primary transition-colors duration-500">
+                      <PawPrint className="text-primary group-hover:text-white transition-colors duration-500 w-6 h-6" />
+                    </div>
+                    <div className="text-left">
+                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[15px] sm:text-base md:text-2xl text-secondary mb-0.5 md:mb-1">I represent an Animal Sanctuary</h3>
+                      <p className="font-body-sm text-[12px] sm:text-[13px] leading-snug md:text-[var(--text-body-sm)] text-text-muted mt-0.5 md:mt-1">Receive steady, dependable financial support without asking.</p>
+                    </div>
+                  </div>
+                  <div className="relative w-10 h-10 shrink-0 rounded-full border border-border-main flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500 z-10 ml-4">
+                    <ArrowRight className="text-secondary group-hover:text-white transition-colors duration-500 group-hover:translate-x-1 w-5 h-5 md:w-6 md:h-6" />
+                  </div>
+                </Link>
+              </ScrollReveal>
+
+              {/* Advocate Bar */}
+              <ScrollReveal className="w-full" delay={150}>
                 <Link
                   href="/advocates"
                   className="group relative w-full bg-background overflow-hidden border border-border-main p-4 md:p-6 rounded-2xl hover:border-primary/30 transition-all duration-500 flex items-center justify-between shadow-sm hover:shadow-[0_8px_30px_rgba(255,0,153,0.15)] hover:scale-[1.01] active:scale-[0.99]"
@@ -185,7 +207,7 @@ export default function MissionPage() {
               </ScrollReveal>
 
               {/* Merchant Bar */}
-              <ScrollReveal className="w-full" delay={150}>
+              <ScrollReveal className="w-full" delay={300}>
                 <Link
                   href="/merchants"
                   className="group relative w-full bg-background overflow-hidden border border-border-main p-4 md:p-6 rounded-2xl hover:border-primary/30 transition-all duration-500 flex items-center justify-between shadow-sm hover:shadow-[0_8px_30px_rgba(255,0,153,0.15)] hover:scale-[1.01] active:scale-[0.99]"
@@ -198,28 +220,6 @@ export default function MissionPage() {
                     <div className="text-left">
                       <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[15px] sm:text-base md:text-2xl text-secondary mb-0.5 md:mb-1">I am an Ethical Merchant</h3>
                       <p className="font-body-sm text-[12px] sm:text-[13px] leading-snug md:text-[var(--text-body-sm)] text-text-muted mt-0.5 md:mt-1">Transform your commerce into continuous impact and consumer trust.</p>
-                    </div>
-                  </div>
-                  <div className="relative w-10 h-10 shrink-0 rounded-full border border-border-main flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500 z-10 ml-4">
-                    <ArrowRight className="text-secondary group-hover:text-white transition-colors duration-500 group-hover:translate-x-1 w-5 h-5 md:w-6 md:h-6" />
-                  </div>
-                </Link>
-              </ScrollReveal>
-
-              {/* Sanctuary Bar */}
-              <ScrollReveal className="w-full" delay={300}>
-                <Link
-                  href="/sanctuaries"
-                  className="group relative w-full bg-background overflow-hidden border border-border-main p-4 md:p-6 rounded-2xl hover:border-primary/30 transition-all duration-500 flex items-center justify-between shadow-sm hover:shadow-[0_8px_30px_rgba(255,0,153,0.15)] hover:scale-[1.01] active:scale-[0.99]"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-700 ease-out" />
-                  <div className="relative flex items-center gap-4 md:gap-6 z-10">
-                    <div className="w-12 h-12 md:w-14 md:h-14 rounded-full bg-primary/10 flex shrink-0 items-center justify-center group-hover:bg-primary transition-colors duration-500">
-                      <PawPrint className="text-primary group-hover:text-white transition-colors duration-500 w-6 h-6" />
-                    </div>
-                    <div className="text-left">
-                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[15px] sm:text-base md:text-2xl text-secondary mb-0.5 md:mb-1">I represent an Animal Sanctuary</h3>
-                      <p className="font-body-sm text-[12px] sm:text-[13px] leading-snug md:text-[var(--text-body-sm)] text-text-muted mt-0.5 md:mt-1">Receive steady, dependable financial support without asking.</p>
                     </div>
                   </div>
                   <div className="relative w-10 h-10 shrink-0 rounded-full border border-border-main flex items-center justify-center group-hover:bg-primary group-hover:border-primary transition-all duration-500 z-10 ml-4">
