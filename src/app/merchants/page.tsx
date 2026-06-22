@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
-import { LayoutGrid, BarChart3, Store, Globe, Users, FileText } from 'lucide-react';
+import { 
+  LayoutGrid, BarChart3, Store, Globe, Users, FileText,
+  Shield, Leaf, CheckCircle2, HelpCircle 
+} from 'lucide-react';
 import TopNav from '@/components/layout/TopNav';
 import PageSplash from '@/components/sections/PageSplash';
-import MerchantCategories from '@/components/sections/MerchantCategories';
 import MerchantApplicationForm from '@/components/forms/MerchantApplicationForm';
 import { Suspense } from 'react';
 
@@ -21,9 +23,22 @@ const benefits = [
 ];
 
 const pledgeSteps = [
-  { num: '01', label: 'Set your pledge', body: 'Choose your commitment. The minimum is 5% of every sale. You can opt to go higher if you are able to give more.' },
-  { num: '02', label: 'Sell as you already do', body: 'No change to your existing checkout flow. DIANA integrates with QR payment and direct item selection.' },
-  { num: '03', label: 'Funds flow automatically', body: 'Your pledge is calculated and distributed to sanctuaries each cycle. It is transparent, traceable, and automatic.' },
+  { label: 'Set your pledge', body: 'Choose your commitment. The minimum is 5% of every sale. You can opt to go higher if you are able to give more.' },
+  { label: 'Sell as you already do', body: 'No change to your existing checkout flow. DIANA integrates with QR payment and direct item selection.' },
+  { label: 'Funds flow automatically', body: 'Your pledge is calculated and distributed to sanctuaries each cycle. It is transparent, traceable, and automatic.' },
+];
+
+const standards = [
+  { icon: Leaf, title: 'Cruelty-Free', body: 'All products and services must be completely free of animal products and by-products.' },
+  { icon: CheckCircle2, title: 'Ethical Operations', body: 'A commitment to fair labor practices and sustainable, environmentally conscious sourcing.' },
+  { icon: Shield, title: 'Transparent Impact', body: 'Willingness to proudly display how customer purchases directly support the sanctuary network.' },
+];
+
+const faqs = [
+  { q: 'How is the 5% pledge tracked?', a: 'DIANA seamlessly tracks sales and calculates your pledge automatically at the end of each cycle. You\'ll receive a transparent breakdown before any funds are moved.' },
+  { q: 'Are there any platform fees?', a: 'No. DIANA charges absolutely zero platform or transaction fees for merchants. 100% of your sales revenue is yours.' },
+  { q: 'Can I change my pledge amount?', a: 'Yes! While the minimum is 5%, you can adjust your pledge higher at any time through your merchant dashboard.' },
+  { q: 'What do I need to apply?', a: 'Just basic details about your business and confirmation that your operations align with our cruelty-free and ethical standards.' },
 ];
 
 export default function MerchantsPage() {
@@ -77,25 +92,109 @@ export default function MerchantsPage() {
           </div>
         </section>
 
-        {/* Categories */}
-        <MerchantCategories />
-
-        {/* The Pledge */}
+        {/* How Your Pledge Works */}
         <section id="pledge" className="py-24 md:py-32">
+          <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left - Title and Vertical Stack of Steps */}
+              <div className="lg:col-span-7 flex flex-col items-center gap-8">
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main text-center select-none w-full">
+                  How Your <span className="text-primary">Pledge Works</span>
+                </h2>
+                <div className="flex flex-col gap-4 w-full">
+                  {pledgeSteps.map((step, i) => (
+                    <div key={step.label} className="glass-surface p-6 rounded-2xl flex items-center gap-6 border border-border-main hover:border-primary/30 transition-all duration-300 w-full">
+                      <div className="font-label-caps tracking-[0.1em] text-[28px] md:text-[36px] leading-none text-primary select-none shrink-0 w-12 text-center">
+                        0{i + 1}
+                      </div>
+                      <div className="text-left">
+                        <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-lg text-secondary mb-1 select-none">{step.label}</h3>
+                        <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{step.body}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right - Video */}
+              <div className="lg:col-span-5">
+                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[4/5] shadow-lg group">
+                  <video 
+                    src="/merchant-pledge.mp4" 
+                    autoPlay 
+                    loop 
+                    muted 
+                    playsInline 
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Merchant Standards */}
+        <section className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="text-center mb-16">
               <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main mt-4 select-none">
-                Simple, Economic, <span className="text-primary">Meaningful</span>
+                Merchant <span className="text-primary">Standards</span>
               </h2>
+              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-2xl mx-auto mt-4 select-none">
+                To maintain the integrity of the ecosystem and build genuine trust with advocates, we only list businesses that align with these core commitments.
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {pledgeSteps.map((s) => (
-                <div key={s.num} className="flex flex-col gap-4">
-                  <div className="font-impact-stat font-[var(--text-impact-stat--font-weight)] text-5xl text-text-muted select-none">{s.num}</div>
-                  <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary select-none">{s.label}</h3>
-                  <p className="font-body-md text-[var(--text-body-md)] leading-[var(--text-body-md--line-height)] text-text-muted select-none">{s.body}</p>
+              {standards.map((s) => {
+                const StandardIcon = s.icon;
+                return (
+                  <div key={s.title} className="glass-surface p-8 rounded-2xl border border-border-main hover:border-primary/30 hover:translate-y-[-4px] transition-all duration-300 flex flex-col items-center text-center">
+                    <div className="w-16 h-16 rounded-full border-2 border-primary/20 flex items-center justify-center mb-4">
+                      <StandardIcon className="text-primary" size={28} />
+                    </div>
+                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary mb-3 select-none">{s.title}</h3>
+                    <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{s.body}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ Section */}
+        <section className="py-24 md:py-32 bg-[#FFDDEE]">
+          <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left - Photo */}
+              <div className="lg:col-span-5 order-2 lg:order-1">
+                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
+                  <img 
+                    src="/merchant-partnership.jpg" 
+                    alt="Handshake signifying a partnership"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
                 </div>
-              ))}
+              </div>
+
+              {/* Right - Title and FAQs */}
+              <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col items-center gap-6">
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main text-center select-none w-full">
+                  Our Partnership <span className="text-primary">Details</span>
+                </h2>
+                <div className="flex flex-col gap-3 w-full">
+                  {faqs.map((faq, i) => (
+                    <div key={i} className="glass-surface bg-background py-4 px-5 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm w-full flex items-start gap-4">
+                      <HelpCircle className="text-primary shrink-0 mt-0.5" size={18} />
+                      <div className="text-left">
+                        <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-base text-secondary mb-0.5 select-none">{faq.q}</h3>
+                        <p className="text-[13px] leading-relaxed text-text-muted select-none">{faq.a}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
           </div>
         </section>
