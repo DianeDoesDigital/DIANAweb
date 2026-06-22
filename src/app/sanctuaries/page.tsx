@@ -103,7 +103,7 @@ export default function SanctuariesPage() {
         {/* Fund flow */}
         <section id="fund-flow" className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left - Title and Vertical Stack of Steps */}
               <div className="lg:col-span-7 flex flex-col items-center gap-8">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main text-center select-none w-full">
@@ -173,7 +173,7 @@ export default function SanctuariesPage() {
         {/* FAQ Section */}
         <section className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left - Photo (on mobile it goes after the FAQs) */}
               <div className="lg:col-span-5 order-2 lg:order-1">
                 <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
@@ -187,17 +187,17 @@ export default function SanctuariesPage() {
               </div>
 
               {/* Right - Title and FAQs Stack (on mobile it goes first) */}
-              <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col items-center gap-8">
+              <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col items-center gap-6">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main text-center select-none w-full">
                   Our Partnership <span className="text-primary">Details</span>
                 </h2>
-                <div className="flex flex-col gap-4 w-full">
+                <div className="flex flex-col gap-3 w-full">
                   {faqs.map((faq, i) => (
-                    <div key={i} className="glass-surface bg-background p-6 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm w-full flex items-start gap-4">
-                      <HelpCircle className="text-primary shrink-0 mt-1" size={20} />
+                    <div key={i} className="glass-surface bg-background py-4 px-5 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm w-full flex items-start gap-4">
+                      <HelpCircle className="text-primary shrink-0 mt-0.5" size={18} />
                       <div className="text-left">
-                        <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-lg text-secondary mb-1 select-none">{faq.q}</h3>
-                        <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{faq.a}</p>
+                        <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-base text-secondary mb-0.5 select-none">{faq.q}</h3>
+                        <p className="text-[13px] leading-relaxed text-text-muted select-none">{faq.a}</p>
                       </div>
                     </div>
                   ))}
