@@ -80,7 +80,7 @@ export default function MerchantsPage() {
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="text-center mb-16">
               <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
-                Built for <span className="text-primary">Ethical Businesses</span>
+                Built for Ethical <span className="text-primary">Businesses</span>
               </h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -107,7 +107,7 @@ export default function MerchantsPage() {
               {/* Left - Title and Vertical Stack of Steps */}
               <div className="lg:col-span-7 flex flex-col items-center gap-8">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main text-center select-none w-full">
-                  How Your <span className="text-primary">Pledge Works</span>
+                  How Your Pledge <span className="text-primary">Works</span>
                 </h2>
                 <div className="flex flex-col gap-4 w-full">
                   {pledgeSteps.map((step, i) => (
@@ -213,7 +213,7 @@ export default function MerchantsPage() {
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
-                  Join Our Curated <span className="text-primary">Global Directory</span>
+                  Join Our Global <span className="text-primary">Directory</span>
                 </h2>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">
                   Tell us about your business. We'll reach out within 48 hours.
