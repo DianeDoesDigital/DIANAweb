@@ -17,7 +17,7 @@ const benefits = [
   { icon: LayoutGrid, title: 'Free Listing', body: 'Your business is listed in DIANA\'s ethical directory, a curated and searchable network, trusted by values-driven advocates globally.' },
   { icon: BarChart3, title: 'Automatic Impact Attribution', body: 'Every purchase is tracked. Customers see exactly how their spend at your business helped animals, building deep brand loyalty.' },
   { icon: Store, title: 'Storefront Management', body: 'Control your merchant profile, products, services, pricing, and promotions all from within the DIANA platform.' },
-  { icon: Globe, title: 'Borderless, No-Fee Payments', body: 'Keep 100% of your sales revenue. DIANA charges absolutely zero platform or transaction fees, maximizing your margins globally.' },
+  { icon: Globe, title: 'Borderless Commerce', body: 'Connect with a global network of conscious consumers without geographical limits, expanding your reach across the entire DIANA ecosystem.' },
   { icon: Users, title: 'Nexus Feed Visibility', body: 'Your business appears in advocate home feeds every time a purchase supports sanctuaries for organic, authentic reach.' },
   { icon: FileText, title: 'Transparent Transaction Reporting', body: 'Track all your transactions and see the cumulative impact generated through your storefront with detailed reporting.' },
 ];
@@ -37,7 +37,7 @@ const standards = [
 
 const faqs = [
   { q: 'How is the 5% pledge tracked?', a: 'DIANA seamlessly tracks sales and calculates your pledge automatically at the end of each cycle. You\'ll receive a transparent breakdown before any funds are moved.' },
-  { q: 'Are there any platform fees?', a: 'No. DIANA charges absolutely zero platform or transaction fees for merchants. 100% of your sales revenue is yours.' },
+  { q: 'Are there any platform fees?', a: 'The only fee is the 5% merchant platform fee, all of which goes directly to funding the animal sanctuaries.' },
   { q: 'Can I change my pledge amount?', a: 'Yes! While the minimum is 5%, you can adjust your pledge higher at any time through your merchant dashboard.' },
   { q: 'What do I need to apply?', a: 'Just basic details about your business and confirmation that your operations align with our cruelty-free and ethical standards.' },
 ];
