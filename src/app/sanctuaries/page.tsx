@@ -189,7 +189,7 @@ export default function SanctuariesPage() {
               {/* Right - Title and FAQs Stack (on mobile it goes first) */}
               <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col items-center gap-8">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] leading-tight text-text-main text-center select-none w-full">
-                  No Fine <span className="text-primary">Print</span>
+                  Our Partnership <span className="text-primary">Details</span>
                 </h2>
                 <div className="flex flex-col gap-4 w-full">
                   {faqs.map((faq, i) => (
