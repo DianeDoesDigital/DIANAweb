@@ -26,6 +26,7 @@ const pledgeSteps = [
   { label: 'Set your pledge', body: 'Choose your commitment. The minimum is 5% of every sale. You can opt to go higher if you are able to give more.' },
   { label: 'Sell as you already do', body: 'No change to your existing checkout flow. DIANA integrates with QR payment and direct item selection.' },
   { label: 'Funds flow automatically', body: 'Your pledge is calculated and distributed to sanctuaries each cycle. It is transparent, traceable, and automatic.' },
+  { label: 'Watch your impact grow', body: 'Track your contributions on the merchant dashboard. Customers see exactly how their spend helped animals, building deep brand loyalty.' },
 ];
 
 const standards = [
