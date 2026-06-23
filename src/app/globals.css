@@ -126,4 +126,27 @@ body::-webkit-scrollbar {
   height: 0 !important;
 }
 
+@layer utilities {
+  .mask-image-fade-y {
+    mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 10%, black 90%, transparent);
+  }
+}
 
+@keyframes scrollDown {
+  0% { transform: translateY(-33.33%); }
+  100% { transform: translateY(0); }
+}
+
+.animate-scroll-down {
+  animation: scrollDown 20s linear infinite;
+}
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-down {
+  animation: fadeInDown 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}

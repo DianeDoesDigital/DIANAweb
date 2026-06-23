@@ -109,10 +109,7 @@ export default function GetInvolvedPage() {
       <PageSplash 
         title={<>Build with <span className="text-primary">Us.</span></>}
         subtitle="Help build the infrastructure of care. We're looking for people who want to be part of a movement."
-        images={[
-          'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1920&q=80'
-        ]}
+        images={['/hero-bg.jpg']}
         enterText="GET INVOLVED"
       />
       <TopNav />

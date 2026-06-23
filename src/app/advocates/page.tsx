@@ -1,14 +1,16 @@
 import type { Metadata } from 'next';
 import { 
-  Map, QrCode, Heart, Target, HeartPulse, Users,
-  Wallet, Globe, ArrowDownUp, 
-  HeartHandshake, Coins, SquarePlay, Cat, ArrowRight,
+  Map, QrCode, Heart, ChartColumn, Sparkles, AudioWaveform,
+  Wallet, Globe, ArrowDownUp, HandHeart,
   HelpCircle 
 } from 'lucide-react';
 import TopNav from '@/components/layout/TopNav';
+import Footer from '@/components/layout/Footer';
+import MultiImpactEngine from '@/components/sections/MultiImpactEngine';
+import ImpactCalculatorOverlay from '@/components/sections/ImpactCalculatorOverlay';
 import PageSplash from '@/components/sections/PageSplash';
+import AdvocateJoinForm from '@/components/forms/AdvocateJoinForm';
 import { Suspense } from 'react';
-import AdvocatesClient from './AdvocatesClient';
 
 export const metadata: Metadata = {
   title: 'ADVOCATES - Turn Everyday Choices into Sanctuary Support | DIANA',
@@ -18,39 +20,33 @@ export const metadata: Metadata = {
 const pillars = [
   {
     icon: Map,
-    label: 'Explore',
-    title: 'Discover your values in action',
+    title: 'Your Values in Action',
     body: 'Browse a curated, global network of ethical businesses, events, and services, all aligned with a world that takes animals seriously.',
   },
   {
     icon: QrCode,
-    label: 'Connect',
-    title: 'Pay with purpose, every time',
+    title: 'Purpose Driven Payments',
     body: 'Use a payment method where your daily transactions automatically cater to the needs of a rescued animal without you spending a single cent extra.',
   },
   {
     icon: Heart,
-    label: 'Support',
-    title: 'A minimum of 5% flows automatically',
-    body: 'Every purchase from an ethical merchant sends at least 5% directly to sanctuaries. This is recurring, continuous, and built into the system itself.',
+    title: 'Automated Funding',
+    body: 'Every purchase from a DIANA merchant sends at least 5% directly to sanctuaries. This is recurring, continuous, and built into our system.',
   },
   {
-    icon: Target,
-    label: 'Track',
+    icon: HandHeart,
+    title: 'Direct Support',
+    body: 'Send one-time gifts or set up reliable monthly care subscriptions to your favourite sanctuaries if you want to give more to help the mission.',
+  },
+  {
+    icon: AudioWaveform,
+    title: 'The Global Nexus',
+    body: 'Watch as impact happens in real time. The global Nexus feed shows you a live stream of how the community is moving the needle for animals everywhere.',
+  },
+  {
+    icon: ChartColumn,
     title: 'Personal Impact Dashboard',
-    body: 'Watch your real-time impact grow. See exactly how many meals, medical treatments, and sanctuary days your daily choices have funded.',
-  },
-  {
-    icon: HeartPulse,
-    label: 'Monthly Care',
-    title: 'Adopt a Sanctuary',
-    body: 'Go beyond daily spending. Commit to a monthly subscription directly to your favorite sanctuary to provide predictable, stable care.',
-  },
-  {
-    icon: Users,
-    label: 'Community',
-    title: 'Join the Nexus',
-    body: 'Connect with thousands of other values-driven advocates globally. See the collective power of the community moving the needle for animals.',
+    body: 'See exactly how much your daily actions have raised and get a transparent breakdown of the animal sanctuaries you are supporting.',
   },
 ];
 
@@ -72,50 +68,26 @@ const appFeatures = [
   },
 ];
 
-const engineSteps = [
-  {
-    icon: HeartHandshake,
-    label: 'Merchant Pledge',
-    description: 'Participating ethical merchants commit a minimum 5% of every purchase directly to registered animal sanctuaries. This creates a reliable baseline of funding.',
-  },
-  {
-    icon: Coins,
-    label: 'Consumer Extra',
-    description: 'Advocates can easily add an optional extra donation to their transaction at checkout, giving conscious consumers the power to amplify their impact entirely effortlessly.',
-  },
-  {
-    icon: SquarePlay,
-    label: 'Sponsor Doubler',
-    description: 'Brands with purely plant-based product lines can advertise on the platform. Their sponsorship automatically doubles the sanctuary contribution from your transaction.',
-  },
-  {
-    icon: Cat,
-    label: 'Platform Contribution',
-    description: 'DIANA automatically channels 5% of every platform fee to partner sanctuaries, creating a steady, compounding, additional funding stream for the animals.',
-  },
-];
+
 
 const faqs = [
   { q: 'Is the app free to use?', a: 'Yes, the DIANA app is completely free for individual advocates. There are no monthly fees to maintain a basic account or access the global directory.' },
   { q: 'How do I track my impact?', a: 'Your dashboard updates in real-time. You can see exact dollar amounts, as well as tangible metrics translated into meals provided or medical treatments funded.' },
   { q: 'Which merchants are included?', a: 'We have a rapidly growing global directory of fully vetted, ethical, and cruelty-free businesses spanning food, retail, wellness, travel, and more.' },
-  { q: 'Can I choose which sanctuary receives my funds?', a: 'Your 5% transaction pledge goes to a shared pool distributed equitably across all verified sanctuaries. However, you can use the \'Monthly Care\' feature to direct additional funds to a specific sanctuary of your choice.' },
+  { q: 'Can I choose which sanctuary receives the funds from my purchases?', a: 'The merchant pledges contributed from your transactions go to a shared pool distributed equitably across all verified sanctuaries in your region, but you may also send one-time gifts or set up monthly care subscriptions to specific sanctuaries of your choice.' },
 ];
 
 export default function AdvocatesPage() {
   return (
     <>
       <PageSplash 
-        title={<>Your lifestyle. Their <span className="text-primary">lifeline.</span></>}
-        subtitle="Turn your everyday choices into a continuous stream of support for animal sanctuaries."
-        images={[
-          'https://images.unsplash.com/photo-1548263594-a71ea65a8598?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1544568100-847a948585b9?auto=format&fit=crop&w=1920&q=80'
-        ]}
+        title={<>Your Lifestyle, <span className="text-primary">Their Lifeline</span></>}
+        subtitle="Join the global network of conscious consumers turning everyday choices into a continuous stream of support for animal sanctuaries. Link your payment method, shop at fully vetted ethical merchants, and automatically fund rescue efforts without spending a single cent extra."
+        images={['/hero-bg.jpg']}
         align="left"
         actionButtons={[
-          { label: 'DOWNLOAD APP', targetId: 'download', primary: true },
-          { label: 'HOW IT WORKS', targetId: 'benefits', primary: false }
+          { label: 'JOIN THE NEXUS', targetId: 'join', primary: true },
+          { label: 'HOW IT WORKS', primary: false }
         ]}
       />
       <TopNav />
@@ -127,31 +99,31 @@ export default function AdvocatesPage() {
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="text-center mb-16">
               <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
-                Advocate for Animals, <span className="text-primary">Effortlessly</span>
+                Advocate for Animals <span className="text-primary">Effortlessly</span>
               </h2>
               <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-2xl mx-auto mt-4 select-none">
                 DIANA turns the way you already live into a continuous source of care for animals across the globe.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {pillars.map((p) => {
-                const Icon = p.icon;
-                return (
-                  <div key={p.title} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 hover:translate-y-[-4px] transition-all duration-300">
-                    <div className="w-12 h-12 flex items-center justify-center mb-6">
-                      <Icon className="text-primary" size={24} />
-                    </div>
-                    <span className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs text-primary uppercase select-none block mb-2">
-                      {p.label}
-                    </span>
-                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] leading-[var(--text-headline-md--line-height)] text-secondary mb-3 select-none">{p.title}</h3>
-                    <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{p.body}</p>
-                  </div>
-                );
-              })}
+              {pillars.map((pillar) => (
+              <div key={pillar.title} className="glass-surface p-8 rounded-2xl flex flex-col h-full border border-border-main hover:border-primary/30 transition-colors">
+                <div className="w-12 h-12 rounded-full bg-background border border-border-main flex items-center justify-center mb-6">
+                  <pillar.icon className="text-primary" size={20} />
+                </div>
+                <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] leading-[var(--text-headline-md--line-height)] text-secondary mb-3 select-none">
+                  {pillar.title}
+                </h3>
+                <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">
+                  {pillar.body}
+                </p>
+              </div>))}
             </div>
           </div>
         </section>
+
+        {/* Multi-Impact Engine */}
+        <MultiImpactEngine />
 
         {/* The DIANA App */}
         <section className="py-24 md:py-32">
@@ -160,7 +132,7 @@ export default function AdvocatesPage() {
               {/* Left - Features */}
               <div className="lg:col-span-7 flex flex-col gap-8">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main select-none w-full text-center lg:text-left">
-                  The DIANA <span className="text-primary">App</span>
+                  Global Travel <span className="text-primary">Wallet</span>
                 </h2>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted select-none text-center lg:text-left">
                   A borderless financial ecosystem designed for the conscious consumer who moves through the world and wants every transaction to mean something wherever they are.
@@ -213,9 +185,6 @@ export default function AdvocatesPage() {
           </div>
         </section>
 
-        {/* Multi-Impact Engine (Client Component for State) */}
-        <AdvocatesClient engineSteps={engineSteps} />
-
         {/* FAQ Section */}
         <section className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
@@ -228,6 +197,7 @@ export default function AdvocatesPage() {
                     alt="Advocate impact"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
+                  <ImpactCalculatorOverlay />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
@@ -253,34 +223,20 @@ export default function AdvocatesPage() {
           </div>
         </section>
 
-        {/* Download App */}
-        <section id="download" className="py-24 md:py-32">
+        {/* Final CTA */}
+        <section id="join" className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
-            <div className="max-w-2xl mx-auto">
+            <div className="w-full mx-auto">
               <div className="text-center mb-12">
-                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
-                  Download and Make an <span className="text-primary">Impact</span>
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none md:whitespace-nowrap">
+                  Your Daily Life, <span className="text-primary">Quietly Doing More</span>
                 </h2>
-                <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">
+                <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none max-w-2xl mx-auto">
                   Join the global network of conscious consumers turning everyday spending into a lifeline for animals.
                 </p>
               </div>
-
-              <div className="glass-surface bg-background rounded-2xl p-12 border border-border-main text-center shadow-lg">
-                <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-                  <a
-                    href="#"
-                    className="w-full sm:w-auto bg-primary text-[#FFDDEE] px-10 py-5 rounded-full border-2 border-primary font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] uppercase hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] hover:scale-[1.02] active:scale-95 transition-all text-center flex justify-center items-center gap-3"
-                  >
-                    <span>App Store</span>
-                  </a>
-                  <a
-                    href="#"
-                    className="w-full sm:w-auto border-2 border-primary text-primary px-10 py-5 rounded-full font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] uppercase hover:shadow-[0_4px_20px_rgba(255,0,153,0.25)] hover:bg-primary/5 hover:scale-[1.02] active:scale-95 transition-all text-center flex justify-center items-center gap-3"
-                  >
-                    <span>Google Play</span>
-                  </a>
-                </div>
+              <div className="max-w-2xl mx-auto">
+                <AdvocateJoinForm />
               </div>
             </div>
           </div>

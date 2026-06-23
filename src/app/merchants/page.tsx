@@ -6,6 +6,7 @@ import {
 import TopNav from '@/components/layout/TopNav';
 import PageSplash from '@/components/sections/PageSplash';
 import MerchantApplicationForm from '@/components/forms/MerchantApplicationForm';
+import PaymentCarousel from '@/components/sections/PaymentCarousel';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
@@ -49,22 +50,24 @@ const checklist = [
   'A clear description of how your business aligns with our cruelty-free standards'
 ];
 
+const merchantCarouselImages = [
+  '/images/carousel/merchants-01.jpg',
+  '/images/carousel/merchants-02.jpg',
+  '/images/carousel/merchants-03.jpg',
+  '/images/carousel/merchants-04.jpg',
+  '/images/carousel/merchants-05.jpg',
+  '/images/carousel/merchants-06.jpg',
+  '/images/carousel/merchants-07.jpg',
+  '/images/carousel/merchants-08.jpg',
+];
+
 export default function MerchantsPage() {
   return (
     <>
       <PageSplash 
-        title={<>Your business already makes a difference. <span className="text-primary">Let DIANA elevate it.</span></>}
+        title={<>Your Business Already Makes a Difference, <span className="text-primary">Let DIANA Elevate It</span></>}
         subtitle="Join a curated network of ethical businesses whose every transaction quietly funds animal protection automatically, transparently, and at no extra cost to your customers."
-        images={[
-          'https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1540555700478-4be289fbecef?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1533900298318-6b8da08a523e?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1920&q=80'
-        ]}
+        images={['/hero-bg.jpg']}
         align="left"
         actionButtons={[
           { label: 'LIST AS MERCHANT', targetId: 'apply', primary: true },
@@ -124,16 +127,13 @@ export default function MerchantsPage() {
                 </div>
               </div>
 
-              {/* Right - Video */}
+              {/* Right - Photo */}
               <div className="lg:col-span-5">
-                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface shadow-lg group">
-                  <video 
-                    src="/merchant-pledge.mp4" 
-                    autoPlay 
-                    loop 
-                    muted 
-                    playsInline 
-                    className="w-full h-auto transition-transform duration-500 group-hover:scale-[1.02]"
+                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
+                  <img 
+                    src="/merchant-partnership.jpg" 
+                    alt="Handshake signifying a partnership"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
                 </div>
@@ -174,16 +174,9 @@ export default function MerchantsPage() {
         <section className="py-24 md:py-32 bg-[#FFDDEE]">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left - Photo */}
+              {/* Left - Carousel */}
               <div className="lg:col-span-5 order-2 lg:order-1">
-                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
-                  <img 
-                    src="/merchant-partnership.jpg" 
-                    alt="Handshake signifying a partnership"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
-                </div>
+                <PaymentCarousel images={merchantCarouselImages} />
               </div>
 
               {/* Right - Title and FAQs */}

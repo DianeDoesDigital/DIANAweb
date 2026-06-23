@@ -56,12 +56,7 @@ export default function SanctuariesPage() {
       <PageSplash 
         title={<>A Continuous Stream of Care, <span className="text-primary">Built into Everyday Life</span></>}
         subtitle="DIANA creates a financial infrastructure where the daily choices of thousands of advocates quietly fund the animals in your care automatically, every single cycle."
-        images={[
-          'https://images.unsplash.com/photo-1502086223501-7ea6ecd79368?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1534043464124-3be32fe000cb?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1474511320723-9a56873867b5?auto=format&fit=crop&w=1920&q=80',
-          'https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=1920&q=80'
-        ]}
+        images={['/hero-bg.jpg']}
         align="left"
         actionButtons={[
           { label: 'REGISTER SANCTUARY', targetId: 'apply', primary: true },
