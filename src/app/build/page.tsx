@@ -1,237 +1,214 @@
 import type { Metadata } from 'next';
-import { Users, Globe, TrendingUp, Handshake, Play } from 'lucide-react';
+import { 
+  Users, Briefcase, TrendingUp, Compass, Globe, Handshake,
+  CheckCircle2, HelpCircle, Shield, Target, Zap
+} from 'lucide-react';
 import TopNav from '@/components/layout/TopNav';
 import PageSplash from '@/components/sections/PageSplash';
+import BuildJoinForm from '@/components/forms/BuildJoinForm';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'BUILD WITH US - Get Involved with the DIANA Movement | Digital Infrastructure for Animal Networks and Advocacy',
   description: 'Get Involved with the DIANA movement to help build the Digital Infrastructure for Animal Networks and Advocacy. Join the team, be an ambassador, invest in our mission, list as a partner org, or advertise your plant-based products.',
 };
 
-const categories = [
-  {
-    id: 'team',
-    anchor: 'join-the-team',
-    icon: Users,
-    label: 'Join the Team',
-    tagline: 'Build DIANA with us.',
-    body: 'DIANA is pre-funding but not pre-momentum. We\'re looking for people who want to be part of something from the ground up.',
-    tiers: [
-      { name: 'Contributor', desc: 'Flexible, task-based involvement. A few hours a week. You get experience, portfolio credit, a reference, and your name in the contributor list.' },
-      { name: 'Core Team', desc: 'A serious, ongoing role. Sweat equity agreement, backpay when funded, and early team credit. This is for people who want to grow with DIANA.' },
-    ],
-    cta: 'Express Interest',
-    fields: [
-      { id: 'team-name', label: 'Full Name', type: 'text', placeholder: 'Your name' },
-      { id: 'team-email', label: 'Email', type: 'email', placeholder: 'you@example.com' },
-      { id: 'team-role', label: 'What can you bring?', type: 'text', placeholder: 'e.g. iOS development, brand design, community management' },
-    ],
-    selectField: { id: 'team-tier', label: 'Tier', options: ['Contributor', 'Core Team'] },
-  },
-  {
-    id: 'ambassador',
-    anchor: 'ambassador',
-    icon: Globe,
-    label: 'Ambassador',
-    tagline: 'Spread the word in your world.',
-    body: 'DIANA works because advocates like you carry it into spaces we can\'t reach alone: vegan festivals, community events, social platforms, and local networks.',
-    tiers: null,
-    cta: 'Become an Ambassador',
-    fields: [
-      { id: 'amb-name', label: 'Full Name', type: 'text', placeholder: 'Your name' },
-      { id: 'amb-email', label: 'Email', type: 'email', placeholder: 'you@example.com' },
-      { id: 'amb-location', label: 'City / Region', type: 'text', placeholder: 'e.g. Melbourne, Australia' },
-      { id: 'amb-reach', label: 'Where do you have reach?', type: 'text', placeholder: 'e.g. Instagram 10k, vegan festival organiser, local meetup host' },
-    ],
-    selectField: null,
-  },
-  {
-    id: 'invest',
-    anchor: 'invest',
-    icon: TrendingUp,
-    label: 'Invest / Advise',
-    tagline: 'Fund the infrastructure. Guide the mission.',
-    body: 'DIANA is building the financial layer beneath the ethical economy. We\'re open to both financial investment and strategic advisory. The conversations are the same.',
-    tiers: [
-      { name: 'Financial Investment', desc: 'Angel, pre-seed, or strategic investment. Full platform overview, market innovation analysis, and competitive moat documentation available on request.' },
-      { name: 'Advisory / Mentorship', desc: 'Industry expertise in exchange for advisory equity. Strategy, connections, and experience. It\'s the kind you only get from having been there before.' },
-    ],
-    cta: 'Start the Conversation',
-    fields: [
-      { id: 'invest-name', label: 'Full Name', type: 'text', placeholder: 'Your name' },
-      { id: 'invest-email', label: 'Email', type: 'email', placeholder: 'you@example.com' },
-      { id: 'invest-org', label: 'Organisation (optional)', type: 'text', placeholder: 'Your firm or company' },
-    ],
-    selectField: { id: 'invest-type', label: 'Interest Type', options: ['Financial Investment', 'Advisory / Mentorship', 'Both'] },
-  },
-  {
-    id: 'partner',
-    anchor: 'partner',
-    icon: Handshake,
-    label: 'Partner',
-    tagline: 'Align your organisation.',
-    body: 'Not every ally is a merchant or a sanctuary. If your organisation (vegan media, advocacy group, event company, aligned nonprofit) wants to formally align with DIANA, this is for you.',
-    tiers: null,
-    cta: 'Explore Partnership',
-    fields: [
-      { id: 'partner-org', label: 'Organisation Name', type: 'text', placeholder: 'Your organisation' },
-      { id: 'partner-contact', label: 'Contact Name', type: 'text', placeholder: 'Your full name' },
-      { id: 'partner-email', label: 'Email', type: 'email', placeholder: 'hello@yourorg.com' },
-      { id: 'partner-desc', label: 'What does your organisation do?', type: 'text', placeholder: 'Brief description' },
-    ],
-    selectField: null,
-  },
-  {
-    id: 'sponsor',
-    anchor: 'sponsor',
-    icon: Play,
-    label: 'Sponsor / Advertise',
-    tagline: 'Reach a values-driven audience while funding sanctuaries.',
-    body: 'The DIANA Double Impact ad system lets non-vegan companies with fully plant-based product lines advertise within the app. When users watch your ad, the sanctuary contribution doubles at no extra cost to them.',
-    tiers: [
-      { name: 'You qualify if:', desc: 'Your company has one or more fully plant-based product lines. You don\'t need to be a fully vegan brand. Just the products you advertise through DIANA must be 100% plant-based.' },
-      { name: 'You don\'t qualify as a merchant:', desc: 'Sponsor/Advertise is separate from merchant listing. Your brand reaches DIANA\'s audience through the ad ecosystem, not the Explore directory.' },
-    ],
-    cta: 'Enquire About Advertising',
-    fields: [
-      { id: 'sponsor-brand', label: 'Brand / Company Name', type: 'text', placeholder: 'Your brand name' },
-      { id: 'sponsor-contact', label: 'Contact Name', type: 'text', placeholder: 'Your full name' },
-      { id: 'sponsor-email', label: 'Email', type: 'email', placeholder: 'hello@yourbrand.com' },
-      { id: 'sponsor-product', label: 'Plant-based product / product line', type: 'text', placeholder: 'What are you looking to advertise?' },
-    ],
-    selectField: null,
-  },
+const roles = [
+  { icon: Users, title: 'Core Team', body: 'A serious, ongoing role. Sweat equity agreements, backpay upon funding, and early team credit. For those who want to build the foundations and grow with DIANA.' },
+  { icon: Briefcase, title: 'Community Contributor', body: 'Flexible, task-based involvement. Contribute a few hours a week in design, code, or writing. Get portfolio credit, references, and your name in the contributor list.' },
+  { icon: TrendingUp, title: 'Financial Investor', body: 'Angel, pre-seed, or strategic funding to build the runway for an infrastructure tapping into the $500B global ethical economy. Full competitive moat docs available.' },
+  { icon: Compass, title: 'Strategic Advisor', body: 'Industry expertise in exchange for advisory equity. We need your strategy, connections, and experience—the kind you only get from having been there before.' },
+  { icon: Globe, title: 'Global Ambassador', body: 'Spread the word in your world. DIANA works because advocates carry it into spaces we can\'t reach alone: festivals, community events, and local networks.' },
+  { icon: Handshake, title: 'Ecosystem Partner', body: 'Not every ally is a merchant or a sanctuary. If your organisation (vegan media, advocacy group, aligned nonprofit) wants to formally align with DIANA, this is for you.' },
 ];
 
-export default function GetInvolvedPage() {
+const collaborationSteps = [
+  { label: 'Express Interest', body: 'Fill out the unified form below. Tell us exactly how you envision yourself contributing to the movement.' },
+  { label: 'Alignment Call', body: 'A quick sync with a core team member to discuss your background, our roadmap, and ensure perfect mission alignment.' },
+  { label: 'Find Your Fit', body: 'Whether it\'s an advisory agreement, an onboarding into our dev environment, or setting up a sponsor package, we lock in the details.' },
+  { label: 'Build the Future', body: 'You are officially part of the ecosystem. Start building, contributing, or advising as we scale the infrastructure of care.' },
+];
+
+const builderValues = [
+  { icon: Target, title: 'Mission-Obsessed', body: 'The animals come first. Every line of code, every design decision, and every partnership is evaluated by how it serves the sanctuaries.' },
+  { icon: Shield, title: 'Radical Transparency', body: 'We build in the open. Our financials, our impact metrics, and our codebase are designed to be entirely transparent to our community.' },
+  { icon: Zap, title: 'Relentless Excellence', body: 'We don\'t do "good enough." The ethical economy deserves infrastructure that rivals the biggest tech companies in the world.' },
+];
+
+const faqs = [
+  { q: 'Do I need to be a developer to join the core team?', a: 'Not at all! Building DIANA requires marketing, design, community management, legal, and operational expertise just as much as engineering.' },
+  { q: 'Are these paid roles?', a: 'Currently, DIANA is pre-funding. Core team roles are compensated via sweat equity and deferred backpay upon raising capital. Contributors are volunteer-based.' },
+  { q: 'What is the time commitment?', a: 'It varies entirely by role. Core team members treat this as a serious part-time or full-time endeavor. Contributors can spend as little as a few hours a month.' },
+  { q: 'Can I invest if I am not an accredited investor?', a: 'We are currently exploring community-led funding rounds (like equity crowdfunding) that would allow anyone to invest. Reach out, and we will keep you updated.' },
+];
+
+export default function BuildPage() {
   return (
     <>
       <PageSplash 
-        title={<>Build with <span className="text-primary">Us.</span></>}
-        subtitle="Help build the infrastructure of care. We're looking for people who want to be part of a movement."
+        title={<>Help Build <span className="text-primary">the Infrastructure of Care</span></>}
+        subtitle="DIANA is more than an app; it's a global movement redefining the ethical economy. We are actively building the critical financial layer that connects conscious consumers, ethical merchants, and animal sanctuaries. Join us from the ground up to shape a future where daily commerce continuously funds rescue."
         images={['/hero-bg.jpg']}
-        enterText="GET INVOLVED"
+        align="left"
+        actionButtons={[
+          { label: 'BUILD WITH US', targetId: 'join', primary: true },
+          { label: 'HOW CAN I HELP?', targetId: 'roles', primary: false }
+        ]}
       />
+
       <TopNav />
+      <main className="bg-background text-secondary pt-24 md:pt-32">
 
-      <main className="bg-background text-secondary">
-        {/* Hero */}
-        <section className="relative py-32 md:py-48 border-b border-border-main overflow-hidden">
-          <div className="relative z-10 max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] text-center">
-            <h1 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[48px] md:text-[72px] leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mb-6 select-none">
-              Help build the<br />
-              infrastructure of <span className="text-primary">care.</span>
-            </h1>
-            <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-xl mx-auto mb-12 select-none">
-              DIANA is more than an app. It's a movement. There are five ways to be part of it.
-            </p>
-
-            {/* Category quick-jump */}
-            <div className="flex flex-wrap justify-center gap-3">
-              {categories.map((cat) => (
-                <a
-                  key={cat.id}
-                  href={`#${cat.anchor}`}
-                  id={`gi-jump-${cat.id}`}
-                  className="glass-surface border border-border-main hover:border-primary/40 px-5 py-2 rounded-full font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs uppercase text-text-muted hover:text-primary transition-all flex items-center gap-2"
-                >
-                  {(() => {
-                    const CatIcon = cat.icon;
-                    return <CatIcon size={14} />;
-                  })()}
-                  {cat.label}
-                </a>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* The Problem */}
-        <section className="py-24 md:py-32 border-b border-border-main bg-surface">
+        {/* Roles grid */}
+        <section id="roles" className="pb-24 md:pb-32 pt-8 md:pt-12">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
-            <div className="max-w-3xl mx-auto">
-              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[48px] text-center md:text-left leading-tight tracking-[var(--text-headline-lg--letter-spacing)] text-text-main mt-4 mb-8 select-none">
-                A $500B economy with a broken <span className="text-primary">heart.</span>
+            <div className="text-center mb-16">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
+                Ways to <span className="text-primary">Build</span>
               </h2>
-              <div className="space-y-6 font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted">
-                <p>
-                  The global vegan economy is valued at over <strong className="text-secondary">$500 billion</strong>. Yet the animal sanctuaries that form its ethical heart are surviving on goodwill and GoFundMe.
-                </p>
-                <p>
-                  Consumers want to support animal welfare. Businesses want to give back meaningfully. Sanctuaries need consistent, reliable funding to survive. But there has never been transparent financial plumbing connecting all three.
-                </p>
-                <p>
-                  The desire exists. The infrastructure did not. Until DIANA.
-                </p>
+              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-3xl mx-auto mt-4 select-none">
+                The global vegan economy is valued at over $500 billion. Yet the animal sanctuaries that form its ethical heart are surviving on goodwill. Here are 6 ways you can help us build the infrastructure to fix it.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {roles.map((r) => {
+                const RoleIcon = r.icon;
+                return (
+                  <div key={r.title} className="glass-surface p-8 rounded-2xl border border-border-main hover:border-primary/30 hover:translate-y-[-4px] transition-all duration-300">
+                    <div className="w-12 h-12 flex items-center justify-center mb-6">
+                      <RoleIcon className="text-primary" size={24} />
+                    </div>
+                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] leading-[var(--text-headline-md--line-height)] text-secondary mb-3 select-none">{r.title}</h3>
+                    <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{r.body}</p>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
+        {/* How We Collaborate */}
+        <section className="py-24 md:py-32 bg-surface border-y border-border-main">
+          <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left - Title and Vertical Stack of Steps */}
+              <div className="lg:col-span-7 flex flex-col items-center gap-8">
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main text-center select-none w-full">
+                  The Co-Creation <span className="text-primary">Process</span>
+                </h2>
+                <div className="flex flex-col gap-4 w-full">
+                  {collaborationSteps.map((step, i) => (
+                    <div key={step.label} className="glass-surface p-6 rounded-2xl flex items-center gap-6 border border-border-main hover:border-primary/30 transition-all duration-300 w-full">
+                      <div className="font-label-caps tracking-[0.1em] text-[28px] md:text-[36px] leading-none text-primary select-none shrink-0 w-12 text-center">
+                        0{i + 1}
+                      </div>
+                      <div className="text-left">
+                        <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-lg text-secondary mb-1 select-none">{step.label}</h3>
+                        <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{step.body}</p>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Right - Photo */}
+              <div className="lg:col-span-5">
+                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
+                  <img 
+                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" 
+                    alt="Team collaborating"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
+                </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Category sections */}
-        {categories.map((cat, i) => (
-          <section
-            key={cat.id}
-            id={cat.anchor}
-            className={`py-24 md:py-32 border-b border-border-main ${i % 2 === 1 ? 'bg-surface' : 'bg-background'}`}
-          >
-            <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
-                {/* Content */}
-                <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 flex items-center justify-center">
-                      <cat.icon className="text-primary" size={24} />
+        {/* Builder Standards */}
+        <section className="py-24 md:py-32">
+          <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="text-center mb-16">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
+                Builder Core <span className="text-primary">Values</span>
+              </h2>
+              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-3xl mx-auto mt-4 select-none">
+                Consumers want to support animal welfare. Businesses want to give back meaningfully. Sanctuaries need consistent funding. We adhere to these principles while building the transparent financial plumbing to connect all three.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {builderValues.map((v) => {
+                const ValueIcon = v.icon;
+                return (
+                  <div key={v.title} className="glass-surface p-8 rounded-2xl border border-border-main hover:border-primary/30 hover:translate-y-[-4px] transition-all duration-300 flex flex-col items-center text-center">
+                    <div className="w-16 h-16 rounded-full border-2 border-primary/20 flex items-center justify-center mb-4">
+                      <ValueIcon className="text-primary" size={28} />
                     </div>
-                    <span className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs text-primary uppercase select-none">0{i + 1}</span>
+                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary mb-3 select-none">{v.title}</h3>
+                    <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{v.body}</p>
                   </div>
-                  <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[40px] text-center md:text-left leading-tight text-text-main mb-3 select-none">
-                    {cat.label}<span className="text-primary">.</span>
-                  </h2>
-                  <p className="font-body-md text-[var(--text-body-md)] text-primary italic mb-6 select-none">{cat.tagline}</p>
-                  <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mb-8 select-none">{cat.body}</p>
+                );
+              })}
+            </div>
+          </div>
+        </section>
 
-                  {cat.tiers && (
-                    <div className="flex flex-col gap-4">
-                      {cat.tiers.map((tier) => (
-                        <div key={tier.name} className="glass-surface rounded-xl p-6 border border-border-main">
-                          <div className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs text-primary uppercase mb-2 select-none">{tier.name}</div>
-                          <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{tier.desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  )}
+        {/* FAQ Section */}
+        <section className="py-24 md:py-32 bg-[#FFDDEE]">
+          <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left - Image */}
+              <div className="lg:col-span-5 order-2 lg:order-1">
+                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface shadow-md group">
+                  <img 
+                    src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=80" 
+                    alt="Sanctuary cat looking up"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
                 </div>
+              </div>
 
-                {/* Form */}
-                <div>
-                  <form className="glass-surface rounded-2xl p-10 border border-border-main flex flex-col gap-6">
-                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary select-none">{cat.cta}</h3>
-                    {cat.fields.map((field) => (
-                      <div key={field.id} className="flex flex-col gap-2">
-                        <label htmlFor={field.id} className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs text-text-subtle uppercase">{field.label}</label>
-                        <input id={field.id} type={field.type} placeholder={field.placeholder} className="bg-surface border border-border-main rounded-lg px-4 py-3 text-secondary font-body-md text-[var(--text-body-md)] placeholder:text-text-subtle focus:outline-none focus:border-primary/50 transition-colors" />
+              {/* Right - Title and FAQs */}
+              <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col items-center gap-6">
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main text-center select-none w-full">
+                  Collaboration <span className="text-primary">Questions</span>
+                </h2>
+                <div className="flex flex-col gap-3 w-full">
+                  {faqs.map((faq, i) => (
+                    <div key={i} className="glass-surface bg-background py-4 px-5 rounded-2xl border border-border-main hover:border-primary/30 transition-all shadow-sm w-full flex items-start gap-4">
+                      <HelpCircle className="text-primary shrink-0 mt-0.5" size={18} />
+                      <div className="text-left">
+                        <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-base text-secondary mb-0.5 select-none">{faq.q}</h3>
+                        <p className="text-[13px] leading-relaxed text-text-muted select-none">{faq.a}</p>
                       </div>
-                    ))}
-                    {cat.selectField && (
-                      <div className="flex flex-col gap-2">
-                        <label htmlFor={cat.selectField.id} className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs text-text-subtle uppercase">{cat.selectField.label}</label>
-                        <select id={cat.selectField.id} className="bg-surface border border-border-main rounded-lg px-4 py-3 text-secondary font-body-md text-[var(--text-body-md)] focus:outline-none focus:border-primary/50 transition-colors">
-                          {cat.selectField.options.map((opt) => (
-                            <option key={opt} value={opt}>{opt}</option>
-                          ))}
-                        </select>
-                      </div>
-                    )}
-                    <button id={`gi-${cat.id}-submit`} type="submit" className="w-full py-4 bg-primary text-[#FFDDEE] font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-full border-2 border-primary hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95 uppercase mt-2">
-                      {cat.cta}
-                    </button>
-                  </form>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
-          </section>
-        ))}
+          </div>
+        </section>
+
+        {/* Application form */}
+        <section id="join" className="py-24 md:py-32">
+          <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+            <div className="max-w-2xl mx-auto">
+              <div className="text-center mb-12">
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
+                  The desire exists. The infrastructure did not. <span className="text-primary">Until DIANA.</span>
+                </h2>
+                <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">
+                  Join us in building the financial layer of the ethical economy. Let us know how you want to contribute.
+                </p>
+              </div>
+
+              <Suspense fallback={<div className="h-64 glass-surface rounded-2xl flex items-center justify-center"><div className="animate-pulse w-8 h-8 rounded-full border-2 border-primary border-t-transparent" /></div>}>
+                <BuildJoinForm />
+              </Suspense>
+            </div>
+          </div>
+        </section>
       </main>
     </>
   );
