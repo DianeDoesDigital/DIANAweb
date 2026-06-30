@@ -19,7 +19,7 @@ const roles = [
   { icon: Briefcase, title: 'Community Contributor', body: 'Flexible involvement. Contribute hours in design, code, writing, or strategic advisory. Get portfolio credit, references, and your name in the contributor list.' },
   { icon: Globe, title: 'Global Ambassador', body: 'Spread the word in your world. DIANA works because advocates carry it into spaces we can\'t reach alone: festivals, community events, and your local networks.' },
   { icon: TrendingUp, title: 'Financial Investor', body: 'Angel, pre-seed, or strategic funding to build the runway for an infrastructure tapping into the $500B global ethical economy. Full investment brief available.' },
-  { icon: Sprout, title: 'Aligned Sponsor', body: 'For brands with plant-based products or vegan-aligned services looking to fund the Sponsor Doubler or advertise directly to high-intent conscious consumers.' },
+  { icon: Sprout, title: 'Aligned Sponsor', body: 'For brands with plant-based products or vegan-friendly services looking to advertise directly to high-intent conscious consumers around the world.' },
   { icon: Handshake, title: 'Ecosystem Partner', body: 'Not every ally is a merchant or a sanctuary. If your organisation (vegan media, advocacy group, aligned nonprofit) wants to formally align with DIANA, this is for you.' },
 ];
 
