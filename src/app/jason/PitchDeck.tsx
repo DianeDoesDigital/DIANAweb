@@ -511,7 +511,7 @@ const slides = [
       </div>
       <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Organic Word-of-Mouth</h3>
-        <p className="flex-grow">Our friends and community partners reach over 48M animal lovers globally. Their authentic excitement to share DIANA means we can attract our initial user base without spending thousands on paid ads.</p>
+        <p className="flex-grow">Our close network of advocate friends and community partners reaches thousands of dedicated animal lovers globally. Their authentic excitement to share DIANA means we can attract our initial user base without spending thousands on paid ads.</p>
       </div>
       <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Capturing Displaced Users</h3>
