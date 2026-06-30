@@ -207,10 +207,10 @@ export default function SanctuariesPage() {
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="w-full text-center mb-12">
               <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight mt-4 select-none">
-                <span className="block text-secondary">Ready for Continuous Support?</span>
-                <span className="block text-primary">Apply as a Verified Sanctuary</span>
+                <span className="block text-secondary">Step Into the Automated</span>
+                <span className="block text-primary">Ethical Economy</span>
               </h2>
-              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none max-w-2xl mx-auto">We review all sanctuaries manually to ensure quality and alignment. We'll be in touch within 48 hours.</p>
+              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none max-w-2xl mx-auto">Complete the application below to list your sanctuary on the DIANA mobile app directory. Once verified, your organization will connect directly to our network of conscious spenders and start receiving automated, recurring monthly funding.</p>
             </div>
             <div className="max-w-2xl mx-auto">
 
