@@ -43,13 +43,6 @@ const faqs = [
   { q: 'When and how are funds distributed?', a: 'Funds are aggregated in real-time as purchases are made across the network, and distributed via direct bank transfer at the end of each funding cycle.' },
 ];
 
-const checklist = [
-  'Proof of non-profit or charitable status',
-  '3-5 high-quality photos of your sanctuary and residents',
-  'A brief breakdown of your monthly operating costs',
-  'A clear description of your sanctuary\'s mission and standard of care'
-];
-
 export default function SanctuariesPage() {
   return (
     <>
@@ -210,22 +203,9 @@ export default function SanctuariesPage() {
                 <span className="block text-secondary">Step Into the Automated</span>
                 <span className="block text-primary">Ethical Economy</span>
               </h2>
-              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none max-w-2xl mx-auto">Complete the application below to list your sanctuary on the DIANA mobile app directory. Once verified, your organization will connect directly to our network of conscious spenders and start receiving automated, recurring monthly funding.</p>
+              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none max-w-2xl mx-auto">Complete the form below to list your sanctuary on DIANA. Once verified, your organization will connect directly to our network of conscious consumers and start receiving automated, recurring funding.</p>
             </div>
             <div className="max-w-2xl mx-auto">
-
-              {/* Checklist */}
-              <div className="mb-10 bg-surface rounded-2xl p-8 border border-border-main shadow-sm">
-                <h3 className="font-label-caps tracking-[0.1em] text-xs text-primary uppercase mb-4">Before you start, please prepare:</h3>
-                <ul className="space-y-3">
-                  {checklist.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="text-primary shrink-0 mt-0.5" size={16} />
-                      <span className="font-body-sm text-[var(--text-body-sm)] text-text-muted select-none">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
 
               <Suspense fallback={<div className="h-64 glass-surface rounded-2xl flex items-center justify-center"><div className="animate-pulse w-8 h-8 rounded-full border-2 border-primary border-t-transparent" /></div>}>
                 <SanctuaryApplicationForm />
