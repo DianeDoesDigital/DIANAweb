@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { 
   Users, Briefcase, TrendingUp, Compass, Globe, Handshake,
-  CheckCircle2, HelpCircle, Shield, Target, Zap
+  CheckCircle2, HelpCircle, Shield, Target, Zap, Sprout
 } from 'lucide-react';
 import TopNav from '@/components/layout/TopNav';
 import PageSplash from '@/components/sections/PageSplash';
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
 const roles = [
   { icon: Users, title: 'Core Team', body: 'A serious, ongoing role. Sweat equity agreements, backpay upon funding, and early team credit. For those who want to build the foundations and grow with DIANA.' },
   { icon: Briefcase, title: 'Community Contributor', body: 'Flexible involvement. Contribute hours in design, code, writing, or strategic advisory. Get portfolio credit, references, and your name in the contributor list.' },
-  { icon: Globe, title: 'Global Ambassador', body: 'Spread the word in your world. DIANA works because advocates carry it into spaces we can\'t reach alone: festivals, community events, and local networks.' },
+  { icon: Globe, title: 'Global Ambassador', body: 'Spread the word in your world. DIANA works because advocates carry it into spaces we can\'t reach alone: festivals, community events, and your local networks.' },
   { icon: TrendingUp, title: 'Financial Investor', body: 'Angel, pre-seed, or strategic funding to build the runway for an infrastructure tapping into the $500B global ethical economy. Full investment brief available.' },
-  { icon: Zap, title: 'Aligned Sponsor', body: 'For brands with plant-based products or vegan-aligned services looking to fund the Sponsor Doubler or advertise directly to high-intent conscious consumers.' },
+  { icon: Sprout, title: 'Aligned Sponsor', body: 'For brands with plant-based products or vegan-aligned services looking to fund the Sponsor Doubler or advertise directly to high-intent conscious consumers.' },
   { icon: Handshake, title: 'Ecosystem Partner', body: 'Not every ally is a merchant or a sanctuary. If your organisation (vegan media, advocacy group, aligned nonprofit) wants to formally align with DIANA, this is for you.' },
 ];
 
@@ -46,7 +46,7 @@ export default function BuildPage() {
   return (
     <>
       <PageSplash 
-        title={<><span className="text-secondary">Help Us Build the</span> <span className="text-primary">Infrastructure of Care</span></>}
+        title={<><span className="block text-secondary whitespace-nowrap">Help Us Build the</span><span className="block text-primary whitespace-nowrap">Infrastructure of Care</span></>}
         subtitle="DIANA is a global movement redefining the ethical economy, building the critical financial layer that connects conscious consumers, ethical merchants, and animal sanctuaries. Join us from the ground up."
         images={['/hero-bg.jpg']}
         align="left"
