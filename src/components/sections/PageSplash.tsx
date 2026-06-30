@@ -36,55 +36,6 @@ export default function PageSplash({
     setIsMounted(true);
   }, []);
 
-  useEffect(() => {
-    let isTransitioning = false;
-    const handleKeyDown = (e: KeyboardEvent) => {
-      if (window.scrollY < window.innerHeight * 0.4) {
-        if (e.key === 'ArrowDown' || e.key === 'PageDown' || e.key === ' ') {
-          e.preventDefault();
-          if (!isTransitioning) {
-            isTransitioning = true;
-            document.querySelector('main')?.scrollIntoView({ behavior: 'smooth' });
-            setTimeout(() => { isTransitioning = false; }, 800);
-          }
-        }
-      } else if (window.scrollY >= window.innerHeight * 0.4 && window.scrollY < window.innerHeight * 1.1) {
-        if (e.key === 'ArrowUp' || e.key === 'PageUp') {
-          e.preventDefault();
-          if (!isTransitioning) {
-            isTransitioning = true;
-            document.getElementById('hero-splash')?.scrollIntoView({ behavior: 'smooth' });
-            setTimeout(() => { isTransitioning = false; }, 800);
-          }
-        }
-      }
-    };
-
-    const handleWheel = (e: WheelEvent) => {
-      if (window.scrollY < window.innerHeight * 0.4 && e.deltaY > 20) {
-        if (!isTransitioning) {
-          isTransitioning = true;
-          e.preventDefault();
-          document.querySelector('main')?.scrollIntoView({ behavior: 'smooth' });
-          setTimeout(() => { isTransitioning = false; }, 800);
-        }
-      } else if (window.scrollY >= window.innerHeight * 0.4 && window.scrollY < window.innerHeight * 1.1 && e.deltaY < -20) {
-        if (!isTransitioning) {
-          isTransitioning = true;
-          e.preventDefault();
-          document.getElementById('hero-splash')?.scrollIntoView({ behavior: 'smooth' });
-          setTimeout(() => { isTransitioning = false; }, 800);
-        }
-      }
-    };
-
-    window.addEventListener('keydown', handleKeyDown, { passive: false });
-    window.addEventListener('wheel', handleWheel, { passive: false });
-    return () => {
-      window.removeEventListener('keydown', handleKeyDown);
-      window.removeEventListener('wheel', handleWheel);
-    };
-  }, []);
 
   useEffect(() => {
     const interval = setInterval(() => {

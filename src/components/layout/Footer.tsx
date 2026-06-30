@@ -33,7 +33,7 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 w-full">
           {/* Brand */}
           <div className="flex flex-col items-center md:items-start text-center md:text-left gap-4 max-w-xs mx-auto md:mx-0 w-full">
-            <Link href="/" className="flex flex-col md:flex-row items-center gap-3 select-none">
+            <Link href="/" onClick={(e) => { e.preventDefault(); window.location.href = '/'; }} className="flex flex-col md:flex-row items-center gap-3 select-none">
               <div className="relative w-24 h-24 md:w-16 md:h-16 flex-shrink-0">
                 <Image
                   src="/diana-logo.png"

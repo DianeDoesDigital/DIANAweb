@@ -59,6 +59,10 @@ export default function TopNav({ onActivate }: TopNavProps) {
         {/* Logo + Wordmark */}
         <Link
           href="/"
+          onClick={(e) => {
+            e.preventDefault();
+            window.location.href = '/';
+          }}
           className="flex items-center gap-3 select-none transition-all duration-500 opacity-100 translate-y-0"
         >
           <div className="relative w-[42px] h-[42px] flex-shrink-0">
