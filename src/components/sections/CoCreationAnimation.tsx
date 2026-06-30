@@ -37,12 +37,13 @@ export default function CoCreationAnimation() {
   }, []);
 
   return (
-    <div className="relative w-full h-full rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group flex flex-col items-center justify-center bg-[#0A0A0E] p-6 select-none">
-      {/* Subtle radial glow */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,0,153,0.12),transparent_70%)] pointer-events-none" />
+    <div className="relative w-full aspect-[3/4] rounded-2xl md:rounded-3xl overflow-hidden bg-[#0F0D15] border border-primary/30 shadow-2xl group flex items-center justify-center p-8 select-none">
+      {/* Decorative gradient glows matching Impact Calculator */}
+      <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Grid Construction Matrix */}
-      <div className="relative z-10 w-full max-w-[260px] aspect-square grid grid-cols-4 gap-3 my-auto">
+      {/* Grid Construction Matrix (No Text) */}
+      <div className="relative z-10 w-full max-w-[280px] aspect-square grid grid-cols-4 gap-4 my-auto">
         {Array.from({ length: 16 }).map((_, idx) => {
           const isActive = activeSquares.includes(idx);
           const isCore = idx === 5 || idx === 6 || idx === 9 || idx === 10;
@@ -52,15 +53,15 @@ export default function CoCreationAnimation() {
               className={`relative rounded-xl border transition-all duration-500 flex items-center justify-center ${
                 isActive
                   ? isCore
-                    ? 'bg-primary border-primary shadow-[0_0_20px_rgba(255,0,153,0.6)] scale-105'
-                    : 'bg-primary/20 border-primary/60 shadow-[0_0_12px_rgba(255,0,153,0.3)]'
-                  : 'bg-surface/40 border-border-main/50 hover:border-primary/30'
+                    ? 'bg-primary border-primary shadow-[0_0_24px_rgba(255,0,153,0.8)] scale-105'
+                    : 'bg-primary/25 border-primary/70 shadow-[0_0_15px_rgba(255,0,153,0.4)]'
+                  : 'bg-[#181522]/60 border-border-main/30 hover:border-primary/40'
               }`}
             >
-              {/* Inner glowing dot when active */}
+              {/* Inner glowing core dot when active */}
               <div
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  isActive ? (isCore ? 'bg-white scale-125' : 'bg-primary') : 'bg-transparent'
+                className={`w-2.5 h-2.5 rounded-full transition-all duration-300 ${
+                  isActive ? (isCore ? 'bg-white scale-125 shadow-[0_0_8px_#fff]' : 'bg-primary shadow-[0_0_6px_#ff0099]') : 'bg-transparent'
                 }`}
               />
             </div>
@@ -74,34 +75,21 @@ export default function CoCreationAnimation() {
           preserveAspectRatio="none"
         >
           <path
-            d="M 12.5,12.5 L 87.5,12.5 L 87.5,87.5 L 12.5,87.5 Z M 37.5,37.5 L 62.5,37.5 L 62.5,62.5 L 37.5,62.5 Z"
+            d="M 12.5,12.5 L 87.5,12.5 L 87.5,87.5 L 12.5,87.5 Z M 37.5,37.5 L 62.5,37.5 L 62.5,62.5 L 37.5,62.5 Z M 12.5,37.5 L 87.5,62.5 M 62.5,12.5 L 37.5,87.5"
             fill="none"
             stroke="#FF0099"
             strokeWidth="1.5"
             strokeLinecap="round"
             strokeLinejoin="round"
             className={`transition-all duration-1000 ${
-              linesDrawn ? 'opacity-80 stroke-dashoffset-0' : 'opacity-0'
+              linesDrawn ? 'opacity-85 stroke-dashoffset-0' : 'opacity-0'
             }`}
             style={{
-              strokeDasharray: '400',
-              strokeDashoffset: linesDrawn ? '0' : '400',
+              strokeDasharray: '500',
+              strokeDashoffset: linesDrawn ? '0' : '500',
             }}
           />
         </svg>
-      </div>
-
-      {/* Dynamic Status Bar */}
-      <div className="relative z-10 w-full max-w-[260px] mt-6 flex items-center justify-between border-t border-border-main/40 pt-4">
-        <div className="flex items-center gap-2">
-          <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
-          <span className="font-label-caps text-[11px] tracking-[0.15em] text-primary uppercase">
-            {linesDrawn ? 'Infrastructure Active' : 'Building Grid...'}
-          </span>
-        </div>
-        <span className="font-mono text-xs text-text-muted">
-          {activeSquares.length}/16 Nodes
-        </span>
       </div>
     </div>
   );
