@@ -130,11 +130,11 @@ function InteractiveDemoSlide() {
             </div>
             <div className="flex items-start gap-3 bg-[var(--color-primary)]/5 px-4 py-3 rounded-xl border border-[var(--color-primary)]/20">
               <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-              <span className="font-body-md text-[var(--color-text-subtle)]"><strong>DIANA Web:</strong> Next.js global marketing funnel & brand presence.</span>
+              <span className="font-body-md text-[var(--color-text-subtle)]"><strong>DIANA Web Platform:</strong> High-speed global marketing funnel, interactive calculator, &amp; brand hub.</span>
             </div>
             <div className="flex items-start gap-3 bg-[var(--color-primary)]/5 px-4 py-3 rounded-xl border border-[var(--color-primary)]/20">
               <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-              <span className="font-body-md text-[var(--color-text-subtle)]"><strong>DIANA App:</strong> React Native consumer marketplace & merchant ecosystem.</span>
+              <span className="font-body-md text-[var(--color-text-subtle)]"><strong>DIANA Mobile App:</strong> Cross-platform iOS &amp; Android marketplace for consumers &amp; partner merchants.</span>
             </div>
           </div>
         </div>
