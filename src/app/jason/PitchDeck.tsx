@@ -349,27 +349,27 @@ function CapitalStrategySlide() {
       <div className="grid grid-cols-2 gap-8 items-stretch mt-8">
         <div className="flex flex-col gap-4 h-full">
           <div className="bg-white/40 p-8 rounded-xl border-t-4 border-[var(--color-primary)] flex flex-col flex-1">
-            <h3 className="font-label-caps text-xl text-[var(--color-secondary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Grants &amp; Non-Dilutive Capital</h3>
+            <h3 className="font-label-caps text-xl text-[var(--color-secondary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Government Grants Won&apos;t Dilute You</h3>
             <p className="font-body-md text-[var(--color-text-subtle)]">
-              We are aggressively pursuing global incubator grants and utilizing the <strong>43.5% Australian R&amp;D Tax Incentive</strong>. Eligible technical spend returns nearly half its cost in cash, extending our runway and increasing our valuation <strong>without diluting your equity stake</strong>.
+              We are actively applying for government grants and innovation funding. If we receive any, that money goes directly into the business. It does <strong>not</strong> come with new shareholders attached. Your ownership percentage stays exactly the same.
             </p>
           </div>
           <div className="bg-[var(--color-secondary)]/10 p-4 rounded-xl border border-[var(--color-secondary)]/20 min-h-[80px] flex items-center justify-center">
             <p className="font-body-sm text-[var(--color-text-subtle)] italic text-center">
-              Every grant dollar secured extends DIANA&apos;s runway, raises its valuation, and compounds the return potential of your equity stake, all without touching your ownership.
+              Every grant we receive grows the business and makes your share more valuable, without reducing it.
             </p>
           </div>
         </div>
         <div className="flex flex-col gap-4 h-full">
           <div className="bg-white/40 p-8 rounded-xl border-t-4 border-[var(--color-secondary)] flex flex-col flex-1">
-            <h3 className="font-label-caps text-xl text-[var(--color-primary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Future Institutional Funding</h3>
+            <h3 className="font-label-caps text-xl text-[var(--color-primary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Future Investors Treated Equally</h3>
             <p className="font-body-md text-[var(--color-text-subtle)]">
-              Should DIANA open to future institutional investors (e.g., Series A), your shares carry standard <strong>pro-rata rights</strong>. You retain the option to participate in future rounds to maintain your ownership percentage, or allow standard, equal dilution alongside the founder.
+              If DIANA ever brings in additional investors down the track, you and the founder are treated exactly the same. Nobody gets a secret deal or special advantage over you. If new investors come in and everyone&apos;s share gets a little smaller to make room, yours and the founder&apos;s shrink by the same percentage.
             </p>
           </div>
           <div className="bg-[var(--color-primary)]/10 p-4 rounded-xl border border-[var(--color-primary)]/20 min-h-[80px] flex items-center justify-center">
             <p className="font-body-sm text-[var(--color-text-subtle)] italic text-center">
-              Equal dilution ensures alignment. Trading a smaller percentage for a piece of a significantly larger valuation pie is the standard mechanism for venture returns.
+              The goal is always to grow the overall value of the business so everyone&apos;s share is worth more, not less.
             </p>
           </div>
         </div>
@@ -506,16 +506,20 @@ const slides = [
     <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">Our Early Advantages</h2>
     <div className="grid grid-cols-2 gap-6 font-body-md text-[var(--color-text-subtle)]">
       <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Ready Partner Businesses</h3>
-        <p className="flex-grow">Close personal connections with a curated group of ethical business owners who are excited to be our first partner venues upon launch.</p>
+        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Ready Partners</h3>
+        <p className="flex-grow">Close personal connections with ethical business owners and sanctuary leaders who are excited to be our first partner venues and beneficiaries immediately upon launch.</p>
       </div>
       <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Organic Word-of-Mouth</h3>
-        <p className="flex-grow">Our close network of advocate friends and community partners reaches thousands of dedicated animal lovers globally. Their authentic excitement to share DIANA means we can attract our initial user base without spending thousands on paid ads.</p>
+        <p className="flex-grow">Our network of advocate friends and community partners reaches thousands of dedicated animal lovers globally, attracting our initial user base without spending on paid ads.</p>
       </div>
-      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col col-span-2">
+      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Capturing Displaced Users</h3>
-        <p className="flex-grow">The major vegan review app abillion closed down recently, leaving a massive community of active users searching for a new daily platform. DIANA is perfectly timed to welcome them.</p>
+        <p className="flex-grow">The major ethical review platform abillion recently closed down, leaving a massive community of active daily users searching for a trusted new platform upon our launch.</p>
+      </div>
+      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Self-Reinforcing Sanctuary Network</h3>
+        <p className="flex-grow">Because 5% of every transaction funds animal sanctuaries, sanctuary leaders and their passionate supporters naturally become active ambassadors, driving continuous user growth.</p>
       </div>
     </div>
   </div>,
@@ -537,14 +541,14 @@ const slides = [
             <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-xs font-bold">Fast-Track</span>
           </div>
           <ul className="space-y-3 font-body-sm text-[var(--color-text-subtle)]">
-            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold">Jul 2026:</span> <span>App Store launch with our first 50 partner businesses.</span></li>
-            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold">Q3 2026:</span> <span>Rapid welcome of displaced abillion community members (320 users).</span></li>
-            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold">Dec 2026:</span> <span>Hit **1,000 active monthly users** achieving full profitability.</span></li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-20 shrink-0">Jul 2026:</span> <span>App launch and onboarding our waitlisted partner businesses and early community members.</span></li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-20 shrink-0">Q3 2026:</span> <span>Rapid welcome and migration of displaced active community members from abillion.</span></li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-20 shrink-0">Dec 2026:</span> <span>Hit <strong>1,000 active monthly users</strong>, the business fully pays for itself.</span></li>
           </ul>
         </div>
         <div className="mt-4 pt-3 border-t border-[var(--color-primary)]/10 flex justify-between items-center text-xs font-bold text-[var(--color-primary)]">
-          <span>Runway Needed: 6 Months</span>
-          <span>Break-Even: Month 6</span>
+          <span>Cash needed to cover: 6 months</span>
+          <span>Self-sustaining: Month 6</span>
         </div>
       </div>
 
@@ -559,22 +563,146 @@ const slides = [
             <span className="px-3 py-1 bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] rounded-full text-xs font-bold">Safe-Track</span>
           </div>
           <ul className="space-y-3 font-body-sm text-[var(--color-text-subtle)]">
-            <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold">Q3 2026:</span> <span>Steady, organic onboarding across 25 initial local venues (150 users).</span></li>
-            <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold">Q4 2026:</span> <span>Gradual word-of-mouth expansion across Australia &amp; Asia (400 users).</span></li>
-            <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold">Jun 2027:</span> <span>Hit **1,000 active monthly users** comfortably within our 1-year runway.</span></li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold w-20 shrink-0">Q3 2026:</span> <span>Steady, organic onboarding across our initial local partner venues and community networks.</span></li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold w-20 shrink-0">Q4 2026:</span> <span>Gradual word-of-mouth expansion and adoption across regional ethical communities.</span></li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold w-20 shrink-0">Jun 2027:</span> <span>Hit <strong>1,000 active monthly users</strong>, comfortably within our 12-month cash reserve.</span></li>
           </ul>
         </div>
         <div className="mt-4 pt-3 border-t border-[var(--color-secondary)]/10 flex justify-between items-center text-xs font-bold text-[var(--color-secondary)]">
-          <span>Runway Secured: 12+ Months</span>
-          <span>Break-Even: Month 12</span>
+          <span>Cash reserve covered: 12+ months</span>
+          <span>Self-sustaining: Month 12</span>
+        </div>
+      </div>
+    </div>
+  </div>,
+
+  // Slide 8.5: The 5% Math
+  <div key="slide-5-percent-math" className="glass-surface p-12 rounded-3xl flex flex-col justify-center h-full">
+    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The 5% Math: Highly Profitable</h2>
+    
+    <div className="grid grid-cols-2 gap-12 items-center">
+      <div className="space-y-3 font-body-md">
+        <div className="flex justify-between items-center p-4 bg-white/10 rounded-xl border border-white/20 shadow-sm">
+          <span className="text-[var(--color-secondary)]">Merchant Monthly Volume</span>
+          <span className="font-bold text-2xl text-[var(--color-secondary)]">$10,000</span>
+        </div>
+        
+        <div className="flex justify-between items-center p-4 bg-[var(--color-primary)]/10 rounded-xl border border-[var(--color-primary)]/30 shadow-sm">
+          <span className="text-[var(--color-primary)] font-bold">DIANA 5% Cut (Revenue)</span>
+          <span className="font-bold text-2xl text-[var(--color-primary)]">$500</span>
+        </div>
+        
+        <div className="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/10 ml-8 shadow-sm">
+          <span className="text-[var(--color-text-subtle)] text-sm">Donation to Sanctuaries (5% of Revenue)</span>
+          <span className="font-bold text-[var(--color-text-subtle)]">-$25</span>
+        </div>
+        
+        <div className="flex justify-between items-center p-4 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/30 ml-8 shadow-sm">
+          <span className="text-[var(--color-secondary)] font-bold text-sm">Gross Margin Before Fees</span>
+          <span className="font-bold text-lg text-[var(--color-secondary)]">$475</span>
+        </div>
+
+        <div className="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/10 ml-16 shadow-sm">
+          <span className="text-[var(--color-text-subtle)] text-sm">Payment Processing &amp; Transfers</span>
+          <span className="font-bold text-[var(--color-text-subtle)]">-$225</span>
+        </div>
+
+        <div className="flex justify-between items-center p-5 bg-[var(--color-primary)] rounded-xl text-[var(--color-background)] shadow-lg shadow-[var(--color-primary)]/30 mt-6 transform hover:scale-[1.02] transition-transform">
+          <span className="font-bold text-lg">Net Profit Margin (~50%)</span>
+          <span className="font-headline-lg text-3xl">$250</span>
+        </div>
+      </div>
+
+      <div className="space-y-6">
+        <div className="space-y-6 font-body-sm text-[var(--color-text-subtle)] mt-4">
+          <div className="flex items-start gap-3">
+            <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
+            <span className="leading-relaxed"><strong>Why $10,000?</strong> A conservative monthly volume for an average mid-sized ethical café using DIANA daily.</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
+            <span className="leading-relaxed"><strong>Why $225 in Fees?</strong> Loading wallets and sending batched bank payouts costs just ~2.25% in combined gateway fees.</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
+            <span className="leading-relaxed"><strong>High Net Yield:</strong> The remaining 2.5% ($250) is pure profit to cover fixed overhead, salaries, and eventual dividends.</span>
+          </div>
+          <div className="flex items-start gap-3">
+            <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
+            <span className="leading-relaxed"><strong>Massive Scaling:</strong> With our fixed infrastructure, multiplying this $250 net yield across thousands of global merchants unlocks exponential revenue.</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+
+  // Slide 8.75: Why 1,000 Active Users?
+  <div key="slide-1000-users" className="glass-surface p-12 rounded-3xl flex flex-col justify-center h-full space-y-8">
+    <div>
+      <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">Why 1,000 Active Users?</h2>
+      <p className="font-body-md text-[var(--color-text-subtle)]">Here is the exact logic behind that number, in plain terms.</p>
+    </div>
+
+    {/* Step-by-step math */}
+    <div className="grid grid-cols-2 gap-8">
+      {/* Left: The Math */}
+      <div className="space-y-4">
+        <div className="flex items-center gap-4 p-4 bg-white/40 rounded-2xl border border-white/30 shadow-sm">
+          <span className="w-9 h-9 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 flex items-center justify-center font-bold text-[var(--color-primary)] text-sm shrink-0">1</span>
+          <div>
+            <p className="font-label-caps text-xs text-[var(--color-text-subtle)] tracking-widest mb-0.5">Average User Spends Per Month</p>
+            <p className="font-body-md text-[var(--color-text)]">A typical active user pays for coffees, meals, and ethical products through DIANA regularly, averaging around <strong>$200/month</strong> across our partner businesses.</p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4 p-4 bg-white/40 rounded-2xl border border-white/30 shadow-sm">
+          <span className="w-9 h-9 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 flex items-center justify-center font-bold text-[var(--color-primary)] text-sm shrink-0">2</span>
+          <div>
+            <p className="font-label-caps text-xs text-[var(--color-text-subtle)] tracking-widest mb-0.5">Total Monthly Volume at 1,000 Users</p>
+            <p className="font-body-md text-[var(--color-text)]">1,000 users × $200 = <strong>$200,000 processed</strong> through DIANA in a single month.</p>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-4 p-4 bg-white/40 rounded-2xl border border-white/30 shadow-sm">
+          <span className="w-9 h-9 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 flex items-center justify-center font-bold text-[var(--color-primary)] text-sm shrink-0">3</span>
+          <div>
+            <p className="font-label-caps text-xs text-[var(--color-text-subtle)] tracking-widest mb-0.5">Our Net Profit From That Volume</p>
+            <p className="font-body-md text-[var(--color-text)]">At our 2.5% net margin (proven on the previous slide), that is <strong>$5,000 per month</strong> in clear profit.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Right: What we do with it */}
+      <div className="flex flex-col gap-4">
+        <div className="p-6 bg-[var(--color-primary)]/10 rounded-2xl border-2 border-[var(--color-primary)]/30 flex-1">
+          <p className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest mb-3">The $5,000/Month Plan</p>
+          <p className="font-body-md text-[var(--color-text)] mb-4">$5,000 per month comfortably covers all of DIANA&apos;s fixed monthly costs: servers, software licenses, and admin. <strong>The business pays for itself.</strong></p>
+          <div className="space-y-2 text-sm text-[var(--color-text-subtle)]">
+            <div className="flex items-start gap-2">
+              <span className="text-[var(--color-primary)] font-bold mt-0.5">•</span>
+              <span><strong>Month 1 onwards:</strong> Profit stays in the business bank account. No payouts yet.</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-[var(--color-primary)] font-bold mt-0.5">•</span>
+              <span><strong>Once 6 months of expenses are saved:</strong> The business has a full safety net and can weather any slow period.</span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-[var(--color-primary)] font-bold mt-0.5">•</span>
+              <span><strong>After the safety net is built:</strong> Monthly profits are distributed as cash dividends to you and the founder.</span>
+            </div>
+          </div>
+        </div>
+        <div className="p-4 bg-[var(--color-secondary)]/10 rounded-2xl border border-[var(--color-secondary)]/30 text-center">
+          <p className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest mb-1">The Core Promise</p>
+          <p className="font-body-md text-[var(--color-text)] font-semibold">Your money is protected first. Payouts only begin once the business has proven it can sustain itself independently.</p>
         </div>
       </div>
     </div>
   </div>,
 
   // Slide 9: How We Easily Protect Our 5% Profit
-  <div key="slide-unit-economics" className="glass-surface p-12 rounded-3xl space-y-6">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">How We Easily Protect Our 5% Profit</h2>
+  <div key="slide-unit-economics-protect" className="glass-surface p-12 rounded-3xl space-y-6 h-full flex flex-col justify-center">
+    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">How We Protect Our Profit Margin</h2>
     <p className="font-body-md text-[var(--color-secondary)]">Most apps lose half their revenue to credit card processing fees. Here is how DIANA keeps our operating costs near zero so we become profitable fast.</p>
     
     <div className="grid grid-cols-3 gap-6 mt-4">
@@ -584,7 +712,7 @@ const slides = [
           <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-2">1. $0 Cost App Transactions</span>
           <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-3">No Card Swipes Inside</h3>
           <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            When users shop at ethical businesses, watch ad double-ups, or send gifts to sanctuaries inside the app, we don&apos;t swipe a credit card every time. We simply adjust digital balances inside our system, which means our daily transaction cost is **$0.00**.
+            When users shop at ethical businesses, watch ad double-ups, or send gifts to sanctuaries inside the app, we don&apos;t swipe a credit card every time. We simply adjust digital balances inside our system, which means our daily transaction cost is $0.00.
           </p>
         </div>
       </div>
@@ -595,7 +723,7 @@ const slides = [
           <span className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest block mb-2">2. Cheap Wallet Loading</span>
           <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-3">Bank Transfer Rails</h3>
           <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            Instead of paying expensive 3% credit card fees when users load money into their wallet, we encourage simple local bank transfers (like PayID in Australia or GCash in Asia). Loading $50 only costs us a **tiny ~10¢–20¢ flat rate**.
+            Instead of paying expensive 3% credit card fees when users load money into their wallet, we encourage simple local bank transfers (like PayID in Australia or GCash in Asia). Loading $50 only costs us a tiny ~10¢–20¢ flat rate.
           </p>
         </div>
       </div>
@@ -606,7 +734,7 @@ const slides = [
           <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-2">3. Batched Bank Payouts</span>
           <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-3">Pure Profit Margin</h3>
           <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            Instead of sending thousands of tiny bank transfers every day, we send one combined bank payout to merchants and sanctuaries every two weeks or monthly. A $1 bank fee on a $500 payout is practically nothing, leaving our **5% fee intact as pure profit!**
+            Instead of sending thousands of tiny bank transfers every day, we send one combined bank payout to merchants and sanctuaries every two weeks or monthly. A $1 bank fee on a $500 payout is practically nothing, leaving our revenue intact as pure profit!
           </p>
         </div>
       </div>
@@ -705,58 +833,76 @@ const slides = [
     </p>
   </div>,
 
-  // Slide 10: Granular Use of Funds ($50,000 Breakdown)
-  <div key="slide-8" className="glass-surface p-12 rounded-3xl space-y-6">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">Where Your $50K Investment Goes</h2>
-    <p className="font-body-sm text-[var(--color-secondary)]">Because the software is fully built and we don&apos;t need expensive advertising, your $50,000 capital goes directly into onboarding businesses and launching smoothly.</p>
-    <div className="flex gap-1 rounded-full overflow-hidden h-3 w-full">
-      <div className="bg-[var(--color-primary)] h-full" style={{ width: '50%' }} title="Partner Business Onboarding 50%"></div>
-      <div className="bg-[var(--color-secondary)] h-full" style={{ width: '30%' }} title="Hosting & Legal Setup 30%"></div>
-      <div className="bg-[var(--color-primary)]/40 h-full" style={{ width: '20%' }} title="Operations & Support 20%"></div>
-    </div>
-    <div className="grid grid-cols-3 gap-5 mt-2">
+  // Slide 10: Seed Capital Allocation (6 Items)
+  <div key="slide-8" className="glass-surface p-12 rounded-3xl space-y-6 flex flex-col justify-center h-full">
+    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">Seed Capital Allocation</h2>
+    <p className="font-body-sm text-[var(--color-secondary)]">Because the software is fully built, your capital is deployed strictly into aggressive go-to-market execution and securing our legal foundation.</p>
+    
+    <div className="grid grid-cols-3 gap-5 mt-4">
       {/* Category 1 */}
-      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
-        <div>
-          <div className="flex justify-between items-center mb-3 border-b border-[var(--color-primary)]/20 pb-2">
-            <h3 className="font-label-caps text-sm text-[var(--color-primary)] font-bold">1. Business Onboarding</h3>
-            <span className="font-impact-stat text-xl text-[var(--color-primary)]">50% ($25k)</span>
-          </div>
-          <ul className="space-y-2 font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
-            <li>• <strong>$10,000 Bali Launch Event:</strong> Signature launch event &amp; experience in Bali with celebrity friends, creators, and partner brands to ignite massive global buzz.</li>
-            <li>• <strong>$8,000 Partner Meetings &amp; Travel:</strong> Face-to-face onboarding trips across core launch hubs (Perth, Sydney, Melbourne, SE Asia) to lock in anchor venues.</li>
-            <li>• <strong>$7,000 In-Store Displays:</strong> Printing physical QR table standees, window decals, and tap-to-pay kits for our first 200 partner businesses.</li>
-          </ul>
+      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-primary)] flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
+        <div className="flex justify-between items-center mb-3 border-b border-[var(--color-primary)]/20 pb-2">
+          <h3 className="font-label-caps text-xs text-[var(--color-primary)] font-bold">1. Marketing &amp; Launch Events</h3>
+          <span className="font-impact-stat text-lg text-[var(--color-primary)]">25%</span>
         </div>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
+          Launch events and creator partnerships across our initial markets to ignite global buzz and early consumer adoption.
+        </p>
       </div>
 
       {/* Category 2 */}
-      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
-        <div>
-          <div className="flex justify-between items-center mb-3 border-b border-[var(--color-secondary)]/20 pb-2">
-            <h3 className="font-label-caps text-sm text-[var(--color-secondary)] font-bold">2. Hosting &amp; Legal Setup</h3>
-            <span className="font-impact-stat text-xl text-[var(--color-secondary)]">30% ($15k)</span>
-          </div>
-          <ul className="space-y-2 font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
-            <li>• <strong>$7,500 Global Trademarks:</strong> Registering DIANA&apos;s brand legally across Australia and key global markets, plus standard tax structuring.</li>
-            <li>• <strong>$4,500 Secure Cloud Hosting:</strong> Paying for 12 months of reliable server hosting, automated backups, and safety checkups.</li>
-            <li>• <strong>$3,000 Banking Setup:</strong> Integrating global payment accounts and automated identity verification systems.</li>
-          </ul>
+      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-secondary)] flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
+        <div className="flex justify-between items-center mb-3 border-b border-[var(--color-secondary)]/20 pb-2">
+          <h3 className="font-label-caps text-xs text-[var(--color-secondary)] font-bold">2. Partner Activation</h3>
+          <span className="font-impact-stat text-lg text-[var(--color-secondary)]">20%</span>
         </div>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
+          Physical tap-to-pay kits, standees, and window decals to onboard and equip our first 200 partner businesses.
+        </p>
       </div>
 
       {/* Category 3 */}
-      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-primary)]/40 flex flex-col justify-between shadow-sm">
-        <div>
-          <div className="flex justify-between items-center mb-3 border-b border-gray-300 pb-2">
-            <h3 className="font-label-caps text-sm text-gray-700 font-bold">3. Operations &amp; Support</h3>
-            <span className="font-impact-stat text-xl text-gray-700">20% ($10k)</span>
-          </div>
-          <ul className="space-y-2 font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
-            <li>• <strong>$6,000 Founder Focus:</strong> Essential operating allowance allowing full-time focus on securing key partner merchants.</li>
-            <li>• <strong>$4,000 Launch Support:</strong> On-demand testing and extra developer assistance to ensure the app runs smoothly during peak launch week.</li>
-          </ul>
+      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-primary)]/60 flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
+        <div className="flex justify-between items-center mb-3 border-b border-gray-300 pb-2">
+          <h3 className="font-label-caps text-xs text-[var(--color-text)] font-bold">3. Legal &amp; Brand Protection</h3>
+          <span className="font-impact-stat text-lg text-[var(--color-text)]">15%</span>
         </div>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
+          Trademark registration across key global markets, shareholder agreement, and app legal documentation.
+        </p>
+      </div>
+
+      {/* Category 4 */}
+      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-secondary)] flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
+        <div className="flex justify-between items-center mb-3 border-b border-[var(--color-secondary)]/20 pb-2">
+          <h3 className="font-label-caps text-xs text-[var(--color-secondary)] font-bold">4. Tech Infrastructure</h3>
+          <span className="font-impact-stat text-lg text-[var(--color-secondary)]">10%</span>
+        </div>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
+          12 months of secure cloud hosting, automated redundancy backups, and essential platform subscriptions.
+        </p>
+      </div>
+
+      {/* Category 5 */}
+      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-primary)] flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
+        <div className="flex justify-between items-center mb-3 border-b border-[var(--color-primary)]/20 pb-2">
+          <h3 className="font-label-caps text-xs text-[var(--color-primary)] font-bold">5. Working Capital</h3>
+          <span className="font-impact-stat text-lg text-[var(--color-primary)]">20%</span>
+        </div>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
+          Operational buffer for unforeseen launch costs and full-time founder focus during the critical first year.
+        </p>
+      </div>
+
+      {/* Category 6 */}
+      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-gray-400 flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
+        <div className="flex justify-between items-center mb-3 border-b border-gray-300 pb-2">
+          <h3 className="font-label-caps text-xs text-gray-700 font-bold">6. App Store Launch</h3>
+          <span className="font-impact-stat text-lg text-gray-700">10%</span>
+        </div>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
+          Apple and Google developer accounts, app store submission, and initial app store optimisation to maximise visibility at launch.
+        </p>
       </div>
     </div>
   </div>,
