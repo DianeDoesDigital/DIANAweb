@@ -478,7 +478,7 @@ const slides = [
         <ul className="space-y-4 font-body-md text-[var(--color-text-subtle)]">
           <li className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
-            <span><strong>Built in-House:</strong> Solo-built the complete web platform and mobile app in just 5 months, bypassing what would normally cost $450,000+ in software agency development fees.</span>
+            <span><strong>Built in-House:</strong> Solo-built the complete web platform and mobile app, bypassing what would normally cost $450,000+ in software agency development fees.</span>
           </li>
           <li className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
