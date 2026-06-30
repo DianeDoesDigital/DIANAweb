@@ -908,22 +908,6 @@ const slides = [
   </div>,
 
 
-  // Slide 11: ESIC
-  <div key="slide-9" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The ESIC Tax Offset</h2>
-    <p className="font-body-lg">The future corporate entity is designed to qualify as an Australian Early Stage Innovation Company (ESIC).</p>
-    <div className="grid grid-cols-2 gap-8 mt-8">
-      <div className="p-8 rounded-xl bg-white/50 border-t-4 border-[var(--color-primary)]">
-        <h3 className="font-impact-stat text-4xl text-[var(--color-primary)] mb-4">20%</h3>
-        <p className="font-body-md text-[var(--color-text-subtle)]"><strong>Non-Refundable Tax Offset:</strong> The Australian Tax Office effectively subsidizes 20% of your investment, claimable on your tax return for the financial year the investment is made.</p>
-      </div>
-      <div className="p-8 rounded-xl bg-white/50 border-t-4 border-[var(--color-secondary)]">
-        <h3 className="font-impact-stat text-4xl text-[var(--color-secondary)] mb-4">0%</h3>
-        <p className="font-body-md text-[var(--color-text-subtle)]"><strong>Capital Gains Tax (CGT):</strong> If you hold the shares for between 1 and 10 years, all future profits on the sale of those shares are 100% tax-free.</p>
-      </div>
-    </div>
-  </div>,
-
   // Slide 12: Your Investment, Protected
   <CapitalStrategySlide key="slide-12-capital" />,
 
@@ -934,18 +918,18 @@ const slides = [
       <div className="space-y-6 text-left">
         <div className="bg-white/40 p-6 rounded-xl border-l-4 border-[var(--color-text-subtle)]">
           <p className="font-label-caps text-[var(--color-text-subtle)] mb-2">Mathematical Equity</p>
-          <p className="font-body-md">At the $635,000 base valuation, a $50,000 capital injection mathematically equates to <strong>~7.8%</strong> equity.</p>
+          <p className="font-body-md">At the $635,000 AUD base valuation, a $50,000 AUD capital injection mathematically equates to <strong>7.8%</strong> equity.</p>
         </div>
         <div className="bg-[var(--color-primary)]/10 p-6 rounded-xl border-l-4 border-[var(--color-primary)]">
-          <p className="font-label-caps text-[var(--color-primary)] mb-2">The Early Backer Discount</p>
-          <p className="font-body-md text-[var(--color-text-subtle)]">Because we are seeking a strategic partner to support our immediate market launch, we are offering an early-backer discount on this initial round.</p>
+          <p className="font-label-caps text-[var(--color-primary)] mb-2">Secured Shareholder Alignment</p>
+          <p className="font-body-md text-[var(--color-text-subtle)]">This equity corresponds directly to our audited baseline valuation, ensuring clean capitalization table alignment from day one.</p>
         </div>
       </div>
       <div className="flex flex-col items-center justify-center p-8 bg-white/50 rounded-2xl border-2 border-[var(--color-secondary)] text-center shadow-lg transform hover:scale-105 transition-transform">
-        <span className="font-label-caps block mb-4 text-[var(--color-text-subtle)]">The Final Offer</span>
-        <span className="font-impact-stat text-7xl text-[#ff0099] mb-2">10%</span>
+        <span className="font-label-caps block mb-4 text-[var(--color-text-subtle)]">Pre-Seed Offering</span>
+        <span className="font-impact-stat text-7xl text-[#ff0099] mb-2">7.8%</span>
         <span className="font-body-lg text-[var(--color-primary)] font-bold">Ordinary Equity</span>
-        <span className="block mt-4 text-sm text-[var(--color-text-subtle)] bg-[var(--color-secondary)]/10 px-4 py-2 rounded-full">For $50,000 Seed Capital</span>
+        <span className="block mt-4 text-sm text-[var(--color-text-subtle)] bg-[var(--color-secondary)]/10 px-4 py-2 rounded-full">For $50,000 AUD Seed Capital</span>
       </div>
     </div>
   </div>,
@@ -962,7 +946,7 @@ const slides = [
       </div>
       <div className="space-y-4 p-8 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 rounded-xl">
         <h3 className="font-label-caps text-xl text-[var(--color-primary)]">Step 2: The Seed Investment</h3>
-        <p className="font-body-md text-[var(--color-secondary)]">$50,000 into the newly established entity in exchange for 10% ordinary equity, formally documented in a shareholders agreement and allocated directly to the marketing, launch, and legal setup plans.</p>
+        <p className="font-body-md text-[var(--color-secondary)]">$50,000 AUD into the newly established entity in exchange for 7.8% ordinary equity, formally documented in a shareholders agreement and allocated directly to the marketing, launch, and legal setup plans.</p>
       </div>
     </div>
   </div>,
