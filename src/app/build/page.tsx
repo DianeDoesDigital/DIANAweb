@@ -60,7 +60,7 @@ export default function BuildPage() {
       <main className="bg-[#FFDDEE] text-secondary pt-24 md:pt-32">
 
         {/* Roles grid */}
-        <section id="roles" className="pb-24 md:pb-32 pt-8 md:pt-12">
+        <section id="roles" className="pb-24 md:pb-32 pt-8 md:pt-12 scroll-mt-28 md:scroll-mt-36">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="text-center mb-16">
               <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
@@ -191,7 +191,7 @@ export default function BuildPage() {
         </section>
 
         {/* Application form */}
-        <section id="join" className="py-24 md:py-32">
+        <section id="join" className="py-24 md:py-32 scroll-mt-28 md:scroll-mt-36">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="max-w-5xl mx-auto text-center mb-12">
               <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[44px] lg:text-[50px] leading-tight mt-4 select-none">
