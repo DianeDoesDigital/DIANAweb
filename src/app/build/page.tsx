@@ -115,8 +115,8 @@ export default function BuildPage() {
               <div className="lg:col-span-5">
                 <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
                   <img 
-                    src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=800&q=80" 
-                    alt="Team collaborating"
+                    src="/grassroots-activism.png" 
+                    alt="Grassroots activism and co-builders"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
@@ -162,8 +162,8 @@ export default function BuildPage() {
               <div className="lg:col-span-5 order-2 lg:order-1">
                 <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface shadow-md group">
                   <img 
-                    src="https://images.unsplash.com/photo-1543852786-1cf6624b9987?auto=format&fit=crop&w=800&q=80" 
-                    alt="Sanctuary cat looking up"
+                    src="/holographic-blueprint.png" 
+                    alt="Holographic Sanctuary Blueprint"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                 </div>
