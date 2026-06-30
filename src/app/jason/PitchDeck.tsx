@@ -126,7 +126,7 @@ function InteractiveDemoSlide() {
           <div className="space-y-3">
             <div className="flex items-start gap-3 bg-[var(--color-primary)]/5 px-4 py-3 rounded-xl border border-[var(--color-primary)]/20">
               <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-              <span className="font-body-md text-[var(--color-text-subtle)]"><strong>73,500+ Lines of Code:</strong> Proprietary, cross-platform architecture ready for immediate market deployment.</span>
+              <span className="font-body-md text-[var(--color-text-subtle)]"><strong>100,000+ Lines of Code:</strong> Proprietary, cross-platform architecture ready for immediate market deployment.</span>
             </div>
             <div className="flex items-start gap-3 bg-[var(--color-primary)]/5 px-4 py-3 rounded-xl border border-[var(--color-primary)]/20">
               <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
