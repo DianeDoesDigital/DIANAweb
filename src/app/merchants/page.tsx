@@ -58,7 +58,7 @@ export default function MerchantsPage() {
   return (
     <>
       <PageSplash 
-        title={<>Your Business Already Matters. <span className="text-primary">Let DIANA Multiply the Impact</span></>}
+        title={<>Your Business Already Makes an Impact, <span className="text-primary">Let DIANA Multiply It</span></>}
         subtitle="Join a curated network of ethical businesses whose every transaction quietly funds animal protection automatically, transparently, and at no extra cost to your customers."
         images={['/hero-bg.jpg']}
         align="left"

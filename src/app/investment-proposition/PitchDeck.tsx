@@ -292,7 +292,7 @@ function DealCloser() {
             />
           </div>
           <div className="text-center mt-4 border-t border-[var(--color-primary)]/20 pt-2">
-            <span className="font-headline-md text-lg text-[var(--color-primary)]">Jason Teague</span>
+            <span className="font-headline-md text-lg text-[var(--color-primary)]">Authorized Signatory</span>
             <span className="block text-xs text-[var(--color-text-subtle)]">Seed Investor</span>
           </div>
           
@@ -307,7 +307,7 @@ function DealCloser() {
       ) : (
         <div className="bg-[var(--color-primary)]/20 p-8 rounded-2xl border border-[var(--color-primary)] w-full max-w-lg text-center animate-in fade-in zoom-in duration-500">
           <span className="font-impact-stat text-5xl text-[var(--color-primary)] block mb-4">DEAL SECURED</span>
-          <p className="font-body-md text-[var(--color-text-subtle)]">Welcome to the future of DIANA, Jason.</p>
+          <p className="font-body-md text-[var(--color-text-subtle)]">Welcome to the future of DIANA.</p>
         </div>
       )}
     </div>
@@ -389,7 +389,7 @@ const slides = [
     </div>
     <div className="h-px w-24 bg-[var(--color-primary)] mx-auto my-8 opacity-50"></div>
     <h2 className="font-headline-md text-3xl">Investment Proposition</h2>
-    <p className="font-body-lg text-[var(--color-text-subtle)]">Prepared for Jason Teague • June 2026</p>
+    <p className="font-body-lg text-[var(--color-text-subtle)]">Seed Investment Proposition • June 2026</p>
   </div>,
 
   // Slide 2: The Problem & Solution
@@ -937,8 +937,8 @@ const slides = [
           <p className="font-body-md">At the $635,000 base valuation, a $50,000 capital injection mathematically equates to <strong>~7.8%</strong> equity.</p>
         </div>
         <div className="bg-[var(--color-primary)]/10 p-6 rounded-xl border-l-4 border-[var(--color-primary)]">
-          <p className="font-label-caps text-[var(--color-primary)] mb-2">The Catalyst Discount</p>
-          <p className="font-body-md text-[var(--color-text-subtle)]">Because a previous argument between us was the direct spark that led to the creation of DIANA, I am assigning a &quot;Catalyst Discount&quot; to this seed round.</p>
+          <p className="font-label-caps text-[var(--color-primary)] mb-2">The Early Backer Discount</p>
+          <p className="font-body-md text-[var(--color-text-subtle)]">Because we are seeking a strategic partner to support our immediate market launch, we are offering an early-backer discount on this initial round.</p>
         </div>
       </div>
       <div className="flex flex-col items-center justify-center p-8 bg-white/50 rounded-2xl border-2 border-[var(--color-secondary)] text-center shadow-lg transform hover:scale-105 transition-transform">

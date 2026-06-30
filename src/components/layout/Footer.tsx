@@ -22,7 +22,7 @@ const legalLinks = [
 export default function Footer() {
   const pathname = usePathname();
 
-  if (pathname?.startsWith('/pitch') || pathname?.startsWith('/jason')) {
+  if (pathname?.startsWith('/pitch') || pathname?.startsWith('/jason') || pathname?.startsWith('/investment-proposition')) {
     return null;
   }
 
