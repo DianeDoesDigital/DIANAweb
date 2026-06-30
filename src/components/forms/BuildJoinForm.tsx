@@ -194,7 +194,7 @@ export default function BuildJoinForm() {
             setMessage(e.target.value);
             if (errors.message) setErrors((prev) => ({ ...prev, message: undefined }));
           }}
-          placeholder="Tell us more (Briefly describe your background, interest, or what you'd like to build with us...)"
+          placeholder="Briefly describe your background, interest, or what you'd like to build with us..."
           className={`bg-surface border rounded-lg px-4 py-3.5 text-secondary font-body-md placeholder:text-text-muted/70 focus:outline-none transition-colors resize-none ${
             errors.message ? 'border-red-500 focus:border-red-500' : 'border-border-main focus:border-primary'
           }`}

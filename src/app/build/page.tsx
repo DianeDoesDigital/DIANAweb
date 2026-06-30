@@ -46,7 +46,7 @@ export default function BuildPage() {
   return (
     <>
       <PageSplash 
-        title={<>Help Build <span className="text-primary">the Infrastructure of Care</span></>}
+        title={<><span className="text-secondary">Help Us Build the</span> <span className="text-primary">Infrastructure of Care</span></>}
         subtitle="DIANA is a global movement redefining the ethical economy, building the critical financial layer that connects conscious consumers, ethical merchants, and animal sanctuaries. Join us from the ground up."
         images={['/hero-bg.jpg']}
         align="left"
