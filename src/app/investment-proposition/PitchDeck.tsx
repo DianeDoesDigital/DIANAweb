@@ -911,42 +911,54 @@ const slides = [
   // Slide 12: Your Investment, Protected
   <CapitalStrategySlide key="slide-12-capital" />,
 
-  // Slide 13: The Equity Proposal
-  <div key="slide-10-equity" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Equity Proposal</h2>
-    <div className="grid grid-cols-2 gap-12 items-center">
-      <div className="space-y-6 text-left">
-        <div className="bg-white/40 p-6 rounded-xl border-l-4 border-[var(--color-text-subtle)]">
-          <p className="font-label-caps text-[var(--color-text-subtle)] mb-2">Mathematical Equity</p>
-          <p className="font-body-md">At the $635,000 AUD base valuation, a $50,000 AUD capital injection mathematically equates to <strong>7.8%</strong> equity.</p>
-        </div>
-        <div className="bg-[var(--color-primary)]/10 p-6 rounded-xl border-l-4 border-[var(--color-primary)]">
-          <p className="font-label-caps text-[var(--color-primary)] mb-2">Secured Shareholder Alignment</p>
-          <p className="font-body-md text-[var(--color-text-subtle)]">This equity corresponds directly to our audited baseline valuation, ensuring clean capitalization table alignment from day one.</p>
-        </div>
+  // Slide 13: The $1M Round
+  <div key="slide-round" className="glass-surface p-12 rounded-3xl space-y-6 flex flex-col justify-center h-full">
+    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">The Seed Round</h2>
+    <p className="font-body-md text-[var(--color-secondary)]">DIANA is raising a total of $365,000 AUD to reach a post-money valuation of $1,000,000 AUD. Tranche 1 is already committed, leaving $315,000 AUD open to qualified backers.</p>
+    <div className="bg-white/40 rounded-2xl p-6 border border-white/60">
+      <div className="flex justify-between items-center mb-3">
+        <span className="font-label-caps text-xs text-[var(--color-text-subtle)]">Pre-Money Valuation</span>
+        <span className="font-impact-stat text-xl text-[var(--color-secondary)]">AUD $635,000</span>
       </div>
-      <div className="flex flex-col items-center justify-center p-8 bg-white/50 rounded-2xl border-2 border-[var(--color-secondary)] text-center shadow-lg transform hover:scale-105 transition-transform">
-        <span className="font-label-caps block mb-4 text-[var(--color-text-subtle)]">Pre-Seed Offering</span>
-        <span className="font-impact-stat text-7xl text-[#ff0099] mb-2">7.8%</span>
-        <span className="font-body-lg text-[var(--color-primary)] font-bold">Ordinary Equity</span>
-        <span className="block mt-4 text-sm text-[var(--color-text-subtle)] bg-[var(--color-secondary)]/10 px-4 py-2 rounded-full">For $50,000 AUD Seed Capital</span>
+      <div className="flex justify-between items-center mb-3">
+        <span className="font-label-caps text-xs text-[var(--color-primary)]">Tranche 1 — Committed</span>
+        <span className="font-impact-stat text-xl text-[var(--color-primary)]">+ AUD $50,000</span>
+      </div>
+      <div className="flex justify-between items-center mb-3">
+        <span className="font-label-caps text-xs text-[var(--color-secondary)]">Open Allocation</span>
+        <span className="font-impact-stat text-xl text-[var(--color-secondary)]">+ AUD $315,000</span>
+      </div>
+      <div className="h-px bg-[var(--color-primary)]/20 my-4" />
+      <div className="flex justify-between items-center">
+        <span className="font-label-caps text-sm text-[var(--color-primary)] font-bold">Post-Money Target</span>
+        <span className="font-impact-stat text-3xl text-[#ff0099]">AUD $1,000,000</span>
       </div>
     </div>
+    <p className="font-body-sm text-[var(--color-text-subtle)] text-center">At the $1M post-money valuation, every $10,000 AUD invested secures exactly <strong>1%</strong> ordinary equity.</p>
   </div>,
 
-  // Slide 14: The Ask
-  <div key="slide-11" className="glass-surface p-12 rounded-3xl space-y-8 text-center">
-    <h2 className="font-headline-lg text-5xl text-[var(--color-primary)] mb-4">The Ask</h2>
-    <p className="font-body-lg text-[var(--color-secondary)] max-w-xl mx-auto">Two sequential commitments. One to open the door. One to walk through it.</p>
-    <div className="h-px w-24 bg-[var(--color-primary)] mx-auto my-8 opacity-50"></div>
-    <div className="grid grid-cols-2 gap-8 text-left mt-8">
-      <div className="space-y-4 p-8 bg-white/40 rounded-xl">
-        <h3 className="font-label-caps text-xl text-[var(--color-primary)]">Step 1: The Foundation Loan</h3>
-        <p className="font-body-md text-[var(--color-text-subtle)]">A small Director&apos;s Loan to cover ASIC incorporation and legal setup fees. This establishes the entity legally so it can receive your capital. Repaid from the first tranche of the seed round.</p>
+  // Slide 14: Investment Tiers
+  <div key="slide-tiers" className="glass-surface p-12 rounded-3xl space-y-6 flex flex-col justify-center h-full">
+    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">Seed Round Tiers</h2>
+    <p className="font-body-md text-[var(--color-secondary)]">The $315,000 AUD open allocation is available across three entry points. All investors receive ordinary equity, proportional to the $1,000,000 AUD post-money valuation.</p>
+    <div className="grid grid-cols-3 gap-5 mt-2">
+      <div className="bg-white/50 p-6 rounded-2xl border-t-4 border-[var(--color-text-subtle)] flex flex-col shadow-sm">
+        <span className="font-label-caps text-xs text-[var(--color-text-subtle)] tracking-widest mb-2">Tier 1</span>
+        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-1">Aligned Angel</h3>
+        <p className="font-impact-stat text-3xl text-[var(--color-secondary)] mb-3">1% – 2.5%</p>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed flex-grow">For $10,000 – $25,000 AUD. Funds localized launch marketing and community activation events in target markets.</p>
       </div>
-      <div className="space-y-4 p-8 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 rounded-xl">
-        <h3 className="font-label-caps text-xl text-[var(--color-primary)]">Step 2: The Seed Investment</h3>
-        <p className="font-body-md text-[var(--color-secondary)]">$50,000 AUD into the newly established entity in exchange for 7.8% ordinary equity, formally documented in a shareholders agreement and allocated directly to the marketing, launch, and legal setup plans.</p>
+      <div className="bg-white/50 p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col shadow-md transform hover:-translate-y-1 transition-transform">
+        <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest mb-2">Tier 2</span>
+        <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-1">Strategic Builder</h3>
+        <p className="font-impact-stat text-3xl text-[var(--color-primary)] mb-3">2.5% – 5%</p>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed flex-grow">For $25,000 – $50,000 AUD. Funds partner merchant activation materials, tech infrastructure, and early operational runway.</p>
+      </div>
+      <div className="bg-[var(--color-primary)]/10 p-6 rounded-2xl border-2 border-[var(--color-primary)] flex flex-col shadow-lg">
+        <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest mb-2">Tier 3</span>
+        <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-1">Lead Syndicate</h3>
+        <p className="font-impact-stat text-3xl text-[#ff0099] mb-3">5% – 31.5%</p>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed flex-grow">For $50,000 – $315,000 AUD. Funds the full seed plan including regional legal setup, compliance, and a full-year operational buffer.</p>
       </div>
     </div>
   </div>,
