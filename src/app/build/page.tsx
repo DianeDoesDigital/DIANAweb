@@ -57,7 +57,7 @@ export default function BuildPage() {
       />
 
       <TopNav />
-      <main className="snap-start bg-background text-secondary pt-24 md:pt-32">
+      <main className="bg-[#FFDDEE] text-secondary pt-24 md:pt-32">
 
         {/* Roles grid */}
         <section id="roles" className="pb-24 md:pb-32 pt-8 md:pt-12">
@@ -88,7 +88,7 @@ export default function BuildPage() {
         </section>
 
         {/* How We Collaborate */}
-        <section className="py-24 md:py-32 bg-surface border-y border-border-main">
+        <section className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left - Title and Vertical Stack of Steps */}
@@ -155,7 +155,7 @@ export default function BuildPage() {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-24 md:py-32 bg-[#FFDDEE]">
+        <section className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left - Image */}
