@@ -151,3 +151,56 @@ body::-webkit-scrollbar {
 .animate-fade-in-down {
   animation: fadeInDown 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
+
+/* Mobile Typography Scaling (~92% of desktop sizes across all body content EXCEPT TopNav and Footer) */
+@media (max-width: 767px) {
+  :root {
+    --text-headline-lg: 29.5px;
+    --text-headline-lg--line-height: 36px;
+    --text-label-caps: 12px;
+    --text-label-caps--line-height: 15px;
+    --text-impact-stat: 36.8px;
+    --text-impact-stat--line-height: 44px;
+    --text-headline-md: 22px;
+    --text-headline-md--line-height: 29px;
+    --text-body-sm: 12.8px;
+    --text-body-sm--line-height: 18.5px;
+    --text-body-lg: 16.5px;
+    --text-body-lg--line-height: 25.5px;
+    --text-headline-lg-mobile: 23.8px;
+    --text-headline-lg-mobile--line-height: 29.5px;
+    --text-body-md: 14.7px;
+    --text-body-md--line-height: 22px;
+  }
+
+  html {
+    font-size: 14.7px;
+  }
+
+  /* Keep TopNav and Footer at 100% font size */
+  header, footer {
+    --text-headline-lg: 32px;
+    --text-label-caps: 13px;
+    --text-impact-stat: 40px;
+    --text-headline-md: 24px;
+    --text-body-sm: 14px;
+    --text-body-lg: 18px;
+    --text-headline-lg-mobile: 26px;
+    --text-body-md: 16px;
+    font-size: 16px;
+  }
+
+  /* Scale down common fixed px typography outside header and footer */
+  body :not(header):not(header *):not(footer):not(footer *)[class*="text-[28px]"] {
+    font-size: 25.7px !important;
+  }
+  body :not(header):not(header *):not(footer):not(footer *)[class*="text-[26px]"] {
+    font-size: 23.9px !important;
+  }
+  body :not(header):not(header *):not(footer):not(footer *)[class*="text-[24px]"] {
+    font-size: 22px !important;
+  }
+  body :not(header):not(header *):not(footer):not(footer *)[class*="text-[32px]"] {
+    font-size: 29.5px !important;
+  }
+}
