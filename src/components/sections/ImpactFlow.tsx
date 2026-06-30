@@ -5,6 +5,11 @@ import { useEffect, useRef } from 'react';
 
 const impactSteps = [
   {
+    icon: RefreshCw,
+    label: 'Self-Sustaining Scale',
+    body: 'We aren\'t relying on traditional charity; we are rewiring commerce. By capturing a fraction of daily consumer spending, we create a limitless, self-sustaining financial engine for animal rescue.',
+  },
+  {
     icon: Bubbles,
     label: 'Eliminating Friction',
     body: 'By embedding advocacy into the purchases you already make, you generate consistent, reliable funding for animal sanctuaries without setting aside a single cent.',
@@ -13,11 +18,6 @@ const impactSteps = [
     icon: ShieldCheck,
     label: 'Strict Clearinghouse',
     body: 'The flow of capital is entirely transparent. Every pledge generated through the network is tracked from the ethical merchant\'s point of sale directly to the sanctuary on the frontlines.',
-  },
-  {
-    icon: RefreshCw,
-    label: 'Self-Sustaining Scale',
-    body: 'We aren\'t relying on traditional charity; we are rewiring commerce. By capturing a fraction of daily consumer spending, we create a limitless, self-sustaining financial engine for animal rescue.',
   },
 ];
 
@@ -52,19 +52,19 @@ export default function ImpactFlow() {
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {impactSteps.map((step, index) => {
             const StepIcon = step.icon;
             return (
               <div 
                 key={step.label}
-                className="glass-surface p-8 md:p-10 rounded-2xl w-full hover:border-primary/30 transition-all duration-300 flex flex-col items-center text-center animate-on-scroll opacity-0 translate-y-12 ease-out border border-border-main" 
+                className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 hover:translate-y-[-4px] transition-all duration-300 flex flex-col items-center text-center animate-on-scroll opacity-0 translate-y-12 ease-out" 
                 style={{ transitionDuration: '700ms', transitionDelay: `${index * 150}ms` }}
               >
-                <div className="w-16 h-16 flex items-center justify-center bg-primary/10 rounded-full mb-6">
-                  <StepIcon className="text-primary" size={32} />
+                <div className="w-16 h-16 rounded-full border-2 border-primary/20 flex items-center justify-center mb-4">
+                  <StepIcon className="text-primary" size={28} />
                 </div>
-                <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary mb-4 select-none">{step.label}</h3>
+                <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary mb-3 select-none">{step.label}</h3>
                 <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">
                   {step.body}
                 </p>
