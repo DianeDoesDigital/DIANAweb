@@ -410,6 +410,36 @@ const slides = [
   // Slide 3: The Asset: Production-Ready (Combined Demo)
   <InteractiveDemoSlide key="slide-3" />,
 
+  // Slide 4: The Global Travel Wallet
+  <div key="slide-4-wallet" className="glass-surface p-12 rounded-3xl space-y-8">
+    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Global Travel Wallet</h2>
+    <div className="grid grid-cols-2 gap-8 items-center">
+      <div className="space-y-6">
+        <p className="font-body-lg text-[var(--color-secondary)]">A borderless financial ecosystem designed for the globe-trotting conscious consumer.</p>
+        <ul className="space-y-4 font-body-md text-[var(--color-text-subtle)]">
+          <li className="flex items-start gap-3">
+            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
+            <span><strong>Zero-Friction Top Ups:</strong> Users load their DIANA wallet easily using their local currency.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
+            <span><strong>Borderless Payments:</strong> Pay any DIANA partner business, anywhere in the world, directly from the app.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
+            <span><strong>No Hidden Fees:</strong> Bypass traditional bank conversion markups and international transaction fees entirely.</span>
+          </li>
+        </ul>
+      </div>
+      <div className="bg-[var(--color-background)] p-8 rounded-2xl border border-[var(--color-primary)]/20 text-center flex flex-col justify-center h-full">
+        <span className="font-label-caps text-[var(--color-text-subtle)] mb-4">The Lifestyle Feature</span>
+        <span className="font-impact-stat text-5xl text-[var(--color-primary)] mb-4">One Wallet.</span>
+        <span className="font-impact-stat text-5xl text-[var(--color-secondary)]">Global Access.</span>
+        <p className="font-body-sm text-[var(--color-text-subtle)] mt-6 border-t border-[var(--color-primary)]/20 pt-4">Seamless integration into the global travel lifestyle.</p>
+      </div>
+    </div>
+  </div>,
+
   // Slide 5: Multi-Impact Financial Engine
   <div key="slide-4" className="glass-surface p-12 rounded-3xl space-y-8">
     <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Multi-Impact Financial Engine</h2>
@@ -437,7 +467,60 @@ const slides = [
     </div>
   </div>,
 
-  // Slide: Plain English Profitability & Fee Mechanics
+  // Slide 6: The Founder Advantage
+  <div key="slide-founder" className="glass-surface p-12 rounded-3xl space-y-8">
+    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Founder Advantage</h2>
+    <div className="grid grid-cols-2 gap-8 items-stretch">
+      <div className="space-y-6">
+        <p className="font-body-md text-[var(--color-text-subtle)]">
+          The execution of DIANA is uniquely de-risked by having a founder who combines technical build capability with genuine market insight.
+        </p>
+        <ul className="space-y-4 font-body-md text-[var(--color-text-subtle)]">
+          <li className="flex items-start gap-3">
+            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
+            <span><strong>Built in-House:</strong> Solo-built the complete web platform and mobile app in just 5 months, bypassing what would normally cost $450,000+ in software agency development fees.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
+            <span><strong>Real Market Understanding:</strong> Founder of the first all-vegan pizzeria in the Philippines, bringing firsthand experience of what ethical business owners actually need, combined with over a decade as a conscious consumer.</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
+            <span><strong>Trusted Relationships:</strong> Genuine friendships and collaborations with well-known vegan advocates, business owners, and community leaders who are ready to support and champion our launch.</span>
+          </li>
+        </ul>
+      </div>
+      <div className="relative h-full flex flex-col items-center justify-center p-8 bg-[var(--color-background)] rounded-2xl border border-[var(--color-primary)]/20 overflow-hidden">
+        <div className="absolute inset-0 bg-[var(--color-primary)]/5 z-0"></div>
+        <img src="/diane-founder.jpg" alt="Diane" className="w-48 h-48 rounded-full border-4 border-[#ff0099] mb-6 shadow-[0_0_30px_rgba(255,0,153,0.3)] relative z-10 object-cover" />
+        <span className="font-headline-lg text-4xl text-[#ff0099] relative z-10">DIANE</span>
+        <span className="font-headline-md text-xl text-[var(--color-secondary)] relative z-10 mb-4">Diana Rose G. Mejilla</span>
+        <span className="font-body-sm text-[var(--color-secondary)] text-center relative z-10 mb-4 px-4">The visionary, the builder, and the target market, all in one.</span>
+        <span className="font-label-caps text-xl text-[#ff0099] relative z-10">Founder &amp; CEO</span>
+      </div>
+    </div>
+  </div>,
+
+  // Slide 7: Our Early Advantages
+  <div key="slide-5" className="glass-surface p-12 rounded-3xl space-y-8">
+    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">Our Early Advantages</h2>
+    <div className="grid grid-cols-2 gap-6 font-body-md text-[var(--color-text-subtle)]">
+      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Ready Partner Businesses</h3>
+        <p className="flex-grow">Close personal connections with a curated group of ethical business owners who are excited to be our first partner venues upon launch.</p>
+      </div>
+      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Organic Word-of-Mouth</h3>
+        <p className="flex-grow">Our friends and community partners reach over 48M animal lovers globally. Their authentic excitement to share DIANA means we can attract our initial user base without spending thousands on paid ads.</p>
+      </div>
+      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Capturing Displaced Users</h3>
+        <p className="flex-grow">The major vegan review app abillion closed down recently, leaving a massive community of active users searching for a new daily platform. DIANA is perfectly timed to welcome them.</p>
+      </div>
+    </div>
+  </div>,
+
+  // Slide 8: How We Easily Protect Our 5% Profit
   <div key="slide-unit-economics" className="glass-surface p-12 rounded-3xl space-y-6">
     <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">How We Easily Protect Our 5% Profit</h2>
     <p className="font-body-md text-[var(--color-secondary)]">Most apps lose half their revenue to credit card processing fees. Here is how DIANA keeps our operating costs near zero so we become profitable fast.</p>
@@ -474,89 +557,6 @@ const slides = [
             Instead of sending thousands of tiny bank transfers every day, we send one combined bank payout to merchants and sanctuaries every two weeks or monthly. A $1 bank fee on a $500 payout is practically nothing, leaving our **5% fee intact as pure profit!**
           </p>
         </div>
-      </div>
-    </div>
-  </div>,
-
-  // Slide 5: The Global Travel Wallet
-  <div key="slide-4-wallet" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Global Travel Wallet</h2>
-    <div className="grid grid-cols-2 gap-8 items-center">
-      <div className="space-y-6">
-        <p className="font-body-lg text-[var(--color-secondary)]">A borderless financial ecosystem designed for the globe-trotting conscious consumer.</p>
-        <ul className="space-y-4 font-body-md text-[var(--color-text-subtle)]">
-          <li className="flex items-start gap-3">
-            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
-            <span><strong>Zero-Friction Top Ups:</strong> Users load their DIANA wallet easily using their local currency.</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
-            <span><strong>Borderless Payments:</strong> Pay any DIANA partner business, anywhere in the world, directly from the app.</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
-            <span><strong>No Hidden Fees:</strong> Bypass traditional bank conversion markups and international transaction fees entirely.</span>
-          </li>
-        </ul>
-      </div>
-      <div className="bg-[var(--color-background)] p-8 rounded-2xl border border-[var(--color-primary)]/20 text-center flex flex-col justify-center h-full">
-        <span className="font-label-caps text-[var(--color-text-subtle)] mb-4">The Lifestyle Feature</span>
-        <span className="font-impact-stat text-5xl text-[var(--color-primary)] mb-4">One Wallet.</span>
-        <span className="font-impact-stat text-5xl text-[var(--color-secondary)]">Global Access.</span>
-        <p className="font-body-sm text-[var(--color-text-subtle)] mt-6 border-t border-[var(--color-primary)]/20 pt-4">Seamless integration into the global travel lifestyle.</p>
-      </div>
-    </div>
-  </div>,
-  // Slide X: The Founder Advantage
-  <div key="slide-founder" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Founder Advantage</h2>
-    <div className="grid grid-cols-2 gap-8 items-stretch">
-      <div className="space-y-6">
-        <p className="font-body-md text-[var(--color-text-subtle)]">
-          The execution of DIANA is uniquely de-risked by having a founder who combines technical build capability with genuine market insight.
-        </p>
-        <ul className="space-y-4 font-body-md text-[var(--color-text-subtle)]">
-          <li className="flex items-start gap-3">
-            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
-            <span><strong>Built in-House:</strong> Solo-built the complete web platform and mobile app in just 5 months, bypassing what would normally cost $450,000+ in software agency development fees.</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
-            <span><strong>Real Market Understanding:</strong> Founder of the first all-vegan pizzeria in the Philippines, bringing firsthand experience of what ethical business owners actually need, combined with over a decade as a conscious consumer.</span>
-          </li>
-          <li className="flex items-start gap-3">
-            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
-            <span><strong>Trusted Relationships:</strong> Genuine friendships and collaborations with well-known vegan advocates, business owners, and community leaders who are ready to support and champion our launch.</span>
-          </li>
-        </ul>
-      </div>
-      <div className="relative h-full flex flex-col items-center justify-center p-8 bg-[var(--color-background)] rounded-2xl border border-[var(--color-primary)]/20 overflow-hidden">
-        <div className="absolute inset-0 bg-[var(--color-primary)]/5 z-0"></div>
-        <img src="/diane-founder.jpg" alt="Diane" className="w-48 h-48 rounded-full border-4 border-[#ff0099] mb-6 shadow-[0_0_30px_rgba(255,0,153,0.3)] relative z-10 object-cover" />
-        <span className="font-headline-lg text-4xl text-[#ff0099] relative z-10">DIANE</span>
-        <span className="font-headline-md text-xl text-[var(--color-secondary)] relative z-10 mb-4">Diana Rose G. Mejilla</span>
-        <span className="font-body-sm text-[var(--color-secondary)] text-center relative z-10 mb-4 px-4">The visionary, the builder, and the target market, all in one.</span>
-        <span className="font-label-caps text-xl text-[#ff0099] relative z-10">Founder &amp; CEO</span>
-      </div>
-    </div>
-  </div>,
-
-
-  // Slide 5: The Competitive Moat
-  <div key="slide-5" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">Our Early Advantages</h2>
-    <div className="grid grid-cols-2 gap-6 font-body-md text-[var(--color-text-subtle)]">
-      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Ready Partner Businesses</h3>
-        <p className="flex-grow">Close personal connections with a curated group of ethical business owners who are excited to be our first partner venues upon launch.</p>
-      </div>
-      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Organic Word-of-Mouth</h3>
-        <p className="flex-grow">Our friends and community partners reach over 48M animal lovers globally. Their authentic excitement to share DIANA means we can attract our initial user base without spending thousands on paid ads.</p>
-      </div>
-      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Capturing Displaced Users</h3>
-        <p className="flex-grow">The major vegan review app abillion closed down recently, leaving a massive community of active users searching for a new daily platform. DIANA is perfectly timed to welcome them.</p>
       </div>
     </div>
   </div>,
