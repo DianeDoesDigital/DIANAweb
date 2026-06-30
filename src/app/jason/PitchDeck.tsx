@@ -504,7 +504,7 @@ const slides = [
   // Slide 7: Our Early Advantages
   <div key="slide-5" className="glass-surface p-12 rounded-3xl space-y-8">
     <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">Our Early Advantages</h2>
-    <div className="grid grid-cols-2 gap-6 font-body-md text-[var(--color-text-subtle)]">
+    <div className="grid grid-cols-3 gap-6 font-body-md text-[var(--color-text-subtle)]">
       <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Ready Partner Businesses</h3>
         <p className="flex-grow">Close personal connections with a curated group of ethical business owners who are excited to be our first partner venues upon launch.</p>
