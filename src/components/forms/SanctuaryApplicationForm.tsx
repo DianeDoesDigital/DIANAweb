@@ -157,7 +157,7 @@ export default function SanctuaryApplicationForm() {
             setLocation(e.target.value);
             if (errors.location) setErrors((prev) => ({ ...prev, location: undefined }));
           }}
-          placeholder="Location (City, Country — e.g., Perth, Australia)"
+          placeholder="Location (City, Country, e.g., Perth, Australia)"
           className={`bg-surface border rounded-lg px-4 py-3.5 text-secondary font-body-md placeholder:text-text-muted/70 focus:outline-none transition-colors ${
             errors.location ? 'border-red-500 focus:border-red-500' : 'border-border-main focus:border-primary'
           }`}
@@ -179,7 +179,7 @@ export default function SanctuaryApplicationForm() {
             setAnimals(e.target.value);
             if (errors.animals) setErrors((prev) => ({ ...prev, animals: undefined }));
           }}
-          placeholder="Animals in your care (brief description — e.g., We rescue farmed animals...)"
+          placeholder="Animals in your care (brief description, e.g., We rescue farmed animals...)"
           className={`bg-surface border rounded-lg px-4 py-3.5 text-secondary font-body-md placeholder:text-text-muted/70 focus:outline-none transition-colors resize-none ${
             errors.animals ? 'border-red-500 focus:border-red-500' : 'border-border-main focus:border-primary'
           }`}

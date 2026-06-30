@@ -203,7 +203,7 @@ export default function SanctuariesPage() {
                 <span className="block text-secondary">Step Into the Automated</span>
                 <span className="block text-primary">Ethical Economy</span>
               </h2>
-              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none max-w-2xl mx-auto">Complete the form below to list your sanctuary on DIANA. Once verified, your organization will connect directly to our network of conscious consumers and start receiving automated, recurring funding.</p>
+              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none max-w-2xl mx-auto">Complete the form below to list your sanctuary on DIANA. Our team will review your application and get back to you within 48 hours. Once verified, your organization will connect directly to our network of conscious consumers and start receiving automated, recurring funding.</p>
             </div>
             <div className="max-w-2xl mx-auto">
 
