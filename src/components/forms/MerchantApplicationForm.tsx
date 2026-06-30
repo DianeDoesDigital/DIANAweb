@@ -244,7 +244,7 @@ export default function MerchantApplicationForm() {
       <button id="merchant-apply-btn" type="submit" className="w-full py-4 bg-primary text-[#FFDDEE] font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-full border-2 border-primary hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95 uppercase mt-1">
         Submit Application
       </button>
-      <p className="font-body-sm text-[var(--text-body-sm)] text-text-subtle text-center select-none">We review every application manually. We&apos;ll get back to you within 48 hours.</p>
+      <p className="font-body-sm text-[var(--text-body-sm)] text-text-subtle text-center select-none">All merchants are verified to be cruelty-free and ethically aligned.</p>
     </form>
   );
 }
