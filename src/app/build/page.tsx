@@ -112,9 +112,16 @@ export default function BuildPage() {
                 </div>
               </div>
 
-              {/* Right - Animation */}
+              {/* Right - Image */}
               <div className="lg:col-span-5">
-                <CoCreationAnimation />
+                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
+                  <img 
+                    src="/grassroots-activism.png" 
+                    alt="Grassroots activism and co-builders"
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
+                </div>
               </div>
             </div>
           </div>
@@ -152,16 +159,9 @@ export default function BuildPage() {
         <section className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left - Image */}
+              {/* Left - Animation */}
               <div className="lg:col-span-5 order-2 lg:order-1">
-                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
-                  <img 
-                    src="/grassroots-activism.png" 
-                    alt="Grassroots activism and co-builders"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
-                </div>
+                <CoCreationAnimation />
               </div>
 
               {/* Right - Title and FAQs */}
