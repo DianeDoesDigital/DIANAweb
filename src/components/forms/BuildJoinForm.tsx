@@ -5,11 +5,11 @@ import { Send, CheckCircle2, ChevronDown, Check, AlertCircle } from 'lucide-reac
 
 const ROLES = [
   'Core Team (Sweat Equity)',
-  'Community Contributor (Flexible)',
+  'Community Contributor (Flexible / Advisory)',
   'Global Ambassador',
-  'Strategic Advisor',
   'Financial Investor',
-  'Aligned Advertiser & Sponsor',
+  'Aligned Sponsor (Plant-based / Vegan-aligned)',
+  'Ecosystem Partner (Nonprofit / Media)',
 ];
 
 export default function BuildJoinForm() {
