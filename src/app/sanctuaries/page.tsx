@@ -26,7 +26,7 @@ const benefits = [
   { icon: Gift, title: 'One-Time Gifts', body: 'Advocates can make spontaneous one-time funding gifts directly to your sanctuary in a few taps.' },
   { icon: HeartPulse, title: 'Monthly Care Subscriptions', body: 'Individual advocates can assign you as their chosen sanctuary for recurring monthly support for stable, predictable funding.' },
   { icon: ImageIcon, title: 'Rich Sanctuary Profile', body: 'Showcase your residents with video, gallery, resident profiles, visitor quotes, and a transparent fund breakdown.' },
-  { icon: Network, title: 'Supporter Network Visibility', body: 'Your sanctuary appears across the Global Nexus and in individual advocate impact reports for authentic, earned visibility.' },
+  { icon: Network, title: 'Supporter Network Visibility', body: 'Your sanctuary appears across the global feed and in individual advocate impact reports for authentic, earned visibility.' },
   { icon: UserPlus, title: 'Sanctuary Recruitment Tools', body: 'Attract volunteers, mentors, and long-term advocates directly through your DIANA profile.' },
 ];
 
