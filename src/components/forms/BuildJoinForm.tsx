@@ -216,7 +216,7 @@ export default function BuildJoinForm() {
           <div className="w-5 h-5 border-2 border-[#FFDDEE]/30 border-t-[#FFDDEE] rounded-full animate-spin" />
         ) : (
           <>
-            SEND MESSAGE
+            EXPRESS INTEREST
             <Send size={16} />
           </>
         )}
