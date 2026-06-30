@@ -215,10 +215,7 @@ export default function BuildJoinForm() {
         {isSubmitting ? (
           <div className="w-5 h-5 border-2 border-[#FFDDEE]/30 border-t-[#FFDDEE] rounded-full animate-spin" />
         ) : (
-          <>
-            EXPRESS INTEREST
-            <Send size={16} />
-          </>
+          'EXPRESS INTEREST'
         )}
       </button>
     </form>
