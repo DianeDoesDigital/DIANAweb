@@ -77,3 +77,21 @@ export async function submitBuilderDetails(waitlistId: string, details: { linked
   }
   return { success: true };
 }
+
+export async function submitSignature(data: {
+  deck_source: string;
+  investor_label: string;
+  signature_data: string;
+  investment_amount_aud?: number | null;
+  equity_percentage?: number | null;
+}) {
+  const { error } = await supabase
+    .from('seed_signatures')
+    .insert([data]);
+
+  if (error) {
+    console.error('Signature save error:', error);
+    return { success: false, error: 'Failed to save signature' };
+  }
+  return { success: true };
+}

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { submitSignature } from '@/app/actions/submitForm';
 
 export default function PitchDeck() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -195,6 +196,8 @@ function DealCloser() {
   const [isDrawing, setIsDrawing] = React.useState(false);
   const [hasSigned, setHasSigned] = React.useState(false);
   const [dealClosed, setDealClosed] = React.useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [submitError, setSubmitError] = React.useState<string | null>(null);
 
   React.useEffect(() => {
     const canvas = canvasRef.current;
@@ -264,6 +267,31 @@ function DealCloser() {
     }
     setHasSigned(false);
     setDealClosed(false);
+    setSubmitError(null);
+  };
+
+  const handleSubmit = async () => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const signatureData = canvas.toDataURL('image/png');
+
+    const result = await submitSignature({
+      deck_source: 'generic',
+      investor_label: 'Authorized Signatory',
+      signature_data: signatureData,
+      investment_amount_aud: null,
+      equity_percentage: null
+    });
+
+    setIsSubmitting(false);
+    if (result.success) {
+      setDealClosed(true);
+    } else {
+      setSubmitError(result.error || 'Failed to submit signature.');
+    }
   };
 
   return (
@@ -274,7 +302,7 @@ function DealCloser() {
         <div className="bg-white/10 p-6 rounded-2xl border border-[var(--color-primary)]/30 w-full max-w-lg">
           <div className="flex justify-between items-center mb-4">
             <span className="font-label-caps text-sm text-[var(--color-text-subtle)]">Digital Signature</span>
-            {hasSigned && <button onClick={clearSignature} className="text-xs text-[var(--color-primary)] hover:underline z-10 relative">Clear</button>}
+            {hasSigned && !isSubmitting && <button onClick={clearSignature} className="text-xs text-[var(--color-primary)] hover:underline z-10 relative">Clear</button>}
           </div>
           <div className="relative touch-none">
             <canvas
@@ -295,13 +323,17 @@ function DealCloser() {
             <span className="font-headline-md text-lg text-[var(--color-primary)]">Authorized Signatory</span>
             <span className="block text-xs text-[var(--color-text-subtle)]">Seed Investor</span>
           </div>
+
+          {submitError && (
+            <p className="text-red-500 text-xs mt-3 text-center font-semibold">{submitError}</p>
+          )}
           
           <button 
-            disabled={!hasSigned}
-            onClick={() => setDealClosed(true)}
-            className={`w-full mt-6 py-4 rounded-xl font-headline-md text-xl transition-all ${hasSigned ? 'bg-[var(--color-primary)] text-white shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:scale-[1.02] cursor-pointer' : 'bg-gray-500/20 text-gray-400 cursor-not-allowed opacity-50'}`}
+            disabled={!hasSigned || isSubmitting}
+            onClick={handleSubmit}
+            className={`w-full mt-6 py-4 rounded-xl font-headline-md text-xl transition-all ${hasSigned && !isSubmitting ? 'bg-[var(--color-primary)] text-white shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:scale-[1.02] cursor-pointer' : 'bg-gray-500/20 text-gray-400 cursor-not-allowed opacity-50'}`}
           >
-            Commit to Seed Round
+            {isSubmitting ? 'Securing Deal...' : 'Commit to Seed Round'}
           </button>
         </div>
       ) : (
