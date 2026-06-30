@@ -11,7 +11,7 @@ export default function ImpactCalculatorOverlay() {
   const total = merchantPledge + dianaMatch;
 
   return (
-    <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden bg-[#0F0D15] border border-primary/30 p-6 md:p-8 shadow-2xl text-[#ffddee] group flex flex-col justify-between">
+    <div className="relative w-full md:aspect-[3/4] rounded-3xl overflow-hidden bg-[#0F0D15] border border-primary/30 p-6 md:p-8 shadow-2xl text-[#ffddee] group flex flex-col justify-between">
       {/* Decorative gradient glow */}
       <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
       <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
