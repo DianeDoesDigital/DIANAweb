@@ -7,7 +7,7 @@ const impactSteps = [
   {
     icon: Bubbles,
     label: 'Eliminating Friction',
-    body: 'By embedding advocacy into the purchases you already make, you generate consistent, reliable funding for animal sanctuaries without having to consciously set aside a donation.',
+    body: 'By embedding advocacy into the purchases you already make, you generate consistent, reliable funding for animal sanctuaries without setting aside a single cent.',
   },
   {
     icon: ShieldCheck,

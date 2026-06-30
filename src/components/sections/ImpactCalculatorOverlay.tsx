@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import { Heart, Calculator } from 'lucide-react';
 
 export default function ImpactCalculatorOverlay() {
   const [spend, setSpend] = useState(500);
@@ -10,53 +11,72 @@ export default function ImpactCalculatorOverlay() {
   const total = merchantPledge + dianaMatch;
 
   return (
-    <div className="absolute inset-4 md:inset-8 flex flex-col justify-end">
-      {/* Background glass panel */}
-      <div className="glass-surface p-6 md:p-8 rounded-2xl border border-white/20 shadow-2xl backdrop-blur-xl bg-background/80 relative z-10 overflow-hidden">
-        <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-xl text-secondary mb-1 select-none">
-          Your Impact Calculator
-        </h3>
-        <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted mb-6 select-none">
-          See how much flows to sanctuaries based on your monthly spend.
-        </p>
+    <div className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden bg-[#0F0D15] border border-primary/30 p-6 md:p-8 shadow-2xl text-[#ffddee] group flex flex-col justify-between">
+      {/* Decorative gradient glow */}
+      <div className="absolute -top-24 -right-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -left-24 w-64 h-64 bg-primary/20 rounded-full blur-3xl pointer-events-none" />
 
-        <label className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] text-xs text-primary uppercase mb-2 block select-none">
-          Monthly spend at DIANA merchants
-        </label>
-        <div className="flex items-center gap-3 mb-2">
-          <span className="font-impact-stat font-[var(--text-impact-stat--font-weight)] text-3xl text-secondary select-none">
-            ${spend.toLocaleString()}
-          </span>
-          <span className="font-body-sm text-text-subtle text-sm select-none">/month</span>
+      <div className="relative z-10 flex flex-col justify-between h-full gap-4">
+        <div>
+          <div className="flex items-center gap-3 mb-2">
+            <div className="w-10 h-10 rounded-full bg-[#ff0099]/15 border border-[#ff0099]/40 flex items-center justify-center shrink-0 shadow-md">
+              <Calculator className="text-[#ff0099]" size={20} />
+            </div>
+            <h3 className="font-impact-stat font-bold text-xl md:text-2xl text-[#ff0099] uppercase tracking-wider select-none">
+              IMPACT CALCULATOR
+            </h3>
+          </div>
+          <p className="font-body-sm text-xs md:text-sm text-[#ffddee]/70 leading-relaxed select-none">
+            Slide to estimate continuous monthly funding generated for animal sanctuaries by redirecting your everyday purchases.
+          </p>
         </div>
-        <input
-          id="impact-slider"
-          type="range"
-          min={50}
-          max={5000}
-          step={50}
-          value={spend}
-          onChange={(e) => setSpend(Number(e.target.value))}
-          className="w-full accent-primary cursor-pointer h-2 rounded-full mb-6"
-        />
 
-        <div className="flex flex-col gap-3">
-          <div className="flex justify-between items-center py-2 border-b border-border-main/50">
-            <span className="font-label-caps text-[10px] md:text-xs text-text-muted uppercase tracking-[0.1em] select-none">Merchant Pledge (5%)</span>
-            <div className="font-impact-stat font-[var(--text-impact-stat--font-weight)] text-lg text-secondary select-none">
+        <div className="bg-[#181522] rounded-2xl p-6 md:p-7 border border-[#ffddee]/10 shadow-inner my-auto">
+          <label htmlFor="impact-slider" className="font-label-caps tracking-[0.1em] text-xs text-primary uppercase mb-3 block select-none text-center">
+            Monthly spend at DIANA merchants
+          </label>
+          <div className="flex justify-center mb-5">
+            <span className="font-impact-stat font-[var(--text-impact-stat--font-weight)] text-5xl md:text-6xl text-[#ffddee] select-none">
+              ${spend.toLocaleString()}
+            </span>
+          </div>
+          <input
+            id="impact-slider"
+            type="range"
+            min={50}
+            max={5000}
+            step={50}
+            value={spend}
+            onChange={(e) => setSpend(Number(e.target.value))}
+            className="w-full accent-primary cursor-pointer h-2.5 bg-[#ffddee]/20 rounded-full appearance-none transition-all"
+          />
+          <div className="w-full flex justify-between text-xs text-[#ffddee]/50 font-body-sm mt-3 select-none">
+            <span>$50</span>
+            <span>$2,500</span>
+            <span>$5,000</span>
+          </div>
+        </div>
+
+        <div className="space-y-2">
+          <div className="flex justify-between items-center py-1.5 border-b border-[#ffddee]/10">
+            <span className="font-label-caps text-[10px] md:text-xs text-[#ffddee]/70 uppercase tracking-[0.1em] select-none">Merchant Pledge (At least 5%)</span>
+            <div className="font-impact-stat font-[var(--text-impact-stat--font-weight)] text-base md:text-lg text-[#ffddee] select-none">
               ${merchantPledge.toFixed(2)}
             </div>
           </div>
-          <div className="flex justify-between items-center py-2 border-b border-border-main/50">
-            <span className="font-label-caps text-[10px] md:text-xs text-text-muted uppercase tracking-[0.1em] select-none">Platform Contribution</span>
-            <div className="font-impact-stat font-[var(--text-impact-stat--font-weight)] text-lg text-secondary select-none">
+          <div className="flex justify-between items-center py-1.5 border-b border-[#ffddee]/10">
+            <span className="font-label-caps text-[10px] md:text-xs text-[#ffddee]/70 uppercase tracking-[0.1em] select-none">Platform Compounding Match</span>
+            <div className="font-impact-stat font-[var(--text-impact-stat--font-weight)] text-base md:text-lg text-[#ffddee] select-none">
               +${dianaMatch.toFixed(2)}
             </div>
           </div>
-          <div className="flex justify-between items-center pt-3 mt-1">
-            <span className="font-label-caps text-xs text-primary uppercase tracking-[0.1em] select-none">Total Generated</span>
-            <div className="font-impact-stat font-[var(--text-impact-stat--font-weight)] text-2xl text-primary select-none flex items-baseline gap-1">
-              ${total.toFixed(2)}<span className="text-xs text-text-muted font-body-sm font-normal">/mo</span>
+          <div className="flex justify-between items-center py-2.5 px-4 bg-primary/15 rounded-xl border border-primary/40 shadow-lg">
+            <div className="flex items-center gap-2">
+              <Heart className="text-[#ff0099] fill-[#ff0099]" size={16} />
+              <span className="font-label-caps text-xs md:text-sm text-primary uppercase tracking-[0.1em] font-bold select-none">Total Generated</span>
+            </div>
+            <div className="font-impact-stat font-[var(--text-impact-stat--font-weight)] text-xl md:text-2xl text-primary select-none">
+              ${total.toFixed(2)}
             </div>
           </div>
         </div>

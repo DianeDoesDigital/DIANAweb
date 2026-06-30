@@ -7,9 +7,9 @@ import { usePathname } from 'next/navigation';
 
 const navLinks = [
   { href: '/mission', label: 'Mission', icon: HandFist },
+  { href: '/sanctuaries', label: 'Sanctuaries', icon: PawPrint },
   { href: '/advocates', label: 'Advocates', icon: User },
   { href: '/merchants', label: 'Merchants', icon: Store },
-  { href: '/sanctuaries', label: 'Sanctuaries', icon: PawPrint },
   { href: '/build', label: 'Build', icon: Blocks },
 ];
 
@@ -22,12 +22,12 @@ const legalLinks = [
 export default function Footer() {
   const pathname = usePathname();
 
-  if (pathname?.startsWith('/pitch') || pathname?.startsWith('/jason') || pathname === '/') {
+  if (pathname?.startsWith('/pitch') || pathname?.startsWith('/jason')) {
     return null;
   }
 
   return (
-    <footer id="global-footer" className="bg-white text-secondary py-16 min-h-screen flex flex-col justify-center">
+    <footer id="global-footer" className="snap-start snap-always bg-white text-secondary py-16 min-h-screen flex flex-col justify-center">
       <div className="w-full max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] flex flex-col gap-12">
         {/* Top row */}
         <div className="flex flex-col md:flex-row justify-between items-center md:items-start gap-12 w-full">

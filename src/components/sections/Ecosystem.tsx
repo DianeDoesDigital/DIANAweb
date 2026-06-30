@@ -12,7 +12,7 @@ const nexusNodes = [
   {
     icon: Store,
     label: 'Ethical Merchants',
-    body: 'Values-aligned businesses that pledge a portion of every sale to drive the mission forward. Their participation effortlessly transforms ordinary, daily commerce into continuous, highly reliable sanctuary funding.',
+    body: 'Values-aligned businesses that pledge a portion of every sale to drive the mission forward. Their participation effortlessly transforms ordinary, daily commerce into continuous sanctuary funding.',
   },
   {
     icon: PawPrint,

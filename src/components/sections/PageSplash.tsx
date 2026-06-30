@@ -37,31 +37,18 @@ export default function PageSplash({
   }, []);
 
   useEffect(() => {
-    if (!showSplash) return;
     const interval = setInterval(() => {
       setCurrentImageIdx((prev) => (prev + 1) % images.length);
     }, 3000);
     return () => clearInterval(interval);
-  }, [showSplash, images.length]);
+  }, [images.length]);
 
-  useEffect(() => {
-    if (showSplash) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [showSplash]);
-
-  if (!isMounted) return <div className="fixed inset-0 z-[100] bg-background" />;
+  if (!isMounted) return <section id="hero-splash" className="w-full h-screen relative shrink-0 snap-start snap-always bg-background" />;
 
   return (
-    <div
-      className={`fixed inset-0 z-[100] flex flex-col items-center justify-center transition-opacity duration-1000 ${
-        showSplash ? 'opacity-100' : 'opacity-0 pointer-events-none'
-      }`}
+    <section
+      id="hero-splash"
+      className="w-full h-screen relative shrink-0 snap-start snap-always overflow-hidden flex flex-col items-center justify-center z-40 bg-background select-none"
     >
       {/* Background Images */}
       {images.map((src, idx) => (
@@ -93,12 +80,13 @@ export default function PageSplash({
               <button
                 key={i}
                 onClick={() => {
-                  setShowSplash(false);
                   if (btn.targetId) {
                     const id = btn.targetId;
-                    setTimeout(() => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' }), 100);
+                    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
                   } else if (btn.href) {
                     window.location.href = btn.href;
+                  } else {
+                    window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
                   }
                 }}
                 className={
@@ -113,13 +101,13 @@ export default function PageSplash({
           </div>
         ) : (
           <button
-            onClick={() => setShowSplash(false)}
+            onClick={() => window.scrollTo({ top: window.innerHeight, behavior: 'smooth' })}
             className="px-10 py-4 bg-primary text-[#FFDDEE] rounded-full font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[0.25em] uppercase hover:scale-105 hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95"
           >
             {enterText}
           </button>
         )}
       </div>
-    </div>
+    </section>
   );
 }

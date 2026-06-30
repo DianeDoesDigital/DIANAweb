@@ -19,7 +19,7 @@ const benefits = [
   { icon: BarChart3, title: 'Automatic Impact Attribution', body: 'Every purchase is tracked. Customers see exactly how their spend at your business helped animals, building deep brand loyalty.' },
   { icon: Store, title: 'Storefront Management', body: 'Control your merchant profile, products, services, pricing, and promotions all from within the DIANA platform.' },
   { icon: Globe, title: 'Borderless Commerce', body: 'Connect with a global network of conscious consumers without geographical limits, expanding your reach across the entire DIANA ecosystem.' },
-  { icon: Users, title: 'Nexus Feed Visibility', body: 'Your business appears in advocate home feeds every time a purchase supports sanctuaries for organic, authentic reach.' },
+  { icon: Users, title: 'Nexus Feed Visibility', body: 'Your business appears in advocate home feeds every time a purchase supports sanctuaries, earning authentic visibility with every purchase.' },
   { icon: FileText, title: 'Transparent Transaction Reporting', body: 'Track all your transactions and see the cumulative impact generated through your storefront with detailed reporting.' },
 ];
 
@@ -27,7 +27,7 @@ const pledgeSteps = [
   { label: 'Set your pledge', body: 'Choose your commitment. The minimum is 5% of every sale. You can opt to go higher if you are able to give more.' },
   { label: 'Sell as you already do', body: 'No change to your existing checkout flow. DIANA integrates with QR payment and direct item selection.' },
   { label: 'Funds flow automatically', body: 'Your pledge is calculated and distributed to sanctuaries each cycle. It is transparent, traceable, and automatic.' },
-  { label: 'Watch your impact grow', body: 'Track your contributions on the merchant dashboard. Customers see exactly how their spend helped animals, building deep brand loyalty.' },
+  { label: 'Watch your impact grow', body: 'Your cumulative sanctuary contribution grows with every sale. Track your total impact on the merchant dashboard and watch your business build a legacy of care that is permanently attributed to your name.' },
 ];
 
 const standards = [
@@ -65,7 +65,7 @@ export default function MerchantsPage() {
   return (
     <>
       <PageSplash 
-        title={<>Your Business Already Makes a Difference, <span className="text-primary">Let DIANA Elevate It</span></>}
+        title={<>Your Business Already Matters. <span className="text-primary">Let DIANA Multiply the Impact</span></>}
         subtitle="Join a curated network of ethical businesses whose every transaction quietly funds animal protection automatically, transparently, and at no extra cost to your customers."
         images={['/hero-bg.jpg']}
         align="left"
@@ -76,7 +76,7 @@ export default function MerchantsPage() {
       />
 
       <TopNav />
-      <main className="bg-background text-secondary pt-24 md:pt-32">
+      <main className="snap-start bg-background text-secondary pt-24 md:pt-32">
 
         {/* Benefits grid */}
         <section className="pb-24 md:pb-32 pt-8 md:pt-12">
@@ -85,6 +85,9 @@ export default function MerchantsPage() {
               <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
                 Built for Ethical <span className="text-primary">Businesses</span>
               </h2>
+              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-2xl mx-auto mt-4 select-none">
+                Connect with a global network of conscious consumers and effortlessly attribute every sale to lifesaving animal care.
+              </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {benefits.map((b) => {
@@ -182,7 +185,7 @@ export default function MerchantsPage() {
               {/* Right - Title and FAQs */}
               <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col items-center gap-6">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main text-center select-none w-full">
-                  Our Partnership <span className="text-primary">Details</span>
+                  Partnership <span className="text-primary">Questions</span>
                 </h2>
                 <div className="flex flex-col gap-3 w-full">
                   {faqs.map((faq, i) => (
@@ -206,7 +209,7 @@ export default function MerchantsPage() {
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
-                  Join Our Global <span className="text-primary">Directory</span>
+                  Ready to <span className="text-primary">Pledge?</span>
                 </h2>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">
                   Tell us about your business. We'll reach out within 48 hours.

@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 import { Menu, X, Cat } from 'lucide-react';
 
 const navLinks = [
-  { href: '/mission', label: 'Mission' },
+  { href: '/mission', label: 'Mission', isMission: true },
   { href: '/sanctuaries', label: 'Sanctuaries' },
   { href: '/advocates', label: 'Advocates' },
   { href: '/merchants', label: 'Merchants' },
@@ -22,7 +22,7 @@ export default function TopNav({ onActivate }: TopNavProps) {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [hideNav, setHideNav] = useState(false);
+  const [hideNav, setHideNav] = useState(true);
 
   useEffect(() => {
     if (pathname === '/home') {
@@ -30,15 +30,23 @@ export default function TopNav({ onActivate }: TopNavProps) {
     }
 
     const handleScroll = () => {
+      const heroSplash = document.getElementById('hero-splash');
+      const isHeroVisible = (heroSplash && heroSplash.getBoundingClientRect().bottom > 80) || window.scrollY < (window.innerHeight - 80);
+      if (isHeroVisible) {
+        setHideNav(true);
+        setScrolled(false);
+        return;
+      }
+
       setScrolled(window.scrollY > 50);
-      
       const isAtBottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
       setHideNav(isAtBottom);
     };
 
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    // Initial check
-    setTimeout(handleScroll, 100);
+    setTimeout(handleScroll, 50);
+    setTimeout(handleScroll, 150);
     
     return () => {
       window.removeEventListener('scroll', handleScroll);
@@ -67,19 +75,28 @@ export default function TopNav({ onActivate }: TopNavProps) {
         </Link>
 
         <div className="hidden md:flex items-center gap-8 transition-all duration-500 opacity-100 translate-y-0">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className={`text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] uppercase transition-colors ${
-                pathname === link.href
-                  ? 'text-primary'
-                  : 'text-secondary hover:text-primary'
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = link.isMission ? (pathname === '/' || pathname === '/mission') : (pathname === link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  if (link.isMission && pathname === '/') {
+                    e.preventDefault();
+                    document.getElementById('hero-splash')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className={`text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] uppercase transition-colors ${
+                  isActive
+                    ? 'text-primary font-bold'
+                    : 'text-secondary hover:text-primary'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
         </div>
 
         <div className="hidden md:flex items-center gap-4 transition-all duration-500 opacity-100 translate-y-0">
@@ -107,18 +124,27 @@ export default function TopNav({ onActivate }: TopNavProps) {
       {/* Mobile drawer */}
       {menuOpen && (
         <div className="md:hidden nav-blur border-t border-border-main px-[var(--spacing-margin-mobile)] py-6 flex flex-col gap-6">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setMenuOpen(false)}
-              className={`text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] uppercase transition-colors ${
-                pathname === link.href ? 'text-primary' : 'text-secondary hover:text-primary'
-              }`}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = link.isMission ? (pathname === '/' || pathname === '/mission') : (pathname === link.href);
+            return (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={(e) => {
+                  setMenuOpen(false);
+                  if (link.isMission && pathname === '/') {
+                    e.preventDefault();
+                    document.getElementById('hero-splash')?.scrollIntoView({ behavior: 'smooth' });
+                  }
+                }}
+                className={`text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] uppercase transition-colors ${
+                  isActive ? 'text-primary font-bold' : 'text-secondary hover:text-primary'
+                }`}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <button
             onClick={() => { setMenuOpen(false); window.dispatchEvent(new Event('openAppDemo')); }}
             className="flex items-center justify-center gap-2 text-[#FFDDEE] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[0.1em] text-xs bg-primary px-6 h-12 rounded-full border-2 border-primary hover:shadow-[0_4px_20px_rgba(255,0,153,0.45)] active:scale-95 transition-all duration-200 uppercase w-full"

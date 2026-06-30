@@ -26,7 +26,7 @@ const pillars = [
   {
     icon: QrCode,
     title: 'Purpose Driven Payments',
-    body: 'Use a payment method where your daily transactions automatically cater to the needs of a rescued animal without you spending a single cent extra.',
+    body: 'Use a payment method where your daily transactions automatically support rescued animals without spending a single cent extra.',
   },
   {
     icon: Heart,
@@ -36,12 +36,12 @@ const pillars = [
   {
     icon: HandHeart,
     title: 'Direct Support',
-    body: 'Send one-time gifts or set up reliable monthly care subscriptions to your favourite sanctuaries if you want to give more to help the mission.',
+    body: 'Send one-time gifts or set up reliable monthly care subscriptions to your favourite sanctuaries. For those who want to give even more.',
   },
   {
     icon: AudioWaveform,
     title: 'The Global Nexus',
-    body: 'Watch as impact happens in real time. The global Nexus feed shows you a live stream of how the community is moving the needle for animals everywhere.',
+    body: 'Watch as impact happens in real time. The global Nexus feed shows how everyday choices around the world are funding animal rescue in real time.',
   },
   {
     icon: ChartColumn,
@@ -57,14 +57,14 @@ const appFeatures = [
     body: 'Load your DIANA wallet in your home currency instantly. No conversion at the point of deposit, no surprises at the point of sale.',
   },
   {
-    icon: Globe,
-    title: 'Borderless Payments',
-    body: 'Pay any DIANA merchant, anywhere in the world, directly from the app. Your wallet works the same in Manila as it does in Melbourne.',
-  },
-  {
     icon: ArrowDownUp,
     title: 'No Exchange Fees',
     body: 'Bypass traditional bank conversion spreads and international transaction fees entirely. Your money stays yours.',
+  },
+  {
+    icon: Globe,
+    title: 'Borderless Payments',
+    body: 'Pay any DIANA merchant, anywhere in the world, directly from the app. Your wallet works the same in Manila as it does in Melbourne.',
   },
 ];
 
@@ -92,7 +92,7 @@ export default function AdvocatesPage() {
       />
       <TopNav />
 
-      <main className="bg-[#FFDDEE] text-secondary pt-24 md:pt-32">
+      <main className="snap-start bg-[#FFDDEE] text-secondary pt-24 md:pt-32">
         
         {/* Benefits Grid */}
         <section id="benefits" className="pb-24 md:pb-32 pt-8 md:pt-12">
@@ -125,62 +125,30 @@ export default function AdvocatesPage() {
         {/* Multi-Impact Engine */}
         <MultiImpactEngine />
 
-        {/* The DIANA App */}
+        {/* Global App Standards / Features */}
         <section className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left - Features */}
-              <div className="lg:col-span-7 flex flex-col gap-8">
-                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main select-none w-full text-center lg:text-left">
-                  Global Travel <span className="text-primary">Wallet</span>
-                </h2>
-                <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted select-none text-center lg:text-left">
-                  A borderless financial ecosystem designed for the conscious consumer who moves through the world and wants every transaction to mean something wherever they are.
-                </p>
-                <div className="flex flex-col gap-6 w-full mt-4">
-                  {appFeatures.map((f, i) => (
-                    <div key={f.title} className="flex items-start gap-5">
-                      <div className="w-11 h-11 shrink-0 rounded-2xl border border-border-main glass-surface bg-background flex items-center justify-center">
-                        <f.icon className="text-primary" size={20} />
-                      </div>
-                      <div>
-                        <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-lg text-secondary mb-1 select-none">{f.title}</h3>
-                        <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{f.body}</p>
-                      </div>
+            <div className="text-center mb-16">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
+                Shop Consciously, <span className="text-primary">Anywhere in the World</span>
+              </h2>
+              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-2xl mx-auto mt-4 select-none">
+                A borderless financial ecosystem designed for conscious consumers who move through the world and want every transaction to mean something.
+              </p>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {appFeatures.map((f) => {
+                const FeatureIcon = f.icon;
+                return (
+                  <div key={f.title} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 hover:translate-y-[-4px] transition-all duration-300 flex flex-col items-center text-center">
+                    <div className="w-16 h-16 rounded-full border-2 border-primary/20 flex items-center justify-center mb-4">
+                      <FeatureIcon className="text-primary" size={28} />
                     </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Right - Mockup */}
-              <div className="lg:col-span-5 flex justify-center items-center mt-12 lg:mt-0">
-                <div className="relative w-full max-w-sm">
-                  <div className="glass-surface bg-background rounded-3xl p-10 border border-border-main text-center space-y-6 shadow-lg">
-                    <span className="font-label-caps text-xs text-text-muted uppercase tracking-[0.15em] select-none">Pay anywhere. In any currency.</span>
-                    <div className="grid grid-cols-3 gap-4 text-center py-4">
-                      <div className="glass-surface bg-surface rounded-2xl p-4 border border-border-main">
-                        <span className="font-impact-stat text-2xl text-secondary block select-none">AUD</span>
-                        <span className="font-body-sm text-xs text-text-muted select-none">Australia</span>
-                      </div>
-                      <div className="glass-surface bg-surface rounded-2xl p-4 border border-primary/40">
-                        <span className="font-impact-stat text-2xl text-primary block select-none">PHP</span>
-                        <span className="font-body-sm text-xs text-text-muted select-none">Philippines</span>
-                      </div>
-                      <div className="glass-surface bg-surface rounded-2xl p-4 border border-border-main">
-                        <span className="font-impact-stat text-2xl text-secondary block select-none">USD</span>
-                        <span className="font-body-sm text-xs text-text-muted select-none">Global</span>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-center gap-2 text-text-muted font-body-sm text-sm select-none">
-                      <span>and every other currency in between</span>
-                    </div>
-                    <div className="bg-primary/10 rounded-xl px-4 py-3 border border-primary/20">
-                      <span className="font-body-sm text-sm text-primary select-none font-medium">Zero conversion fees. Always.</span>
-                    </div>
+                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary mb-3 select-none">{f.title}</h3>
+                    <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{f.body}</p>
                   </div>
-                  <div className="absolute inset-0 rounded-3xl bg-primary/5 blur-2xl -z-10 scale-110" />
-                </div>
-              </div>
+                );
+              })}
             </div>
           </div>
         </section>
@@ -189,17 +157,9 @@ export default function AdvocatesPage() {
         <section className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-              {/* Left - Photo */}
+              {/* Left - Interactive Impact Calculator */}
               <div className="lg:col-span-5 order-2 lg:order-1">
-                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
-                  <img 
-                    src="https://images.unsplash.com/photo-1548263594-a71ea65a8598?auto=format&fit=crop&w=1920&q=80" 
-                    alt="Advocate impact"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                  <ImpactCalculatorOverlay />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
-                </div>
+                <ImpactCalculatorOverlay />
               </div>
 
               {/* Right - FAQs */}
@@ -232,7 +192,7 @@ export default function AdvocatesPage() {
                   Your Daily Life, <span className="text-primary">Quietly Doing More</span>
                 </h2>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none max-w-2xl mx-auto">
-                  Join the global network of conscious consumers turning everyday spending into a lifeline for animals.
+                  Every person who joins adds another layer of protection for animals worldwide. Let your daily choices be part of it.
                 </p>
               </div>
               <div className="max-w-2xl mx-auto">

@@ -7,22 +7,22 @@ const steps = [
   {
     icon: HeartHandshake,
     label: 'Merchant Pledge',
-    description: 'Participating ethical merchants commit a minimum 5% of every purchase directly to registered animal sanctuaries. This creates a reliable baseline of funding built right into daily commerce.',
+    description: 'Participating ethical merchants commit at least 5% of every purchase directly to animal sanctuaries.',
   },
   {
     icon: Coins,
     label: 'Consumer Extra',
-    description: 'Advocates can easily add an optional extra amount to their transactions at checkout. This gives conscious consumers in our network the power to amplify their personal impact on animal rescue effortlessly.',
+    description: 'Advocates can add an optional contribution at checkout to amplify their personal impact effortlessly.',
   },
   {
     icon: SquarePlay,
     label: 'Sponsor Doubler',
-    description: 'Brands with purely plant-based product lines or vegan-aligned services can advertise on the platform. Their sponsorship automatically doubles the sanctuary contribution from your transaction at no extra cost to you.',
+    description: 'Brands with purely plant-based products or vegan-aligned services advertising on DIANA double the sanctuary contribution from your transaction.',
   },
   {
     icon: Cat,
     label: 'Platform Contribution',
-    description: 'DIANA automatically channels 5% of every platform fee to partner sanctuaries. Across thousands of daily transactions, this creates a steady, compounding, additional funding stream for the animals.',
+    description: 'DIANA automatically channels 5% of every platform fee to partner sanctuaries, compounding the impact.',
   },
 ];
 
@@ -34,14 +34,9 @@ export default function MultiImpactEngine() {
           
           {/* Left - Title and Vertical Stack of Steps */}
           <div className="lg:col-span-7 flex flex-col items-center gap-8">
-            <div className="text-center w-full">
-              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main select-none">
-                Multi-Impact <span className="text-primary">Engine</span>
-              </h2>
-              <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none max-w-xl mx-auto">
-                Every transaction through DIANA activates multiple compounding streams of sanctuary support, automatically.
-              </p>
-            </div>
+            <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main text-center select-none w-full">
+              Multi-Impact <span className="text-primary">Engine</span>
+            </h2>
             
             <div className="flex flex-col gap-4 w-full">
               {steps.map((step) => (
@@ -59,7 +54,7 @@ export default function MultiImpactEngine() {
           </div>
 
           {/* Right - Payment Carousel */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 flex items-center justify-center">
             <PaymentCarousel />
           </div>
 

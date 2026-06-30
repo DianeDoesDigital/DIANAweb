@@ -18,7 +18,7 @@ const fundFlow = [
   { icon: Store, label: 'Merchant Pledge', body: 'At least 5% of every ethical purchase flows into the network.' },
   { icon: Cat, label: 'Platform Contribution', body: 'DIANA boosts every payout with a contribution from its own platform fee.' },
   { icon: Heart, label: 'Direct Support', body: 'One-time gifts and monthly care from dedicated advocates.' },
-  { icon: BanknoteArrowUp, label: 'Sanctuary Disbursal', body: 'Funds distributed to your registered sanctuary for every cycle.' },
+  { icon: BanknoteArrowUp, label: 'Sanctuary Disbursal', body: 'Funds arrive in your account. Directly and automatically, at the end of every cycle.' },
 ];
 
 const benefits = [
@@ -38,9 +38,9 @@ const standards = [
 
 const faqs = [
   { q: 'Is there a cost to join?', a: 'No. DIANA is completely free for sanctuaries. The platform is funded through a separate allocation from merchant pledges, ensuring your distributions remain yours.' },
+  { q: 'Do we need to be a registered charity?', a: 'Yes. To maintain the integrity of the network and comply with financial regulations, we require proof of registered non-profit or charitable status in your jurisdiction.' },
   { q: 'How much time does it take to manage?', a: 'Very little. Once your profile is set up and verified, funds flow automatically. We encourage occasional updates to your gallery and resident stories, but no ongoing fundraising campaigns are required.' },
   { q: 'When and how are funds distributed?', a: 'Funds are aggregated in real-time as purchases are made across the network, and distributed via direct bank transfer at the end of each funding cycle.' },
-  { q: 'Do we need to be a registered charity?', a: 'Yes. To maintain the integrity of the network and comply with financial regulations, we require proof of registered non-profit or charitable status in your jurisdiction.' },
 ];
 
 const checklist = [
@@ -55,7 +55,7 @@ export default function SanctuariesPage() {
     <>
       <PageSplash 
         title={<>A Continuous Stream of Care, <span className="text-primary">Built into Everyday Life</span></>}
-        subtitle="DIANA creates a financial infrastructure where the daily choices of thousands of advocates quietly fund the animals in your care automatically, every single cycle."
+        subtitle="DIANA creates a financial infrastructure where the daily choices of thousands of advocates quietly fund the animals in your care automatically, every single day."
         images={['/hero-bg.jpg']}
         align="left"
         actionButtons={[
@@ -65,7 +65,7 @@ export default function SanctuariesPage() {
       />
       <TopNav />
 
-      <main className="bg-[#FFDDEE] text-secondary pt-24 md:pt-32">
+      <main className="snap-start snap-always bg-[#FFDDEE] text-secondary pt-24 md:pt-32">
         
         {/* Benefits */}
         <section id="benefits" className="pb-24 md:pb-32 pt-8 md:pt-12">
@@ -75,7 +75,7 @@ export default function SanctuariesPage() {
                 Focus on Care, <span className="text-primary">DIANA Handles the Rest</span>
               </h2>
               <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-2xl mx-auto mt-4 select-none">
-                A suite of tools and automated income streams designed to let you spend less time fundraising and more time with the animals.
+                A suite of tools and automated income streams designed to let you spend more time with the animals.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -184,7 +184,7 @@ export default function SanctuariesPage() {
               {/* Right - Title and FAQs Stack (on mobile it goes first) */}
               <div className="lg:col-span-7 order-1 lg:order-2 flex flex-col items-center gap-6">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main text-center select-none w-full">
-                  Our Partnership <span className="text-primary">Details</span>
+                  Common <span className="text-primary">Questions</span>
                 </h2>
                 <div className="flex flex-col gap-3 w-full">
                   {faqs.map((faq, i) => (
@@ -208,7 +208,7 @@ export default function SanctuariesPage() {
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-12">
                 <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
-                  Join and Receive <span className="text-primary">Support</span>
+                  Your Sanctuary <span className="text-primary">Deserves This</span>
                 </h2>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">We review all sanctuaries manually to ensure quality and alignment. We'll be in touch within 48 hours.</p>
               </div>
