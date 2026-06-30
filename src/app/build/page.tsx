@@ -23,8 +23,8 @@ const roles = [
 ];
 
 const collaborationSteps = [
-  { label: 'Express Interest', body: 'Fill out the unified form below. Tell us exactly how you envision yourself contributing to the movement.' },
-  { label: 'Alignment Call', body: 'A quick sync with a core team member to discuss your background, our roadmap, and ensure perfect mission alignment.' },
+  { label: 'Express Interest', body: 'Fill out the form below and tell us exactly how you envision yourself contributing to the movement.' },
+  { label: 'Alignment Call', body: 'A quick sync with our founder to discuss your background, our roadmap, and ensure perfect mission alignment.' },
   { label: 'Find Your Fit', body: 'Whether it\'s an advisory agreement, an onboarding into our dev environment, or setting up a sponsor package, we lock in the details.' },
   { label: 'Build the Future', body: 'You are officially part of the ecosystem. Start building, contributing, or advising as we scale the infrastructure of care.' },
 ];
