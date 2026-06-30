@@ -30,6 +30,9 @@ export default function MerchantApplicationForm() {
   const [errors, setErrors] = useState<{ businessName?: string; contactName?: string; email?: string; category?: string; pledge?: string }>({});
   const [submitted, setSubmitted] = useState(false);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -74,9 +77,40 @@ export default function MerchantApplicationForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
+      setIsSubmitting(true);
+      setSubmitError('');
+
+      const { submitWaitlist, submitMerchantDetails } = await import('@/app/actions/submitForm');
+      
+      // Step 1: Add to waitlist
+      const waitlistResult = await submitWaitlist({ 
+        name: contactName, 
+        email, 
+        role: 'merchant' 
+      });
+      
+      if (!waitlistResult.success || !waitlistResult.id) {
+        setSubmitError(waitlistResult.error || 'An error occurred.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Step 2: Add merchant details
+      const detailsResult = await submitMerchantDetails(waitlistResult.id, {
+        business_name: businessName,
+        website: website || '',
+        business_type: category
+      });
+
+      if (!detailsResult.success) {
+        setSubmitError(detailsResult.error || 'An error occurred saving details.');
+        setIsSubmitting(false);
+        return;
+      }
+
       setSubmitted(true);
     }
   };
@@ -241,9 +275,12 @@ export default function MerchantApplicationForm() {
         )}
       </div>
 
-      <button id="merchant-apply-btn" type="submit" className="w-full py-4 bg-primary text-[#FFDDEE] font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-full border-2 border-primary hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95 uppercase mt-1">
-        Submit Application
+      <button disabled={isSubmitting} id="merchant-apply-btn" type="submit" className="w-full py-4 bg-primary text-[#FFDDEE] font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-full border-2 border-primary hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none uppercase mt-1">
+        {isSubmitting ? 'Submitting...' : 'Submit Application'}
       </button>
+      {submitError && (
+        <p className="text-red-500 text-sm text-center font-bold uppercase">{submitError}</p>
+      )}
       <p className="font-body-sm text-[var(--text-body-sm)] text-text-subtle text-center select-none">All merchants are verified to be cruelty-free and ethically aligned.</p>
     </form>
   );

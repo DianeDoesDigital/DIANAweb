@@ -9,6 +9,9 @@ export default function AdvocateJoinForm() {
   const [errors, setErrors] = useState<{ name?: string; email?: string }>({});
   const [submitted, setSubmitted] = useState(false);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
+
   const validate = () => {
     const newErrors: { name?: string; email?: string } = {};
 
@@ -31,10 +34,21 @@ export default function AdvocateJoinForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
-      setSubmitted(true);
+      setIsSubmitting(true);
+      setSubmitError('');
+      
+      const { submitWaitlist } = await import('@/app/actions/submitForm');
+      const result = await submitWaitlist({ name, email, role: 'personal' });
+      
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        setSubmitError(result.error || 'An error occurred.');
+        setIsSubmitting(false);
+      }
     }
   };
 
@@ -103,9 +117,12 @@ export default function AdvocateJoinForm() {
         </span>
       </div>
 
-      <button type="submit" className="w-full py-4 bg-primary text-[#FFDDEE] font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-full border-2 border-primary hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95 uppercase mt-1">
-        Join the Nexus
+      <button disabled={isSubmitting} type="submit" className="w-full py-4 bg-primary text-[#FFDDEE] font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-full border-2 border-primary hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none uppercase mt-1">
+        {isSubmitting ? 'Submitting...' : 'Join the Nexus'}
       </button>
+      {submitError && (
+        <p className="text-red-500 text-sm text-center font-bold uppercase">{submitError}</p>
+      )}
       <p className="font-body-sm text-[var(--text-body-sm)] text-text-subtle text-center select-none">No spam. Full onboarding happens in the app.</p>
     </form>
   );

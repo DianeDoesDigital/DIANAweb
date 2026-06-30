@@ -34,6 +34,8 @@ export default function BuildJoinForm() {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
+  const [submitError, setSubmitError] = useState('');
+
   const validate = () => {
     const newErrors: { name?: string; email?: string; role?: string; message?: string } = {};
 
@@ -62,15 +64,47 @@ export default function BuildJoinForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
       setIsSubmitting(true);
-      setTimeout(() => {
+      setSubmitError('');
+
+      const { submitWaitlist, submitBuilderDetails } = await import('@/app/actions/submitForm');
+      
+      // Step 1: Add to waitlist
+      const waitlistResult = await submitWaitlist({ 
+        name, 
+        email, 
+        role: 'builder' 
+      });
+      
+      if (!waitlistResult.success || !waitlistResult.id) {
+        setSubmitError(waitlistResult.error || 'An error occurred.');
         setIsSubmitting(false);
-        setIsSuccess(true);
-        setTimeout(() => setIsSuccess(false), 4000);
-      }, 1200);
+        return;
+      }
+
+      // Step 2: Add builder details
+      const detailsResult = await submitBuilderDetails(waitlistResult.id, {
+        linkedin_portfolio: '', // Not collected in form, but could be added later
+        interest_area: role,
+        message: message
+      });
+
+      if (!detailsResult.success) {
+        setSubmitError(detailsResult.error || 'An error occurred saving details.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      setIsSubmitting(false);
+      setIsSuccess(true);
+      setTimeout(() => setIsSuccess(false), 4000);
+      setName('');
+      setEmail('');
+      setRole('');
+      setMessage('');
     }
   };
 
@@ -218,6 +252,9 @@ export default function BuildJoinForm() {
           'EXPRESS INTEREST'
         )}
       </button>
+      {submitError && (
+        <p className="text-red-500 text-sm text-center font-bold uppercase">{submitError}</p>
+      )}
     </form>
   );
 }

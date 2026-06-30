@@ -17,6 +17,8 @@ export default function SanctuaryApplicationForm() {
   const [animals, setAnimals] = useState('');
   const [errors, setErrors] = useState<{ sanctuaryName?: string; contactName?: string; email?: string; location?: string; animals?: string }>({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const validate = () => {
     const newErrors: { sanctuaryName?: string; contactName?: string; email?: string; location?: string; animals?: string } = {};
@@ -50,9 +52,40 @@ export default function SanctuaryApplicationForm() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (validate()) {
+      setIsSubmitting(true);
+      setSubmitError('');
+
+      const { submitWaitlist, submitSanctuaryDetails } = await import('@/app/actions/submitForm');
+      
+      // Step 1: Add to waitlist
+      const waitlistResult = await submitWaitlist({ 
+        name: contactName, 
+        email, 
+        role: 'sanctuary' 
+      });
+      
+      if (!waitlistResult.success || !waitlistResult.id) {
+        setSubmitError(waitlistResult.error || 'An error occurred.');
+        setIsSubmitting(false);
+        return;
+      }
+
+      // Step 2: Add sanctuary details
+      const detailsResult = await submitSanctuaryDetails(waitlistResult.id, {
+        sanctuary_name: sanctuaryName,
+        location,
+        website_social: website || ''
+      });
+
+      if (!detailsResult.success) {
+        setSubmitError(detailsResult.error || 'An error occurred saving details.');
+        setIsSubmitting(false);
+        return;
+      }
+
       setSubmitted(true);
     }
   };
@@ -192,9 +225,12 @@ export default function SanctuaryApplicationForm() {
         )}
       </div>
 
-      <button id="sanctuary-apply-btn" type="submit" className="w-full py-4 bg-primary text-[#FFDDEE] font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-full border-2 border-primary hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95 uppercase mt-1">
-        Submit Application
+      <button disabled={isSubmitting} id="sanctuary-apply-btn" type="submit" className="w-full py-4 bg-primary text-[#FFDDEE] font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-full border-2 border-primary hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none uppercase mt-1">
+        {isSubmitting ? 'Submitting...' : 'Submit Application'}
       </button>
+      {submitError && (
+        <p className="text-red-500 text-sm text-center font-bold uppercase">{submitError}</p>
+      )}
       <p className="font-body-sm text-[var(--text-body-sm)] text-text-subtle text-center select-none">All sanctuaries are verified to be cruelty-free and genuinely rescue-focused.</p>
     </form>
   );

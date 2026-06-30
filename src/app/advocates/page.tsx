@@ -87,7 +87,7 @@ export default function AdvocatesPage() {
         align="left"
         actionButtons={[
           { label: 'JOIN THE NEXUS', targetId: 'join', primary: true },
-          { label: 'HOW IT WORKS', primary: false }
+          { label: 'HOW IT WORKS', targetId: 'benefits', primary: false }
         ]}
       />
       <TopNav />
