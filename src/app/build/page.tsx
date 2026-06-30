@@ -68,7 +68,7 @@ export default function BuildPage() {
                 Ways to <span className="text-primary">Build</span>
               </h2>
               <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-3xl mx-auto mt-4 select-none">
-                The global vegan economy is valued at over $500 billion. Yet the animal sanctuaries that form its ethical heart are surviving on goodwill. Here are 6 ways you can help us build the infrastructure to fix it.
+                The global vegan economy is valued at $500 billion, yet the animal sanctuaries on the frontlines are surviving on goodwill. Here are 6 ways you can help us build the infrastructure to fix it.
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
