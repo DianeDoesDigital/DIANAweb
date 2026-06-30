@@ -206,7 +206,7 @@ export default function SanctuariesPage() {
         <section id="apply" className="py-24 md:py-32">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="max-w-5xl mx-auto text-center mb-12">
-              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[48px] lg:text-[54px] leading-tight mt-4 select-none">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[22px] md:text-[36px] lg:text-[42px] leading-tight mt-4 select-none whitespace-nowrap">
                 <span className="text-secondary">Step Into the Automated</span> <span className="text-primary">Ethical Economy</span>
               </h2>
               <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none max-w-2xl mx-auto">We review all sanctuaries manually to ensure quality and alignment. We'll be in touch within 48 hours.</p>
