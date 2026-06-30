@@ -16,10 +16,10 @@ export const metadata: Metadata = {
 const roles = [
   { icon: Users, title: 'Core Team', body: 'A serious, ongoing role. Sweat equity agreements, backpay upon funding, and early team credit. For those who want to build the foundations and grow with DIANA.' },
   { icon: Briefcase, title: 'Community Contributor', body: 'Flexible, task-based involvement. Contribute a few hours a week in design, code, or writing. Get portfolio credit, references, and your name in the contributor list.' },
-  { icon: TrendingUp, title: 'Financial Investor', body: 'Angel, pre-seed, or strategic funding to build the runway for an infrastructure tapping into the $500B global ethical economy. Full investment brief available.' },
-  { icon: Compass, title: 'Strategic Advisor', body: 'Industry expertise in exchange for advisory equity. We need your strategy, connections, and experience—the kind you only get from having been there before.' },
   { icon: Globe, title: 'Global Ambassador', body: 'Spread the word in your world. DIANA works because advocates carry it into spaces we can\'t reach alone: festivals, community events, and local networks.' },
-  { icon: Handshake, title: 'Ecosystem Partner', body: 'Not every ally is a merchant or a sanctuary. If your organisation (vegan media, advocacy group, aligned nonprofit) wants to formally align with DIANA, this is for you.' },
+  { icon: Compass, title: 'Strategic Advisor', body: 'Industry expertise in exchange for advisory equity. We need your strategy, connections, and experience—the kind you only get from having been there before.' },
+  { icon: TrendingUp, title: 'Financial Investor', body: 'Angel, pre-seed, or strategic funding to build the runway for an infrastructure tapping into the $500B global ethical economy. Full investment brief available.' },
+  { icon: Handshake, title: 'Aligned Advertiser & Sponsor', body: 'For ethical plant-based brands and cruelty-free companies looking to sponsor sanctuary initiatives or reach high-intent conscious consumers directly on DIANA.' },
 ];
 
 const collaborationSteps = [
@@ -195,8 +195,8 @@ export default function BuildPage() {
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
-                  The desire exists. The infrastructure did not. <span className="text-primary">Until DIANA.</span>
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight mt-4 select-none">
+                  <span className="text-secondary">The Desire Exists, the Infrastructure Did Not</span> <span className="text-primary">Until DIANA</span>
                 </h2>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">
                   Join us in building the financial layer of the ethical economy. Let us know how you want to contribute.

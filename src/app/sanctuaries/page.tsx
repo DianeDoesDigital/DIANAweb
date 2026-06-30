@@ -207,8 +207,8 @@ export default function SanctuariesPage() {
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
             <div className="max-w-2xl mx-auto">
               <div className="text-center mb-12">
-                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight text-text-main mt-4 select-none">
-                  Your Sanctuary <span className="text-primary">Deserves This</span>
+                <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight mt-4 select-none">
+                  <span className="text-secondary">Your Sanctuary</span> <span className="text-primary">Deserves This</span>
                 </h2>
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">We review all sanctuaries manually to ensure quality and alignment. We'll be in touch within 48 hours.</p>
               </div>
