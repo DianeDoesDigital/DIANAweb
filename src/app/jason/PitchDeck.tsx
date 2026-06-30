@@ -467,9 +467,9 @@ const slides = [
     </div>
   </div>,
 
-  // Slide 6: The Founder Advantage
+  // Slide 6: The Founder Edge
   <div key="slide-founder" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Founder Advantage</h2>
+    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Founder Edge</h2>
     <div className="grid grid-cols-2 gap-8 items-stretch">
       <div className="space-y-6">
         <p className="font-body-md text-[var(--color-text-subtle)]">
