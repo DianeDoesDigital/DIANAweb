@@ -7,6 +7,7 @@ import TopNav from '@/components/layout/TopNav';
 import PageSplash from '@/components/sections/PageSplash';
 import BuildJoinForm from '@/components/forms/BuildJoinForm';
 import { Suspense } from 'react';
+import CoCreationAnimation from '@/components/sections/CoCreationAnimation';
 
 export const metadata: Metadata = {
   title: 'BUILD WITH US - Get Involved with the DIANA Movement | Digital Infrastructure for Animal Networks and Advocacy',
@@ -111,16 +112,9 @@ export default function BuildPage() {
                 </div>
               </div>
 
-              {/* Right - Photo */}
+              {/* Right - Animation */}
               <div className="lg:col-span-5">
-                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
-                  <img 
-                    src="/holographic-blueprint.png" 
-                    alt="Holographic Sanctuary Blueprint"
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
-                </div>
+                <CoCreationAnimation />
               </div>
             </div>
           </div>
