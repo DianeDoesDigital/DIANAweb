@@ -193,9 +193,10 @@ export default function BuildPage() {
         {/* Application form */}
         <section id="join" className="py-24 md:py-32 scroll-mt-28 md:scroll-mt-36">
           <div className="max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
-            <div className="max-w-5xl mx-auto text-center mb-12">
-              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[44px] lg:text-[50px] leading-tight mt-4 select-none">
-                <span className="text-secondary">The Desire Was Always There,</span> <span className="text-primary">Now We Have the Infrastructure</span>
+            <div className="w-full text-center mb-12">
+              <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight mt-4 select-none">
+                <span className="block text-secondary">The Desire Was Always There</span>
+                <span className="block text-primary">Now We Have the Infrastructure</span>
               </h2>
               <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none max-w-2xl mx-auto">
                 Join us in building the financial layer of the ethical economy. Let us know how you want to contribute.
