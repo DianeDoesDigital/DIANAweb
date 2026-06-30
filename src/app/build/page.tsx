@@ -57,7 +57,7 @@ export default function BuildPage() {
       />
 
       <TopNav />
-      <main className="bg-[#FFDDEE] text-secondary pt-24 md:pt-32">
+      <main className="snap-start bg-[#FFDDEE] text-secondary pt-24 md:pt-32">
 
         {/* Roles grid */}
         <section id="roles" className="pb-24 md:pb-32 pt-8 md:pt-12 scroll-mt-28 md:scroll-mt-36">
