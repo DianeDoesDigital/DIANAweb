@@ -520,48 +520,7 @@ const slides = [
     </div>
   </div>,
 
-  // Slide 8: How We Easily Protect Our 5% Profit
-  <div key="slide-unit-economics" className="glass-surface p-12 rounded-3xl space-y-6">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">How We Easily Protect Our 5% Profit</h2>
-    <p className="font-body-md text-[var(--color-secondary)]">Most apps lose half their revenue to credit card processing fees. Here is how DIANA keeps our operating costs near zero so we become profitable fast.</p>
-    
-    <div className="grid grid-cols-3 gap-6 mt-4">
-      {/* Pillar 1 */}
-      <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
-        <div>
-          <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-2">1. $0 Cost App Transactions</span>
-          <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-3">No Card Swipes Inside</h3>
-          <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            When users shop at ethical businesses, watch ad double-ups, or send gifts to sanctuaries inside the app, we don&apos;t swipe a credit card every time. We simply adjust digital balances inside our system, which means our daily transaction cost is **$0.00**.
-          </p>
-        </div>
-      </div>
-
-      {/* Pillar 2 */}
-      <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
-        <div>
-          <span className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest block mb-2">2. Cheap Wallet Loading</span>
-          <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-3">Bank Transfer Rails</h3>
-          <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            Instead of paying expensive 3% credit card fees when users load money into their wallet, we encourage simple local bank transfers (like PayID in Australia or GCash in Asia). Loading $50 only costs us a **tiny ~10¢–20¢ flat rate**.
-          </p>
-        </div>
-      </div>
-
-      {/* Pillar 3 */}
-      <div className="bg-[var(--color-primary)]/10 p-6 rounded-2xl border-2 border-[var(--color-primary)] flex flex-col justify-between shadow-md">
-        <div>
-          <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-2">3. Batched Bank Payouts</span>
-          <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-3">Pure Profit Margin</h3>
-          <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            Instead of sending thousands of tiny bank transfers every day, we send one combined bank payout to merchants and sanctuaries every two weeks or monthly. A $1 bank fee on a $500 payout is practically nothing, leaving our **5% fee intact as pure profit!**
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>,
-
-  // Slide 6: Market Strategy & Timeline
+  // Slide 8: Market Strategy & Timeline
   <div key="slide-6" className="glass-surface p-12 rounded-3xl space-y-6">
     <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">Path to Profitability &amp; Timelines</h2>
     <p className="font-body-md text-[var(--color-secondary)]">To provide complete transparency and show how safe your investment is, we mapped out both an optimistic growth plan and a conservative baseline plan to reach our 1,000 active user break-even goal.</p>
@@ -608,6 +567,47 @@ const slides = [
         <div className="mt-4 pt-3 border-t border-[var(--color-secondary)]/10 flex justify-between items-center text-xs font-bold text-[var(--color-secondary)]">
           <span>Runway Secured: 12+ Months</span>
           <span>Break-Even: Month 12</span>
+        </div>
+      </div>
+    </div>
+  </div>,
+
+  // Slide 9: How We Easily Protect Our 5% Profit
+  <div key="slide-unit-economics" className="glass-surface p-12 rounded-3xl space-y-6">
+    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">How We Easily Protect Our 5% Profit</h2>
+    <p className="font-body-md text-[var(--color-secondary)]">Most apps lose half their revenue to credit card processing fees. Here is how DIANA keeps our operating costs near zero so we become profitable fast.</p>
+    
+    <div className="grid grid-cols-3 gap-6 mt-4">
+      {/* Pillar 1 */}
+      <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
+        <div>
+          <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-2">1. $0 Cost App Transactions</span>
+          <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-3">No Card Swipes Inside</h3>
+          <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
+            When users shop at ethical businesses, watch ad double-ups, or send gifts to sanctuaries inside the app, we don&apos;t swipe a credit card every time. We simply adjust digital balances inside our system, which means our daily transaction cost is **$0.00**.
+          </p>
+        </div>
+      </div>
+
+      {/* Pillar 2 */}
+      <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
+        <div>
+          <span className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest block mb-2">2. Cheap Wallet Loading</span>
+          <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-3">Bank Transfer Rails</h3>
+          <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
+            Instead of paying expensive 3% credit card fees when users load money into their wallet, we encourage simple local bank transfers (like PayID in Australia or GCash in Asia). Loading $50 only costs us a **tiny ~10¢–20¢ flat rate**.
+          </p>
+        </div>
+      </div>
+
+      {/* Pillar 3 */}
+      <div className="bg-[var(--color-primary)]/10 p-6 rounded-2xl border-2 border-[var(--color-primary)] flex flex-col justify-between shadow-md">
+        <div>
+          <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-2">3. Batched Bank Payouts</span>
+          <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-3">Pure Profit Margin</h3>
+          <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
+            Instead of sending thousands of tiny bank transfers every day, we send one combined bank payout to merchants and sanctuaries every two weeks or monthly. A $1 bank fee on a $500 payout is practically nothing, leaving our **5% fee intact as pure profit!**
+          </p>
         </div>
       </div>
     </div>
