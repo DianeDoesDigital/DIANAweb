@@ -36,7 +36,7 @@ const pillars = [
   {
     icon: HandHeart,
     title: 'Direct Support',
-    body: 'Send one-time gifts or set up reliable monthly care subscriptions to your favourite sanctuaries. For those who want to give even more.',
+    body: 'For those who want to give even more, send one-time gifts or set up reliable monthly care subscriptions to your favourite sanctuaries.',
   },
   {
     icon: AudioWaveform,
