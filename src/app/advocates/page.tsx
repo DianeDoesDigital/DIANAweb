@@ -82,7 +82,7 @@ export default function AdvocatesPage() {
     <>
       <PageSplash 
         title={<>Your Lifestyle, <span className="text-primary">Their Lifeline</span></>}
-        subtitle="Join the global network of conscious consumers turning everyday choices into a continuous stream of support for animal sanctuaries. Link your payment method, shop at fully vetted ethical merchants, and automatically fund rescue efforts without spending a single cent extra."
+        subtitle="Join the global network of conscious consumers turning everyday choices into a continuous stream of support for animal sanctuaries."
         images={['/hero-bg.jpg']}
         align="left"
         actionButtons={[
