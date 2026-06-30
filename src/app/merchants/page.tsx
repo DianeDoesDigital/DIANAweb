@@ -43,13 +43,6 @@ const faqs = [
   { q: 'Can I change my pledge amount?', a: 'Yes! While the minimum is 5%, you can adjust your pledge higher at any time through your merchant dashboard.' },
 ];
 
-const checklist = [
-  'Basic details about your business and operations',
-  '3-5 high-quality photos of your products, services, or storefront',
-  'Confirmation of your chosen pledge amount (minimum 5%)',
-  'A clear description of how your business aligns with our cruelty-free standards'
-];
-
 const merchantCarouselImages = [
   '/images/carousel/merchants-01.jpg',
   '/images/carousel/merchants-02.jpg',
@@ -214,19 +207,6 @@ export default function MerchantsPage() {
                 <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted mt-4 select-none">
                   Tell us about your business. We'll reach out within 48 hours.
                 </p>
-              </div>
-
-              {/* Checklist */}
-              <div className="mb-10 bg-surface rounded-2xl p-8 border border-border-main shadow-sm">
-                <h3 className="font-label-caps tracking-[0.1em] text-xs text-primary uppercase mb-4">Before you start, please prepare:</h3>
-                <ul className="space-y-3">
-                  {checklist.map((item, i) => (
-                    <li key={i} className="flex items-start gap-3">
-                      <CheckCircle2 className="text-primary shrink-0 mt-0.5" size={16} />
-                      <span className="font-body-sm text-[var(--text-body-sm)] text-text-muted select-none">{item}</span>
-                    </li>
-                  ))}
-                </ul>
               </div>
 
               <Suspense fallback={<div className="h-64 glass-surface rounded-2xl flex items-center justify-center"><div className="animate-pulse w-8 h-8 rounded-full border-2 border-primary border-t-transparent" /></div>}>
