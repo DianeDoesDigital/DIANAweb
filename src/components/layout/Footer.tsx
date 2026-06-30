@@ -66,18 +66,18 @@ export default function Footer() {
               <span className="hidden md:block text-[var(--text-label-caps)] font-[var(--text-label-caps--font-weight)] font-label-caps tracking-[var(--text-label-caps--letter-spacing)] text-xs text-primary uppercase">
                 Navigate
               </span>
-              <div className="flex flex-row flex-wrap md:flex-col justify-center gap-4 sm:gap-6 md:gap-4 items-center md:items-start w-full md:w-auto">
+              <div className="flex flex-row md:flex-col gap-8 md:gap-4 items-center md:items-start">
                 {navLinks.map((link) => {
                   const Icon = link.icon;
                   return (
                     <Link
                       key={link.href}
-                      className="text-text-muted hover:text-primary transition-colors flex flex-col md:flex-row items-center md:items-start gap-1.5 md:gap-2"
+                      className="text-text-muted hover:text-primary transition-colors flex items-center gap-2"
                       href={link.href}
                       title={link.label}
                     >
-                      <Icon className="md:hidden" size={24} strokeWidth={1.5} />
-                      <span className="text-[10px] md:text-[var(--text-body-sm)] font-[var(--text-body-sm--font-weight)] font-body-sm uppercase tracking-wider leading-none text-center md:text-left">{link.label}</span>
+                      <Icon className="md:hidden" size={28} strokeWidth={1.5} />
+                      <span className="hidden md:inline text-[var(--text-body-sm)] font-[var(--text-body-sm--font-weight)] font-body-sm uppercase tracking-wider">{link.label}</span>
                     </Link>
                   );
                 })}
