@@ -115,8 +115,8 @@ export default function BuildPage() {
               <div className="lg:col-span-5">
                 <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
                   <img 
-                    src="/grassroots-activism.png" 
-                    alt="Grassroots activism and co-builders"
+                    src="/holographic-blueprint.png" 
+                    alt="Holographic Sanctuary Blueprint"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
@@ -138,15 +138,17 @@ export default function BuildPage() {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              {builderValues.map((v) => {
-                const ValueIcon = v.icon;
+              {builderValues.map((val) => {
+                const IconComponent = val.icon;
                 return (
-                  <div key={v.title} className="glass-surface p-8 rounded-2xl border border-border-main hover:border-primary/30 hover:translate-y-[-4px] transition-all duration-300 flex flex-col items-center text-center">
-                    <div className="w-16 h-16 rounded-full border-2 border-primary/20 flex items-center justify-center mb-4">
-                      <ValueIcon className="text-primary" size={28} />
+                  <div key={val.title} className="glass-surface p-8 rounded-2xl border border-border-main hover:border-primary/30 transition-all flex flex-col justify-between">
+                    <div>
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
+                        <IconComponent size={24} />
+                      </div>
+                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-xl text-secondary mb-3 select-none">{val.title}</h3>
+                      <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{val.body}</p>
                     </div>
-                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary mb-3 select-none">{v.title}</h3>
-                    <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{v.body}</p>
                   </div>
                 );
               })}
@@ -160,12 +162,13 @@ export default function BuildPage() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left - Image */}
               <div className="lg:col-span-5 order-2 lg:order-1">
-                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface shadow-md group">
+                <div className="relative rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
                   <img 
-                    src="/holographic-blueprint.png" 
-                    alt="Holographic Sanctuary Blueprint"
+                    src="/grassroots-activism.png" 
+                    alt="Grassroots activism and co-builders"
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-[1.03]"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/20 via-transparent to-transparent pointer-events-none" />
                 </div>
               </div>
 
