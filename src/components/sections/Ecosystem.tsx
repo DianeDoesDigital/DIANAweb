@@ -5,6 +5,11 @@ import ScrollReveal from '@/components/layout/ScrollReveal';
 
 const nexusNodes = [
   {
+    icon: PawPrint,
+    label: 'Animal Sanctuaries',
+    body: 'The dedicated havens performing the vital, hands-on work of animal rescue and rehabilitation. Through our community, they receive steady, dependable financial support without ever having to ask.',
+  },
+  {
     icon: User,
     label: 'Individual Advocates',
     body: 'Everyday people whose lifestyle choices and daily purchases form the financial backbone of the ecosystem. Advocacy happens automatically, requiring absolutely zero extra effort.',
@@ -13,11 +18,6 @@ const nexusNodes = [
     icon: Store,
     label: 'Ethical Merchants',
     body: 'Values-aligned businesses that pledge a portion of every sale to drive the mission forward. Their participation effortlessly transforms ordinary, daily commerce into continuous sanctuary funding.',
-  },
-  {
-    icon: PawPrint,
-    label: 'Animal Sanctuaries',
-    body: 'The dedicated havens performing the vital, hands-on work of animal rescue and rehabilitation. Through our community, they receive steady, dependable financial support without ever having to ask.',
   },
 ];
 
