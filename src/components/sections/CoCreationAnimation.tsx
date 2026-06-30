@@ -1,181 +1,108 @@
 'use client';
 
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function CoCreationAnimation() {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [activeSquares, setActiveSquares] = useState<number[]>([]);
+  const [linesDrawn, setLinesDrawn] = useState(false);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-    const ctx = canvas.getContext('2d');
-    if (!ctx) return;
+    // Loop animation cycle
+    const interval = setInterval(() => {
+      // Light up squares in a building sequence
+      const sequence = [2, 7, 12, 17, 6, 8, 11, 13, 0, 4, 15, 19];
+      let step = 0;
 
-    let animationFrameId: number;
-    let time = 0;
+      setActiveSquares([]);
+      setLinesDrawn(false);
 
-    // Set canvas resolution
-    const updateSize = () => {
-      const rect = canvas.getBoundingClientRect();
-      canvas.width = rect.width * window.devicePixelRatio;
-      canvas.height = rect.height * window.devicePixelRatio;
-      ctx.scale(window.devicePixelRatio, window.devicePixelRatio);
-    };
-
-    updateSize();
-    window.addEventListener('resize', updateSize);
-
-    // Nodes representing co-creation infrastructure & sanctuary nodes
-    const nodes = [
-      { x: 0.5, y: 0.25, label: 'Core', radius: 8, pulse: 0 },
-      { x: 0.25, y: 0.45, label: 'Node A', radius: 6, pulse: 1.2 },
-      { x: 0.75, y: 0.45, label: 'Node B', radius: 6, pulse: 2.4 },
-      { x: 0.35, y: 0.7, label: 'Node C', radius: 7, pulse: 3.6 },
-      { x: 0.65, y: 0.7, label: 'Node D', radius: 7, pulse: 4.8 },
-      { x: 0.5, y: 0.52, label: 'Nexus', radius: 9, pulse: 0.5 },
-    ];
-
-    const edges = [
-      [0, 1], [0, 2], [0, 5],
-      [1, 3], [2, 4], [1, 5], [2, 5],
-      [3, 5], [4, 5], [3, 4]
-    ];
-
-    const particles: { x: number; y: number; vx: number; vy: number; size: number; alpha: number }[] = [];
-    for (let i = 0; i < 35; i++) {
-      particles.push({
-        x: Math.random(),
-        y: Math.random(),
-        vx: (Math.random() - 0.5) * 0.002,
-        vy: -Math.random() * 0.003 - 0.001,
-        size: Math.random() * 2 + 1,
-        alpha: Math.random() * 0.6 + 0.2,
-      });
-    }
-
-    const render = () => {
-      time += 0.015;
-      const rect = canvas.getBoundingClientRect();
-      const w = rect.width;
-      const h = rect.height;
-
-      ctx.clearRect(0, 0, w, h);
-
-      // Draw subtle radial glow background
-      const grad = ctx.createRadialGradient(w * 0.5, h * 0.5, 10, w * 0.5, h * 0.5, w * 0.7);
-      grad.addColorStop(0, 'rgba(255, 0, 153, 0.08)');
-      grad.addColorStop(0.5, 'rgba(20, 20, 25, 0.4)');
-      grad.addColorStop(1, 'rgba(10, 10, 15, 0.8)');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, w, h);
-
-      // Draw floating background particles
-      particles.forEach((p) => {
-        p.x += p.vx;
-        p.y += p.vy;
-        if (p.y < 0) {
-          p.y = 1;
-          p.x = Math.random();
+      const subInterval = setInterval(() => {
+        if (step < sequence.length) {
+          setActiveSquares((prev) => [...prev, sequence[step]]);
+          step++;
+        } else if (step === sequence.length) {
+          setLinesDrawn(true);
+          step++;
+        } else if (step > sequence.length + 6) {
+          clearInterval(subInterval);
+        } else {
+          step++;
         }
-        if (p.x < 0) p.x = 1;
-        if (p.x > 1) p.x = 0;
+      }, 250);
 
-        ctx.beginPath();
-        ctx.arc(p.x * w, p.y * h, p.size, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 0, 153, ${p.alpha * 0.5})`;
-        ctx.fill();
-      });
+      return () => clearInterval(subInterval);
+    }, 6500);
 
-      // Draw isometric grid lines building up at the bottom
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.04)';
-      ctx.lineWidth = 1;
-      const gridCount = 8;
-      for (let i = 0; i <= gridCount; i++) {
-        const py = h * 0.65 + (i / gridCount) * (h * 0.35);
-        ctx.beginPath();
-        ctx.moveTo(0, py);
-        ctx.lineTo(w, py);
-        ctx.stroke();
-      }
-
-      // Draw edges with animated data flow
-      edges.forEach(([i1, i2], idx) => {
-        const n1 = nodes[i1];
-        const n2 = nodes[i2];
-        const x1 = n1.x * w;
-        const y1 = n1.y * h + Math.sin(time + n1.pulse) * 6;
-        const x2 = n2.x * w;
-        const y2 = n2.y * h + Math.sin(time + n2.pulse) * 6;
-
-        // Base connecting line
-        ctx.beginPath();
-        ctx.moveTo(x1, y1);
-        ctx.lineTo(x2, y2);
-        ctx.strokeStyle = 'rgba(255, 0, 153, 0.25)';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        // Traveling data packet along the edge
-        const progress = (time * 0.8 + idx * 0.35) % 1;
-        const px = x1 + (x2 - x1) * progress;
-        const py = y1 + (y2 - y1) * progress;
-
-        ctx.beginPath();
-        ctx.arc(px, py, 3, 0, Math.PI * 2);
-        ctx.fillStyle = '#FF0099';
-        ctx.shadowColor = '#FF0099';
-        ctx.shadowBlur = 10;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-      });
-
-      // Draw nodes
-      nodes.forEach((n) => {
-        const nx = n.x * w;
-        const ny = n.y * h + Math.sin(time + n.pulse) * 6;
-
-        // Outer pulsing ring
-        const ringRadius = n.radius + (Math.sin(time * 2 + n.pulse) + 1) * 6;
-        ctx.beginPath();
-        ctx.arc(nx, ny, ringRadius, 0, Math.PI * 2);
-        ctx.strokeStyle = 'rgba(255, 0, 153, 0.3)';
-        ctx.lineWidth = 1.5;
-        ctx.stroke();
-
-        // Inner glowing core
-        ctx.beginPath();
-        ctx.arc(nx, ny, n.radius, 0, Math.PI * 2);
-        ctx.fillStyle = '#FF0099';
-        ctx.shadowColor = '#FF0099';
-        ctx.shadowBlur = 15;
-        ctx.fill();
-        ctx.shadowBlur = 0;
-
-        // Core highlight
-        ctx.beginPath();
-        ctx.arc(nx - 2, ny - 2, n.radius * 0.35, 0, Math.PI * 2);
-        ctx.fillStyle = '#FFFFFF';
-        ctx.fill();
-      });
-
-      animationFrameId = requestAnimationFrame(render);
-    };
-
-    render();
-
-    return () => {
-      cancelAnimationFrame(animationFrameId);
-      window.removeEventListener('resize', updateSize);
-    };
+    return () => clearInterval(interval);
   }, []);
 
   return (
-    <div className="relative w-full h-full rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group">
-      <canvas
-        ref={canvasRef}
-        className="w-full h-full block"
-      />
-      <div className="absolute inset-0 bg-gradient-to-t from-background/40 via-transparent to-transparent pointer-events-none" />
+    <div className="relative w-full h-full rounded-2xl overflow-hidden border border-border-main glass-surface aspect-[3/4] shadow-md group flex flex-col items-center justify-center bg-[#0A0A0E] p-6 select-none">
+      {/* Subtle radial glow */}
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,0,153,0.12),transparent_70%)] pointer-events-none" />
+
+      {/* Grid Construction Matrix */}
+      <div className="relative z-10 w-full max-w-[260px] aspect-square grid grid-cols-4 gap-3 my-auto">
+        {Array.from({ length: 16 }).map((_, idx) => {
+          const isActive = activeSquares.includes(idx);
+          const isCore = idx === 5 || idx === 6 || idx === 9 || idx === 10;
+          return (
+            <div
+              key={idx}
+              className={`relative rounded-xl border transition-all duration-500 flex items-center justify-center ${
+                isActive
+                  ? isCore
+                    ? 'bg-primary border-primary shadow-[0_0_20px_rgba(255,0,153,0.6)] scale-105'
+                    : 'bg-primary/20 border-primary/60 shadow-[0_0_12px_rgba(255,0,153,0.3)]'
+                  : 'bg-surface/40 border-border-main/50 hover:border-primary/30'
+              }`}
+            >
+              {/* Inner glowing dot when active */}
+              <div
+                className={`w-2 h-2 rounded-full transition-all duration-300 ${
+                  isActive ? (isCore ? 'bg-white scale-125' : 'bg-primary') : 'bg-transparent'
+                }`}
+              />
+            </div>
+          );
+        })}
+
+        {/* Connecting Data Lines Overlay */}
+        <svg
+          className="absolute inset-0 w-full h-full pointer-events-none overflow-visible"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+        >
+          <path
+            d="M 12.5,12.5 L 87.5,12.5 L 87.5,87.5 L 12.5,87.5 Z M 37.5,37.5 L 62.5,37.5 L 62.5,62.5 L 37.5,62.5 Z"
+            fill="none"
+            stroke="#FF0099"
+            strokeWidth="1.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={`transition-all duration-1000 ${
+              linesDrawn ? 'opacity-80 stroke-dashoffset-0' : 'opacity-0'
+            }`}
+            style={{
+              strokeDasharray: '400',
+              strokeDashoffset: linesDrawn ? '0' : '400',
+            }}
+          />
+        </svg>
+      </div>
+
+      {/* Dynamic Status Bar */}
+      <div className="relative z-10 w-full max-w-[260px] mt-6 flex items-center justify-between border-t border-border-main/40 pt-4">
+        <div className="flex items-center gap-2">
+          <div className="w-2 h-2 rounded-full bg-primary animate-ping" />
+          <span className="font-label-caps text-[11px] tracking-[0.15em] text-primary uppercase">
+            {linesDrawn ? 'Infrastructure Active' : 'Building Grid...'}
+          </span>
+        </div>
+        <span className="font-mono text-xs text-text-muted">
+          {activeSquares.length}/16 Nodes
+        </span>
+      </div>
     </div>
   );
 }

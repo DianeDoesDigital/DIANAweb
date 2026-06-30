@@ -135,14 +135,12 @@ export default function BuildPage() {
               {builderValues.map((val) => {
                 const IconComponent = val.icon;
                 return (
-                  <div key={val.title} className="glass-surface p-8 rounded-2xl border border-border-main hover:border-primary/30 transition-all flex flex-col justify-between">
-                    <div>
-                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-6 text-primary">
-                        <IconComponent size={24} />
-                      </div>
-                      <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-xl text-secondary mb-3 select-none">{val.title}</h3>
-                      <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{val.body}</p>
+                  <div key={val.title} className="glass-surface bg-background p-8 rounded-2xl border border-border-main hover:border-primary/30 hover:translate-y-[-4px] transition-all duration-300 flex flex-col items-center text-center">
+                    <div className="w-16 h-16 rounded-full border-2 border-primary/20 flex items-center justify-center mb-4">
+                      <IconComponent className="text-primary" size={28} />
                     </div>
+                    <h3 className="font-headline-md font-[var(--text-headline-md--font-weight)] text-[var(--text-headline-md)] text-secondary mb-3 select-none">{val.title}</h3>
+                    <p className="font-body-sm text-[var(--text-body-sm)] leading-[var(--text-body-sm--line-height)] text-text-muted select-none">{val.body}</p>
                   </div>
                 );
               })}
