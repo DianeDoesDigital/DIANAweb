@@ -184,7 +184,7 @@ const faqs = [
     items: [
       {
         q: "What are the 6 different ways I can get involved and build with DIANA?",
-        a: "We offer 6 distinct collaboration pathways tailored to how you want to contribute to the ethical economy:\n\n1. Core Team: A serious, ongoing commitment to build the foundations and grow with DIANA. Includes sweat equity agreements and backpay upon raising capital.\n\n2. Community Contributor: Flexible involvement where you contribute hours in design, code, writing, or strategic advisory. You receive portfolio credit, references, and recognition in our official contributor list.\n\n3. Global Ambassador: Spread the movement in your local community, representing DIANA at festivals, vegan markets, and grassroots networks.\n\n4. Financial Investor: Angel, pre-seed, or strategic funding to provide the financial runway for scalable infrastructure tapping into the $500B ethical economy.\n\n5. Aligned Sponsor: For 100% cruelty-free brands with plant-based products or vegan-friendly services looking to advertise directly to high-intent conscious consumers.\n\n6. Ecosystem Partner: For allied organizations—such as vegan media outlets, animal advocacy groups, and aligned nonprofits—seeking formal strategic alignment and collaboration."
+        a: "We offer 6 distinct collaboration pathways tailored to how you want to contribute to the ethical economy:\n\n1. Core Team: A serious, ongoing commitment to build the foundations and grow with DIANA. Includes sweat equity agreements and backpay upon raising capital.\n\n2. Community Contributor: Flexible involvement where you contribute hours in design, code, writing, or strategic advisory. You receive portfolio credit, references, and recognition in our official contributor list.\n\n3. Global Ambassador: Spread the movement in your local community, representing DIANA at festivals, vegan markets, and grassroots networks.\n\n4. Financial Investor: Angel, pre-seed, or strategic funding to provide the financial runway for scalable infrastructure tapping into the $500B ethical economy.\n\n5. Aligned Sponsor: For brands with purely plant-based products or vegan-friendly services looking to advertise directly to high-intent conscious consumers.\n\n6. Ecosystem Partner: For allied organizations—such as vegan media outlets, animal advocacy groups, and aligned nonprofits—seeking formal strategic alignment and collaboration."
       },
       {
         q: "What is the difference between joining the Core Team vs. becoming a Community Contributor?",
@@ -196,7 +196,7 @@ const faqs = [
       },
       {
         q: "How do Financial Investors and Aligned Sponsors participate?",
-        a: "Financial Investors (angels, pre-seed, or strategic funds) provide equity capital to scale our engineering and international routing infrastructure. Aligned Sponsors are cruelty-free brands who partner with us for targeted brand placement and advertising directly inside our ecosystem of conscious consumers."
+        a: "Financial Investors (angels, pre-seed, or strategic funds) provide equity capital to scale our engineering and international routing infrastructure. Aligned Sponsors are brands with purely plant-based products or vegan-friendly services looking to advertise directly inside our ecosystem of conscious consumers."
       },
       {
         q: "What does it mean to be an Ecosystem Partner?",
