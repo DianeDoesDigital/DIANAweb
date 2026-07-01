@@ -58,7 +58,7 @@ export default function SanctuariesPage() {
       />
       <TopNav />
 
-      <main className="snap-start snap-always bg-[#FFDDEE] text-secondary pt-24 md:pt-32">
+      <main className="snap-start bg-[#FFDDEE] text-secondary pt-24 md:pt-32">
         
         {/* Benefits */}
         <section id="benefits" className="pb-24 md:pb-32 pt-8 md:pt-12">

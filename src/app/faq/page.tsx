@@ -37,6 +37,44 @@ const faqs = [
     ]
   },
   {
+    category: "For Sanctuaries",
+    icon: PawPrint,
+    items: [
+      {
+        q: "Is there a cost to join?",
+        a: "No. DIANA is completely free for sanctuaries. The platform is funded through a separate allocation from merchant pledges, ensuring your distributions remain entirely yours."
+      },
+      {
+        q: "Are the sanctuaries vetted before joining?",
+        a: "Yes, strictly. Every sanctuary goes through a verification process to confirm they are a legitimate rescue operation providing lifelong care. We do not onboard zoos, breeders, petting farms, circuses, or any entity that profits from animal exploitation. Approval is not automatic."
+      },
+      {
+        q: "Do we need to be a registered charity?",
+        a: "Yes. To maintain the integrity of the network and comply with financial regulations, we require proof of registered non-profit or charitable status in your jurisdiction."
+      },
+      {
+        q: "What types of sanctuaries are eligible to join?",
+        a: "Any legitimate, registered animal rescue or sanctuary that provides lifelong care. This includes farm animal rescues, dog and cat rescues, wildlife rehabilitation centres, horse sanctuaries, marine rescue operations, and more."
+      },
+      {
+        q: "How much time does it take to manage?",
+        a: "Very little. Once your profile is set up and verified, funds flow automatically. We encourage occasional updates to your gallery and resident stories, but no ongoing fundraising campaigns are required."
+      },
+      {
+        q: "When and how are funds distributed?",
+        a: "Funds are aggregated in real-time as purchases are made across the network and distributed via direct bank transfer at the end of each funding cycle."
+      },
+      {
+        q: "Is there a minimum payout threshold?",
+        a: "To ensure that bank transfer fees do not eat into the funds designated for the animals, we employ a small minimum payout threshold (equivalent to $50 USD, though local currency amounts vary). If your sanctuary's allocation doesn't reach the threshold in a given cycle, the funds securely roll over to the next cycle until the threshold is met."
+      },
+      {
+        q: "What specific reporting do we need to provide to stay on the platform?",
+        a: "We require sanctuaries to submit a simple, transparent 'Impact Update' on an annual basis. This includes high-level details on how DIANA funds were utilized (e.g., feed, veterinary care, infrastructure) along with updated photos or stories of the animals supported. This ensures complete transparency for our advocates while keeping your administrative overhead minimal."
+      }
+    ]
+  },
+  {
     category: "For Advocates",
     icon: User,
     items: [
@@ -137,44 +175,6 @@ const faqs = [
       {
         q: "Is the minimum 5% pledge tax-deductible as a charitable contribution?",
         a: "Yes. Because DIANA exclusively partners with registered charities and non-profits, your sanctuary pledge is a direct charitable contribution. At the end of each funding cycle, DIANA provides you with consolidated, automated receipts for your pledges, which you can use for tax deduction purposes according to your local tax laws."
-      }
-    ]
-  },
-  {
-    category: "For Sanctuaries",
-    icon: PawPrint,
-    items: [
-      {
-        q: "Is there a cost to join?",
-        a: "No. DIANA is completely free for sanctuaries. The platform is funded through a separate allocation from merchant pledges, ensuring your distributions remain entirely yours."
-      },
-      {
-        q: "Are the sanctuaries vetted before joining?",
-        a: "Yes, strictly. Every sanctuary goes through a verification process to confirm they are a legitimate rescue operation providing lifelong care. We do not onboard zoos, breeders, petting farms, circuses, or any entity that profits from animal exploitation. Approval is not automatic."
-      },
-      {
-        q: "Do we need to be a registered charity?",
-        a: "Yes. To maintain the integrity of the network and comply with financial regulations, we require proof of registered non-profit or charitable status in your jurisdiction."
-      },
-      {
-        q: "What types of sanctuaries are eligible to join?",
-        a: "Any legitimate, registered animal rescue or sanctuary that provides lifelong care. This includes farm animal rescues, dog and cat rescues, wildlife rehabilitation centres, horse sanctuaries, marine rescue operations, and more."
-      },
-      {
-        q: "How much time does it take to manage?",
-        a: "Very little. Once your profile is set up and verified, funds flow automatically. We encourage occasional updates to your gallery and resident stories, but no ongoing fundraising campaigns are required."
-      },
-      {
-        q: "When and how are funds distributed?",
-        a: "Funds are aggregated in real-time as purchases are made across the network and distributed via direct bank transfer at the end of each funding cycle."
-      },
-      {
-        q: "Is there a minimum payout threshold?",
-        a: "To ensure that bank transfer fees do not eat into the funds designated for the animals, we employ a small minimum payout threshold (equivalent to $50 USD, though local currency amounts vary). If your sanctuary's allocation doesn't reach the threshold in a given cycle, the funds securely roll over to the next cycle until the threshold is met."
-      },
-      {
-        q: "What specific reporting do we need to provide to stay on the platform?",
-        a: "We require sanctuaries to submit a simple, transparent 'Impact Update' on an annual basis. This includes high-level details on how DIANA funds were utilized (e.g., feed, veterinary care, infrastructure) along with updated photos or stories of the animals supported. This ensures complete transparency for our advocates while keeping your administrative overhead minimal."
       }
     ]
   },
@@ -309,7 +309,7 @@ export default function FAQPage() {
   };
 
   return (
-    <main className="min-h-screen bg-background snap-start snap-always">
+    <main className="min-h-screen bg-background snap-start">
       <TopNav />
 
       {/* Page header */}
