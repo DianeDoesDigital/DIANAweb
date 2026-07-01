@@ -82,7 +82,7 @@ serve(async (req) => {
                       What happens next?
                     </p>
                     <p style="margin: 6px 0 0 0; font-size: 14px; color: #4A3542;">
-                      Our vetting team is actively reviewing your submission. If your business meets our strict qualification standards, we will reach out with onboarding instructions and platform details prior to the app drop.
+                      Our partnerships team will conduct a preliminary check on your submission and follow up directly with your formal Merchant Verification Package & Catalog Review prior to our ecosystem launch.
                     </p>
                   </td>
                 </tr>
@@ -200,7 +200,7 @@ ${bodyContent}
           <tr>
             <td align="center" style="padding: 0 40px 35px 40px; font-size: 12px; line-height: 1.5; color: #8C7584;">
               <p style="margin: 0 0 12px 0; font-weight: 600; color: #4A3542;">
-                <span style="font-size: 15px; font-weight: 700; letter-spacing: 0.5px; color: #4A3542;">For the Animals,</span><br />
+                <span style="font-size: 17px; font-weight: 700; letter-spacing: 1.2px; color: #4A3542;">For the Animals,</span><br />
                 <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; letter-spacing: 1px; color: #ff0099;">The DIANA Team</span>
               </p>
               <p style="margin: 0 0 6px 0; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #0A0507;">
