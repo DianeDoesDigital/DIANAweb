@@ -95,3 +95,15 @@ export async function submitSignature(data: {
   }
   return { success: true };
 }
+
+export async function submitFAQQuestion(data: { name: string; email: string; question: string }) {
+  const { error } = await supabase
+    .from('faq_questions')
+    .insert([data]);
+
+  if (error) {
+    console.error('FAQ question error:', error);
+    return { success: false, error: 'Failed to send your question. Please try again.' };
+  }
+  return { success: true };
+}
