@@ -66,14 +66,14 @@ serve(async (req) => {
     `;
 
     if (role === "merchant") {
-      subjectText = "Application Received: DIANA Merchant Network 😻";
-      headingText = "Application Under Review 😻";
+      subjectText = "Intake Received: DIANA Merchant Network 😻";
+      headingText = "Merchant Intake Received 😻";
       bodyContent = `
               <p style="margin: 0 0 16px 0;">
-                Thank you for applying to join the DIANA clearinghouse, <strong>${name}</strong>.
+                Thank you for registering your interest in partnering with DIANA, <strong>${name}</strong>. We have logged your initial details.
               </p>
               <p style="margin: 0 0 24px 0;">
-                Because DIANA maintains an uncompromising standard for animal ethics, every merchant partner undergoes rigorous review to verify a 100% vegan and cruelty-free catalog.
+                Because DIANA enforces an uncompromising standard for animal ethics, every merchant partner must complete our formal onboarding and catalog verification before being approved for distribution.
               </p>
               <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #FFF0F8; border-radius: 12px; border-left: 4px solid #ff0099; margin-bottom: 24px;">
                 <tr>
@@ -92,14 +92,14 @@ serve(async (req) => {
               </p>
       `;
     } else if (role === "sanctuary") {
-      subjectText = "Application Received: DIANA Sanctuary Verification 😻";
-      headingText = "Sanctuary Application Received 😻";
+      subjectText = "Intake Received: DIANA Sanctuary Network 😻";
+      headingText = "Sanctuary Intake Received 😻";
       bodyContent = `
               <p style="margin: 0 0 16px 0;">
-                Thank you for submitting your sanctuary for verification, <strong>${name}</strong>. We deeply honor your frontline work protecting rescued animals.
+                Thank you for submitting your sanctuary intake to the DIANA clearinghouse, <strong>${name}</strong>. We deeply honor your frontline work protecting rescued animals.
               </p>
               <p style="margin: 0 0 24px 0;">
-                To protect our community's trust and ensure every cent pledged supports lifelong, uncompromised animal care, we conduct thorough due diligence before approving any sanctuary for platform distribution.
+                To protect our community's trust and ensure every cent pledged supports lifelong, uncompromised animal care, all sanctuaries must undergo formal due diligence and accreditation before being approved for platform distribution.
               </p>
               <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #FFF0F8; border-radius: 12px; border-left: 4px solid #ff0099; margin-bottom: 24px;">
                 <tr>
@@ -108,7 +108,7 @@ serve(async (req) => {
                       What happens next?
                     </p>
                     <p style="margin: 6px 0 0 0; font-size: 14px; color: #4A3542;">
-                      Our verification team is reviewing your governance, animal care standards, and non-profit credentials. We will follow up directly if additional documentation or a verification interview is required.
+                      Our verification team will review your initial intake details and follow up directly with our formal Sanctuary Accreditation Package to request animal care standards and governance documentation.
                     </p>
                   </td>
                 </tr>
@@ -118,14 +118,14 @@ serve(async (req) => {
               </p>
       `;
     } else if (role === "builder") {
-      subjectText = "Application Received: DIANA Build Team 😻";
-      headingText = "Builder Application Received 😻";
+      subjectText = "Intake Received: DIANA Build Team 😻";
+      headingText = "Builder Intake Received 😻";
       bodyContent = `
               <p style="margin: 0 0 16px 0;">
-                Thank you for raising your hand to help co-create digital infrastructure for animals, <strong>${name}</strong>.
+                Thank you for offering your skills to co-create digital infrastructure for animal advocacy, <strong>${name}</strong>. We have logged your selected contribution profile.
               </p>
               <p style="margin: 0 0 24px 0;">
-                We curate our build team across our 6 contribution profiles very carefully to ensure complete alignment with our 100% vegan ethics and technical roadmap.
+                We carefully curate our core build team across our 6 contribution profiles to ensure complete alignment with our 100% vegan ethics and technical roadmap.
               </p>
               <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #FFF0F8; border-radius: 12px; border-left: 4px solid #ff0099; margin-bottom: 24px;">
                 <tr>
@@ -134,7 +134,7 @@ serve(async (req) => {
                       What happens next?
                     </p>
                     <p style="margin: 6px 0 0 0; font-size: 14px; color: #4A3542;">
-                      We review builder profiles on a rolling basis as engineering, design, and growth initiatives open up. If your contribution profile aligns with an active initiative, our core team will reach out directly.
+                      Our team will reach out directly to request your background, portfolio, or GitHub link as relevant engineering, design, or growth initiatives open up.
                     </p>
                   </td>
                 </tr>
