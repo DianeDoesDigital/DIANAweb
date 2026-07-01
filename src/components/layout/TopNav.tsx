@@ -38,15 +38,17 @@ export default function TopNav({ onActivate }: TopNavProps) {
     }
 
     const handleScroll = () => {
+      const isAtBottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
+
       if (!isHeroPage) {
-        setHideNav(false);
+        setHideNav(isAtBottom);
         setScrolled(window.scrollY > 50);
         return;
       }
 
       const heroSplash = document.getElementById('hero-splash');
       if (!heroSplash) {
-        setHideNav(false);
+        setHideNav(isAtBottom);
         setScrolled(window.scrollY > 50);
         return;
       }
