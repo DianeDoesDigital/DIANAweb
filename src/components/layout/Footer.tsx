@@ -14,10 +14,10 @@ const navLinks = [
 ];
 
 const legalLinks = [
-  { href: '/legal/privacy', label: 'Privacy', fullLabel: 'Privacy Policy' },
-  { href: '/legal/terms', label: 'Terms', fullLabel: 'Terms of Use' },
-  { href: '/legal/cookies', label: 'Cookies', fullLabel: 'Cookie Policy' },
-  { href: '/faq', label: 'FAQ', fullLabel: 'Frequently Asked Questions' },
+  { href: '/legal/privacy', label: 'Privacy', fullLabel: 'Privacy' },
+  { href: '/legal/terms', label: 'Terms', fullLabel: 'Terms' },
+  { href: '/legal/cookies', label: 'Cookies', fullLabel: 'Cookies' },
+  { href: '/faq', label: 'FAQs', fullLabel: 'FAQs' },
 ];
 
 export default function Footer() {

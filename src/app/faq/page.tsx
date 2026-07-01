@@ -1,5 +1,4 @@
 import TopNav from '@/components/layout/TopNav';
-import Footer from '@/components/layout/Footer';
 import { HelpCircle, ArrowRight, ShieldCheck, Banknote, HeartHandshake } from 'lucide-react';
 import Link from 'next/link';
 
@@ -59,11 +58,11 @@ const faqs = [
 
 export default function FAQPage() {
   return (
-    <main className="min-h-screen bg-background selection:bg-primary/20">
+    <main className="min-h-screen bg-background selection:bg-primary/20 snap-start snap-always flex flex-col">
       <TopNav />
       
       {/* Hero Section */}
-      <section className="pt-32 pb-16 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-gradient-to-b from-primary/10 to-background border-b border-border-main/50">
+      <section className="pt-32 pb-16 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-gradient-to-b from-primary/10 to-background border-b border-border-main/50 snap-start snap-always">
         <div className="max-w-[800px] mx-auto text-center">
           <div className="inline-flex items-center justify-center p-3 rounded-2xl bg-white shadow-sm mb-6">
             <HelpCircle size={32} className="text-primary" strokeWidth={1.5} />
@@ -78,7 +77,7 @@ export default function FAQPage() {
       </section>
 
       {/* FAQ Content */}
-      <section className="py-24 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
+      <section className="py-24 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] snap-start snap-always">
         <div className="max-w-[800px] mx-auto space-y-16">
           {faqs.map((section, idx) => {
             const Icon = section.icon;
@@ -110,7 +109,7 @@ export default function FAQPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-24 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-secondary text-white text-center">
+      <section className="py-24 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-secondary text-white text-center snap-start snap-always">
         <div className="max-w-[600px] mx-auto">
           <h2 className="text-3xl md:text-4xl font-headline text-white mb-6">
             Didn't find your answer?
@@ -128,7 +127,6 @@ export default function FAQPage() {
         </div>
       </section>
 
-      <Footer />
     </main>
   );
 }
