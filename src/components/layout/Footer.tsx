@@ -57,7 +57,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="text-[var(--text-body-sm)] font-[var(--text-body-sm--font-weight)] font-body-sm text-primary leading-[var(--text-body-sm--line-height)] hover:text-secondary transition-colors"
             >
-              A DRGM DEV PTY LTD product
+              A DRGM DEV PTY LTD (ACN 699 347 861) product
             </a>
           </div>
 
@@ -90,7 +90,7 @@ export default function Footer() {
         {/* Bottom row */}
         <div className="pt-8 border-t border-border-main/50 flex flex-col justify-center md:flex-row md:justify-between items-center gap-6 text-center md:text-left">
           <p className="text-[var(--text-body-sm)] font-[var(--text-body-sm--font-weight)] font-body-sm text-xs text-primary w-full md:w-auto">
-            © {new Date().getFullYear()} DRGM Dev Pty Ltd (ACN 699 347 861). All rights reserved.
+            © {new Date().getFullYear()} DIANA. All rights reserved.
           </p>
           <div className="flex flex-wrap justify-center items-center gap-x-6 gap-y-4">
             {legalLinks.map((link) => (

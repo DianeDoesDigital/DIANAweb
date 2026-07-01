@@ -12,7 +12,7 @@ const faqs = [
     items: [
       {
         q: "Is DIANA a charity or an NGO?",
-        a: "DIANA is a product of DRGM Dev Pty Ltd, an Australian technology company. It provides payment infrastructure software that allows ethical merchants to route a percentage of their commercial revenue to animal sanctuaries automatically with every transaction. We do not solicit public donations."
+        a: "DIANA is a product of DRGM Dev Pty Ltd (ACN 699 347 861), an Australian technology company. It provides payment infrastructure software that allows ethical merchants to route a percentage of their commercial revenue to animal sanctuaries automatically with every transaction. We do not solicit public donations."
       },
       {
         q: "How does DIANA's automatic impact actually work?",
@@ -32,7 +32,7 @@ const faqs = [
       },
       {
         q: "How does DIANA make money?",
-        a: "From every DIANA transaction, a minimum of 10% is deducted from the merchant's revenue, not the consumer's payment. A minimum of 5% goes directly to the sanctuary ecosystem and a flat 5% goes to the DIANA platform to cover payment processing, server infrastructure, and platform development. Additionally, DIANA contributes 5% of its own platform fee back into the sanctuary ecosystem as our direct contribution to the mission on top of the merchant pledge. We are a technology company and our sustainability model is built on transaction volume."
+        a: "From every DIANA transaction, a minimum of 10% is deducted from the merchant's revenue, not the consumer's payment. A minimum of 5% goes directly to the sanctuary ecosystem and a flat 5% goes to the DIANA platform to cover payment processing, server infrastructure, and platform development. DIANA then contributes 5% of its own platform fee back into the sanctuary ecosystem. We are a technology company and our sustainability model is built on transaction volume."
       },
     ]
   },
@@ -169,8 +169,12 @@ const faqs = [
     icon: Shield,
     items: [
       {
+        q: "Why is DIANA incorporated in Australia (DRGM Dev Pty Ltd) if the founder is Filipina?",
+        a: "To build a global ethical economy on world-class financial infrastructure.\n\nDIANA is designed from day one to operate globally, routing transaction percentages across borders to sanctuaries all over the world. To do this securely at scale, the platform requires deep integration with international, tier-one payment rails and cross-border settlement infrastructure.\n\nAustralia offers one of the most robust, highly regulated, and globally trusted financial technology frameworks in the world. By incorporating as an Australian Pty Ltd, DIANA can leverage licensed international payment partners to guarantee institutional-grade compliance, escrow protection, and secure cross-border routing.\n\nThis setup ensures total financial integrity for our users everywhere, while allowing our founder to build the core technology with global reach right from her laptop."
+      },
+      {
         q: "Where is DIANA registered?",
-        a: "DIANA is a product of DRGM Dev Pty Ltd, an Australian proprietary company. Our financial infrastructure operates under Australian financial regulations and international standards enforced by our licensed payment partners."
+        a: "DIANA is a product of DRGM Dev Pty Ltd (ACN 699 347 861), an Australian proprietary company. Our financial infrastructure operates under Australian financial regulations and international standards enforced by our licensed payment partners."
       },
       {
         q: "Is DIANA a licensed financial service?",
