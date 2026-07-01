@@ -76,6 +76,22 @@ const faqs = [
         q: "When does the app launch and will it be on iOS and Android?",
         a: "DIANA is launching very soon. The app will be available on both iOS and Android. Join the waitlist to be notified the moment it goes live."
       },
+      {
+        q: "Are my One-Time Gifts or Monthly Care subscriptions tax-deductible?",
+        a: "DIANA partners exclusively with registered charities and non-profits, but tax deductibility depends on your local tax laws and the specific sanctuary's registration status in your country. When you make a direct contribution, you receive an automated receipt from DIANA. If the receiving sanctuary holds tax-exempt status in your jurisdiction, you may use this receipt for tax purposes. We recommend consulting a local tax professional for specific guidance."
+      },
+      {
+        q: "How do I find participating DIANA merchants?",
+        a: "The DIANA app features a built-in interactive map and directory. You can easily discover ethical, cruelty-free merchants in your area, filter by category (like Food & Drink, Retail, or Wellness), and even enable location-based notifications to alert you when you're near a DIANA partner."
+      },
+      {
+        q: "What happens if a verified merchant changes their menu or practices to include animal products?",
+        a: "DIANA maintains a strict 100% cruelty-free standard. Our advocate community serves as a powerful, real-time auditing mechanism. If a merchant is reported for violating our ethical standards, their account will be temporarily suspended pending an internal review. If the violation is confirmed, they will be permanently removed from the platform. We have a zero-tolerance policy for animal exploitation."
+      },
+      {
+        q: "What payment methods can I use?",
+        a: "DIANA is designed to be completely frictionless. The platform supports all major Credit and Debit cards (Visa, Mastercard, Amex), as well as digital wallets like Apple Pay and Google Pay. As we scale globally, we are continuously integrating regional payment methods and local e-wallets so DIANA feels native wherever you are."
+      },
     ]
   },
   {
@@ -109,6 +125,18 @@ const faqs = [
       {
         q: "Do merchants need a special permit to run a promotion on DIANA?",
         a: "DIANA's core impact routing is a permanent feature, not a temporary promotional mechanic, so it does not require a DTI promo permit in the Philippines or an equivalent elsewhere. However, if a merchant independently runs their own limited-time promotion, the responsibility for securing that local permit belongs to the merchant, not to DIANA."
+      },
+      {
+        q: "How does DIANA integrate with my existing Point of Sale (POS) system?",
+        a: "DIANA is designed for zero operational friction. You don't need to purchase any proprietary hardware. We offer seamless API integrations for popular POS systems (like Square and Shopify). For merchants without an integrated POS, or those operating pop-ups and market stalls, DIANA provides a standalone merchant QR code system that allows customers to scan and pay instantly via their phones."
+      },
+      {
+        q: "How are refunds or chargebacks handled regarding the sanctuary pledge?",
+        a: "If a transaction is refunded or results in a chargeback, the sanctuary pledge and platform fee associated with that specific transaction are reversed. We ensure that merchants are never penalized by paying pledges on revenue they had to refund. The adjustment is automatically calculated and reflected in your real-time dashboard."
+      },
+      {
+        q: "Is the minimum 5% pledge tax-deductible as a charitable contribution?",
+        a: "Yes. Because DIANA exclusively partners with registered charities and non-profits, your sanctuary pledge is a direct charitable contribution. At the end of each funding cycle, DIANA provides you with consolidated, automated receipts for your pledges, which you can use for tax deduction purposes according to your local tax laws."
       }
     ]
   },
@@ -140,6 +168,14 @@ const faqs = [
         q: "When and how are funds distributed?",
         a: "Funds are aggregated in real-time as purchases are made across the network and distributed via direct bank transfer at the end of each funding cycle."
       },
+      {
+        q: "Is there a minimum payout threshold?",
+        a: "To ensure that bank transfer fees do not eat into the funds designated for the animals, we employ a small minimum payout threshold (equivalent to $50 USD, though local currency amounts vary). If your sanctuary's allocation doesn't reach the threshold in a given cycle, the funds securely roll over to the next cycle until the threshold is met."
+      },
+      {
+        q: "What specific reporting do we need to provide to stay on the platform?",
+        a: "We require sanctuaries to submit a simple, transparent 'Impact Update' on an annual basis. This includes high-level details on how DIANA funds were utilized (e.g., feed, veterinary care, infrastructure) along with updated photos or stories of the animals supported. This ensures complete transparency for our advocates while keeping your administrative overhead minimal."
+      }
     ]
   },
   {
@@ -191,6 +227,10 @@ const faqs = [
       {
         q: "Who built DIANA?",
         a: "DIANA was conceived and built by Diane G. Mejilla, the founder of DRGM Dev Pty Ltd. Starting January 16, 2026, she designed the entire user experience and wrote the native mobile codebase herself, demonstrating that the tools for building the ethical economy are available to anyone willing to learn and build."
+      },
+      {
+        q: "How is user data protected?",
+        a: "DIANA is built with a privacy-first architecture. We do not sell your personal data to third parties, and we do not engage in behavioural advertising. All payment details are tokenized and processed directly by our licensed, PCI-DSS compliant financial partners—we never store your card numbers on our servers. Your data is strictly encrypted both in transit and at rest."
       }
     ]
   }
