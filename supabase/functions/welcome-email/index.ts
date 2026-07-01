@@ -37,6 +37,114 @@ serve(async (req) => {
       });
     }
 
+    const role = record.role || "personal";
+
+    let subjectText = "Welcome to the DIANA Nexus 😻";
+    let headingText = `Welcome to the Nexus, ${name}! 😻`;
+    let bodyContent = `
+              <p style="margin: 0 0 16px 0;">
+                You are officially on the waitlist for the DIANA movement. Thank you for stepping up to help us transform everyday commerce into a lifesaver for rescued animals.
+              </p>
+              <p style="margin: 0 0 24px 0;">
+                We are building an ecosystem where everyday spending at 100% cruelty-free businesses automatically routes a minimum 5% pledge directly to verified, lifelong animal sanctuaries around the world—at zero additional cost to the consumer.
+              </p>
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #FFF0F8; border-radius: 12px; border-left: 4px solid #ff0099; margin-bottom: 24px;">
+                <tr>
+                  <td style="padding: 18px 20px;">
+                    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #0A0507;">
+                      What happens next?
+                    </p>
+                    <p style="margin: 6px 0 0 0; font-size: 14px; color: #4A3542;">
+                      You have secured early priority access for our upcoming iOS and Android release. When the app drops, you will be among the very first invited to download, explore the global directory, and start generating impact.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin: 0 0 30px 0;">
+                If you know an ethical business or animal sanctuary that belongs on the platform, send them our way. We can't wait to build this future with you.
+              </p>
+    `;
+
+    if (role === "merchant") {
+      subjectText = "Application Received: DIANA Merchant Network 😻";
+      headingText = "Application Under Review 😻";
+      bodyContent = `
+              <p style="margin: 0 0 16px 0;">
+                Thank you for applying to join the DIANA clearinghouse, <strong>${name}</strong>.
+              </p>
+              <p style="margin: 0 0 24px 0;">
+                Because DIANA maintains an uncompromising standard for animal ethics, every merchant partner undergoes rigorous review to verify a 100% vegan and cruelty-free catalog.
+              </p>
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #FFF0F8; border-radius: 12px; border-left: 4px solid #ff0099; margin-bottom: 24px;">
+                <tr>
+                  <td style="padding: 18px 20px;">
+                    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #0A0507;">
+                      What happens next?
+                    </p>
+                    <p style="margin: 6px 0 0 0; font-size: 14px; color: #4A3542;">
+                      Our vetting team is actively reviewing your submission. If your business meets our strict qualification standards, we will reach out with onboarding instructions and platform details prior to the app drop.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin: 0 0 30px 0;">
+                Thank you for your dedication to ethical commerce. We can't wait to transform everyday spending into lifesavers together.
+              </p>
+      `;
+    } else if (role === "sanctuary") {
+      subjectText = "Application Received: DIANA Sanctuary Verification 😻";
+      headingText = "Sanctuary Application Received 😻";
+      bodyContent = `
+              <p style="margin: 0 0 16px 0;">
+                Thank you for submitting your sanctuary for verification, <strong>${name}</strong>. We deeply honor your frontline work protecting rescued animals.
+              </p>
+              <p style="margin: 0 0 24px 0;">
+                To protect our community's trust and ensure every cent pledged supports lifelong, uncompromised animal care, we conduct thorough due diligence before approving any sanctuary for platform distribution.
+              </p>
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #FFF0F8; border-radius: 12px; border-left: 4px solid #ff0099; margin-bottom: 24px;">
+                <tr>
+                  <td style="padding: 18px 20px;">
+                    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #0A0507;">
+                      What happens next?
+                    </p>
+                    <p style="margin: 6px 0 0 0; font-size: 14px; color: #4A3542;">
+                      Our verification team is reviewing your governance, animal care standards, and non-profit credentials. We will follow up directly if additional documentation or a verification interview is required.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin: 0 0 30px 0;">
+                Thank you for giving animals the haven they deserve. We look forward to connecting your sanctuary with our global community.
+              </p>
+      `;
+    } else if (role === "builder") {
+      subjectText = "Application Received: DIANA Build Team 😻";
+      headingText = "Builder Application Received 😻";
+      bodyContent = `
+              <p style="margin: 0 0 16px 0;">
+                Thank you for raising your hand to help co-create digital infrastructure for animals, <strong>${name}</strong>.
+              </p>
+              <p style="margin: 0 0 24px 0;">
+                We curate our build team across our 6 contribution profiles very carefully to ensure complete alignment with our 100% vegan ethics and technical roadmap.
+              </p>
+              <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #FFF0F8; border-radius: 12px; border-left: 4px solid #ff0099; margin-bottom: 24px;">
+                <tr>
+                  <td style="padding: 18px 20px;">
+                    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #0A0507;">
+                      What happens next?
+                    </p>
+                    <p style="margin: 6px 0 0 0; font-size: 14px; color: #4A3542;">
+                      We review builder profiles on a rolling basis as engineering, design, and growth initiatives open up. If your contribution profile aligns with an active initiative, our core team will reach out directly.
+                    </p>
+                  </td>
+                </tr>
+              </table>
+              <p style="margin: 0 0 30px 0;">
+                Thank you for offering your skills and sweat equity for the animals.
+              </p>
+      `;
+    }
+
     const htmlContent = `
 <!DOCTYPE html>
 <html lang="en">
@@ -70,29 +178,9 @@ serve(async (req) => {
           <tr>
             <td style="padding: 10px 40px 30px 40px; font-size: 16px; line-height: 1.6; color: #4A3542;">
               <h2 style="margin: 0 0 16px 0; font-size: 22px; font-weight: 700; color: #0A0507;">
-                Welcome to the Nexus, ${name}! 😻
+                ${headingText}
               </h2>
-              <p style="margin: 0 0 16px 0;">
-                You are officially on the waitlist for the DIANA movement. Thank you for stepping up to help us transform everyday commerce into a lifesaver for rescued animals.
-              </p>
-              <p style="margin: 0 0 24px 0;">
-                We are building an ecosystem where everyday spending at 100% cruelty-free businesses automatically routes a minimum 5% pledge directly to verified, lifelong animal sanctuaries around the world—at zero additional cost to the consumer.
-              </p>
-              <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #FFF0F8; border-radius: 12px; border-left: 4px solid #ff0099; margin-bottom: 24px;">
-                <tr>
-                  <td style="padding: 18px 20px;">
-                    <p style="margin: 0; font-size: 14px; font-weight: 600; color: #0A0507;">
-                      What happens next?
-                    </p>
-                    <p style="margin: 6px 0 0 0; font-size: 14px; color: #4A3542;">
-                      You have secured early priority access for our upcoming iOS and Android release. When the app drops, you will be among the very first invited to download, explore the global directory, and start generating impact.
-                    </p>
-                  </td>
-                </tr>
-              </table>
-              <p style="margin: 0 0 30px 0;">
-                If you know an ethical business or animal sanctuary that belongs on the platform, send them our way. We can't wait to build this future with you.
-              </p>
+${bodyContent}
               <table border="0" cellpadding="0" cellspacing="0" style="margin: 0 auto;">
                 <tr>
                   <td align="center" style="border-radius: 50px; background-color: #ff0099;">
@@ -112,7 +200,7 @@ serve(async (req) => {
           <tr>
             <td align="center" style="padding: 0 40px 35px 40px; font-size: 12px; line-height: 1.5; color: #8C7584;">
               <p style="margin: 0 0 12px 0; font-weight: 600; color: #4A3542;">
-                For the Animals,<br />
+                <span style="font-size: 15px; font-weight: 700; letter-spacing: 0.5px; color: #4A3542;">For the Animals,</span><br />
                 <span style="font-family: 'Playfair Display', Georgia, serif; font-size: 18px; font-weight: 700; letter-spacing: 1px; color: #ff0099;">The DIANA Team</span>
               </p>
               <p style="margin: 0 0 6px 0; font-size: 11px; font-weight: 700; letter-spacing: 1.5px; text-transform: uppercase; color: #0A0507;">
@@ -145,7 +233,7 @@ serve(async (req) => {
       body: JSON.stringify({
         from: "DIANA <hello@dianafortheanimals.org>",
         to: [email],
-        subject: "Welcome to the DIANA Nexus 😻",
+        subject: subjectText,
         html: htmlContent,
       }),
     });
