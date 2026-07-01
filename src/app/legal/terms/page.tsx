@@ -103,6 +103,7 @@ const sections = [
     body: [
       'Participating merchants pay DIANA a flat platform fee of 5% on each transaction processed through the Platform. This fee covers platform operations, payment processing infrastructure, and the attribution and distribution of sanctuary contributions. The platform fee is separate from the merchant sanctuary pledge (which is a minimum of 5%).',
       'Contributions from merchant pledge commitments are calculated and distributed by DIANA according to the merchant\'s configured pledge percentage. DIANA does not guarantee a specific contribution amount to any sanctuary.',
+      'DIANA contributes 5% of its own platform fee back into the sanctuary ecosystem. This is DIANA\'s direct contribution to the mission on top of the merchant pledge.',
       'DIANA is not responsible for the actions of any merchant or sanctuary and does not guarantee that contributions will be used in any particular way by recipient sanctuaries.',
     ],
   },
@@ -258,7 +259,7 @@ export default function TermsPage() {
                     <a href="mailto:legal@dianafortheanimals.org" className="text-primary hover:underline">
                       legal@dianafortheanimals.org
                     </a>
-                    . DRGM DEV PTY LTD.
+                    . DRGM DEV PTY LTD (ACN 699 347 861).
                   </p>
                 </div>
               </div>

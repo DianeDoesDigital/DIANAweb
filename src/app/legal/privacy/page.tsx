@@ -225,7 +225,7 @@ export default function PrivacyPage() {
                     <a href="mailto:privacy@dianafortheanimals.org" className="text-primary hover:underline">
                       privacy@dianafortheanimals.org
                     </a>
-                    . DRGM DEV PTY LTD.
+                    . DRGM DEV PTY LTD (ACN 699 347 861).
                   </p>
                 </div>
               </div>

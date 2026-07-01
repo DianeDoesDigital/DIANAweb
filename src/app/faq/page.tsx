@@ -32,7 +32,7 @@ const faqs = [
       },
       {
         q: "How does DIANA make money?",
-        a: "From every DIANA transaction, a minimum of 10% is deducted from the merchant's revenue, not the consumer's payment. A minimum of 5% goes directly to the sanctuary ecosystem and a flat 5% goes to the DIANA platform to cover payment processing, server infrastructure, and platform development. We are a technology company and our sustainability model is built on transaction volume."
+        a: "From every DIANA transaction, a minimum of 10% is deducted from the merchant's revenue, not the consumer's payment. A minimum of 5% goes directly to the sanctuary ecosystem and a flat 5% goes to the DIANA platform to cover payment processing, server infrastructure, and platform development. Additionally, DIANA contributes 5% of its own platform fee back into the sanctuary ecosystem as our direct contribution to the mission on top of the merchant pledge. We are a technology company and our sustainability model is built on transaction volume."
       },
     ]
   },
