@@ -61,7 +61,6 @@ export default function TopNav({ onActivate }: TopNavProps) {
       }
 
       setScrolled(window.scrollY > 50);
-      const isAtBottom = Math.ceil(window.innerHeight + window.scrollY) >= document.documentElement.scrollHeight - 50;
       setHideNav(isAtBottom);
     };
 
