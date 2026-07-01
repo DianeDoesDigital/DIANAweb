@@ -16,23 +16,23 @@ const faqs = [
       },
       {
         q: "How does DIANA's automatic impact actually work?",
-        a: "When a consumer pays at a DIANA partner merchant, the transaction is processed through our licensed payment partners. From the merchant's portion, 5% is automatically routed to the sanctuary ecosystem and 5% covers platform operating costs. The consumer pays their bill as normal. Nothing extra is charged to them."
+        a: "When a consumer pays at a DIANA partner merchant, the transaction is processed through our licensed payment partners. From the merchant's portion, a minimum of 5% is automatically routed to the sanctuary ecosystem and a flat 5% covers platform operating costs. The consumer pays their bill as normal. Nothing extra is charged to them."
       },
       {
         q: "Why wouldn't I just donate directly to a sanctuary I like?",
         a: "In theory, you could. In practice, human behavior shows that people don't consistently open a browser, navigate to a sanctuary's donation page, enter their card details, and manually send a small amount every time they make a purchase. The friction stops most people from doing it consistently. DIANA removes that friction entirely. Your everyday spending quietly funds sanctuaries without you changing your behavior or spending a single cent extra."
       },
       {
-        q: "Why does the 5% transaction impact go to all sanctuaries instead of just my favorite?",
+        q: "Why does the transaction impact go to all sanctuaries instead of just my favorite?",
         a: "The transactional pool is designed to sustain the entire ecosystem, ensuring that even small, hardworking sanctuaries without large social media followings receive consistent funding. This prevents a popularity-contest model where only well-known sanctuaries benefit. If you want to heavily support one specific sanctuary, DIANA has separate One-Time Gift and Monthly Care features where 100% of your funds go directly to them."
       },
       {
         q: "What is the difference between transactional impact, One-Time Gifts, and Monthly Care?",
-        a: "Transactional impact is automatic. It happens every time you pay at a DIANA merchant with no extra action from you. The 5% from that transaction is pooled and distributed across all verified sanctuaries.\n\nOne-Time Gifts are direct, voluntary contributions you choose to make to a specific sanctuary at any time.\n\nMonthly Care is a recurring subscription you set up to send a fixed amount to a specific sanctuary each month."
+        a: "Transactional impact is automatic. It happens every time you pay at a DIANA merchant with no extra action from you. The merchant's pledge (minimum 5%) from that transaction is pooled and distributed across all verified sanctuaries.\n\nOne-Time Gifts are direct, voluntary contributions you choose to make to a specific sanctuary at any time.\n\nMonthly Care is a recurring subscription you set up to send a fixed amount to a specific sanctuary each month."
       },
       {
         q: "How does DIANA make money?",
-        a: "From every DIANA transaction, 10% is deducted from the merchant's revenue, not the consumer's payment. 5% goes directly to the sanctuary ecosystem and 5% goes to the DIANA platform to cover payment processing, server infrastructure, and platform development. We are a technology company and our sustainability model is built on transaction volume."
+        a: "From every DIANA transaction, a minimum of 10% is deducted from the merchant's revenue, not the consumer's payment. A minimum of 5% goes directly to the sanctuary ecosystem and a flat 5% goes to the DIANA platform to cover payment processing, server infrastructure, and platform development. We are a technology company and our sustainability model is built on transaction volume."
       },
     ]
   },
@@ -46,7 +46,7 @@ const faqs = [
       },
       {
         q: "Do merchants mark up their prices on DIANA, meaning I pay the fee?",
-        a: "Unlike food delivery platforms that charge merchants 25 to 30% commission and force price inflation, DIANA operates at a 10% total margin, which is standard Customer Acquisition Cost for any ethical business. It is equivalent to what businesses already spend on ads, loyalty programs, or card processing fees. Merchants join DIANA to win conscious consumers, not to overcharge them. Even if a merchant adds a small markup, the consumer is still passively funding animal justice with every purchase. That has never been possible before."
+        a: "Unlike food delivery platforms that charge merchants 25 to 30% commission and force price inflation, DIANA operates at a minimum 10% total margin, which is standard Customer Acquisition Cost for any ethical business. It is equivalent to what businesses already spend on ads, loyalty programs, or card processing fees. Merchants join DIANA to win conscious consumers, not to overcharge them. Even if a merchant adds a small markup, the consumer is still passively funding animal justice with every purchase. That has never been possible before."
       },
       {
         q: "How do I track my impact?",
