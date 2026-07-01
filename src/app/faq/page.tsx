@@ -1,7 +1,7 @@
 'use client';
 
 import TopNav from '@/components/layout/TopNav';
-import { ChevronDown, AlertCircle, CheckCircle2, Network, Heart, Store, Cat, Shield, Wrench } from 'lucide-react';
+import { ChevronDown, AlertCircle, CheckCircle2, Network, User, Store, PawPrint, Shield, Blocks } from 'lucide-react';
 import { useState } from 'react';
 import { submitFAQQuestion } from '@/app/actions/submitForm';
 
@@ -38,7 +38,7 @@ const faqs = [
   },
   {
     category: "For Advocates",
-    icon: Heart,
+    icon: User,
     items: [
       {
         q: "Is the app free to use?",
@@ -114,7 +114,7 @@ const faqs = [
   },
   {
     category: "For Sanctuaries",
-    icon: Cat,
+    icon: PawPrint,
     items: [
       {
         q: "Is there a cost to join?",
@@ -144,7 +144,7 @@ const faqs = [
   },
   {
     category: "Build With Us",
-    icon: Wrench,
+    icon: Blocks,
     items: [
       {
         q: "Do I need to be a developer to join the core team?",
