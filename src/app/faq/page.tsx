@@ -240,7 +240,7 @@ export default function FAQPage() {
 
       {/* Page header */}
       <div className="pt-32 pb-16 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-gradient-to-b from-[#FFDDEE]/60 to-background">
-        <div className="max-w-[var(--spacing-container-max-width)] mx-auto">
+        <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
           <p className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[0.2em] text-xs uppercase mb-4" style={{ color: '#ff0099' }}>
             Everything you need to know
           </p>
@@ -261,7 +261,7 @@ export default function FAQPage() {
             {faqs.map((section) => (
               <div key={section.category} className="flex flex-col gap-6">
                 {/* Category label */}
-                <div className="text-center md:text-left">
+                <div className="text-center">
                   <span className="font-headline-md text-xl md:text-2xl text-secondary">
                     {section.category}
                   </span>
