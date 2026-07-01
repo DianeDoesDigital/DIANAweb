@@ -31,7 +31,15 @@ export default function TopNav({ onActivate }: TopNavProps) {
 
     const handleScroll = () => {
       const heroSplash = document.getElementById('hero-splash');
-      const isHeroVisible = (heroSplash && heroSplash.getBoundingClientRect().bottom > 80) || window.scrollY < (window.innerHeight - 80);
+
+      // If no hero-splash exists on this page, always show the nav
+      if (!heroSplash) {
+        setHideNav(false);
+        setScrolled(window.scrollY > 50);
+        return;
+      }
+
+      const isHeroVisible = heroSplash.getBoundingClientRect().bottom > 80 || window.scrollY < (window.innerHeight - 80);
       if (isHeroVisible) {
         setHideNav(true);
         setScrolled(false);

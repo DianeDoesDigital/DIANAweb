@@ -1,7 +1,7 @@
 'use client';
 
 import TopNav from '@/components/layout/TopNav';
-import { ChevronDown } from 'lucide-react';
+import { ChevronDown, AlertCircle, CheckCircle2 } from 'lucide-react';
 import { useState } from 'react';
 import { submitFAQQuestion } from '@/app/actions/submitForm';
 
@@ -198,7 +198,7 @@ export default function FAQPage() {
             <span style={{ color: '#ff0099' }}>Questions</span>
           </h1>
           <p className="text-text-subtle text-lg leading-relaxed max-w-[600px]">
-            The hard questions, answered honestly. Everything you need to understand how the DIANA ecosystem works, and why.
+            Everything you need to know about how the DIANA ecosystem works, and why.
           </p>
         </div>
       </div>
@@ -233,68 +233,66 @@ export default function FAQPage() {
       {/* Ask a Question form */}
       <div className="px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] pb-24">
         <div className="max-w-[800px] mx-auto">
-          <div className="bg-white rounded-3xl p-8 md:p-12 shadow-sm border border-border-main/30">
-            <h2 className="text-2xl md:text-3xl font-headline text-secondary mb-2">
-              Didn&apos;t find your answer?
-            </h2>
-            <p className="text-text-subtle mb-8 text-sm md:text-base">
-              Ask us directly. We read every question and the best ones get added to this page.
-            </p>
+          <h2 className="text-2xl md:text-3xl font-headline text-secondary mb-2">Didn&apos;t find your answer?</h2>
+          <p className="text-text-subtle mb-8 text-sm md:text-base">Ask us directly. We read every question and the best ones get added to this page.</p>
 
-            {formStatus === 'success' ? (
-              <div className="flex flex-col items-start gap-3 py-8">
-                <span className="text-2xl">🌿</span>
-                <p className="text-secondary font-medium text-lg">Your question has been received.</p>
-                <p className="text-text-subtle text-sm">We&apos;ll add the answer to this page if it&apos;s something the community should know.</p>
-                <button
-                  onClick={() => setFormStatus('idle')}
-                  className="mt-4 text-sm text-primary underline underline-offset-4 hover:text-secondary transition-colors"
-                >
-                  Ask another question
-                </button>
+          {formStatus === 'success' ? (
+            <div className="glass-surface bg-background rounded-2xl p-10 border border-primary/40 flex flex-col items-center justify-center gap-4 shadow-lg text-center min-h-[280px]">
+              <CheckCircle2 className="text-primary animate-bounce" size={48} />
+              <h3 className="font-headline-md text-2xl text-secondary">Question received.</h3>
+              <p className="font-body-md text-text-muted">We&apos;ll add the answer to this page if it&apos;s something the community should know.</p>
+              <button
+                onClick={() => setFormStatus('idle')}
+                className="mt-2 text-sm text-primary underline underline-offset-4 hover:text-secondary transition-colors"
+              >
+                Ask another question
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} noValidate className="glass-surface bg-background rounded-2xl p-10 border border-border-main flex flex-col gap-6 shadow-lg">
+              <div className="flex flex-col gap-1.5">
+                <input
+                  type="text"
+                  placeholder="Name"
+                  value={formState.name}
+                  onChange={e => setFormState(s => ({ ...s, name: e.target.value }))}
+                  className="bg-surface border border-border-main rounded-lg px-4 py-3.5 text-secondary font-body-md placeholder:text-text-muted/70 focus:outline-none focus:border-primary transition-colors"
+                />
               </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-                <div className="flex flex-col md:flex-row gap-4">
-                  <input
-                    required
-                    type="text"
-                    placeholder="Your name"
-                    value={formState.name}
-                    onChange={e => setFormState(s => ({ ...s, name: e.target.value }))}
-                    className="flex-1 px-4 py-3 rounded-xl border border-border-main/50 bg-background text-secondary placeholder:text-text-subtle focus:outline-none focus:border-primary transition-colors text-sm"
-                  />
-                  <input
-                    required
-                    type="email"
-                    placeholder="Your email"
-                    value={formState.email}
-                    onChange={e => setFormState(s => ({ ...s, email: e.target.value }))}
-                    className="flex-1 px-4 py-3 rounded-xl border border-border-main/50 bg-background text-secondary placeholder:text-text-subtle focus:outline-none focus:border-primary transition-colors text-sm"
-                  />
-                </div>
+              <div className="flex flex-col gap-1.5">
+                <input
+                  type="email"
+                  placeholder="Email Address"
+                  value={formState.email}
+                  onChange={e => setFormState(s => ({ ...s, email: e.target.value }))}
+                  className="bg-surface border border-border-main rounded-lg px-4 py-3.5 text-secondary font-body-md placeholder:text-text-muted/70 focus:outline-none focus:border-primary transition-colors"
+                />
+              </div>
+              <div className="flex flex-col gap-1.5">
                 <textarea
-                  required
                   placeholder="What would you like to know?"
                   value={formState.question}
                   onChange={e => setFormState(s => ({ ...s, question: e.target.value }))}
                   rows={4}
-                  className="px-4 py-3 rounded-xl border border-border-main/50 bg-background text-secondary placeholder:text-text-subtle focus:outline-none focus:border-primary transition-colors resize-none text-sm"
+                  className="bg-surface border border-border-main rounded-lg px-4 py-3.5 text-secondary font-body-md placeholder:text-text-muted/70 focus:outline-none focus:border-primary transition-colors resize-none"
                 />
-                {formStatus === 'error' && (
-                  <p className="text-red-500 text-sm">{errorMsg}</p>
-                )}
-                <button
-                  type="submit"
-                  disabled={formStatus === 'submitting'}
-                  className="self-start px-8 py-3 rounded-xl text-white font-medium text-sm transition-all hover:opacity-90 active:scale-95 disabled:opacity-50"
-                  style={{ backgroundColor: '#ff0099' }}
-                >
-                  {formStatus === 'submitting' ? 'Sending...' : 'Send Question'}
-                </button>
-              </form>
-            )}
-          </div>
+              </div>
+              {formStatus === 'error' && (
+                <span className="flex items-center gap-1.5 text-xs text-red-500 font-body-sm pl-1">
+                  <AlertCircle size={14} />
+                  {errorMsg}
+                </span>
+              )}
+              <button
+                type="submit"
+                disabled={formStatus === 'submitting'}
+                className="w-full py-4 bg-primary text-[#FFDDEE] font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[var(--text-label-caps--letter-spacing)] rounded-full border-2 border-primary hover:shadow-[0_8px_30px_rgba(255,0,153,0.45)] transition-all active:scale-95 disabled:opacity-50 disabled:pointer-events-none uppercase mt-1"
+              >
+                {formStatus === 'submitting' ? 'Sending...' : 'Send Question'}
+              </button>
+              <p className="font-body-sm text-[var(--text-body-sm)] text-text-subtle text-center select-none">We read every question and the best ones get added to this page.</p>
+            </form>
+          )}
         </div>
       </div>
     </main>
