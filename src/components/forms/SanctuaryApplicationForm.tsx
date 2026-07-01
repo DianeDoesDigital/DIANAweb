@@ -229,7 +229,7 @@ export default function SanctuaryApplicationForm() {
         {isSubmitting ? 'Submitting...' : 'Submit Application'}
       </button>
       {submitError && (
-        <p className="text-red-500 text-sm text-center font-bold uppercase">{submitError}</p>
+        <p className="text-[#FF0099] text-sm text-center font-bold uppercase">{submitError}</p>
       )}
       <p className="font-body-sm text-[var(--text-body-sm)] text-text-subtle text-center select-none">All sanctuaries are verified to be cruelty-free and genuinely rescue-focused.</p>
     </form>

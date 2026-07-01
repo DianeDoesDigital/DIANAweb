@@ -253,7 +253,7 @@ export default function BuildJoinForm() {
         )}
       </button>
       {submitError && (
-        <p className="text-red-500 text-sm text-center font-bold uppercase">{submitError}</p>
+        <p className="text-[#FF0099] text-sm text-center font-bold uppercase">{submitError}</p>
       )}
     </form>
   );

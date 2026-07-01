@@ -27,7 +27,7 @@ export async function submitWaitlist(data: BaseSignup) {
       return { success: false, error: 'THIS EMAIL IS ALREADY ON THE NEXUS WAITLIST!' };
     }
     console.error('Supabase Error:', error);
-    return { success: false, error: 'CONNECTION FAILED. PLEASE TRY AGAIN.' };
+    return { success: false, error: `CONNECTION FAILED: ${error.message?.toUpperCase() || 'PLEASE TRY AGAIN.'}` };
   }
   
   return { success: true, id: insertedData.id };
@@ -43,7 +43,7 @@ export async function submitMerchantDetails(waitlistId: string, details: { busin
     
   if (error) {
     console.error('Merchant details error:', error);
-    return { success: false, error: 'Failed to save merchant details' };
+    return { success: false, error: `FAILED TO SAVE DETAILS: ${error.message?.toUpperCase() || 'PLEASE TRY AGAIN.'}` };
   }
   return { success: true };
 }
@@ -58,7 +58,7 @@ export async function submitSanctuaryDetails(waitlistId: string, details: { sanc
     
   if (error) {
     console.error('Sanctuary details error:', error);
-    return { success: false, error: 'Failed to save sanctuary details' };
+    return { success: false, error: `FAILED TO SAVE DETAILS: ${error.message?.toUpperCase() || 'PLEASE TRY AGAIN.'}` };
   }
   return { success: true };
 }
@@ -73,7 +73,7 @@ export async function submitBuilderDetails(waitlistId: string, details: { linked
     
   if (error) {
     console.error('Builder details error:', error);
-    return { success: false, error: 'Failed to save builder details' };
+    return { success: false, error: `FAILED TO SAVE DETAILS: ${error.message?.toUpperCase() || 'PLEASE TRY AGAIN.'}` };
   }
   return { success: true };
 }

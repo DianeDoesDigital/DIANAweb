@@ -121,7 +121,7 @@ export default function AdvocateJoinForm() {
         {isSubmitting ? 'Submitting...' : 'Join the Nexus'}
       </button>
       {submitError && (
-        <p className="text-red-500 text-sm text-center font-bold uppercase">{submitError}</p>
+        <p className="text-[#FF0099] text-sm text-center font-bold uppercase">{submitError}</p>
       )}
       <p className="font-body-sm text-[var(--text-body-sm)] text-text-subtle text-center select-none">No spam. Full onboarding happens in the app.</p>
     </form>
