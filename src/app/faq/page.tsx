@@ -78,7 +78,7 @@ const faqs = [
       },
       {
         q: "Are my One-Time Gifts or Monthly Care subscriptions tax-deductible?",
-        a: "DIANA partners exclusively with registered charities and non-profits, but tax deductibility depends on your local tax laws and the specific sanctuary's registration status in your country. When you make a direct contribution, you receive an automated receipt from DIANA. If the receiving sanctuary holds tax-exempt status in your jurisdiction, you may use this receipt for tax purposes. We recommend consulting a local tax professional for specific guidance."
+        a: "Yes. Because DIANA exclusively partners with registered charities and non-profits, your One-Time Gifts and Monthly Care subscriptions are direct charitable contributions. You will receive an automated receipt from DIANA for every contribution, which you can use for tax deduction purposes."
       },
       {
         q: "How do I find participating DIANA merchants?",
@@ -187,12 +187,20 @@ const faqs = [
         a: "Not at all. Building DIANA requires marketing, design, community management, legal, and operational expertise just as much as engineering."
       },
       {
+        q: "What specific skills or roles is DIANA actively looking for right now?",
+        a: "We are actively looking for passionate individuals across community growth, merchant onboarding partnerships, social media storytelling, UI/UX design, QA testing, and full-stack engineering. If you are deeply committed to animal liberation and high-quality execution, we want to hear from you."
+      },
+      {
         q: "Are these paid roles?",
         a: "Currently, DIANA is pre-funding. Core team roles are compensated via sweat equity and deferred backpay upon raising capital. Contributors are volunteer-based."
       },
       {
-        q: "What is the time commitment?",
-        a: "It varies entirely by role. Core team members treat this as a serious part-time or full-time endeavor. Contributors can spend as little as a few hours a month."
+        q: "What is the time commitment and how does the team collaborate?",
+        a: "Time commitment varies entirely by role—core team members treat this as a serious endeavor, while contributors can spend as little as a few hours a month. We operate as an async-first, remote team using modern communication and tracking tools, allowing you to contribute effectively from anywhere without being bogged down by endless meetings."
+      },
+      {
+        q: "How can university clubs, activist groups, or vegan societies get involved?",
+        a: "We love partnering with grassroots communities! Student organizations and activist collectives can act as local DIANA Ambassadors to help identify and onboard ethical merchants and sanctuaries in their cities. Reach out via our contact form to set up an ambassador partnership."
       },
       {
         q: "Can I invest if I am not an accredited investor?",
@@ -205,12 +213,16 @@ const faqs = [
     icon: Shield,
     items: [
       {
+        q: "Where is DIANA registered?",
+        a: "DIANA is a product of DRGM Dev Pty Ltd (ACN 699 347 861), an Australian proprietary company. Our financial infrastructure operates under Australian financial regulations and international standards enforced by our licensed payment partners."
+      },
+      {
         q: "Why is DIANA incorporated in Australia (DRGM Dev Pty Ltd) if the founder is Filipina?",
         a: "To build a global ethical economy on world-class financial infrastructure.\n\nDIANA is designed from day one to operate globally, routing transaction percentages across borders to sanctuaries all over the world. To do this securely at scale, the platform requires deep integration with international, tier-one payment rails and cross-border settlement infrastructure.\n\nAustralia offers one of the most robust, highly regulated, and globally trusted financial technology frameworks in the world. By incorporating as an Australian Pty Ltd, DIANA can leverage licensed international payment partners to guarantee institutional-grade compliance, escrow protection, and secure cross-border routing.\n\nThis setup ensures total financial integrity for our users everywhere, while allowing our founder to build the core technology with global reach right from her laptop."
       },
       {
-        q: "Where is DIANA registered?",
-        a: "DIANA is a product of DRGM Dev Pty Ltd (ACN 699 347 861), an Australian proprietary company. Our financial infrastructure operates under Australian financial regulations and international standards enforced by our licensed payment partners."
+        q: "Who built DIANA?",
+        a: "DIANA was conceived and built by Diane G. Mejilla, the founder of DRGM Dev Pty Ltd. Starting January 16, 2026, she designed the entire user experience and wrote the native mobile codebase herself, demonstrating that the tools for building the ethical economy are available to anyone willing to learn and build."
       },
       {
         q: "Is DIANA a licensed financial service?",
@@ -221,16 +233,12 @@ const faqs = [
         a: "DIANA is not a domestic Philippine charity soliciting public donations, which would require a DSWD Public Solicitation Permit, nor is it a Philippine e-wallet holding consumer funds, which would require BSP EMI licensing. DIANA is an Australian technology company providing B2B payment routing software to merchants. Licensed payment processing is handled by globally regulated financial partners who maintain full compliance."
       },
       {
-        q: "What happens to my money if DIANA shuts down?",
-        a: "Because DIANA does not hold your funds directly, your money is protected by the same insolvency protections that apply to our licensed payment partners. Any pending sanctuary distributions would be processed through our standard settlement cycle before wind-down. We are committed to full transparency in any such scenario."
-      },
-      {
-        q: "Who built DIANA?",
-        a: "DIANA was conceived and built by Diane G. Mejilla, the founder of DRGM Dev Pty Ltd. Starting January 16, 2026, she designed the entire user experience and wrote the native mobile codebase herself, demonstrating that the tools for building the ethical economy are available to anyone willing to learn and build."
-      },
-      {
         q: "How is user data protected?",
         a: "DIANA is built with a privacy-first architecture. We do not sell your personal data to third parties, and we do not engage in behavioural advertising. All payment details are tokenized and processed directly by our licensed, PCI-DSS compliant financial partners—we never store your card numbers on our servers. Your data is strictly encrypted both in transit and at rest."
+      },
+      {
+        q: "What happens to my money if DIANA shuts down?",
+        a: "Because DIANA does not hold your funds directly, your money is protected by the same insolvency protections that apply to our licensed payment partners. Any pending sanctuary distributions would be processed through our standard settlement cycle before wind-down. We are committed to full transparency in any such scenario."
       }
     ]
   }
