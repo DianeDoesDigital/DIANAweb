@@ -296,11 +296,11 @@ export default function FAQPage() {
       <div className="px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] pb-32 pt-16 bg-gradient-to-t from-[#FFDDEE]/40 to-background">
         <div className="max-w-2xl mx-auto">
           <div className="text-center mb-10">
-            <span className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[0.2em] text-xs uppercase mb-4 inline-block" style={{ color: '#ff0099' }}>
-              Ask Us
-            </span>
-            <h2 className="text-2xl md:text-4xl font-headline-lg text-secondary mb-3">Didn&apos;t find your answer?</h2>
-            <p className="text-text-muted font-body-lg max-w-md mx-auto">We read every question and the best ones get added to this page.</p>
+            <h2 className="text-4xl md:text-6xl font-headline-lg leading-tight tracking-tight mb-3">
+              <span className="text-secondary">Didn&apos;t Find </span>
+              <span style={{ color: '#ff0099' }}>Your Answer?</span>
+            </h2>
+            <p className="text-text-muted font-body-lg max-w-2xl mx-auto">We read every question and the best ones get added to this page.</p>
           </div>
 
           {formStatus === 'success' ? (
