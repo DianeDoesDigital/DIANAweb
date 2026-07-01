@@ -24,15 +24,27 @@ export default function TopNav({ onActivate }: TopNavProps) {
   const [scrolled, setScrolled] = useState(false);
   const [hideNav, setHideNav] = useState(true);
 
+  const isHeroPage = pathname === '/' || pathname === '/mission' || pathname === '/sanctuaries' || pathname === '/advocates' || pathname === '/merchants' || pathname === '/build';
+
+  useEffect(() => {
+    if (!isHeroPage) {
+      setHideNav(false);
+    }
+  }, [isHeroPage]);
+
   useEffect(() => {
     if (pathname === '/home') {
       setMenuOpen(false);
     }
 
     const handleScroll = () => {
-      const heroSplash = document.getElementById('hero-splash');
+      if (!isHeroPage) {
+        setHideNav(false);
+        setScrolled(window.scrollY > 50);
+        return;
+      }
 
-      // If no hero-splash exists on this page, always show the nav
+      const heroSplash = document.getElementById('hero-splash');
       if (!heroSplash) {
         setHideNav(false);
         setScrolled(window.scrollY > 50);
