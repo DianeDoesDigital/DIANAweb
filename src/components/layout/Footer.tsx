@@ -17,6 +17,7 @@ const legalLinks = [
   { href: '/legal/privacy', label: 'Privacy', fullLabel: 'Privacy Policy' },
   { href: '/legal/terms', label: 'Terms', fullLabel: 'Terms of Use' },
   { href: '/legal/cookies', label: 'Cookies', fullLabel: 'Cookie Policy' },
+  { href: '/faq', label: 'FAQ', fullLabel: 'Frequently Asked Questions' },
 ];
 
 export default function Footer() {
