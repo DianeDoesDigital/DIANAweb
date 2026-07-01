@@ -1,13 +1,14 @@
 'use client';
 
 import TopNav from '@/components/layout/TopNav';
-import { ChevronDown, AlertCircle, CheckCircle2 } from 'lucide-react';
+import { ChevronDown, AlertCircle, CheckCircle2, Network, Heart, Store, Cat, Shield, Wrench } from 'lucide-react';
 import { useState } from 'react';
 import { submitFAQQuestion } from '@/app/actions/submitForm';
 
 const faqs = [
   {
     category: "The Core Model",
+    icon: Network,
     items: [
       {
         q: "Is DIANA a charity or an NGO?",
@@ -37,6 +38,7 @@ const faqs = [
   },
   {
     category: "For Advocates",
+    icon: Heart,
     items: [
       {
         q: "Is the app free to use?",
@@ -78,6 +80,7 @@ const faqs = [
   },
   {
     category: "For Merchants",
+    icon: Store,
     items: [
       {
         q: "What types of businesses can join DIANA as merchants?",
@@ -111,6 +114,7 @@ const faqs = [
   },
   {
     category: "For Sanctuaries",
+    icon: Cat,
     items: [
       {
         q: "Is there a cost to join?",
@@ -139,7 +143,30 @@ const faqs = [
     ]
   },
   {
+    category: "Build With Us",
+    icon: Wrench,
+    items: [
+      {
+        q: "Do I need to be a developer to join the core team?",
+        a: "Not at all. Building DIANA requires marketing, design, community management, legal, and operational expertise just as much as engineering."
+      },
+      {
+        q: "Are these paid roles?",
+        a: "Currently, DIANA is pre-funding. Core team roles are compensated via sweat equity and deferred backpay upon raising capital. Contributors are volunteer-based."
+      },
+      {
+        q: "What is the time commitment?",
+        a: "It varies entirely by role. Core team members treat this as a serious part-time or full-time endeavor. Contributors can spend as little as a few hours a month."
+      },
+      {
+        q: "Can I invest if I am not an accredited investor?",
+        a: "We are currently exploring community-led funding rounds like equity crowdfunding that would allow anyone to invest. Reach out and we will keep you updated."
+      }
+    ]
+  },
+  {
     category: "Legal & Trust",
+    icon: Shield,
     items: [
       {
         q: "Where is DIANA registered?",
@@ -160,27 +187,6 @@ const faqs = [
       {
         q: "Who built DIANA?",
         a: "DIANA was conceived and built by Diane G. Mejilla, the founder of DRGM Dev Pty Ltd. Starting January 16, 2026, she designed the entire user experience and wrote the native mobile codebase herself, demonstrating that the tools for building the ethical economy are available to anyone willing to learn and build."
-      }
-    ]
-  },
-  {
-    category: "Build With Us",
-    items: [
-      {
-        q: "Do I need to be a developer to join the core team?",
-        a: "Not at all. Building DIANA requires marketing, design, community management, legal, and operational expertise just as much as engineering."
-      },
-      {
-        q: "Are these paid roles?",
-        a: "Currently, DIANA is pre-funding. Core team roles are compensated via sweat equity and deferred backpay upon raising capital. Contributors are volunteer-based."
-      },
-      {
-        q: "What is the time commitment?",
-        a: "It varies entirely by role. Core team members treat this as a serious part-time or full-time endeavor. Contributors can spend as little as a few hours a month."
-      },
-      {
-        q: "Can I invest if I am not an accredited investor?",
-        a: "We are currently exploring community-led funding rounds like equity crowdfunding that would allow anyone to invest. Reach out and we will keep you updated."
       }
     ]
   }
@@ -241,9 +247,6 @@ export default function FAQPage() {
       {/* Page header */}
       <div className="pt-32 pb-16 px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)] bg-gradient-to-b from-[#FFDDEE]/60 to-background">
         <div className="max-w-3xl mx-auto text-center flex flex-col items-center">
-          <p className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[0.2em] text-xs uppercase mb-4" style={{ color: '#ff0099' }}>
-            Everything you need to know
-          </p>
           <h1 className="text-4xl md:text-6xl font-headline-lg leading-tight tracking-tight mb-6">
             <span className="text-secondary">Frequently Asked </span>
             <span style={{ color: '#ff0099' }}>Questions</span>
@@ -261,8 +264,9 @@ export default function FAQPage() {
             {faqs.map((section) => (
               <div key={section.category} className="flex flex-col gap-6">
                 {/* Category label */}
-                <div className="text-center">
-                  <span className="font-headline-md text-xl md:text-2xl text-secondary">
+                <div className="flex items-center gap-2 mb-2">
+                  {section.icon && <section.icon size={16} style={{ color: '#ff0099' }} />}
+                  <span className="font-label-caps font-[var(--text-label-caps--font-weight)] tracking-[0.2em] text-xs uppercase" style={{ color: '#ff0099' }}>
                     {section.category}
                   </span>
                 </div>
