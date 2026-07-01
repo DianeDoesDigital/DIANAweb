@@ -44,6 +44,7 @@ serve(async (req) => {
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Welcome to the Nexus</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
 </head>
 <body style="margin: 0; padding: 0; background-color: #FFF5FA; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #2D1525; -webkit-font-smoothing: antialiased;">
   <table width="100%" border="0" cellpadding="0" cellspacing="0" style="background-color: #FFF5FA; padding: 40px 20px;">
@@ -55,10 +56,11 @@ serve(async (req) => {
           </tr>
           <tr>
             <td align="center" style="padding: 40px 40px 20px 40px;">
-              <h1 style="margin: 0; font-size: 28px; font-weight: 800; letter-spacing: -0.5px; color: #0A0507;">
+              <img src="https://dianafortheanimals.org/diana-logo.png" alt="DIANA Logo" width="56" height="56" style="display: block; margin: 0 auto 14px auto;" />
+              <h1 style="margin: 0; font-family: 'Playfair Display', Georgia, serif; font-size: 32px; font-weight: 700; letter-spacing: 3.8px; color: #ff0099;">
                 DIANA
               </h1>
-              <p style="margin: 4px 0 0 0; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #ff0099;">
+              <p style="margin: 6px 0 0 0; font-size: 11px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; color: #0A0507;">
                 Digital Infrastructure for Animal Networks &amp; Advocacy
               </p>
             </td>
@@ -71,7 +73,7 @@ serve(async (req) => {
           <tr>
             <td style="padding: 10px 40px 30px 40px; font-size: 16px; line-height: 1.6; color: #4A3542;">
               <h2 style="margin: 0 0 16px 0; font-size: 22px; font-weight: 700; color: #0A0507;">
-                Welcome to the Nexus, ${name}! 🌱
+                Welcome to the Nexus, ${name}!
               </h2>
               <p style="margin: 0 0 16px 0;">
                 You are officially on the early believer waitlist for the DIANA movement. Thank you for stepping up to help us transform everyday commerce into a lifesaver for rescued animals.
@@ -143,7 +145,7 @@ serve(async (req) => {
       body: JSON.stringify({
         from: "DIANA <hello@dianafortheanimals.org>",
         to: [email],
-        subject: "Welcome to the DIANA Nexus 🌱",
+        subject: "Welcome to the DIANA Nexus",
         html: htmlContent,
       }),
     });
