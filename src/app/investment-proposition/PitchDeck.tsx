@@ -374,6 +374,226 @@ function ConclusionSlide({ onSecretClick }: { onSecretClick: () => void }) {
   );
 }
 
+function FinalValuationSlide() {
+  const [showExplainer, setShowExplainer] = React.useState(false);
+
+  return (
+    <div className="glass-surface p-12 rounded-3xl space-y-8 flex flex-col items-center justify-center text-center h-full">
+      {showExplainer ? (
+        <div
+          onClick={() => setShowExplainer(false)}
+          className="bg-white/95 p-8 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-2xl flex flex-col justify-between flex-1 w-full text-left cursor-pointer animate-fadeIn transition-all"
+        >
+          <div>
+            <div className="flex justify-between items-center mb-5 border-b border-gray-200 pb-3">
+              <div>
+                <span className="text-xs font-label-caps text-[var(--color-text-subtle)] block mb-0.5">Valuation Math Explainer</span>
+                <h3 className="font-headline-lg text-3xl font-bold text-[var(--color-primary)]">
+                  How the $925,000 Growth Target is Calculated
+                </h3>
+              </div>
+              <span className="font-impact-stat text-4xl text-[var(--color-primary)]">
+                AUD $925,000
+              </span>
+            </div>
+
+            <div className="space-y-4 my-4">
+              <div className="flex items-start gap-3.5 text-sm md:text-base text-[var(--color-text)] leading-relaxed">
+                <span className="w-7 h-7 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">1</span>
+                <div>
+                  <strong className="text-[var(--color-primary)]">Base Asset Value ($635,000 AUD):</strong> The starting valuation of DIANA today—covering our fully built web and mobile platform, proprietary code, brand IP, and market setup before paying users arrive.
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5 text-sm md:text-base text-[var(--color-text)] leading-relaxed">
+                <span className="w-7 h-7 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">2</span>
+                <div>
+                  <strong className="text-[var(--color-primary)]">1,000 Users Net Profit ($60,000 AUD/Yr):</strong> At our 1,000 active user break-even milestone (~$200/mo spend per user), DIANA generates $5,000 AUD per month ($60,000 AUD per year) in proven recurring net profit.
+                </div>
+              </div>
+
+              <div className="flex items-start gap-3.5 text-sm md:text-base text-[var(--color-text)] leading-relaxed">
+                <span className="w-7 h-7 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">3</span>
+                <div>
+                  <strong className="text-[var(--color-primary)]">The Growth Multiplier (+$290,000 AUD):</strong> In business valuation, proven recurring annual net profit ($60,000) is valued at a standard ~4.8x earnings multiplier, adding $290,000 in earning power to our assets.
+                </div>
+              </div>
+
+              <div className="p-4 bg-[var(--color-primary)]/10 rounded-xl border border-[var(--color-primary)]/20 mt-4 text-center font-bold text-base text-[var(--color-primary)]">
+                $635,000 Base Assets + $290,000 Earning Power = AUD $925,000 Total Valuation
+              </div>
+            </div>
+          </div>
+        </div>
+      ) : (
+        <>
+          <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-4">The Final Valuation</h2>
+          <div className="w-full max-w-2xl text-center p-12 bg-[var(--color-primary)]/10 rounded-3xl border-2 border-[var(--color-primary)]/30 transform hover:scale-105 transition-transform shadow-sm">
+            <span className="font-label-caps block mb-4 text-[var(--color-text-subtle)] tracking-widest">Total Platform &amp; Brand Value</span>
+            <span className="font-impact-stat text-7xl text-[var(--color-primary)]">AUD $635,000</span>
+            <span className="block mt-4 font-body-lg text-[var(--color-secondary)] font-bold">Base Case Total</span>
+          </div>
+          <div
+            onClick={() => setShowExplainer(true)}
+            className="mt-6 bg-white/60 hover:bg-white p-5 rounded-2xl max-w-lg cursor-pointer border border-white/40 shadow-sm transition-all duration-200 transform hover:-translate-y-1"
+          >
+            <p className="font-body-md text-[var(--color-text)] font-bold text-lg">
+              Growth Target: <span className="text-[var(--color-primary)]">AUD $925,000</span>
+            </p>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}
+
+function SeedAllocationSlide() {
+  const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
+
+  const categories = [
+    {
+      title: "1. Partner Activation",
+      percent: "35%",
+      borderColor: "border-[var(--color-primary)]",
+      headerColor: "text-[var(--color-primary)]",
+      shortDesc: "Physical QR display kits, standees, and window decals to onboard and equip our first 1,000+ partner businesses.",
+      items: [
+        "Custom acrylic QR table stands so customers can scan and pay instantly at the counter.",
+        "Eye-catching storefront window stickers advertising that at least 5% of purchases go directly to animal sanctuaries.",
+        "Tabletop cards and welcome flyers explaining to customers how easy the app is to use.",
+        "International shipping and delivery of physical display materials to businesses in multiple countries.",
+        "Hands-on onboarding assistance and small welcome rewards for community members who help sign up local shops."
+      ]
+    },
+    {
+      title: "2. Marketing & Launch Events",
+      percent: "20%",
+      borderColor: "border-[var(--color-secondary)]",
+      headerColor: "text-[var(--color-secondary)]",
+      shortDesc: "Launch events and creator partnerships across our initial markets to ignite global buzz and early consumer adoption.",
+      items: [
+        "Sponsoring and hosting ethical community gatherings and popup market spaces across key cities.",
+        "Eye-catching physical banners, signage, and printed guides for real-world community events.",
+        "Collaborations and welcome gifts for ethical lifestyle creators and animal advocates who champion the app.",
+        "Press releases and media outreach to vegan, travel, and ethical business news outlets globally.",
+        "Thank-you perks and referral rewards for early community members who invite their friends to shop."
+      ]
+    },
+    {
+      title: "3. Working Capital",
+      percent: "25%",
+      borderColor: "border-[var(--color-primary)]",
+      headerColor: "text-[var(--color-primary)]",
+      shortDesc: "A safety buffer for unexpected expenses and operational costs, ensuring the business stays stable during its first year.",
+      items: [
+        "Covering everyday running expenses while we steadily grow toward our 1,000-user break-even goal.",
+        "An emergency backup fund so we never have to scramble or worry if unexpected costs pop up.",
+        "Professional annual tax preparation and basic bookkeeping to keep our company financial records clean.",
+        "Customer support and moderation tools to help shoppers and business owners get quick answers when they need help.",
+        "Peace of mind knowing the business has plenty of breathing room to grow at a healthy, steady pace."
+      ]
+    },
+    {
+      title: "4. Legal & Brand Protection",
+      percent: "10%",
+      borderColor: "border-[var(--color-secondary)]",
+      headerColor: "text-[var(--color-secondary)]",
+      shortDesc: "Trademark registration across key global markets and essential platform legal documentation.",
+      items: [
+        "International trademark registrations to legally lock in the DIANA name across multiple global markets at once.",
+        "Official company share certificates and simple corporate paperwork setting up ownership properly.",
+        "Standard legal terms for partner shops joining the platform to keep both the business and our partners protected.",
+        "Clear privacy policies and user terms inside the app that meet international consumer protection laws."
+      ]
+    },
+    {
+      title: "5. Initial Transaction Float",
+      percent: "5%",
+      borderColor: "border-[var(--color-primary)]",
+      headerColor: "text-[var(--color-primary)]",
+      shortDesc: "Covers payment processing fees for early wallet top-ups before merchant transaction revenue offsets the costs.",
+      items: [
+        "Paying the small bank processing charge when users add money using local bank transfers.",
+        "Making sure users can load funds quickly without getting hit by surprise deposit fees.",
+        "Bridging the short timeline between when a user loads money into their wallet and when a shop receives a payout.",
+        "Operating a self-sustaining pool that naturally refills itself as regular merchant transaction fees roll in."
+      ]
+    },
+    {
+      title: "6. Tech Infrastructure",
+      percent: "5%",
+      borderColor: "border-[var(--color-secondary)]",
+      headerColor: "text-[var(--color-secondary)]",
+      shortDesc: "12 months of secure cloud hosting, automated redundancy backups, and essential platform subscriptions.",
+      items: [
+        "Commercial cloud hosting so our web platform and mobile app load instantly from anywhere.",
+        "Official annual developer licenses to keep our app live on the Apple App Store and Google Play Store.",
+        "AI tool subscriptions that help run automated behind-the-scenes features inside the app.",
+        "Website domain name renewals and secure automated database backups to ensure user data is always safe."
+      ]
+    }
+  ];
+
+  return (
+    <div className="glass-surface p-10 rounded-3xl space-y-4 flex flex-col justify-center h-full">
+      <div className="flex justify-between items-end">
+        <div>
+          <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">Seed Capital Allocation</h2>
+          <p className="font-body-sm text-[var(--color-secondary)]">Because the software is fully built, your money goes directly into getting the product in front of people and making sure the business is set up properly and legally protected.</p>
+        </div>
+      </div>
+
+      {expandedIndex !== null ? (
+        <div
+          onClick={() => setExpandedIndex(null)}
+          className={`bg-white/95 p-8 rounded-2xl border-t-8 ${categories[expandedIndex].borderColor} shadow-2xl flex flex-col justify-between flex-1 cursor-pointer animate-fadeIn transition-all mt-2`}
+        >
+          <div>
+            <div className="flex justify-between items-center mb-5 border-b border-gray-200 pb-3">
+              <div>
+                <span className="text-xs font-label-caps text-[var(--color-text-subtle)] block mb-0.5">Itemized Allocation Breakdown</span>
+                <h3 className={`font-headline-lg text-3xl font-bold ${categories[expandedIndex].headerColor}`}>
+                  {categories[expandedIndex].title}
+                </h3>
+              </div>
+              <span className={`font-impact-stat text-5xl ${categories[expandedIndex].headerColor}`}>
+                {categories[expandedIndex].percent}
+              </span>
+            </div>
+
+            <div className="space-y-3.5 my-4">
+              {categories[expandedIndex].items.map((item, itemIdx) => (
+                <div key={itemIdx} className="flex items-start gap-3 text-sm md:text-base text-[var(--color-text)] leading-relaxed font-medium">
+                  <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5 shrink-0">•</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="grid grid-cols-3 gap-4 mt-2">
+          {categories.map((cat, idx) => (
+            <div
+              key={idx}
+              onClick={() => setExpandedIndex(idx)}
+              className={`bg-white/60 p-4 rounded-xl border-t-4 ${cat.borderColor} flex flex-col shadow-sm cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:bg-white/90 hover:shadow-md`}
+            >
+              <div className="flex justify-between items-center mb-2 border-b border-gray-200 pb-1.5">
+                <h3 className={`font-label-caps text-xs font-bold ${cat.headerColor}`}>{cat.title}</h3>
+                <span className={`font-impact-stat text-lg ${cat.headerColor}`}>{cat.percent}</span>
+              </div>
+              <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
+                {cat.shortDesc}
+              </p>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 function CapitalStrategySlide() {
   return (
     <div className="glass-surface p-12 rounded-3xl space-y-8">
@@ -421,7 +641,7 @@ const slides = [
     </div>
     <div className="h-px w-24 bg-[var(--color-primary)] mx-auto my-8 opacity-50"></div>
     <h2 className="font-headline-md text-3xl">Investment Proposition</h2>
-    <p className="font-body-lg text-[var(--color-text-subtle)]">Seed Investment Proposition • June 2026</p>
+    <p className="font-body-lg text-[var(--color-text-subtle)]">Prepared June 2026</p>
   </div>,
 
   // Slide 2: The Problem & Solution
@@ -625,7 +845,7 @@ const slides = [
         </div>
         
         <div className="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/10 ml-8 shadow-sm">
-          <span className="text-[var(--color-text-subtle)] text-sm">Donation to Sanctuaries (5% of Revenue)</span>
+          <span className="text-[var(--color-text-subtle)] text-sm">Skin in the Game Sanctuary Pledge (5% of DIANA&apos;s $500 cut)</span>
           <span className="font-bold text-[var(--color-text-subtle)]">-$25</span>
         </div>
         
@@ -852,92 +1072,11 @@ const slides = [
     </div>
   </div>,
 
-  // Slide 9: Total Valuation
-  <div key="slide-8-total" className="glass-surface p-12 rounded-3xl space-y-8 flex flex-col items-center justify-center text-center h-full">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Final Valuation</h2>
-    <div className="w-full max-w-2xl text-center p-12 bg-[var(--color-primary)]/10 rounded-3xl border-2 border-[var(--color-primary)]/30 transform hover:scale-105 transition-transform">
-      <span className="font-label-caps block mb-4 text-[var(--color-text-subtle)] tracking-widest">Total Platform &amp; Brand Value</span>
-      <span className="font-impact-stat text-7xl text-[var(--color-primary)]">AUD $635,000</span>
-      <span className="block mt-4 font-body-lg text-[var(--color-secondary)] font-bold">Base Case Total</span>
-    </div>
-    <p className="font-body-md text-[var(--color-text-subtle)] mt-8 bg-white/40 p-4 rounded-xl max-w-lg">
-      Growth Target: <strong>AUD $925,000.</strong> This higher figure is what DIANA becomes worth once it reaches 1,000 active paying users. It is calculated from the $5,000 monthly net profit at that milestone, valued at 12 months of earnings, plus the base asset value.
-    </p>
-  </div>,
+  // Slide 9: Total Valuation (Interactive Growth Target)
+  <FinalValuationSlide key="slide-8-total" />,
 
-  // Slide 10: Seed Capital Allocation (6 Items)
-  <div key="slide-8" className="glass-surface p-12 rounded-3xl space-y-6 flex flex-col justify-center h-full">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">Seed Capital Allocation</h2>
-    <p className="font-body-sm text-[var(--color-secondary)]">Because the software is fully built, your money goes directly into getting the product in front of people and making sure the business is set up properly and legally protected.</p>
-    
-    <div className="grid grid-cols-3 gap-5 mt-4">
-      {/* Category 1 */}
-      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-primary)] flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
-        <div className="flex justify-between items-center mb-3 border-b border-[var(--color-primary)]/20 pb-2">
-          <h3 className="font-label-caps text-xs text-[var(--color-primary)] font-bold">1. Marketing &amp; Launch Events</h3>
-          <span className="font-impact-stat text-lg text-[var(--color-primary)]">25%</span>
-        </div>
-        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
-          Launch events and creator partnerships across our initial markets to ignite global buzz and early consumer adoption.
-        </p>
-      </div>
-
-      {/* Category 2 */}
-      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-secondary)] flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
-        <div className="flex justify-between items-center mb-3 border-b border-[var(--color-secondary)]/20 pb-2">
-          <h3 className="font-label-caps text-xs text-[var(--color-secondary)] font-bold">2. Partner Activation</h3>
-          <span className="font-impact-stat text-lg text-[var(--color-secondary)]">20%</span>
-        </div>
-        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
-          Physical tap-to-pay kits, standees, and window decals to onboard and equip our first 200 partner businesses.
-        </p>
-      </div>
-
-      {/* Category 3 */}
-      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-primary)]/60 flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
-        <div className="flex justify-between items-center mb-3 border-b border-gray-300 pb-2">
-          <h3 className="font-label-caps text-xs text-[var(--color-text)] font-bold">3. Legal &amp; Brand Protection</h3>
-          <span className="font-impact-stat text-lg text-[var(--color-text)]">15%</span>
-        </div>
-        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
-          Trademark registration across key global markets, shareholder agreement, and app legal documentation.
-        </p>
-      </div>
-
-      {/* Category 4 */}
-      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-secondary)] flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
-        <div className="flex justify-between items-center mb-3 border-b border-[var(--color-secondary)]/20 pb-2">
-          <h3 className="font-label-caps text-xs text-[var(--color-secondary)] font-bold">4. Tech Infrastructure</h3>
-          <span className="font-impact-stat text-lg text-[var(--color-secondary)]">10%</span>
-        </div>
-        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
-          12 months of secure cloud hosting, automated redundancy backups, and essential platform subscriptions.
-        </p>
-      </div>
-
-      {/* Category 5 */}
-      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-primary)] flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
-        <div className="flex justify-between items-center mb-3 border-b border-[var(--color-primary)]/20 pb-2">
-          <h3 className="font-label-caps text-xs text-[var(--color-primary)] font-bold">5. Working Capital</h3>
-          <span className="font-impact-stat text-lg text-[var(--color-primary)]">20%</span>
-        </div>
-        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
-          A safety buffer for unexpected expenses and operational costs, ensuring the business stays stable during its first year.
-        </p>
-      </div>
-
-      {/* Category 6 */}
-      <div className="bg-white/50 p-5 rounded-xl border-t-4 border-[var(--color-secondary)] flex flex-col shadow-sm transform hover:-translate-y-1 transition-transform">
-        <div className="flex justify-between items-center mb-3 border-b border-[var(--color-secondary)]/20 pb-2">
-          <h3 className="font-label-caps text-xs text-[var(--color-secondary)] font-bold">6. Initial Transaction Float</h3>
-          <span className="font-impact-stat text-lg text-[var(--color-secondary)]">10%</span>
-        </div>
-        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
-          Covers payment processing fees for early wallet top-ups before merchant transaction revenue offsets the costs.
-        </p>
-      </div>
-    </div>
-  </div>,
+  // Slide 10: Seed Capital Allocation (Interactive Expandable Cards)
+  <SeedAllocationSlide key="slide-10-alloc" />,
 
 
   // Slide 12: Your Investment, Protected
