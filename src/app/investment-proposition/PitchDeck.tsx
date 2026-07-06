@@ -994,10 +994,10 @@ function SeedAllocationSlide() {
       headerColor: "text-[var(--color-secondary)]",
       shortDesc: "Launch events and creator partnerships across our initial markets to ignite global buzz and early consumer adoption.",
       items: [
-        "Flagship launch event sponsorship: The 2026 Bali Nemoralia Festival (August 13-15), creating global visibility and immediate transaction volume.",
-        "Collaborations and co-marketing campaigns with well-known vegan creators, animal advocates, and sanctuary leaders.",
-        "Grassroots community activation, local pop-up markets, and street-team ambassador programs.",
-        "Targeted digital campaigns to drive initial user downloads and active daily usage."
+        "Sponsoring and hosting ethical community gatherings and popup market spaces across key locations.",
+        "Eye-catching physical banners, signage, and printed guides for real-world community events.",
+        "Creator co-marketing partnerships, welcome packages, and grassroots referral rewards that incentivize organic word-of-mouth growth.",
+        "Press releases and media outreach to vegan, travel, and ethical business news outlets globally."
       ]
     },
     {
@@ -1007,9 +1007,9 @@ function SeedAllocationSlide() {
       headerColor: "text-[var(--color-primary)]",
       shortDesc: "A safety buffer for unexpected expenses and operational costs, ensuring the business stays stable during its first year.",
       items: [
-        "Operational Contingency Reserve: Dedicated emergency reserve buffer to absorb unexpected operational or launch costs without financial stress.",
-        "Accounting & Statutory Compliance: Professional annual corporate bookkeeping, tax preparation, and statutory compliance.",
-        "On-Demand Specialist Contractors: Flexible budget to engage freelance specialists and project contractors for specific tasks as needed without adding permanent fixed payroll.",
+        "Dedicated emergency reserve buffer to absorb unexpected operational or launch costs without financial stress.",
+        "Professional annual corporate bookkeeping, tax preparation, and statutory compliance.",
+        "Flexible budget to engage freelance specialists and project contractors for specific tasks as needed without adding permanent fixed payroll.",
         "Modest founder stipend supporting full-time platform management across all possible roles during the pre-profit launch sprint."
       ]
     },
@@ -1048,7 +1048,7 @@ function SeedAllocationSlide() {
       items: [
         "Commercial cloud hosting so our web platform and mobile app load instantly from anywhere.",
         "Official annual developer licenses to keep our app live on the Apple App Store and Google Play Store.",
-        "AI subscriptions and automated smart-search tools powering our in-app discovery engine.",
+        "AI subscriptions and automated backend tools powering live app features.",
         "Essential communication suites, helpdesk infrastructure, and automated backups ensuring secure daily operations."
       ]
     }
