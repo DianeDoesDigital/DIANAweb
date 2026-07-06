@@ -385,16 +385,11 @@ function FinalValuationSlide() {
           className="bg-white/95 p-8 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-2xl flex flex-col justify-between flex-1 w-full text-left cursor-pointer animate-fadeIn transition-all"
         >
           <div>
-            <div className="flex justify-between items-center mb-5 border-b border-gray-200 pb-3">
-              <div>
-                <span className="text-xs font-label-caps text-[var(--color-text-subtle)] block mb-0.5">Valuation Math Explainer</span>
-                <h3 className="font-headline-lg text-3xl font-bold text-[var(--color-primary)]">
-                  How the $925,000 Growth Target is Calculated
-                </h3>
-              </div>
-              <span className="font-impact-stat text-4xl text-[var(--color-primary)]">
-                AUD $925,000
-              </span>
+            <div className="mb-5 border-b border-gray-200 pb-3">
+              <span className="text-xs font-label-caps text-[var(--color-text-subtle)] block mb-0.5">Valuation Math Explainer</span>
+              <h3 className="font-headline-lg text-3xl font-bold text-[var(--color-primary)]">
+                How the $925,000 Growth Target is Calculated
+              </h3>
             </div>
 
             <div className="space-y-4 my-4">
@@ -449,6 +444,7 @@ function FinalValuationSlide() {
 
 function SeedAllocationSlide() {
   const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
+  const [showNemoraliaModal, setShowNemoraliaModal] = React.useState(false);
 
   const categories = [
     {
@@ -456,13 +452,12 @@ function SeedAllocationSlide() {
       percent: "35%",
       borderColor: "border-[var(--color-primary)]",
       headerColor: "text-[var(--color-primary)]",
-      shortDesc: "Physical QR display kits, standees, and window decals to onboard and equip our first 1,000+ partner businesses.",
+      shortDesc: "Physical display kits, ethical vetting, and hands-on onboarding to activate our first 1,000+ partner merchants.",
       items: [
-        "Custom acrylic QR table stands so customers can scan and pay instantly at the counter.",
+        "Custom acrylic QR table stands, tabletop cards, and welcome flyers so customers can scan, learn, and pay instantly at the counter.",
         "Eye-catching storefront window stickers advertising that at least 5% of purchases go directly to animal sanctuaries.",
-        "Tabletop cards and welcome flyers explaining to customers how easy the app is to use.",
-        "International shipping and delivery of physical display materials to businesses in multiple countries.",
-        "Hands-on onboarding assistance and small welcome rewards for community members who help sign up local shops."
+        "International shipping and delivery of physical display materials to partner merchants in multiple countries.",
+        "Dedicated ethical vetting, verification systems, and hands-on setup assistance to activate new partner merchants."
       ]
     },
     {
@@ -472,11 +467,10 @@ function SeedAllocationSlide() {
       headerColor: "text-[var(--color-secondary)]",
       shortDesc: "Launch events and creator partnerships across our initial markets to ignite global buzz and early consumer adoption.",
       items: [
-        "Sponsoring and hosting ethical community gatherings and popup market spaces across key cities.",
+        "Sponsoring and hosting ethical community gatherings and popup market spaces across key locations.",
         "Eye-catching physical banners, signage, and printed guides for real-world community events.",
-        "Collaborations and welcome gifts for ethical lifestyle creators and animal advocates who champion the app.",
-        "Press releases and media outreach to vegan, travel, and ethical business news outlets globally.",
-        "Thank-you perks and referral rewards for early community members who invite their friends to shop."
+        "Creator co-marketing partnerships, welcome packages, and grassroots referral rewards that incentivize organic word-of-mouth growth.",
+        "Press releases and media outreach to vegan, travel, and ethical business news outlets globally."
       ]
     },
     {
@@ -486,11 +480,10 @@ function SeedAllocationSlide() {
       headerColor: "text-[var(--color-primary)]",
       shortDesc: "A safety buffer for unexpected expenses and operational costs, ensuring the business stays stable during its first year.",
       items: [
-        "Covering everyday running expenses while we steadily grow toward our 1,000-user break-even goal.",
-        "An emergency backup fund so we never have to scramble or worry if unexpected costs pop up.",
-        "Professional annual tax preparation and basic bookkeeping to keep our company financial records clean.",
-        "Customer support and moderation tools to help shoppers and business owners get quick answers when they need help.",
-        "Peace of mind knowing the business has plenty of breathing room to grow at a healthy, steady pace."
+        "Dedicated emergency reserve buffer to absorb unexpected operational or launch costs without financial stress.",
+        "Professional annual corporate bookkeeping, tax preparation, and statutory compliance.",
+        "Flexible budget to engage freelance specialists and project contractors for specific tasks as needed without adding permanent fixed payroll.",
+        "Modest founder stipend supporting full-time platform management across all possible roles during the pre-profit launch sprint."
       ]
     },
     {
@@ -502,7 +495,7 @@ function SeedAllocationSlide() {
       items: [
         "International trademark registrations to legally lock in the DIANA name across multiple global markets at once.",
         "Official company share certificates and simple corporate paperwork setting up ownership properly.",
-        "Standard legal terms for partner shops joining the platform to keep both the business and our partners protected.",
+        "Standard legal terms for partner merchants joining the platform to keep both the business and our partners protected.",
         "Clear privacy policies and user terms inside the app that meet international consumer protection laws."
       ]
     },
@@ -515,7 +508,7 @@ function SeedAllocationSlide() {
       items: [
         "Paying the small bank processing charge when users add money using local bank transfers.",
         "Making sure users can load funds quickly without getting hit by surprise deposit fees.",
-        "Bridging the short timeline between when a user loads money into their wallet and when a shop receives a payout.",
+        "Bridging the short timeline between when a user loads money into their wallet and when a merchant receives a payout.",
         "Operating a self-sustaining pool that naturally refills itself as regular merchant transaction fees roll in."
       ]
     },
@@ -524,12 +517,12 @@ function SeedAllocationSlide() {
       percent: "5%",
       borderColor: "border-[var(--color-secondary)]",
       headerColor: "text-[var(--color-secondary)]",
-      shortDesc: "12 months of secure cloud hosting, automated redundancy backups, and essential platform subscriptions.",
+      shortDesc: "12 months of secure cloud hosting, operational software tools, and essential platform subscriptions.",
       items: [
         "Commercial cloud hosting so our web platform and mobile app load instantly from anywhere.",
         "Official annual developer licenses to keep our app live on the Apple App Store and Google Play Store.",
-        "AI tool subscriptions that help run automated behind-the-scenes features inside the app.",
-        "Website domain name renewals and secure automated database backups to ensure user data is always safe."
+        "AI subscriptions and automated backend tools powering live app features.",
+        "Essential communication suites, helpdesk infrastructure, and automated backups ensuring secure daily operations."
       ]
     }
   ];
@@ -543,7 +536,42 @@ function SeedAllocationSlide() {
         </div>
       </div>
 
-      {expandedIndex !== null ? (
+      {showNemoraliaModal ? (
+        <div
+          onClick={() => setShowNemoraliaModal(false)}
+          className="bg-white/95 p-6 md:p-8 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-2xl flex flex-col justify-between flex-1 cursor-pointer animate-fadeIn transition-all mt-2 overflow-y-auto max-h-[480px]"
+        >
+          <div>
+            <div className="flex justify-between items-center mb-4 border-b border-gray-200 pb-3">
+              <div>
+                <span className="text-xs font-label-caps text-[var(--color-text-subtle)] block mb-0.5">Flagship Launch Case Study</span>
+                <h3 className="font-headline-lg text-2xl md:text-3xl font-bold text-[var(--color-primary)]">
+                  The 2026 Bali Nemoralia Festival
+                </h3>
+              </div>
+              <span className="font-impact-stat text-2xl text-[var(--color-secondary)]">AUG 13–15</span>
+            </div>
+
+            <div className="space-y-3 text-xs md:text-sm text-[var(--color-text)] leading-relaxed font-medium">
+              <p>
+                <strong className="text-[var(--color-primary)]">The Origin: </strong>
+                The Nemoralia was the ancient Roman festival of Diana held every August 13th. Thousands of worshippers walked to Lake Nemi—Diana's Mirror—carrying torches through the night in a sacred procession to honor the moon goddess, protector of the wild. It was a festival of the full moon, the wild, and the innocent.
+              </p>
+              <p>
+                <strong className="text-[var(--color-primary)]">The Investor Proof-of-Concept: </strong>
+                The market food at Nemoralia is not free—attendees pay merchants through the DIANA app. The stall fees for founding merchants are waived in Year 1. The 5% platform cut per transaction is DIANA's revenue model, making the festival market simultaneously a product demo, a live revenue generator, and a live proof-of-concept for every investor watching the impact counter rise.
+              </p>
+              <p>
+                <strong className="text-[var(--color-primary)]">The Live Arc: </strong>
+                Our Nemoralia reclaims this exact ancient structure: a sacred night followed by an ethical market that routes every transaction to animal sanctuaries. By the time the festival begins: The app is already live. Founding merchants are already transacting. This is the Grand Public Debut of something that already quietly works. Then we close with an all-night celebration culminating at dawn, completing the festival's ancient logic.
+              </p>
+            </div>
+          </div>
+          <div className="mt-4 pt-3 border-t border-gray-200 text-center">
+            <span className="text-xs text-[var(--color-text-subtle)] font-bold">Click anywhere to return to Marketing &amp; Launch Events</span>
+          </div>
+        </div>
+      ) : expandedIndex !== null ? (
         <div
           onClick={() => setExpandedIndex(null)}
           className={`bg-white/95 p-8 rounded-2xl border-t-8 ${categories[expandedIndex].borderColor} shadow-2xl flex flex-col justify-between flex-1 cursor-pointer animate-fadeIn transition-all mt-2`}
@@ -568,6 +596,20 @@ function SeedAllocationSlide() {
                   <span>{item}</span>
                 </div>
               ))}
+              {expandedIndex === 1 && (
+                <div className="pt-3 border-t border-gray-200 mt-4">
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowNemoraliaModal(true);
+                    }}
+                    className="w-full py-3 px-4 bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-secondary)] text-white font-bold rounded-xl shadow-lg hover:opacity-95 transition-all flex items-center justify-center gap-2 text-sm md:text-base cursor-pointer"
+                  >
+                    <span>✨ View Flagship Launch Case Study: The 2026 Bali Nemoralia</span>
+                    <span>➔</span>
+                  </button>
+                </div>
+              )}
             </div>
           </div>
         </div>

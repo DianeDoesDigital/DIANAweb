@@ -374,27 +374,549 @@ function ConclusionSlide({ onSecretClick }: { onSecretClick: () => void }) {
   );
 }
 
+function FinancialStrategySlide() {
+  return (
+    <div className="glass-surface p-10 md:p-12 rounded-3xl flex flex-col justify-between gap-6 h-full relative border-4 border-[var(--color-primary)]/40">
+      <div className="flex justify-between items-start">
+        <div>
+          <h2 className="font-headline-lg text-4xl text-[var(--color-primary)]">
+            The Financial Engine: Reinvestment &amp; Dividends
+          </h2>
+          <p className="font-body-md text-[var(--color-secondary)] mt-1 max-w-4xl leading-relaxed">
+            How we balance rapid global scaling with regular liquid cash returns. The exact percentage of dividends to be distributed will be agreed upon later on as we scale. To demonstrate how this wealth-building engine works, we illustrate a clean 80/20 reinvestment and dividend split across our growth tiers.
+          </p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-3 gap-6 items-stretch">
+        {/* Tier 1: 1,000 to 2,500 Users */}
+        <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
+          <div>
+            <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-1">Tier 1 • 1,000 – 2,500 Users</span>
+            <h3 className="font-headline-md text-2xl text-[var(--color-secondary)] leading-tight">
+              $5,000 – $12,500
+            </h3>
+            <span className="text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider block mt-0.5 mb-3">AUD / month Net Profit</span>
+            <p className="font-body-xs text-[var(--color-text-subtle)] text-xs leading-relaxed mb-4">
+              With our 6-month safety net secured, we initiate our profit split—funding targeted marketing while generating our first liquid cash yield!
+            </p>
+          </div>
+          <div className="space-y-2 pt-3 border-t border-gray-200/60 text-xs mt-auto">
+            <div className="flex justify-between items-baseline gap-1">
+              <span className="text-[var(--color-text-subtle)] font-medium">80% Reinvestment:</span>
+              <strong className="text-[var(--color-primary)] text-right">$4,000 – $10,000</strong>
+            </div>
+            <div className="flex justify-between items-baseline gap-1">
+              <span className="text-[var(--color-text-subtle)] font-medium">20% Dividends:</span>
+              <strong className="text-[var(--color-secondary)] text-right">$1,000 – $2,500</strong>
+            </div>
+          </div>
+        </div>
+
+        {/* Tier 2: 2,500 to 5,000 Users */}
+        <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
+          <div>
+            <span className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest block mb-1">Tier 2 • 2,500 – 5,000 Users</span>
+            <h3 className="font-headline-md text-2xl text-[var(--color-primary)] leading-tight">
+              $12,500 – $25,000
+            </h3>
+            <span className="text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider block mt-0.5 mb-3">AUD / month Net Profit</span>
+            <p className="font-body-xs text-[var(--color-text-subtle)] text-xs leading-relaxed mb-4">
+              Surging volume funds salaried team members and major festival activations like Bali Nemoralia without burning seed capital.
+            </p>
+          </div>
+          <div className="space-y-2 pt-3 border-t border-gray-200/60 text-xs mt-auto">
+            <div className="flex justify-between items-baseline gap-1">
+              <span className="text-[var(--color-text-subtle)] font-medium">80% Reinvestment:</span>
+              <strong className="text-[var(--color-primary)] text-right">$10,000 – $20,000</strong>
+            </div>
+            <div className="flex justify-between items-baseline gap-1">
+              <span className="text-[var(--color-text-subtle)] font-medium">20% Dividends:</span>
+              <strong className="text-[var(--color-secondary)] text-right">$2,500 – $5,000</strong>
+            </div>
+          </div>
+        </div>
+
+        {/* Tier 3: 10,000+ Users */}
+        <div className="bg-[var(--color-primary)]/10 p-6 rounded-2xl border-2 border-[var(--color-primary)] flex flex-col justify-between shadow-md">
+          <div>
+            <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-1">Tier 3 • 10,000+ Users</span>
+            <h3 className="font-headline-md text-2xl text-[var(--color-primary)] leading-tight">
+              $50,000+
+            </h3>
+            <span className="text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider block mt-0.5 mb-3">AUD / month Net Profit</span>
+            <p className="font-body-xs text-[var(--color-text-subtle)] text-xs leading-relaxed mb-4">
+              Fixed serverless overheads stay flat as DIANA becomes a cash-generating powerhouse and high-growth compounding machine!
+            </p>
+          </div>
+          <div className="space-y-2 pt-3 border-t border-gray-200/60 text-xs mt-auto">
+            <div className="flex justify-between items-baseline gap-1">
+              <span className="text-[var(--color-text-subtle)] font-medium">80% Reinvestment:</span>
+              <strong className="text-[var(--color-primary)] text-right">$40,000+</strong>
+            </div>
+            <div className="flex justify-between items-baseline gap-1">
+              <span className="text-[var(--color-text-subtle)] font-medium">20% Dividends:</span>
+              <strong className="text-[var(--color-secondary)] text-right">$10,000+</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="p-4 bg-white/50 rounded-xl border border-[var(--color-secondary)]/20 text-left">
+        <p className="font-body-sm text-xs text-[var(--color-secondary)] font-bold mb-1">
+          The 80/20 Growth Engine Takeaway:
+        </p>
+        <p className="font-body-sm text-xs text-[var(--color-text-subtle)]">
+          80% goes back into growing the app to aggressively drive our total valuation toward $5,000,000+, while 20% is paid out as regular cash hitting shareholder bank accounts ASAP.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function NemoraliaCaseStudySlide() {
+  const [activeCard, setActiveCard] = React.useState<'home' | 'bali' | null>(null);
+
+  return (
+    <div className="glass-surface p-10 md:p-12 rounded-3xl space-y-6 flex flex-col justify-between h-full relative border-4 border-[var(--color-secondary)]/40 overflow-hidden">
+      <div className="flex justify-between items-start shrink-0">
+        <div>
+          <h2 className="font-headline-lg text-4xl text-[var(--color-primary)]">
+            The Flagship Launch Case Study
+          </h2>
+          <p className="font-body-md text-[var(--color-secondary)] mt-1 max-w-4xl leading-relaxed">
+            This is how we will turn real-world community events into active app users and daily transactions that quietly support animals.
+          </p>
+        </div>
+      </div>
+
+      <div className="flex flex-col gap-6 flex-1 justify-between min-h-0 overflow-y-auto">
+        {activeCard === 'home' ? (
+          <div
+            onClick={() => setActiveCard(null)}
+            className="bg-white/95 p-6 md:p-8 rounded-2xl border-t-8 border-[var(--color-secondary)] shadow-2xl flex flex-col justify-between w-full h-full text-left cursor-pointer animate-fadeIn transition-all overflow-y-auto"
+          >
+            <div>
+              <div className="flex justify-between items-center mb-5 border-b border-gray-200 pb-3 flex-wrap gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-3xl">⚡</span>
+                  <h3 className="font-headline-lg text-2xl md:text-3xl font-bold text-[var(--color-secondary)]">
+                    Home Activation: Good Food Sundays
+                  </h3>
+                </div>
+                <div>
+                  <span className="font-impact-stat text-2xl md:text-3xl text-[var(--color-primary)]">~$100 AUD</span>
+                </div>
+              </div>
+
+              <div className="space-y-4 my-3 text-xs md:text-sm text-[var(--color-text)] leading-relaxed">
+                <div>
+                  <strong className="text-[var(--color-secondary)]">The Venue &amp; Roots: </strong>Good Food Sundays at Mandala Park, Mandaluyong, Manila&apos;s premier 100% vegan weekend market where Diane herself used to be a merchant. On August 2nd, Diane visits as a returning peer to reconnect and pre-onboard vendors before market day.
+                </div>
+                <div>
+                  <strong className="text-[var(--color-secondary)]">The Booth, Standees &amp; Meals: </strong>The GFS booth fee is only 800 PHP (~$20 AUD, including table, chairs, and electricity). We budget ~$80 AUD across both Sundays for transport, booth decor, printed QR standees, and eating meals directly through DIANA to support our vendor peers.
+                </div>
+                <div>
+                  <strong className="text-[var(--color-secondary)]">The Onboarding &amp; Live Demo Day: </strong>On August 9th, we host our official booth with a live app demo and interactive Q&amp;A! When attendees visit us, they scan our QR standees, download the app, and instantly complete their first live DIANA transaction with our partner vendors, experiencing fee-free compassionate commerce in real time.
+                </div>
+                <div className="p-3.5 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/20 font-medium text-center text-xs md:text-sm text-[var(--color-secondary)] mt-2">
+                  Manila is where our roots are. By launching at Good Food Sundays first, we prove that DIANA is built from the ground up, igniting live compassionate commerce at home before taking it to the world.
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : activeCard === 'bali' ? (
+          <div
+            onClick={() => setActiveCard(null)}
+            className="bg-white/95 p-6 md:p-8 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-2xl flex flex-col justify-between w-full h-full text-left cursor-pointer animate-fadeIn transition-all overflow-y-auto"
+          >
+            <div>
+              <div className="flex justify-between items-center mb-4 border-b border-gray-200 pb-3 flex-wrap gap-2">
+                <div className="flex items-center gap-2">
+                  <span className="text-3xl">🔥</span>
+                  <h3 className="font-headline-lg text-2xl md:text-3xl font-bold text-[var(--color-primary)]">
+                    Launch Festival: The Nemoralia
+                  </h3>
+                </div>
+                <div>
+                  <span className="font-impact-stat text-2xl md:text-3xl text-[var(--color-secondary)]">~$2K–$4K AUD</span>
+                </div>
+              </div>
+
+              <div className="space-y-3 my-1.5 text-xs text-[var(--color-text)] leading-relaxed">
+                <div className="text-xs md:text-sm">
+                  <strong className="text-[var(--color-primary)]">Why The Nemoralia? </strong>
+                  This ancient Roman Nemoralia was held every August 13–15 to honor Diana, protector of the wild. It was a time when hunting was strictly forbidden and animals roamed under her divine protection. We revive this 3-day tradition in Asia&apos;s vegan capital through modern financial infrastructure that protects animals permanently.
+                </div>
+                <div>
+                  <ul className="list-disc pl-5 space-y-1 text-xs">
+                    <li><strong className="text-[var(--color-primary)]">Aug 13 - The Gathering &amp; Founding Dinner: </strong>An intimate dinner with invited guests to set our shared purpose and pledge our commitments to animal protection, mirroring the ancient tradition where pilgrims lit torches and tied wishes to trees in Diana&apos;s grove, setting the tone for the market days ahead.</li>
+                    <li><strong className="text-[var(--color-primary)]">Aug 14 - The Live Cashless Market: </strong>Our 100% vegan market opens to the public! Attendees pay merchants exclusively through the DIANA app. This serves as a live product demo and revenue generator, proving our 5% platform model while the real-time impact counter routes funds to animal sanctuaries.</li>
+                    <li><strong className="text-[var(--color-primary)]">Aug 15 - The Celebration &amp; Impact Reveal: </strong>Our live cashless market continues in full swing all day and transitions into an all-night celebration! All food, drinks, and evening activities continue to be transacted exclusively through the DIANA app while our real-time impact counter reveals the total funding generated for animal sanctuaries.</li>
+                    <li><strong className="text-[var(--color-primary)]">Aug 16 - Post-Event Villa Kitty Visit: </strong>A special visit to Bali&apos;s most famous cat sanctuary to attend their Sunday vegan lunch, honoring Diana&apos;s historical association with cats and animal rescue.</li>
+                  </ul>
+                </div>
+                <div className="text-xs md:text-sm">
+                  <strong className="text-[var(--color-primary)]">Budget Breakdown: </strong>
+                  Partnered Villa ($0 hire / ~$1,500–$1,800 paid contingency), Food &amp; Bar Top-Up (~$515), Entertainment &amp; Performers (~$470), Local Photo/Video (~$610–$800), Local Flowers &amp; Decor (~$170), Contingency (~$280).
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch flex-1">
+              {/* Pillar 1: Manila GFS Activation */}
+              <div 
+                onClick={() => setActiveCard('home')}
+                className="bg-white/60 hover:bg-white/90 p-6 md:p-7 rounded-2xl border-t-8 border-[var(--color-secondary)] shadow-md hover:shadow-lg flex flex-col justify-between transition-all duration-200 cursor-pointer transform hover:-translate-y-1"
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-3 flex-wrap gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-3xl">⚡</span>
+                      <h3 className="font-headline-md text-xl font-bold text-[var(--color-secondary)]">Home Activation</h3>
+                    </div>
+                    <span className="text-[11px] font-bold text-[var(--color-primary)] uppercase tracking-wider shrink-0">AUG 2 &amp; 9 • MANILA</span>
+                  </div>
+                  <p className="font-body-sm text-[var(--color-text)] leading-relaxed text-xs md:text-sm">
+                    Our official home launch at Good Food Sundays, Manila&apos;s premier 100% vegan weekend market where Diane herself used to be a merchant. Leveraging our deep community roots, we pre-onboard trusted vendor peers so that on market day, attendees can download the app and instantly complete their first live DIANA transactions.
+                  </p>
+                </div>
+              </div>
+
+              {/* Pillar 2: Bali Nemoralia Festival */}
+              <div 
+                onClick={() => setActiveCard('bali')}
+                className="bg-white/60 hover:bg-white/90 p-6 md:p-7 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-md hover:shadow-lg flex flex-col justify-between transition-all duration-200 cursor-pointer transform hover:-translate-y-1"
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-3 flex-wrap gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-2xl">🔥</span>
+                      <h3 className="font-headline-md text-xl font-bold text-[var(--color-primary)]">Launch Festival</h3>
+                    </div>
+                    <span className="text-[11px] font-bold text-[var(--color-secondary)] uppercase tracking-wider shrink-0">AUG 13–15 • BALI</span>
+                  </div>
+                  <p className="font-body-sm text-[var(--color-text)] leading-relaxed text-xs md:text-sm">
+                    Our official international debut in Asia&apos;s vegan capital comes to life as The Nemoralia, a 3-day gathering patterned after the ancient Roman festival honoring the goddess Diana on these exact dates. Attendees pay our curated founding merchants exclusively through DIANA, proving our 5% revenue model live while building global community momentum.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Pillar 3: Global GTM Replication (Full Width at Bottom) */}
+            <div className="bg-[var(--color-primary)]/10 p-6 md:p-7 rounded-2xl border-2 border-[var(--color-primary)] shadow-md">
+              <div>
+                <div className="flex justify-between items-center mb-3 flex-wrap gap-2">
+                  <div className="flex items-center gap-2">
+                    <span className="text-2xl">🌍</span>
+                    <h3 className="font-headline-md text-xl font-bold text-[var(--color-primary)]">Global Replication</h3>
+                  </div>
+                  <span className="text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider shrink-0">Q3 2026 ONWARDS • ASIA AND BEYOND</span>
+                </div>
+                <p className="font-body-sm text-[var(--color-text)] leading-relaxed text-xs md:text-sm">
+                  We take this low-cost grassroots model and scale by partnering with existing vegan markets, eco-festivals, and sanctuaries worldwide. This turns established community gatherings into continuous onboarding and transaction engines, culminating in an expanding annual Nemoralia celebration every August.
+                </p>
+              </div>
+            </div>
+          </>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function WhatWeHaveBuiltSlide() {
+  const [activeCard, setActiveCard] = React.useState<'software' | 'community' | null>(null);
+
+  return (
+    <div className={`glass-surface p-10 md:p-12 rounded-3xl flex flex-col h-full relative overflow-hidden ${activeCard !== null ? 'space-y-6 justify-between' : 'gap-8 justify-center'}`}>
+      <div className="shrink-0">
+        <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">What We Have Built</h2>
+        <h3 className="font-headline-md text-2xl text-[var(--color-secondary)] border-b border-[var(--color-primary)]/30 pb-2">Valuation Breakdown</h3>
+      </div>
+
+      <div className={`flex flex-col gap-6 min-h-0 overflow-y-auto ${activeCard !== null ? 'flex-1 justify-between' : 'justify-center'}`}>
+        {activeCard === 'software' ? (
+          <div
+            onClick={() => setActiveCard(null)}
+            className="bg-white/95 p-6 md:p-8 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-2xl flex flex-col justify-between w-full h-full text-left cursor-pointer animate-fadeIn transition-all overflow-y-auto"
+          >
+            <div>
+              <div className="flex justify-between items-center mb-5 border-b border-gray-200 pb-3">
+                <div>
+                  <h3 className="font-headline-lg text-3xl font-bold text-[var(--color-primary)]">
+                    The Software Build Value
+                  </h3>
+                </div>
+                <span className="font-impact-stat text-4xl text-[var(--color-primary)]">$450,000</span>
+              </div>
+
+              <div className="space-y-4 my-4 text-xs md:text-sm text-[var(--color-text)] leading-relaxed">
+                <div>
+                  <strong className="text-[var(--color-primary)]">The Scale: </strong>DIANA is a complete, production-ready universal digital ecosystem consisting of over 100,000 lines of code across the web platform and cross-platform mobile application (iOS &amp; Android).
+                </div>
+                <div>
+                  <strong className="text-[var(--color-primary)]">The Time &amp; Labor: </strong>It required 1,800+ hours of intensive full-stack engineering, UI/UX architecture, database design, and financial software structuring to build the Multi-Impact settlement engine, live multi-currency conversion, role-based account architecture (switching between user, merchant, sanctuary, and admin profiles), and AI integrations from scratch.
+                </div>
+                <div className="space-y-3 pt-1">
+                  <div>
+                    <strong className="text-[var(--color-primary)]">The Replacement Cost: </strong>Hiring an established Australian software or FinTech agency today to architect and write 100,000 lines of production-ready code at a standard blended agency rate of $250 AUD/hour:
+                  </div>
+                  <div className="p-3 bg-[var(--color-primary)]/10 rounded-lg font-mono font-bold text-center my-3 text-[var(--color-primary)] text-xs md:text-sm">
+                    1,800 Hours × $250/hour = $450,000 AUD
+                  </div>
+                  <div className="pt-1">
+                    This is the direct, verifiable replacement cost of the software sitting in our hands today.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : activeCard === 'community' ? (
+          <div
+            onClick={() => setActiveCard(null)}
+            className="bg-white/95 p-6 md:p-8 rounded-2xl border-t-8 border-[var(--color-secondary)] shadow-2xl flex flex-col justify-between w-full h-full text-left cursor-pointer animate-fadeIn transition-all overflow-y-auto"
+          >
+            <div>
+              <div className="flex justify-between items-center mb-4 border-b border-gray-200 pb-3">
+                <div>
+                  <h3 className="font-headline-lg text-2xl md:text-3xl font-bold text-[var(--color-secondary)]">
+                    The Community Pipeline Value
+                  </h3>
+                </div>
+                <span className="font-impact-stat text-3xl md:text-4xl text-[var(--color-secondary)]">$185,000</span>
+              </div>
+
+              <div className="space-y-3 my-2 text-[11px] md:text-xs text-[var(--color-text)] leading-relaxed">
+                <p className="font-medium text-[var(--color-secondary)] text-[10px] md:text-[11px] lg:text-xs tracking-tight">
+                  Why would it cost well over $185,000 in cash to recreate the brand assets and pipeline we bring to launch day? Here are the exact industry costs:
+                </p>
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-3 my-2">
+                  <div className="p-3 bg-white/90 rounded-xl border border-gray-200 flex flex-col justify-between">
+                    <div>
+                      <strong className="text-[var(--color-secondary)] block mb-1">1. Targeted Social Audience: ~$65,000</strong>
+                      <span className="block mt-1"><strong>What we have: </strong>~29,000 followers across brand channels, plus peer access to ~145,000 niche network members.</span>
+                      <span className="block mt-1"><strong>What it costs to buy: </strong>Running paid ad campaigns on Instagram, Facebook, and LinkedIn to acquire real, high-intent followers costs $3 to $6 per follower.</span>
+                    </div>
+                    <span className="block mt-2 pt-2 border-t border-gray-100 text-[var(--color-secondary)] font-medium"><strong>The Math: </strong>~20k–25k engaged followers via ads = ~$65,000.</span>
+                  </div>
+
+                  <div className="p-3 bg-white/90 rounded-xl border border-gray-200 flex flex-col justify-between">
+                    <div>
+                      <strong className="text-[var(--color-secondary)] block mb-1">2. PR &amp; Celebrity Access: ~$70,000</strong>
+                      <span className="block mt-1"><strong>What we have: </strong>Direct relationships with celebrity advocates (~48M reach), tier-1 media editors, and peer founders.</span>
+                      <span className="block mt-1"><strong>What it costs to buy: </strong>Retaining a specialized PR agency to open doors and run press outreach costs $8,000 to $10,000/month.</span>
+                    </div>
+                    <span className="block mt-2 pt-2 border-t border-gray-100 text-[var(--color-secondary)] font-medium"><strong>The Math: </strong>7–8 month launch retainer = ~$70,000.</span>
+                  </div>
+
+                  <div className="p-3 bg-white/90 rounded-xl border border-gray-200 flex flex-col justify-between">
+                    <div>
+                      <strong className="text-[var(--color-secondary)] block mb-1">3. B2B Merchant Leads: ~$50,000</strong>
+                      <span className="block mt-1"><strong>What we have: </strong>Established relationships and personal friendships with numerous vegan business owners globally.</span>
+                      <span className="block mt-1"><strong>What it costs to buy: </strong>Hiring lead-gen agencies or sales reps to source, pitch, and qualify merchant leads averages $200 to $250 per qualified lead.</span>
+                    </div>
+                    <span className="block mt-2 pt-2 border-t border-gray-100 text-[var(--color-secondary)] font-medium"><strong>The Math: </strong>Immediate warm access to ready merchants saves ~$50,000.</span>
+                  </div>
+                </div>
+
+                <div className="p-3 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/20 text-center font-bold text-xs md:text-sm text-[var(--color-secondary)] mt-3">
+                  Social Ads ($65K) + PR Retainer ($70K) + B2B Lead Gen ($50K) = $185,000
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-2 gap-8 items-stretch">
+            <div
+              onClick={() => setActiveCard('software')}
+              className="bg-white/40 hover:bg-white/80 p-8 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-start gap-6 shadow-sm hover:shadow-md transition-all cursor-pointer transform hover:-translate-y-1"
+            >
+              <div className="flex flex-col">
+                <h4 className="font-label-caps text-2xl text-[var(--color-primary)] mb-2">Software Build Value</h4>
+                <span className="font-impact-stat text-5xl text-[var(--color-primary)]">$450,000</span>
+              </div>
+              <p className="font-body-lg text-[var(--color-text-subtle)] leading-relaxed">
+                A complete, finished digital product covering both the web platform and the mobile app. It took over 1,800 hours of dedicated work to build from scratch, covering everything from the user experience to the payment system underneath. Hiring an outside software agency to build this from scratch would cost at least $450,000.
+              </p>
+            </div>
+            <div
+              onClick={() => setActiveCard('community')}
+              className="bg-white/40 hover:bg-white/80 p-8 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-start gap-6 shadow-sm hover:shadow-md transition-all cursor-pointer transform hover:-translate-y-1"
+            >
+              <div className="flex flex-col">
+                <h4 className="font-label-caps text-2xl text-[var(--color-secondary)] mb-2">Community Pipeline Value</h4>
+                <span className="font-impact-stat text-5xl text-[var(--color-secondary)]">$185,000</span>
+              </div>
+              <p className="font-body-lg text-[var(--color-text-subtle)] leading-relaxed">
+                We come to launch with an established social media presence across brand and personal accounts, genuine relationships with vegan business owners across multiple markets, and a wide network of well-known advocates in the space. Building all of this from scratch through paid ads and outreach would cost well over $185,000.
+              </p>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function ValuationCheckSlide() {
+  const [activeCard, setActiveCard] = React.useState<'berkus' | 'scorecard' | null>(null);
+
+  return (
+    <div className={`glass-surface p-10 md:p-12 rounded-3xl flex flex-col h-full relative overflow-hidden ${activeCard !== null ? 'space-y-6 justify-between' : 'gap-8 justify-center'}`}>
+      <div className="shrink-0">
+        <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">Valuation Check</h2>
+        <p className="font-body-md text-[var(--color-secondary)]">How did we make sure our $635,000 AUD valuation is fair? We checked it against two widely used ways of valuing early-stage businesses.</p>
+      </div>
+
+      <div className={`flex flex-col gap-6 min-h-0 overflow-y-auto ${activeCard !== null ? 'flex-1 justify-between' : 'justify-center'}`}>
+        {activeCard === 'berkus' ? (
+          <div
+            onClick={() => setActiveCard(null)}
+            className="bg-white/95 p-6 md:p-8 rounded-2xl border-t-8 border-[var(--color-secondary)] shadow-2xl flex flex-col justify-between w-full h-full text-left cursor-pointer animate-fadeIn transition-all overflow-y-auto"
+          >
+            <div>
+              <div className="flex justify-between items-center mb-3 border-b border-gray-200 pb-2">
+                <div>
+                  <h3 className="font-headline-lg text-2xl md:text-3xl font-bold text-[var(--color-secondary)]">
+                    The Berkus Method / Risk Reduction
+                  </h3>
+                </div>
+                <span className="font-impact-stat text-3xl md:text-4xl text-[var(--color-secondary)]">$750,000</span>
+              </div>
+              <div className="space-y-1.5 my-auto text-[11px] md:text-xs text-[var(--color-text)] leading-relaxed">
+                <div>
+                  <strong className="text-[var(--color-secondary)]">What the method is: </strong>Created by VC Dave Berkus, this formula values early-stage tech startups before commercial revenue by measuring execution risk eliminated across 5 qualitative hurdles (up to ~$750K AUD max).
+                </div>
+                <div>
+                  <strong className="text-[var(--color-secondary)]">How DIANA scored the $750,000 ceiling:</strong>
+                  <ul className="list-disc pl-5 mt-1 space-y-0.5">
+                    <li><strong>Sound Idea (Commodity Risk Removed): </strong>Validated central hub stepping directly into the active user base left by abillion&apos;s closure.</li>
+                    <li><strong>Working Prototype (Technology Risk Removed): </strong>100,000+ lines of finished code across web and iOS/Android ready to deploy.</li>
+                    <li><strong>Quality Management Team (Execution Risk Removed): </strong>A lifetime of capability building across tech, psychology, and entrepreneurship—uniting the technical architect, community builder, and target market into one solo founder.</li>
+                    <li><strong>Strategic Relationships (Market Risk Removed): </strong>Pre-wired warm access to numerous vegan business owners globally and advocacy leaders.</li>
+                    <li><strong>Product Rollout Plan (Production Risk Removed): </strong>Established launch timelines with immediate access to early partner venues for regional expansion.</li>
+                  </ul>
+                </div>
+                <div>
+                  <strong className="text-[var(--color-secondary)]">The Takeaway: </strong>Because DIANA hits every risk-reduction milestone with a production-ready product, the formula awards the full pre-revenue ceiling of $750,000 AUD.
+                </div>
+
+                <div className="p-2.5 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/20 text-center font-bold text-xs md:text-sm text-[var(--color-secondary)] mt-1.5">
+                  Our agreed baseline of $635,000 AUD sits $115,000 below this benchmark.
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : activeCard === 'scorecard' ? (
+          <div
+            onClick={() => setActiveCard(null)}
+            className="bg-white/95 p-6 md:p-8 rounded-2xl border-t-8 border-gray-600 shadow-2xl flex flex-col justify-between w-full h-full text-left cursor-pointer animate-fadeIn transition-all overflow-y-auto"
+          >
+            <div>
+              <div className="flex justify-between items-center mb-3 border-b border-gray-200 pb-2">
+                <div>
+                  <h3 className="font-headline-lg text-2xl md:text-3xl font-bold text-gray-800">
+                    The Scorecard Method / Market Average
+                  </h3>
+                </div>
+                <span className="font-impact-stat text-3xl md:text-4xl text-gray-700">$680,000</span>
+              </div>
+              <div className="space-y-3 my-auto text-[11px] md:text-xs text-[var(--color-text)] leading-relaxed">
+                <div>
+                  <strong className="text-gray-800">The Australian Startup Benchmark: </strong>In Australia right now (2025–2026 data), early-stage tech startups raising seed capital that have built a fully working software platform are valued at an average of $1.5M to $1.8M AUD.
+                </div>
+                <div>
+                  <strong className="text-gray-800">Where the discount percentage comes from: </strong>In professional startup appraisal, when comparing a pre-revenue startup against funded seed-stage peers (who usually already have initial commercial revenue flowing), valuation analysts apply a standard Pre-Revenue Stage Discount of 50% to 65%. This standard discount exists specifically to buffer against pre-revenue commercial adoption risk.
+                </div>
+                <div>
+                  <strong className="text-gray-800">The Exact Math: </strong>We applied a standard ~62% pre-revenue stage discount directly to the $1.8M Australian market average:
+                  <div className="p-2 bg-gray-100 rounded-lg font-mono font-bold text-center my-2 text-gray-800">
+                    $1,800,000 × (1 - 0.62) = $684,000 ≈ $680,000 AUD
+                  </div>
+                </div>
+                <div>
+                  <strong className="text-gray-800">The Takeaway: </strong>This proves that $680,000 is not an arbitrary number—it is the exact mathematical formula used by angel investors when taking standard market averages ($1.8M) and discounting them for pre-revenue risk (~62%).
+                </div>
+
+                <div className="p-3 bg-gray-100 rounded-xl border border-gray-300 text-center font-bold text-xs md:text-sm text-gray-700 mt-3">
+                  Our agreed baseline of $635,000 AUD sits $45,000 below even this heavily discounted calculation.
+                </div>
+              </div>
+            </div>
+          </div>
+        ) : (
+          <div className="grid grid-cols-3 gap-6 items-stretch">
+            <div
+              className="bg-[var(--color-primary)]/10 p-6 rounded-2xl border-2 border-[var(--color-primary)] flex flex-col justify-between shadow-md"
+            >
+              <div>
+                <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-1">Our Agreed Baseline</span>
+                <span className="font-impact-stat text-4xl text-[var(--color-primary)] block mb-3">$635,000</span>
+                <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
+                  Based on two real, concrete things: what it would cost someone else to build the same software ($450K), plus the value of our community assets, social following, and advocate network ($185K).
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-[var(--color-primary)]/20 font-bold text-xs text-[var(--color-primary)] text-center">
+                ✓ Solid &amp; Tangible
+              </div>
+            </div>
+
+            <div
+              onClick={() => setActiveCard('berkus')}
+              className="bg-white/40 hover:bg-white/80 p-6 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm transition-all cursor-pointer transform hover:-translate-y-1"
+            >
+              <div>
+                <span className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest block mb-1">Method 1: Risk Reduction</span>
+                <span className="font-impact-stat text-4xl text-[var(--color-secondary)] block mb-3">$750,000</span>
+                <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
+                  This method estimates early value by looking at how much you have reduced key startup risks. It awards value for having a clear idea, a fully working product ready to launch, strong industry relationships, and an experienced founder.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-[var(--color-secondary)]/20 font-bold text-xs text-[var(--color-secondary)] text-center">
+                +$115k Above Our Ask
+              </div>
+            </div>
+
+            <div
+              onClick={() => setActiveCard('scorecard')}
+              className="bg-white/40 hover:bg-white/80 p-6 rounded-2xl border-t-4 border-gray-400 flex flex-col justify-between shadow-sm transition-all cursor-pointer transform hover:-translate-y-1"
+            >
+              <div>
+                <span className="font-label-caps text-xs text-gray-600 tracking-widest block mb-1">Method 2: Market Average</span>
+                <span className="font-impact-stat text-4xl text-gray-700 block mb-3">$680,000</span>
+                <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
+                  Similar businesses in Australia are typically valued at around $1.8M at this stage. We discounted that average by more than half because we do not have paying customers yet, but kept a solid baseline since the product is fully built and ready to go.
+                </p>
+              </div>
+              <div className="mt-4 pt-3 border-t border-gray-300 font-bold text-xs text-gray-600 text-center">
+                +$45k Above Our Ask
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
 function FinalValuationSlide() {
   const [showExplainer, setShowExplainer] = React.useState(false);
 
   return (
-    <div className="glass-surface p-12 rounded-3xl space-y-8 flex flex-col items-center justify-center text-center h-full">
+    <div className="glass-surface p-8 md:p-10 rounded-3xl space-y-8 flex flex-col items-center justify-center text-center h-full max-h-full overflow-hidden">
       {showExplainer ? (
         <div
           onClick={() => setShowExplainer(false)}
-          className="bg-white/95 p-8 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-2xl flex flex-col justify-between flex-1 w-full text-left cursor-pointer animate-fadeIn transition-all"
+          className="bg-white/95 p-6 md:p-8 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-2xl flex flex-col justify-between w-full max-h-full min-h-0 text-left cursor-pointer animate-fadeIn transition-all overflow-y-auto"
         >
           <div>
-            <div className="flex justify-between items-center mb-5 border-b border-gray-200 pb-3">
-              <div>
-                <span className="text-xs font-label-caps text-[var(--color-text-subtle)] block mb-0.5">Valuation Math Explainer</span>
-                <h3 className="font-headline-lg text-3xl font-bold text-[var(--color-primary)]">
-                  How the $925,000 Growth Target is Calculated
-                </h3>
-              </div>
-              <span className="font-impact-stat text-4xl text-[var(--color-primary)]">
-                AUD $925,000
-              </span>
+            <div className="mb-5 border-b border-gray-200 pb-3">
+              <h3 className="font-headline-lg text-3xl font-bold text-[var(--color-primary)]">
+                How the $925,000 Growth Target is Calculated
+              </h3>
             </div>
 
             <div className="space-y-4 my-4">
@@ -408,7 +930,7 @@ function FinalValuationSlide() {
               <div className="flex items-start gap-3.5 text-sm md:text-base text-[var(--color-text)] leading-relaxed">
                 <span className="w-7 h-7 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">2</span>
                 <div>
-                  <strong className="text-[var(--color-primary)]">1,000 Users Net Profit ($60,000 AUD/Yr):</strong> At our 1,000 active user break-even milestone (~$200/mo spend per user), DIANA generates $5,000 AUD per month ($60,000 AUD per year) in proven recurring net profit.
+                  <strong className="text-[var(--color-primary)]">1,000 Users Net Profit ($60,000 AUD/Yr):</strong> At our 1,000 active user break-even milestone (~$200 AUD/month spend per user), DIANA generates $5,000 AUD/month ($60,000 AUD/year) in proven recurring net profit.
                 </div>
               </div>
 
@@ -456,13 +978,12 @@ function SeedAllocationSlide() {
       percent: "35%",
       borderColor: "border-[var(--color-primary)]",
       headerColor: "text-[var(--color-primary)]",
-      shortDesc: "Physical QR display kits, standees, and window decals to onboard and equip our first 1,000+ partner businesses.",
+      shortDesc: "Physical display kits, ethical vetting, and hands-on onboarding to activate our first 1,000+ partner merchants.",
       items: [
-        "Custom acrylic QR table stands so customers can scan and pay instantly at the counter.",
+        "Custom acrylic QR table stands, tabletop cards, and welcome flyers so customers can scan, learn, and pay instantly at the counter.",
         "Eye-catching storefront window stickers advertising that at least 5% of purchases go directly to animal sanctuaries.",
-        "Tabletop cards and welcome flyers explaining to customers how easy the app is to use.",
-        "International shipping and delivery of physical display materials to businesses in multiple countries.",
-        "Hands-on onboarding assistance and small welcome rewards for community members who help sign up local shops."
+        "International shipping and delivery of physical display materials to partner merchants in multiple countries.",
+        "Dedicated ethical vetting, verification systems, and hands-on setup assistance to activate new partner merchants."
       ]
     },
     {
@@ -472,11 +993,10 @@ function SeedAllocationSlide() {
       headerColor: "text-[var(--color-secondary)]",
       shortDesc: "Launch events and creator partnerships across our initial markets to ignite global buzz and early consumer adoption.",
       items: [
-        "Sponsoring and hosting ethical community gatherings and popup market spaces across key cities.",
-        "Eye-catching physical banners, signage, and printed guides for real-world community events.",
-        "Collaborations and welcome gifts for ethical lifestyle creators and animal advocates who champion the app.",
-        "Press releases and media outreach to vegan, travel, and ethical business news outlets globally.",
-        "Thank-you perks and referral rewards for early community members who invite their friends to shop."
+        "Flagship launch event sponsorship: The 2026 Bali Nemoralia Festival (August 13-15), creating global visibility and immediate transaction volume.",
+        "Collaborations and co-marketing campaigns with well-known vegan creators, animal advocates, and sanctuary leaders.",
+        "Grassroots community activation, local pop-up markets, and street-team ambassador programs.",
+        "Targeted digital campaigns to drive initial user downloads and active daily usage."
       ]
     },
     {
@@ -486,23 +1006,22 @@ function SeedAllocationSlide() {
       headerColor: "text-[var(--color-primary)]",
       shortDesc: "A safety buffer for unexpected expenses and operational costs, ensuring the business stays stable during its first year.",
       items: [
-        "Covering everyday running expenses while we steadily grow toward our 1,000-user break-even goal.",
-        "An emergency backup fund so we never have to scramble or worry if unexpected costs pop up.",
-        "Professional annual tax preparation and basic bookkeeping to keep our company financial records clean.",
-        "Customer support and moderation tools to help shoppers and business owners get quick answers when they need help.",
-        "Peace of mind knowing the business has plenty of breathing room to grow at a healthy, steady pace."
+        "Operational Contingency Reserve: Dedicated emergency reserve buffer to absorb unexpected operational or launch costs without financial stress.",
+        "Accounting & Statutory Compliance: Professional annual corporate bookkeeping, tax preparation, and statutory compliance.",
+        "On-Demand Specialist Contractors: Flexible budget to engage freelance specialists and project contractors for specific tasks as needed without adding permanent fixed payroll.",
+        "Modest founder stipend supporting full-time platform management across all possible roles during the pre-profit launch sprint."
       ]
     },
     {
       title: "4. Legal & Brand Protection",
       percent: "10%",
-      borderColor: "border-[var(--color-secondary)]",
-      headerColor: "text-[var(--color-secondary)]",
+      borderColor: "border-[var(--color-text)]",
+      headerColor: "text-[var(--color-text)]",
       shortDesc: "Trademark registration across key global markets and essential platform legal documentation.",
       items: [
         "International trademark registrations to legally lock in the DIANA name across multiple global markets at once.",
         "Official company share certificates and simple corporate paperwork setting up ownership properly.",
-        "Standard legal terms for partner shops joining the platform to keep both the business and our partners protected.",
+        "Standard legal terms for partner merchants joining the platform to keep both the business and our partners protected.",
         "Clear privacy policies and user terms inside the app that meet international consumer protection laws."
       ]
     },
@@ -515,31 +1034,31 @@ function SeedAllocationSlide() {
       items: [
         "Paying the small bank processing charge when users add money using local bank transfers.",
         "Making sure users can load funds quickly without getting hit by surprise deposit fees.",
-        "Bridging the short timeline between when a user loads money into their wallet and when a shop receives a payout.",
+        "Bridging the short timeline between when a user loads money into their wallet and when a merchant receives a payout.",
         "Operating a self-sustaining pool that naturally refills itself as regular merchant transaction fees roll in."
       ]
     },
     {
       title: "6. Tech Infrastructure",
       percent: "5%",
-      borderColor: "border-[var(--color-secondary)]",
-      headerColor: "text-[var(--color-secondary)]",
-      shortDesc: "12 months of secure cloud hosting, automated redundancy backups, and essential platform subscriptions.",
+      borderColor: "border-[var(--color-text)]",
+      headerColor: "text-[var(--color-text)]",
+      shortDesc: "12 months of secure cloud hosting, operational software tools, and essential platform subscriptions.",
       items: [
         "Commercial cloud hosting so our web platform and mobile app load instantly from anywhere.",
         "Official annual developer licenses to keep our app live on the Apple App Store and Google Play Store.",
-        "AI tool subscriptions that help run automated behind-the-scenes features inside the app.",
-        "Website domain name renewals and secure automated database backups to ensure user data is always safe."
+        "AI subscriptions and automated smart-search tools powering our in-app discovery engine.",
+        "Essential communication suites, helpdesk infrastructure, and automated backups ensuring secure daily operations."
       ]
     }
   ];
 
   return (
     <div className="glass-surface p-10 rounded-3xl space-y-4 flex flex-col justify-center h-full">
-      <div className="flex justify-between items-end">
+      <div className="flex justify-between items-center">
         <div>
           <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">Seed Capital Allocation</h2>
-          <p className="font-body-sm text-[var(--color-secondary)]">Because the software is fully built, your money goes directly into getting the product in front of people and making sure the business is set up properly and legally protected.</p>
+          <p className="font-body-md text-[var(--color-secondary)]">Because the software is fully built, your money goes directly into getting the product in front of people and making sure the business is set up properly and legally protected.</p>
         </div>
       </div>
 
@@ -572,22 +1091,35 @@ function SeedAllocationSlide() {
           </div>
         </div>
       ) : (
-        <div className="grid grid-cols-3 gap-4 mt-2">
-          {categories.map((cat, idx) => (
-            <div
-              key={idx}
-              onClick={() => setExpandedIndex(idx)}
-              className={`bg-white/60 p-4 rounded-xl border-t-4 ${cat.borderColor} flex flex-col shadow-sm cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:bg-white/90 hover:shadow-md`}
-            >
-              <div className="flex justify-between items-center mb-2 border-b border-gray-200 pb-1.5">
-                <h3 className={`font-label-caps text-xs font-bold ${cat.headerColor}`}>{cat.title}</h3>
-                <span className={`font-impact-stat text-lg ${cat.headerColor}`}>{cat.percent}</span>
+        <div className="space-y-4 mt-2">
+          <div className="grid grid-cols-3 gap-4">
+            {categories.map((cat, idx) => (
+              <div
+                key={idx}
+                onClick={() => setExpandedIndex(idx)}
+                className={`bg-white/60 p-4 rounded-xl border-t-4 ${cat.borderColor} flex flex-col shadow-sm cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:bg-white/90 hover:shadow-md`}
+              >
+                <div className="flex justify-between items-center mb-2 border-b border-gray-200 pb-1.5">
+                  <h3 className={`font-label-caps text-xs font-bold ${cat.headerColor}`}>{cat.title}</h3>
+                  <span className={`font-impact-stat text-lg ${cat.headerColor}`}>{cat.percent}</span>
+                </div>
+                <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
+                  {cat.shortDesc}
+                </p>
               </div>
-              <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
-                {cat.shortDesc}
-              </p>
+            ))}
+          </div>
+
+          {/* Lifecycle Budget Shift Banner */}
+          <div className="p-4 bg-gradient-to-r from-[var(--color-primary)]/15 to-[var(--color-secondary)]/15 rounded-2xl border-2 border-[var(--color-primary)]/40 shadow-sm animate-fadeIn">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="text-lg">🚀</span>
+              <h4 className="font-headline-md text-sm text-[var(--color-primary)] font-bold">The Lifecycle Budget Shift: From Rocket Fuel to Dividend Engine</h4>
             </div>
-          ))}
+            <p className="font-body-sm text-xs text-[var(--color-text)] leading-relaxed">
+              Your seed investment acts as upfront rocket fuel. Once we cross 1,000 users, early startup costs naturally drop to near-zero—shifting all freed-up cash flow directly into scaling marketing adoption and paying shareholder dividends.
+            </p>
+          </div>
         </div>
       )}
     </div>
@@ -596,9 +1128,9 @@ function SeedAllocationSlide() {
 
 function CapitalStrategySlide() {
   return (
-    <div className="glass-surface p-12 rounded-3xl space-y-8">
-      <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">Your Investment, Protected</h2>
-      <div className="grid grid-cols-2 gap-8 items-stretch mt-8">
+    <div className="glass-surface p-10 md:p-12 rounded-3xl flex flex-col justify-between gap-8 h-full">
+      <h2 className="font-headline-lg text-4xl text-[var(--color-primary)]">Your Investment, Protected</h2>
+      <div className="grid grid-cols-2 gap-8 items-stretch">
         <div className="flex flex-col gap-4 h-full">
           <div className="bg-white/40 p-8 rounded-xl border-t-4 border-[var(--color-primary)] flex flex-col flex-1">
             <h3 className="font-label-caps text-xl text-[var(--color-secondary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Government Grants Won&apos;t Dilute You</h3>
@@ -607,7 +1139,7 @@ function CapitalStrategySlide() {
             </p>
           </div>
           <div className="bg-[var(--color-secondary)]/10 p-4 rounded-xl border border-[var(--color-secondary)]/20 min-h-[80px] flex items-center justify-center">
-            <p className="font-body-sm text-[var(--color-text-subtle)] italic text-center">
+            <p className="text-base md:text-lg font-bold text-[var(--color-text)] italic text-center">
               Every grant we receive grows the business and makes your share more valuable, without reducing it.
             </p>
           </div>
@@ -620,7 +1152,7 @@ function CapitalStrategySlide() {
             </p>
           </div>
           <div className="bg-[var(--color-primary)]/10 p-4 rounded-xl border border-[var(--color-primary)]/20 min-h-[80px] flex items-center justify-center">
-            <p className="font-body-sm text-[var(--color-text-subtle)] italic text-center">
+            <p className="text-base md:text-lg font-bold text-[var(--color-text)] italic text-center">
               The goal is always to grow the overall value of the business so everyone&apos;s share is worth more, not less.
             </p>
           </div>
@@ -776,12 +1308,14 @@ const slides = [
     </div>
   </div>,
 
-  // Slide 8: Market Strategy & Timeline
-  <div key="slide-6" className="glass-surface p-12 rounded-3xl space-y-6">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">Path to Profitability &amp; Timelines</h2>
-    <p className="font-body-md text-[var(--color-secondary)]">To provide complete transparency and show how safe your investment is, we mapped out both an optimistic growth plan and a conservative baseline plan to reach our 1,000 active user break-even goal.</p>
+  // Slide 8: Path to Profitability & Timelines
+  <div key="slide-6" className="glass-surface p-10 md:p-12 rounded-3xl flex flex-col justify-between gap-8 h-full">
+    <div>
+      <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">Path to Profitability &amp; Timelines</h2>
+      <p className="font-body-md text-[var(--color-secondary)]">To provide complete transparency and show how safe your investment is, we mapped out both an optimistic growth plan and a conservative baseline plan to reach our 1,000 active user commercial milestone. Because our software overhead is ultra-lean, <strong>DIANA becomes self-sustaining almost immediately upon launch</strong>. This means that every user added builds cash reserves and future shareholder dividends!</p>
+    </div>
     
-    <div className="grid grid-cols-2 gap-6 items-stretch mt-4">
+    <div className="grid grid-cols-2 gap-6 items-stretch">
       {/* Optimistic Track */}
       <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
         <div>
@@ -793,14 +1327,14 @@ const slides = [
             <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-xs font-bold">Fast-Track</span>
           </div>
           <ul className="space-y-3 font-body-sm text-[var(--color-text-subtle)]">
-            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-20 shrink-0">Jul 2026:</span> <span>App launch and onboarding our waitlisted partner businesses and early community members.</span></li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-20 shrink-0">Aug 2026:</span> <span>App launch and onboarding our waitlisted partner businesses and early community members.</span></li>
             <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-20 shrink-0">Q3 2026:</span> <span>Rapid welcome and migration of displaced active community members from abillion.</span></li>
-            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-20 shrink-0">Dec 2026:</span> <span>Hit <strong>1,000 active monthly users</strong>, the business fully pays for itself.</span></li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-20 shrink-0">Dec 2026:</span> <span>Hit <strong>1,000 active monthly users</strong>, unlocking our full commercial target and generating clean monthly cash flow for shareholder dividends.</span></li>
           </ul>
         </div>
         <div className="mt-4 pt-3 border-t border-[var(--color-primary)]/10 flex justify-between items-center text-xs font-bold text-[var(--color-primary)]">
-          <span>Cash needed to cover: 6 months</span>
-          <span>Self-sustaining: Month 6</span>
+          <span>Tech Self-Sustaining: Month 1</span>
+          <span>Dividend Ready: Month 6</span>
         </div>
       </div>
 
@@ -817,18 +1351,18 @@ const slides = [
           <ul className="space-y-3 font-body-sm text-[var(--color-text-subtle)]">
             <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold w-20 shrink-0">Q3 2026:</span> <span>Steady, organic onboarding across our initial local partner venues and community networks.</span></li>
             <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold w-20 shrink-0">Q4 2026:</span> <span>Gradual word-of-mouth expansion and adoption across regional ethical communities.</span></li>
-            <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold w-20 shrink-0">Jun 2027:</span> <span>Hit <strong>1,000 active monthly users</strong>, comfortably within our 12-month cash reserve.</span></li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold w-20 shrink-0">Jun 2027:</span> <span>Hit <strong>1,000 active monthly users</strong>, comfortably achieving full commercial independence within our 12-month cash reserve.</span></li>
           </ul>
         </div>
         <div className="mt-4 pt-3 border-t border-[var(--color-secondary)]/10 flex justify-between items-center text-xs font-bold text-[var(--color-secondary)]">
-          <span>Cash reserve covered: 12+ months</span>
-          <span>Self-sustaining: Month 12</span>
+          <span>Tech Self-Sustaining: Q3 2026</span>
+          <span>Dividend Ready: Month 12</span>
         </div>
       </div>
     </div>
   </div>,
 
-  // Slide 8.5: The 5% Math
+  // Slide 8.5: The 5% Math: Highly Profitable
   <div key="slide-5-percent-math" className="glass-surface p-12 rounded-3xl flex flex-col justify-center h-full">
     <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The 5% Math: Highly Profitable</h2>
     
@@ -866,29 +1400,29 @@ const slides = [
       </div>
 
       <div className="space-y-6">
-        <div className="space-y-6 font-body-sm text-[var(--color-text-subtle)] mt-4">
+        <div className="space-y-5 font-body-sm text-[var(--color-text-subtle)] mt-2">
           <div className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-            <span className="leading-relaxed"><strong>Why $10,000?</strong> A conservative monthly volume for an average mid-sized ethical café using DIANA daily.</span>
+            <span className="leading-relaxed"><strong>Why $10,000?</strong> A conservative monthly volume for an average mid-sized ethical partner business using DIANA daily.</span>
           </div>
           <div className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-            <span className="leading-relaxed"><strong>Why $225 in Fees?</strong> Adding money to wallets and sending combined bank payments out to merchants costs just ~2.25% in total payment processing fees.</span>
+            <span className="leading-relaxed"><strong>Why $225 in Fees?</strong> This ~2.25% deduction completely covers all user wallet top-up gateway charges, batched merchant bank settlements, and sanctuary funding transfers.</span>
           </div>
           <div className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-            <span className="leading-relaxed"><strong>High Net Yield:</strong> The remaining 2.5% ($250) is pure profit to cover fixed overhead, salaries, and eventual dividends.</span>
+            <span className="leading-relaxed"><strong>High Net Yield:</strong> The remaining 2.5% ($250) is clean profit to cover fixed overhead, salaries, and eventual dividends.</span>
           </div>
           <div className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-            <span className="leading-relaxed"><strong>Massive Scaling:</strong> With our fixed infrastructure, multiplying this $250 net yield across thousands of global merchants unlocks exponential revenue.</span>
+            <span className="leading-relaxed"><strong>Massive Scaling:</strong> With our fixed serverless infrastructure, multiplying this $250 net yield across thousands of global merchants unlocks exponential revenue.</span>
           </div>
         </div>
       </div>
     </div>
   </div>,
 
-  // Slide 8.75: Why 1,000 Active Users?
+  // Slide 8.75: Why 1,000 Active Users? / The $5,000/Month Plan
   <div key="slide-1000-users" className="glass-surface p-12 rounded-3xl flex flex-col justify-center h-full space-y-8">
     <div>
       <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">Why 1,000 Active Users?</h2>
@@ -903,7 +1437,7 @@ const slides = [
           <span className="w-9 h-9 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 flex items-center justify-center font-bold text-[var(--color-primary)] text-sm shrink-0">1</span>
           <div>
             <p className="font-label-caps text-xs text-[var(--color-text-subtle)] tracking-widest mb-0.5">Average User Spends Per Month</p>
-            <p className="font-body-md text-[var(--color-text)]">A typical active user pays for coffees, meals, and ethical products through DIANA regularly, averaging around <strong>$200/month</strong> across our partner businesses.</p>
+            <p className="font-body-md text-[var(--color-text)]">A typical active user pays for coffees, meals, and ethical products through DIANA regularly, averaging around <strong>$200 AUD/month</strong> across our partner businesses.</p>
           </div>
         </div>
 
@@ -911,7 +1445,7 @@ const slides = [
           <span className="w-9 h-9 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 flex items-center justify-center font-bold text-[var(--color-primary)] text-sm shrink-0">2</span>
           <div>
             <p className="font-label-caps text-xs text-[var(--color-text-subtle)] tracking-widest mb-0.5">Total Monthly Volume at 1,000 Users</p>
-            <p className="font-body-md text-[var(--color-text)]">1,000 users × $200 = <strong>$200,000 processed</strong> through DIANA in a single month.</p>
+            <p className="font-body-md text-[var(--color-text)]">1,000 users × $200 AUD = <strong>$200,000 AUD processed</strong> through DIANA in a single month.</p>
           </div>
         </div>
 
@@ -919,7 +1453,7 @@ const slides = [
           <span className="w-9 h-9 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 flex items-center justify-center font-bold text-[var(--color-primary)] text-sm shrink-0">3</span>
           <div>
             <p className="font-label-caps text-xs text-[var(--color-text-subtle)] tracking-widest mb-0.5">Our Net Profit From That Volume</p>
-            <p className="font-body-md text-[var(--color-text)]">At our 2.5% net margin (proven on the previous slide), that is <strong>$5,000 per month</strong> in clear profit.</p>
+            <p className="font-body-md text-[var(--color-text)]">At our 2.5% net margin (proven on the previous slide), that is <strong>$5,000 AUD/month</strong> in clear profit.</p>
           </div>
         </div>
       </div>
@@ -927,26 +1461,22 @@ const slides = [
       {/* Right: What we do with it */}
       <div className="flex flex-col gap-4">
         <div className="p-6 bg-[var(--color-primary)]/10 rounded-2xl border-2 border-[var(--color-primary)]/30 flex-1">
-          <p className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest mb-3">The $5,000/Month Plan</p>
-          <p className="font-body-md text-[var(--color-text)] mb-4">$5,000 per month comfortably covers all of DIANA&apos;s fixed monthly costs: servers, software licenses, and admin. <strong>The business pays for itself.</strong></p>
+          <p className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest mb-3">The $5,000 AUD/Month Plan</p>
+          <p className="font-body-md text-[var(--color-text)] mb-4">Because DIANA is built on modern serverless architecture, our verified technical overhead is only <strong>~$150 AUD/month</strong>. The software pays for itself at just 30 users. Here is what happens at our 1,000-user milestone ($5,000 AUD/month net profit):</p>
           <div className="space-y-2 text-sm text-[var(--color-text-subtle)]">
             <div className="flex items-start gap-2">
               <span className="text-[var(--color-primary)] font-bold mt-0.5">•</span>
-              <span><strong>Month 1 onwards:</strong> Profit stays in the business bank account. No payouts yet.</span>
+              <span><strong>Month 1 onwards:</strong> At just 30 users (~$150 AUD/month profit), software hosting is 100% self-funding—eliminating tech cash burn immediately.</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-[var(--color-primary)] font-bold mt-0.5">•</span>
-              <span><strong>Once 6 months of expenses are saved:</strong> The business has a full safety net and can weather any slow period.</span>
+              <span><strong>At 1,000 Users ($5,000 AUD/month Net Yield):</strong> ~$150 pays tech bills, leaving <strong>~$4,850 AUD/month</strong> (a 97% net cash margin!) flooding directly into corporate bank reserves.</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-[var(--color-primary)] font-bold mt-0.5">•</span>
-              <span><strong>After the safety net is built:</strong> Monthly profits are distributed as cash dividends to you and the founder.</span>
+              <span><strong>Early Investor Dividends:</strong> Because we prioritize company protection above all else, we bank 100% of net profits during our growth climb to build a robust 6-month safety net—<strong>allowing us to begin distributing monthly cash dividends to shareholders between Month 6 and Month 12!</strong></span>
             </div>
           </div>
-        </div>
-        <div className="p-4 bg-[var(--color-secondary)]/10 rounded-2xl border border-[var(--color-secondary)]/30 text-center">
-          <p className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest mb-1">The Core Promise</p>
-          <p className="font-body-md text-[var(--color-text)] font-semibold">Your money is protected first. Payouts only begin once the business has proven it can sustain itself independently.</p>
         </div>
       </div>
     </div>
@@ -993,84 +1523,11 @@ const slides = [
     </div>
   </div>,
 
-
   // Slide 7: Valuation Breakdown
-  <div key="slide-7" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">What We Have Built</h2>
-    <div className="space-y-6 font-body-md text-[var(--color-text-subtle)]">
-      <h3 className="font-headline-md text-2xl text-[var(--color-secondary)] border-b border-[var(--color-primary)]/30 pb-2">Valuation Breakdown</h3>
-      <div className="grid grid-cols-2 gap-8 mt-12">
-        <div className="bg-white/40 p-12 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between min-h-[280px] shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex flex-col mb-8">
-            <h4 className="font-label-caps text-2xl text-[var(--color-primary)] mb-4">Software Build Value</h4>
-            <span className="font-impact-stat text-5xl text-[var(--color-primary)]">$450,000</span>
-          </div>
-          <p className="font-body-lg text-[var(--color-text-subtle)] leading-relaxed">
-            A complete, finished digital product covering both the web platform and the mobile app. It took over 1,800 hours of dedicated work to build from scratch, covering everything from the user experience to the payment system underneath. Hiring an outside software agency to build this from scratch would cost at least $450,000.
-          </p>
-        </div>
-        <div className="bg-white/40 p-12 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between min-h-[280px] shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex flex-col mb-8">
-            <h4 className="font-label-caps text-2xl text-[var(--color-secondary)] mb-4">Community Pipeline Value</h4>
-            <span className="font-impact-stat text-5xl text-[var(--color-secondary)]">$185,000</span>
-          </div>
-          <p className="font-body-lg text-[var(--color-text-subtle)] leading-relaxed">
-            We come to launch with an established social media presence across brand and personal accounts, genuine relationships with vegan business owners across multiple markets, and a wide network of well-known advocates in the space. Building all of this from scratch through paid ads and outreach would cost well over $185,000.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>,
+  <WhatWeHaveBuiltSlide key="slide-7" />,
 
   // Slide 8: Valuation Methodology & Independent Validation
-  <div key="slide-8-math" className="glass-surface p-12 rounded-3xl space-y-6">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">Valuation Check</h2>
-    <p className="font-body-md text-[var(--color-secondary)]">How did we make sure our $635,000 AUD valuation is fair? We checked it against two widely used ways of valuing early-stage businesses.</p>
-    
-    <div className="grid grid-cols-3 gap-6 mt-4">
-      {/* Our Valuation */}
-      <div className="bg-[var(--color-primary)]/10 p-6 rounded-2xl border-2 border-[var(--color-primary)] flex flex-col justify-between shadow-md transform scale-[1.02]">
-        <div>
-          <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-1">Our Agreed Baseline</span>
-          <span className="font-impact-stat text-4xl text-[var(--color-primary)] block mb-3">$635,000</span>
-          <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            Based on two real, concrete things: what it would cost someone else to build the same software ($450K), plus the value of our community assets, social following, and advocate network ($185K).
-          </p>
-        </div>
-        <div className="mt-4 pt-3 border-t border-[var(--color-primary)]/20 font-bold text-xs text-[var(--color-primary)] text-center">
-          ✓ Solid &amp; Tangible
-        </div>
-      </div>
-
-      {/* Berkus Method */}
-      <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
-        <div>
-          <span className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest block mb-1">Method 1: Risk Reduction</span>
-          <span className="font-impact-stat text-4xl text-[var(--color-secondary)] block mb-3">$750,000</span>
-          <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            This method estimates early value by looking at how much you have reduced key startup risks. It awards value for having a clear idea, a fully working product ready to launch, strong industry relationships, and an experienced founder.
-          </p>
-        </div>
-        <div className="mt-4 pt-3 border-t border-[var(--color-secondary)]/20 font-bold text-xs text-[var(--color-secondary)] text-center">
-          +$115k Above Our Ask
-        </div>
-      </div>
-
-      {/* Scorecard Method */}
-      <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-gray-400 flex flex-col justify-between shadow-sm">
-        <div>
-          <span className="font-label-caps text-xs text-gray-600 tracking-widest block mb-1">Method 2: Market Average</span>
-          <span className="font-impact-stat text-4xl text-gray-700 block mb-3">$680,000</span>
-          <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            Similar businesses in Australia are typically valued at around $1.8M at this stage. We discounted that average by more than half because we do not have paying customers yet, but kept a solid baseline since the product is fully built and ready to go.
-          </p>
-        </div>
-        <div className="mt-4 pt-3 border-t border-gray-300 font-bold text-xs text-gray-600 text-center">
-          +$45k Above Our Ask
-        </div>
-      </div>
-    </div>
-  </div>,
+  <ValuationCheckSlide key="slide-8-math" />,
 
   // Slide 9: Total Valuation (Interactive Growth Target)
   <FinalValuationSlide key="slide-8-total" />,
@@ -1078,17 +1535,24 @@ const slides = [
   // Slide 10: Seed Capital Allocation (Interactive Expandable Cards)
   <SeedAllocationSlide key="slide-10-alloc" />,
 
+  // Slide 11: Flagship Launch Case Study (The 2026 Bali Nemoralia)
+  <NemoraliaCaseStudySlide key="slide-nemoralia" />,
 
-  // Slide 11: ESIC
-  <div key="slide-9" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The ESIC Tax Offset</h2>
-    <p className="font-body-lg">The future corporate entity is designed to qualify as an Australian Early Stage Innovation Company (ESIC).</p>
-    <div className="grid grid-cols-2 gap-8 mt-8">
-      <div className="p-8 rounded-xl bg-white/50 border-t-4 border-[var(--color-primary)]">
+  // Slide 12: The Financial Engine (Reinvestment & Dividends)
+  <FinancialStrategySlide key="slide-financial-engine" />,
+
+  // Slide 13: ESIC
+  <div key="slide-9" className="glass-surface p-10 md:p-12 rounded-3xl flex flex-col justify-between gap-8 h-full">
+    <div>
+      <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">The ESIC Tax Offset</h2>
+      <p className="font-body-lg text-[var(--color-secondary)]">The future corporate entity is designed to qualify as an Australian Early Stage Innovation Company (ESIC).</p>
+    </div>
+    <div className="grid grid-cols-2 gap-8 items-stretch">
+      <div className="p-8 rounded-xl bg-white/50 border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
         <h3 className="font-impact-stat text-4xl text-[var(--color-primary)] mb-4">20%</h3>
         <p className="font-body-md text-[var(--color-text-subtle)]"><strong>Non-Refundable Tax Offset:</strong> The Australian Tax Office effectively subsidizes 20% of your investment, claimable on your tax return for the financial year the investment is made.</p>
       </div>
-      <div className="p-8 rounded-xl bg-white/50 border-t-4 border-[var(--color-secondary)]">
+      <div className="p-8 rounded-xl bg-white/50 border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
         <h3 className="font-impact-stat text-4xl text-[var(--color-secondary)] mb-4">0%</h3>
         <p className="font-body-md text-[var(--color-text-subtle)]"><strong>Capital Gains Tax (CGT):</strong> If you hold the shares for between 1 and 10 years, all future profits on the sale of those shares are 100% tax-free.</p>
       </div>
