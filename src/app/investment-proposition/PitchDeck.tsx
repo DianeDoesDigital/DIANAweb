@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, ChevronLeft, Maximize, Minimize } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { submitSignature } from '@/app/actions/submitForm';
 
 export default function PitchDeck() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isFullscreen, setIsFullscreen] = useState(false);
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchStartY, setTouchStartY] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
@@ -49,28 +48,6 @@ export default function PitchDeck() {
     }
   };
 
-  const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch((err) => {
-        console.error(`Error attempting to enable fullscreen: ${err.message}`);
-      });
-      setIsFullscreen(true);
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-        setIsFullscreen(false);
-      }
-    }
-  };
-
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
-    };
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
-  }, []);
-
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'ArrowRight' || e.key === 'Space') nextSlide();
@@ -85,65 +62,64 @@ export default function PitchDeck() {
 
   return (
     <div
-      className="relative w-full min-h-screen bg-ambient-glow overflow-x-hidden flex flex-col items-center justify-center py-12 md:py-0"
+      className="relative w-full min-h-screen bg-ambient-glow overflow-x-hidden"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
     >
-      {/* Top Right Fullscreen Toggle */}
-      <div className="absolute top-4 right-4 md:top-6 md:right-6 z-30">
-        <button
-          onClick={toggleFullscreen}
-          className="flex items-center gap-2 px-3.5 py-2 md:px-4 md:py-2 rounded-full glass-surface text-[var(--color-primary)] font-label-caps text-xs md:text-sm hover:scale-105 transition-all shadow-md border border-[var(--color-primary)]/30"
-          title="Toggle Fullscreen"
-        >
-          {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
-          <span>{isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}</span>
-        </button>
-      </div>
-
-      {/* Slide Content */}
-      <div className="w-full max-w-5xl px-3 md:px-8 z-10 transition-all duration-500 ease-in-out h-[82vh] md:h-[80vh] [&>div]:h-full [&>div]:max-h-[82vh] md:[&>div]:max-h-[80vh] [&>div]:overflow-y-auto [&>div]:flex [&>div]:flex-col [&>div]:[justify-content:safe_center]">
-        {currentSlide === slides.length ? (
-          <ConclusionSlide onSecretClick={() => setCurrentSlide(totalSlides - 1)} />
-        ) : currentSlide === slides.length + 1 ? (
-          <div className="glass-surface p-5 md:p-16 rounded-3xl text-center space-y-6 md:space-y-8 transform flex flex-col items-center justify-center max-h-[82vh] md:max-h-[80vh] overflow-y-auto">
+      {/* MOBILE VIEW: Continuous Vertical Scrolling Investor Memo (< 768px) */}
+      <div className="block md:hidden w-full py-8 px-4 space-y-16 [&>section>div]:!bg-transparent [&>section>div]:!border-0 [&>section>div]:!shadow-none [&>section>div]:!backdrop-blur-none [&>section>div]:!p-0 [&>section>div]:!rounded-none [&>section//*]:!max-h-none [&>section//*]:!h-auto [&>section//*]:!overflow-visible">
+        {slides.map((slide, idx) => (
+          <section key={idx} className="w-full transition-all duration-500">
+            {slide}
+          </section>
+        ))}
+        <section className="w-full transition-all duration-500">
+          <ConclusionSlide onSecretClick={() => {}} />
+        </section>
+        <section className="w-full transition-all duration-500">
+          <div className="glass-surface p-6 rounded-3xl text-center space-y-6">
             <DealCloser />
           </div>
-        ) : (
-          slides[currentSlide]
-        )}
+        </section>
       </div>
 
-      {/* Navigation Controls */}
-      <div className={`absolute bottom-3 md:bottom-8 left-0 right-0 flex justify-between items-center px-3 md:px-12 z-20 transition-opacity duration-500 gap-2 ${showNav ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-        <button
-          onClick={prevSlide}
-          disabled={currentSlide === 0}
-          className={`p-2 md:p-3 rounded-full glass-surface transition-opacity shrink-0 ${currentSlide === 0 ? 'opacity-30 cursor-not-allowed' : 'opacity-100 hover:scale-110'}`}
-        >
-          <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-[var(--color-primary)]" />
-        </button>
+      {/* DESKTOP VIEW: Interactive Slide Deck (>= 768px) */}
+      <div className="hidden md:flex flex-col items-center justify-center w-full min-h-screen relative py-8 px-8">
+        {/* Middle-Edge Navigation Arrows */}
+        {showNav && (
+          <>
+            <button
+              onClick={prevSlide}
+              disabled={currentSlide === 0}
+              className={`fixed left-4 lg:left-8 top-1/2 -translate-y-1/2 z-30 p-3.5 rounded-full glass-surface transition-all duration-300 shadow-xl ${currentSlide === 0 ? 'opacity-0 pointer-events-none' : 'opacity-100 hover:scale-110 hover:bg-white/90'}`}
+              title="Previous Slide"
+            >
+              <ChevronLeft className="w-8 h-8 text-[var(--color-primary)]" />
+            </button>
+            <button
+              onClick={nextSlide}
+              disabled={isEndSlide}
+              className={`fixed right-4 lg:right-8 top-1/2 -translate-y-1/2 z-30 p-3.5 rounded-full glass-surface transition-all duration-300 shadow-xl ${isEndSlide ? 'opacity-0 pointer-events-none' : 'opacity-100 hover:scale-110 hover:bg-white/90'}`}
+              title="Next Slide"
+            >
+              <ChevronRight className="w-8 h-8 text-[var(--color-primary)]" />
+            </button>
+          </>
+        )}
 
-        <div className="flex items-center gap-1 md:gap-2 max-w-[55vw] md:max-w-none overflow-x-auto py-1 px-2 no-scrollbar">
-          {Array.from({ length: totalSlides - 1 }).map((_, idx) => (
-            <div
-              key={idx}
-              onClick={() => setCurrentSlide(idx)}
-              className={`h-1.5 md:h-2 rounded-full transition-all duration-300 cursor-pointer shrink-0 ${
-                idx === currentSlide ? 'w-5 md:w-8 bg-[var(--color-primary)]' : 'w-1.5 md:w-2 bg-[var(--color-border-main)]'
-              }`}
-            />
-          ))}
+        {/* Slide Content Container */}
+        <div className="w-full max-w-5xl z-10 transition-all duration-500 ease-in-out h-[80vh] [&>div]:h-full [&>div]:max-h-[80vh] [&>div]:overflow-y-auto [&>div]:flex [&>div]:flex-col [&>div]:[justify-content:safe_center]">
+          {currentSlide === slides.length ? (
+            <ConclusionSlide onSecretClick={() => setCurrentSlide(totalSlides - 1)} />
+          ) : currentSlide === slides.length + 1 ? (
+            <div className="glass-surface p-16 rounded-3xl text-center space-y-8 transform flex flex-col items-center justify-center max-h-[80vh] overflow-y-auto">
+              <DealCloser />
+            </div>
+          ) : (
+            slides[currentSlide]
+          )}
         </div>
-
-        <button
-          onClick={nextSlide}
-          disabled={isEndSlide}
-          className={`p-2 md:p-3 rounded-full glass-surface transition-opacity shrink-0 ${isEndSlide ? 'opacity-0 cursor-default pointer-events-none' : 'opacity-100 hover:scale-110'}`}
-        >
-          <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-[var(--color-primary)]" />
-        </button>
       </div>
     </div>
   );
