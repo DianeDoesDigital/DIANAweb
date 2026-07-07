@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, ChevronLeft } from 'lucide-react';
+import { ChevronRight, ChevronLeft, Maximize, Minimize } from 'lucide-react';
 import { submitSignature } from '@/app/actions/submitForm';
 
 export default function PitchDeck() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const totalSlides = slides.length + 2;
 
@@ -16,6 +17,28 @@ export default function PitchDeck() {
   const prevSlide = () => {
     if (currentSlide > 0) setCurrentSlide(currentSlide - 1);
   };
+
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch((err) => {
+        console.error(`Error attempting to enable fullscreen: ${err.message}`);
+      });
+      setIsFullscreen(true);
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen();
+        setIsFullscreen(false);
+      }
+    }
+  };
+
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -30,13 +53,25 @@ export default function PitchDeck() {
   const isEndSlide = currentSlide >= totalSlides - 2;
 
   return (
-    <div className="relative w-full min-h-screen bg-ambient-glow overflow-x-hidden flex flex-col items-center justify-center py-16 md:py-0">
+    <div className="relative w-full min-h-screen bg-ambient-glow overflow-x-hidden flex flex-col items-center justify-center py-12 md:py-0">
+      {/* Top Right Fullscreen Toggle */}
+      <div className="absolute top-4 right-4 md:top-6 md:right-6 z-30">
+        <button
+          onClick={toggleFullscreen}
+          className="flex items-center gap-2 px-3.5 py-2 md:px-4 md:py-2 rounded-full glass-surface text-[var(--color-primary)] font-label-caps text-xs md:text-sm hover:scale-105 transition-all shadow-md border border-[var(--color-primary)]/30"
+          title="Toggle Fullscreen"
+        >
+          {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
+          <span>{isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}</span>
+        </button>
+      </div>
+
       {/* Slide Content */}
-      <div className="w-full max-w-5xl px-4 md:px-8 z-10 transition-all duration-500 ease-in-out min-h-[75vh] md:h-[80vh] [&>div]:min-h-full md:[&>div]:h-full [&>div]:flex [&>div]:flex-col [&>div]:justify-center">
+      <div className="w-full max-w-5xl px-3 md:px-8 z-10 transition-all duration-500 ease-in-out h-[82vh] md:h-[80vh] [&>div]:h-full [&>div]:max-h-[82vh] md:[&>div]:max-h-[80vh] [&>div]:overflow-y-auto [&>div]:flex [&>div]:flex-col [&>div]:justify-center">
         {currentSlide === slides.length ? (
           <ConclusionSlide onSecretClick={() => setCurrentSlide(totalSlides - 1)} />
         ) : currentSlide === slides.length + 1 ? (
-          <div className="glass-surface p-6 md:p-16 rounded-3xl text-center space-y-6 md:space-y-8 transform flex flex-col items-center justify-center min-h-[75vh] md:h-[80vh]">
+          <div className="glass-surface p-5 md:p-16 rounded-3xl text-center space-y-6 md:space-y-8 transform flex flex-col items-center justify-center max-h-[82vh] md:max-h-[80vh] overflow-y-auto">
             <DealCloser />
           </div>
         ) : (
@@ -117,10 +152,10 @@ function InteractiveDemoSlide() {
   const [showExplainer, setShowExplainer] = React.useState(true);
 
   return (
-    <div className="glass-surface p-12 rounded-3xl space-y-4">
-      <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">Already Built. Ready to Launch.</h2>
-      <div className="grid grid-cols-2 gap-8 items-center h-[calc(100%-80px)]">
-        <div className="space-y-6">
+    <div className="glass-surface p-5 md:p-12 rounded-3xl space-y-4 overflow-y-auto">
+      <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-2">Already Built. Ready to Launch.</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+        <div className="space-y-4 md:space-y-6">
           <p className="font-body-lg text-[var(--color-secondary)]">
             DIANA is already built and finished. There is no waiting around for months of development, and no enormous build bill to pay later. <strong className="text-[var(--color-primary)]">You can even try it yourself right now.</strong>
           </p>
@@ -348,8 +383,8 @@ function DealCloser() {
 
 function ConclusionSlide({ onSecretClick }: { onSecretClick: () => void }) {
   return (
-    <div className="glass-surface p-16 rounded-3xl text-center space-y-8 transform flex flex-col items-center justify-center h-full">
-      <h2 className="font-headline-lg text-6xl text-[var(--color-primary)] mb-4">Join the Movement</h2>
+    <div className="glass-surface p-6 md:p-16 rounded-3xl text-center space-y-6 md:space-y-8 transform flex flex-col items-center justify-center h-full overflow-y-auto">
+      <h2 className="font-headline-lg text-3xl md:text-6xl text-[var(--color-primary)] mb-4">Join the Movement</h2>
       <p className="font-body-lg text-[var(--color-secondary)] max-w-2xl mx-auto">
         DIANA is built to be the financial backbone of the conscious economy. Every purchase funds the future of animal advocacy. It is already in motion. Your investment puts it in the hands of every conscious shopper on the planet. Let&apos;s make this happen sooner rather than later.
       </p>
@@ -376,19 +411,19 @@ function ConclusionSlide({ onSecretClick }: { onSecretClick: () => void }) {
 
 function FinancialStrategySlide() {
   return (
-    <div className="glass-surface p-10 md:p-12 rounded-3xl flex flex-col justify-between gap-6 h-full relative border-4 border-[var(--color-primary)]/40">
+    <div className="glass-surface p-5 md:p-12 rounded-3xl flex flex-col justify-between gap-6 h-full relative border-4 border-[var(--color-primary)]/40 overflow-y-auto">
       <div className="flex justify-between items-start">
         <div>
-          <h2 className="font-headline-lg text-4xl text-[var(--color-primary)]">
+          <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)]">
             The Financial Engine: Reinvestment &amp; Dividends
           </h2>
-          <p className="font-body-md text-[var(--color-secondary)] mt-1 max-w-4xl leading-relaxed">
+          <p className="font-body-sm md:font-body-md text-[var(--color-secondary)] mt-1 max-w-4xl leading-relaxed">
             How we balance rapid global scaling with regular liquid cash returns. The exact percentage of dividends to be distributed will be agreed upon later on as we scale. To demonstrate how this wealth-building engine works, we illustrate a clean 80/20 reinvestment and dividend split across our growth tiers.
           </p>
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-6 items-stretch">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-stretch">
         {/* Tier 1: 1,000 to 2,500 Users */}
         <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
           <div>
@@ -478,10 +513,10 @@ function NemoraliaCaseStudySlide() {
   const [activeCard, setActiveCard] = React.useState<'home' | 'bali' | null>(null);
 
   return (
-    <div className="glass-surface p-10 md:p-12 rounded-3xl space-y-6 flex flex-col justify-between h-full relative border-4 border-[var(--color-secondary)]/40 overflow-hidden">
+    <div className="glass-surface p-5 md:p-12 rounded-3xl space-y-4 md:space-y-6 flex flex-col justify-between h-full relative border-4 border-[var(--color-secondary)]/40 overflow-hidden">
       <div className="flex justify-between items-start shrink-0">
         <div>
-          <h2 className="font-headline-lg text-4xl text-[var(--color-primary)]">
+          <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)]">
             The Flagship Launch Case Study
           </h2>
           <p className="font-body-md text-[var(--color-secondary)] mt-1 max-w-4xl leading-relaxed">
@@ -631,10 +666,10 @@ function WhatWeHaveBuiltSlide() {
   const [activeCard, setActiveCard] = React.useState<'software' | 'community' | null>(null);
 
   return (
-    <div className={`glass-surface p-10 md:p-12 rounded-3xl flex flex-col h-full relative overflow-hidden ${activeCard !== null ? 'space-y-6 justify-between' : 'gap-8 justify-center'}`}>
+    <div className={`glass-surface p-5 md:p-12 rounded-3xl flex flex-col h-full relative overflow-hidden ${activeCard !== null ? 'space-y-4 md:space-y-6 justify-between' : 'gap-6 md:gap-8 justify-center'}`}>
       <div className="shrink-0">
-        <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">What We Have Built</h2>
-        <h3 className="font-headline-md text-2xl text-[var(--color-secondary)] border-b border-[var(--color-primary)]/30 pb-2">Valuation Breakdown</h3>
+        <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-2">What We Have Built</h2>
+        <h3 className="font-headline-md text-xl md:text-2xl text-[var(--color-secondary)] border-b border-[var(--color-primary)]/30 pb-2">Valuation Breakdown</h3>
       </div>
 
       <div className={`flex flex-col gap-6 min-h-0 overflow-y-auto ${activeCard !== null ? 'flex-1 justify-between' : 'justify-center'}`}>
@@ -729,7 +764,7 @@ function WhatWeHaveBuiltSlide() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-2 gap-8 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch overflow-y-auto">
             <div
               onClick={() => setActiveCard('software')}
               className="bg-white/40 hover:bg-white/80 p-8 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-start gap-6 shadow-sm hover:shadow-md transition-all cursor-pointer transform hover:-translate-y-1"
@@ -760,14 +795,13 @@ function WhatWeHaveBuiltSlide() {
     </div>
   );
 }
-
 function ValuationCheckSlide() {
   const [activeCard, setActiveCard] = React.useState<'berkus' | 'scorecard' | null>(null);
 
   return (
-    <div className={`glass-surface p-10 md:p-12 rounded-3xl flex flex-col h-full relative overflow-hidden ${activeCard !== null ? 'space-y-6 justify-between' : 'gap-8 justify-center'}`}>
-      <div className="shrink-0">
-        <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">Valuation Check</h2>
+    <div className={`glass-surface p-5 md:p-12 rounded-3xl flex flex-col justify-between gap-6 h-full overflow-y-auto`}>
+      <div>
+        <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-2">Valuation Check</h2>
         <p className="font-body-md text-[var(--color-secondary)]">How did we make sure our $635,000 AUD valuation is fair? We checked it against two widely used ways of valuing early-stage businesses.</p>
       </div>
 
@@ -848,7 +882,7 @@ function ValuationCheckSlide() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-3 gap-6 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-stretch">
             <div
               className="bg-[var(--color-primary)]/10 p-6 rounded-2xl border-2 border-[var(--color-primary)] flex flex-col justify-between shadow-md"
             >
@@ -906,7 +940,7 @@ function FinalValuationSlide() {
   const [showExplainer, setShowExplainer] = React.useState(false);
 
   return (
-    <div className="glass-surface p-8 md:p-10 rounded-3xl space-y-8 flex flex-col items-center justify-center text-center h-full max-h-full overflow-hidden">
+    <div className="glass-surface p-5 md:p-12 rounded-3xl space-y-6 md:space-y-8 flex flex-col items-center justify-center text-center h-full overflow-y-auto">
       {showExplainer ? (
         <div
           onClick={() => setShowExplainer(false)}
@@ -949,10 +983,10 @@ function FinalValuationSlide() {
         </div>
       ) : (
         <>
-          <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-4">The Final Valuation</h2>
-          <div className="w-full max-w-2xl text-center p-12 bg-[var(--color-primary)]/10 rounded-3xl border-2 border-[var(--color-primary)]/30 transform hover:scale-105 transition-transform shadow-sm">
-            <span className="font-label-caps block mb-4 text-[var(--color-text-subtle)] tracking-widest">Total Platform &amp; Brand Value</span>
-            <span className="font-impact-stat text-7xl text-[var(--color-primary)]">AUD $635,000</span>
+          <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4">The Final Valuation</h2>
+          <div className="w-full max-w-2xl text-center p-6 md:p-12 bg-[var(--color-primary)]/10 rounded-3xl border-2 border-[var(--color-primary)]/30 transform hover:scale-105 transition-transform shadow-sm">
+            <span className="font-label-caps block mb-2 md:mb-4 text-[var(--color-text-subtle)] tracking-widest text-xs md:text-sm">Total Platform &amp; Brand Value</span>
+            <span className="font-impact-stat text-4xl md:text-7xl text-[var(--color-primary)]">AUD $635,000</span>
             <span className="block mt-4 font-body-lg text-[var(--color-secondary)] font-bold">Base Case Total</span>
           </div>
           <div
@@ -969,223 +1003,30 @@ function FinalValuationSlide() {
   );
 }
 
-function SeedAllocationSlide() {
-  const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
-
-  const categories = [
-    {
-      title: "1. Partner Activation",
-      percent: "35%",
-      borderColor: "border-[var(--color-primary)]",
-      headerColor: "text-[var(--color-primary)]",
-      shortDesc: "Physical display kits, ethical vetting, and hands-on onboarding to activate our first 1,000+ partner merchants.",
-      items: [
-        "Custom acrylic QR table stands, tabletop cards, and welcome flyers so customers can scan, learn, and pay instantly at the counter.",
-        "Eye-catching storefront window stickers advertising that at least 5% of purchases go directly to animal sanctuaries.",
-        "International shipping and delivery of physical display materials to partner merchants in multiple countries.",
-        "Dedicated ethical vetting, verification systems, and hands-on setup assistance to activate new partner merchants."
-      ]
-    },
-    {
-      title: "2. Marketing & Launch Events",
-      percent: "20%",
-      borderColor: "border-[var(--color-secondary)]",
-      headerColor: "text-[var(--color-secondary)]",
-      shortDesc: "Launch events and creator partnerships across our initial markets to ignite global buzz and early consumer adoption.",
-      items: [
-        "Sponsoring and hosting ethical community gatherings and popup market spaces across key locations.",
-        "Eye-catching physical banners, signage, and printed guides for real-world community events.",
-        "Creator co-marketing partnerships, welcome packages, and grassroots referral rewards that incentivize organic word-of-mouth growth.",
-        "Press releases and media outreach to vegan, travel, and ethical business news outlets globally."
-      ]
-    },
-    {
-      title: "3. Working Capital",
-      percent: "25%",
-      borderColor: "border-[var(--color-primary)]",
-      headerColor: "text-[var(--color-primary)]",
-      shortDesc: "A safety buffer for unexpected expenses and operational costs, ensuring the business stays stable during its first year.",
-      items: [
-        "Dedicated emergency reserve buffer to absorb unexpected operational or launch costs without financial stress.",
-        "Professional annual corporate bookkeeping, tax preparation, and statutory compliance.",
-        "Flexible budget to engage freelance specialists and project contractors for specific tasks as needed without adding permanent fixed payroll.",
-        "Modest founder stipend supporting full-time platform management across all possible roles during the pre-profit launch sprint."
-      ]
-    },
-    {
-      title: "4. Legal & Brand Protection",
-      percent: "10%",
-      borderColor: "border-[var(--color-text)]",
-      headerColor: "text-[var(--color-text)]",
-      shortDesc: "Trademark registration across key global markets and essential platform legal documentation.",
-      items: [
-        "International trademark registrations to legally lock in the DIANA name across multiple global markets at once.",
-        "Official company share certificates and simple corporate paperwork setting up ownership properly.",
-        "Standard legal terms for partner merchants joining the platform to keep both the business and our partners protected.",
-        "Clear privacy policies and user terms inside the app that meet international consumer protection laws."
-      ]
-    },
-    {
-      title: "5. Initial Transaction Float",
-      percent: "5%",
-      borderColor: "border-[var(--color-primary)]",
-      headerColor: "text-[var(--color-primary)]",
-      shortDesc: "Covers payment processing fees for early wallet top-ups before merchant transaction revenue offsets the costs.",
-      items: [
-        "Paying the small bank processing charge when users add money using local bank transfers.",
-        "Making sure users can load funds quickly without getting hit by surprise deposit fees.",
-        "Bridging the short timeline between when a user loads money into their wallet and when a merchant receives a payout.",
-        "Operating a self-sustaining pool that naturally refills itself as regular merchant transaction fees roll in."
-      ]
-    },
-    {
-      title: "6. Tech Infrastructure",
-      percent: "5%",
-      borderColor: "border-[var(--color-text)]",
-      headerColor: "text-[var(--color-text)]",
-      shortDesc: "12 months of secure cloud hosting, operational software tools, and essential platform subscriptions.",
-      items: [
-        "Commercial cloud hosting so our web platform and mobile app load instantly from anywhere.",
-        "Official annual developer licenses to keep our app live on the Apple App Store and Google Play Store.",
-        "AI subscriptions and automated backend tools powering live app features.",
-        "Essential communication suites, helpdesk infrastructure, and automated backups ensuring secure daily operations."
-      ]
-    }
-  ];
-
-  return (
-    <div className="glass-surface p-10 rounded-3xl space-y-4 flex flex-col justify-center h-full">
-      <div className="flex justify-between items-center">
-        <div>
-          <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">Seed Capital Allocation</h2>
-          <p className="font-body-md text-[var(--color-secondary)]">Because the software is fully built, your money goes directly into getting the product in front of people and making sure the business is set up properly and legally protected.</p>
-        </div>
-      </div>
-
-      {expandedIndex !== null ? (
-        <div
-          onClick={() => setExpandedIndex(null)}
-          className={`bg-white/95 p-8 rounded-2xl border-t-8 ${categories[expandedIndex].borderColor} shadow-2xl flex flex-col justify-between flex-1 cursor-pointer animate-fadeIn transition-all mt-2`}
-        >
-          <div>
-            <div className="flex justify-between items-center mb-5 border-b border-gray-200 pb-3">
-              <div>
-                <span className="text-xs font-label-caps text-[var(--color-text-subtle)] block mb-0.5">Itemized Allocation Breakdown</span>
-                <h3 className={`font-headline-lg text-3xl font-bold ${categories[expandedIndex].headerColor}`}>
-                  {categories[expandedIndex].title}
-                </h3>
-              </div>
-              <span className={`font-impact-stat text-5xl ${categories[expandedIndex].headerColor}`}>
-                {categories[expandedIndex].percent}
-              </span>
-            </div>
-
-            <div className="space-y-3.5 my-4">
-              {categories[expandedIndex].items.map((item, itemIdx) => (
-                <div key={itemIdx} className="flex items-start gap-3 text-sm md:text-base text-[var(--color-text)] leading-relaxed font-medium">
-                  <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5 shrink-0">•</span>
-                  <span>{item}</span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      ) : (
-        <div className="space-y-4 mt-2">
-          <div className="grid grid-cols-3 gap-4">
-            {categories.map((cat, idx) => (
-              <div
-                key={idx}
-                onClick={() => setExpandedIndex(idx)}
-                className={`bg-white/60 p-4 rounded-xl border-t-4 ${cat.borderColor} flex flex-col shadow-sm cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:bg-white/90 hover:shadow-md`}
-              >
-                <div className="flex justify-between items-center mb-2 border-b border-gray-200 pb-1.5">
-                  <h3 className={`font-label-caps text-xs font-bold ${cat.headerColor}`}>{cat.title}</h3>
-                  <span className={`font-impact-stat text-lg ${cat.headerColor}`}>{cat.percent}</span>
-                </div>
-                <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
-                  {cat.shortDesc}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Lifecycle Budget Shift Banner */}
-          <div className="p-4 bg-gradient-to-r from-[var(--color-primary)]/15 to-[var(--color-secondary)]/15 rounded-2xl border-2 border-[var(--color-primary)]/40 shadow-sm animate-fadeIn">
-            <div className="flex items-center gap-2 mb-1.5">
-              <span className="text-lg">🚀</span>
-              <h4 className="font-headline-md text-sm text-[var(--color-primary)] font-bold">The Lifecycle Budget Shift: From Rocket Fuel to Dividend Engine</h4>
-            </div>
-            <p className="font-body-sm text-xs text-[var(--color-text)] leading-relaxed">
-              Your seed investment acts as upfront rocket fuel. Once we cross 1,000 users, early startup costs naturally drop to near-zero—shifting all freed-up cash flow directly into scaling marketing adoption and paying shareholder dividends.
-            </p>
-          </div>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function CapitalStrategySlide() {
-  return (
-    <div className="glass-surface p-10 md:p-12 rounded-3xl flex flex-col justify-between gap-8 h-full">
-      <h2 className="font-headline-lg text-4xl text-[var(--color-primary)]">Your Investment, Protected</h2>
-      <div className="grid grid-cols-2 gap-8 items-stretch">
-        <div className="flex flex-col gap-4 h-full">
-          <div className="bg-white/40 p-8 rounded-xl border-t-4 border-[var(--color-primary)] flex flex-col flex-1">
-            <h3 className="font-label-caps text-xl text-[var(--color-secondary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Government Grants Won&apos;t Dilute You</h3>
-            <p className="font-body-md text-[var(--color-text-subtle)]">
-              We are actively applying for government grants and innovation funding. If we receive any, that money goes directly into the business. It does <strong>not</strong> come with new shareholders attached. Your ownership percentage stays exactly the same.
-            </p>
-          </div>
-          <div className="bg-[var(--color-secondary)]/10 p-4 rounded-xl border border-[var(--color-secondary)]/20 min-h-[80px] flex items-center justify-center">
-            <p className="text-base md:text-lg font-bold text-[var(--color-text)] italic text-center">
-              Every grant we receive grows the business and makes your share more valuable, without reducing it.
-            </p>
-          </div>
-        </div>
-        <div className="flex flex-col gap-4 h-full">
-          <div className="bg-white/40 p-8 rounded-xl border-t-4 border-[var(--color-secondary)] flex flex-col flex-1">
-            <h3 className="font-label-caps text-xl text-[var(--color-primary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Future Investors Treated Equally</h3>
-            <p className="font-body-md text-[var(--color-text-subtle)]">
-              If DIANA ever brings in additional investors down the track, you and the founder are treated exactly the same. Nobody gets a secret deal or special advantage over you. If new investors come in and everyone&apos;s share gets a little smaller to make room, yours and the founder&apos;s shrink by the same percentage.
-            </p>
-          </div>
-          <div className="bg-[var(--color-primary)]/10 p-4 rounded-xl border border-[var(--color-primary)]/20 min-h-[80px] flex items-center justify-center">
-            <p className="text-base md:text-lg font-bold text-[var(--color-text)] italic text-center">
-              The goal is always to grow the overall value of the business so everyone&apos;s share is worth more, not less.
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 const slides = [
   // Slide 1: Welcome
-  <div key="slide-1" className="glass-surface p-16 rounded-3xl text-center space-y-6 transform">
-    <img src="/diana-logo.png" alt="DIANA Logo" className="h-48 w-auto mx-auto mb-2 drop-shadow-md" />
-    <h1 className="font-headline-lg text-6xl text-[var(--color-primary)] mb-4">DIANA</h1>
-    <p className="font-label-caps text-xl text-[var(--color-secondary)] tracking-widest mb-2">Digital Infrastructure for Animal Networks & Advocacy</p>
-    <div className="font-body-lg italic mt-2">
+  <div key="slide-1" className="glass-surface p-6 md:p-16 rounded-3xl text-center space-y-4 md:space-y-6 transform overflow-y-auto">
+    <img src="/diana-logo.png" alt="DIANA Logo" className="h-32 md:h-48 w-auto mx-auto mb-2 drop-shadow-md" />
+    <h1 className="font-headline-lg text-4xl md:text-6xl text-[var(--color-primary)] mb-4">DIANA</h1>
+    <p className="font-label-caps text-sm md:text-xl text-[var(--color-secondary)] tracking-widest mb-2">Digital Infrastructure for Animal Networks & Advocacy</p>
+    <div className="font-body-lg text-sm md:text-base italic mt-2">
       <span className="block text-[var(--color-primary)]">the global currency of compassion and celebration</span>
     </div>
-    <div className="h-px w-24 bg-[var(--color-primary)] mx-auto my-8 opacity-50"></div>
-    <h2 className="font-headline-md text-3xl">Investment Proposition</h2>
+    <div className="h-px w-24 bg-[var(--color-primary)] mx-auto my-6 md:my-8 opacity-50"></div>
+    <h2 className="font-headline-md text-xl md:text-3xl">Investment Proposition</h2>
     <p className="font-body-lg text-[var(--color-text-subtle)]">Prepared for Jason Teague • July 2026</p>
   </div>,
 
   // Slide 2: The Problem & Solution
-  <div key="slide-2" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Market Gap</h2>
-    <div className="grid grid-cols-2 gap-8 font-body-md text-[var(--color-text-subtle)]">
-      <div className="space-y-4 bg-white/40 p-8 rounded-xl border border-white/60">
-        <h3 className="font-headline-md text-2xl text-[var(--color-secondary)] border-b border-[var(--color-primary)]/30 pb-2">The Problem</h3>
+  <div key="slide-2" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">The Market Gap</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 font-body-sm md:font-body-md text-[var(--color-text-subtle)]">
+      <div className="space-y-4 bg-white/40 p-6 md:p-8 rounded-xl border border-white/60">
+        <h3 className="font-headline-md text-xl md:text-2xl text-[var(--color-secondary)] border-b border-[var(--color-primary)]/30 pb-2">The Problem</h3>
         <p>The vegan economy is scattered and hard to navigate. Consumers struggle to find trustworthy businesses. Merchants struggle to find vegan customers without spending huge amounts on advertising. Sanctuaries struggle because people get tired of being constantly asked for donations.</p>
       </div>
-      <div className="space-y-4 bg-white/40 p-8 rounded-xl border border-white/60">
-        <h3 className="font-headline-md text-2xl text-[var(--color-primary)] border-b border-[var(--color-primary)]/30 pb-2">The DIANA Solution</h3>
+      <div className="space-y-4 bg-white/40 p-6 md:p-8 rounded-xl border border-white/60">
+        <h3 className="font-headline-md text-xl md:text-2xl text-[var(--color-primary)] border-b border-[var(--color-primary)]/30 pb-2">The DIANA Solution</h3>
         <p>A single platform where everyday shopping quietly supports animals. We connect consumers directly to ethical businesses, and every purchase automatically sends a portion to animal sanctuaries in the background, with no extra steps for anyone.</p>
       </div>
     </div>
@@ -1195,12 +1036,12 @@ const slides = [
   <InteractiveDemoSlide key="slide-3" />,
 
   // Slide 4: The Global Travel Wallet
-  <div key="slide-4-wallet" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Global Travel Wallet</h2>
-    <div className="grid grid-cols-2 gap-8 items-center">
-      <div className="space-y-6">
-        <p className="font-body-lg text-[var(--color-secondary)]">A payment system built for people who love to travel and live ethically, wherever they are in the world.</p>
-        <ul className="space-y-4 font-body-md text-[var(--color-text-subtle)]">
+  <div key="slide-4-wallet" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">The Global Travel Wallet</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
+      <div className="space-y-4 md:space-y-6">
+        <p className="font-body-md md:font-body-lg text-[var(--color-secondary)]">A payment system built for people who love to travel and live ethically, wherever they are in the world.</p>
+        <ul className="space-y-3 md:space-y-4 font-body-sm md:font-body-md text-[var(--color-text-subtle)]">
           <li className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
             <span><strong>Easy Top Ups:</strong> Users add money to their DIANA wallet quickly using their local currency.</span>
@@ -1215,36 +1056,36 @@ const slides = [
           </li>
         </ul>
       </div>
-      <div className="bg-[var(--color-background)] p-8 rounded-2xl border border-[var(--color-primary)]/20 text-center flex flex-col justify-center h-full">
-        <span className="font-label-caps text-[var(--color-text-subtle)] mb-4">The Lifestyle Feature</span>
-        <span className="font-impact-stat text-5xl text-[var(--color-primary)] mb-4">One Wallet.</span>
-        <span className="font-impact-stat text-5xl text-[var(--color-secondary)]">Global Access.</span>
-        <p className="font-body-sm text-[var(--color-text-subtle)] mt-6 border-t border-[var(--color-primary)]/20 pt-4">A natural fit for anyone who travels and wants their money to do good along the way.</p>
+      <div className="bg-[var(--color-background)] p-6 md:p-8 rounded-2xl border border-[var(--color-primary)]/20 text-center flex flex-col justify-center h-full">
+        <span className="font-label-caps text-[var(--color-text-subtle)] mb-2 md:mb-4 text-xs md:text-sm">The Lifestyle Feature</span>
+        <span className="font-impact-stat text-3xl md:text-5xl text-[var(--color-primary)] mb-2 md:mb-4">One Wallet.</span>
+        <span className="font-impact-stat text-3xl md:text-5xl text-[var(--color-secondary)]">Global Access.</span>
+        <p className="font-body-sm text-[var(--color-text-subtle)] mt-4 md:mt-6 border-t border-[var(--color-primary)]/20 pt-4 text-xs md:text-sm">A natural fit for anyone who travels and wants their money to do good along the way.</p>
       </div>
     </div>
   </div>,
 
   // Slide 5: Multi-Impact Financial Engine
-  <div key="slide-4" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">How the Money Works</h2>
-    <div className="space-y-6 font-body-lg">
+  <div key="slide-4" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">How the Money Works</h2>
+    <div className="space-y-4 md:space-y-6 font-body-md md:font-body-lg">
       <p>A simple system where every dollar spent automatically creates good. The money is divided the moment a purchase is made, with no extra steps required from anyone.</p>
       
-      <div className="bg-white/50 p-8 rounded-xl border border-[var(--color-primary)]/20">
-        <div className="grid grid-cols-3 gap-4 font-label-caps text-sm text-center items-start">
+      <div className="bg-white/50 p-6 md:p-8 rounded-xl border border-[var(--color-primary)]/20">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 font-label-caps text-sm text-center items-start">
           <div className="flex flex-col items-center justify-start">
-            <span className="block text-4xl text-[var(--color-secondary)] mb-2">At Most 90%</span>
+            <span className="block text-3xl md:text-4xl text-[var(--color-secondary)] mb-2">Max 90%</span>
             <span className="text-[var(--color-text-subtle)]">Merchant Keeps</span>
           </div>
-          <div className="flex flex-col items-center justify-start">
-            <span className="block text-4xl text-[var(--color-primary)] mb-2">5%</span>
+          <div className="flex flex-col items-center justify-start border-t md:border-t-0 pt-4 md:pt-0 border-gray-200">
+            <span className="block text-3xl md:text-4xl text-[var(--color-primary)] mb-2">5%</span>
             <span className="text-[var(--color-text-subtle)]">DIANA Revenue</span>
-            <span className="text-xs text-[var(--color-primary)]/80 mt-2 tracking-normal">(- 5% of this to Sanctuary)</span>
+            <span className="text-xs text-[var(--color-primary)]/80 mt-2 tracking-normal">(- 5% to Sanctuary)</span>
           </div>
-          <div className="flex flex-col items-center justify-start">
-            <span className="block text-4xl text-[var(--color-secondary)] mb-2">At Least 5%</span>
+          <div className="flex flex-col items-center justify-start border-t md:border-t-0 pt-4 md:pt-0 border-gray-200">
+            <span className="block text-3xl md:text-4xl text-[var(--color-secondary)] mb-2">Min 5%</span>
             <span className="text-[var(--color-text-subtle)]">Sanctuary Funding</span>
-            <span className="text-xs text-[var(--color-primary)]/80 mt-2 tracking-normal">(+ DIANA&apos;s extra 0.25%)</span>
+            <span className="text-xs text-[var(--color-primary)]/80 mt-2 tracking-normal">(+ DIANA&apos;s 5%)</span>
           </div>
         </div>
       </div>
@@ -1252,14 +1093,14 @@ const slides = [
   </div>,
 
   // Slide 6: The Founder Edge
-  <div key="slide-founder" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Founder Edge</h2>
-    <div className="grid grid-cols-2 gap-8 items-stretch">
-      <div className="space-y-6">
-        <p className="font-body-md text-[var(--color-text-subtle)]">
+  <div key="slide-founder" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">The Founder Edge</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+      <div className="space-y-4 md:space-y-6">
+        <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)]">
           What makes DIANA a safer bet is that the founder can build the technology herself and deeply understands the people she is building it for.
         </p>
-        <ul className="space-y-4 font-body-md text-[var(--color-text-subtle)]">
+        <ul className="space-y-3 md:space-y-4 font-body-sm md:font-body-md text-[var(--color-text-subtle)]">
           <li className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
             <span><strong>Built in-House:</strong> Diane built the complete web platform and mobile app herself, saving what a software agency would have charged: over $450,000.</span>
@@ -1274,59 +1115,59 @@ const slides = [
           </li>
         </ul>
       </div>
-      <div className="relative h-full flex flex-col items-center justify-center p-8 bg-[var(--color-background)] rounded-2xl border border-[var(--color-primary)]/20 overflow-hidden">
+      <div className="relative h-full flex flex-col items-center justify-center p-6 md:p-8 bg-[var(--color-background)] rounded-2xl border border-[var(--color-primary)]/20 overflow-hidden">
         <div className="absolute inset-0 bg-[var(--color-primary)]/5 z-0"></div>
-        <img src="/diane-founder.jpg" alt="Diane" className="w-48 h-48 rounded-full border-4 border-[#ff0099] mb-6 shadow-[0_0_30px_rgba(255,0,153,0.3)] relative z-10 object-cover" />
-        <span className="font-headline-lg text-4xl text-[#ff0099] relative z-10">DIANE</span>
-        <span className="font-headline-md text-xl text-[var(--color-secondary)] relative z-10 mb-4">Diana Rose G. Mejilla</span>
-        <span className="font-body-sm text-[var(--color-secondary)] text-center relative z-10 mb-4 px-4">The visionary, the builder, and the target market, all in one.</span>
-        <span className="font-label-caps text-xl text-[#ff0099] relative z-10">Founder &amp; CEO</span>
+        <img src="/diane-founder.jpg" alt="Diane" className="w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-[#ff0099] mb-4 md:mb-6 shadow-[0_0_30px_rgba(255,0,153,0.3)] relative z-10 object-cover" />
+        <span className="font-headline-lg text-3xl md:text-4xl text-[#ff0099] relative z-10">DIANE</span>
+        <span className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] relative z-10 mb-2 md:mb-4">Diana Rose G. Mejilla</span>
+        <span className="font-body-sm text-xs md:text-sm text-[var(--color-secondary)] text-center relative z-10 mb-4 px-4">The visionary, the builder, and the target market, all in one.</span>
+        <span className="font-label-caps text-lg md:text-xl text-[#ff0099] relative z-10">Founder &amp; CEO</span>
       </div>
     </div>
   </div>,
 
   // Slide 7: Our Early Advantages
-  <div key="slide-5" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">Our Early Advantages</h2>
-    <div className="grid grid-cols-2 gap-6 font-body-md text-[var(--color-text-subtle)]">
-      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Ready Partners</h3>
+  <div key="slide-5" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">Our Early Advantages</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 font-body-sm md:font-body-md text-[var(--color-text-subtle)]">
+      <div className="glass-surface p-5 md:p-6 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] mb-2">Ready Partners</h3>
         <p className="flex-grow">Close personal connections with ethical business owners and sanctuary leaders who are excited to be our first partner venues and beneficiaries immediately upon launch.</p>
       </div>
-      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Organic Word-of-Mouth</h3>
+      <div className="glass-surface p-5 md:p-6 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] mb-2">Organic Word-of-Mouth</h3>
         <p className="flex-grow">Our network of advocate friends and community partners reaches thousands of dedicated animal lovers globally, attracting our initial user base without spending on paid ads.</p>
       </div>
-      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Capturing Displaced Users</h3>
+      <div className="glass-surface p-5 md:p-6 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] mb-2">Capturing Displaced Users</h3>
         <p className="flex-grow">The major ethical review platform abillion recently closed down, leaving a massive community of active daily users searching for a trusted new platform upon our launch.</p>
       </div>
-      <div className="glass-surface p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-2">Self-Reinforcing Sanctuary Network</h3>
+      <div className="glass-surface p-5 md:p-6 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] mb-2">Self-Reinforcing Sanctuary Network</h3>
         <p className="flex-grow">Because 5% of every transaction funds animal sanctuaries, sanctuary leaders and their passionate supporters naturally become active ambassadors, driving continuous user growth.</p>
       </div>
     </div>
   </div>,
 
-  // Slide 8: Path to Profitability & Timelines
-  <div key="slide-6" className="glass-surface p-10 md:p-12 rounded-3xl flex flex-col justify-between gap-8 h-full">
+  // Slide 8: Market Strategy & Timeline
+  <div key="slide-6" className="glass-surface p-6 md:p-12 rounded-3xl flex flex-col justify-between gap-6 md:gap-8 h-full overflow-y-auto">
     <div>
-      <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">Path to Profitability &amp; Timelines</h2>
-      <p className="font-body-md text-[var(--color-secondary)]">To provide complete transparency and show how safe your investment is, we mapped out both an optimistic growth plan and a conservative baseline plan to reach our 1,000 active user commercial milestone. Because our software overhead is ultra-lean, <strong>DIANA becomes self-sustaining almost immediately upon launch</strong>. This means that every user added builds cash reserves and future shareholder dividends!</p>
+      <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-2">Path to Profitability &amp; Timelines</h2>
+      <p className="font-body-sm md:font-body-md text-[var(--color-secondary)]">To provide complete transparency and show how safe your investment is, we mapped out both an optimistic growth plan and a conservative baseline plan to reach our 1,000 active user commercial milestone. Because our software overhead is ultra-lean, <strong>DIANA becomes self-sustaining almost immediately upon launch</strong>. This means that every user added builds cash reserves and future shareholder dividends!</p>
     </div>
     
-    <div className="grid grid-cols-2 gap-6 items-stretch">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
       {/* Optimistic Track */}
-      <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
+      <div className="bg-white/40 p-5 md:p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
         <div>
           <div className="flex justify-between items-center mb-4 border-b border-[var(--color-primary)]/20 pb-3">
             <div>
-              <h3 className="font-label-caps text-lg text-[var(--color-primary)]">Projected Timeline</h3>
+              <h3 className="font-label-caps text-base md:text-lg text-[var(--color-primary)]">Projected Timeline</h3>
               <span className="text-xs font-semibold text-[var(--color-text-subtle)]">Optimistic Case • 6 Months</span>
             </div>
             <span className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-xs font-bold">Fast-Track</span>
           </div>
-          <ul className="space-y-3 font-body-sm text-[var(--color-text-subtle)]">
+          <ul className="space-y-3 font-body-sm text-[var(--color-text-subtle)] text-xs md:text-sm">
             <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-20 shrink-0">Aug 2026:</span> <span>App launch and onboarding our waitlisted partner businesses and early community members.</span></li>
             <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-20 shrink-0">Q3 2026:</span> <span>Rapid welcome and migration of displaced active community members from abillion.</span></li>
             <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-20 shrink-0">Dec 2026:</span> <span>Hit <strong>1,000 active monthly users</strong>, unlocking our full commercial target and generating clean monthly cash flow for shareholder dividends.</span></li>
@@ -1339,16 +1180,16 @@ const slides = [
       </div>
 
       {/* Conservative Track */}
-      <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
+      <div className="bg-white/40 p-5 md:p-6 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
         <div>
           <div className="flex justify-between items-center mb-4 border-b border-[var(--color-secondary)]/20 pb-3">
             <div>
-              <h3 className="font-label-caps text-lg text-[var(--color-secondary)]">Minimum Timeline</h3>
+              <h3 className="font-label-caps text-base md:text-lg text-[var(--color-secondary)]">Minimum Timeline</h3>
               <span className="text-xs font-semibold text-[var(--color-text-subtle)]">Conservative Baseline • 12 Months</span>
             </div>
             <span className="px-3 py-1 bg-[var(--color-secondary)]/10 text-[var(--color-secondary)] rounded-full text-xs font-bold">Safe-Track</span>
           </div>
-          <ul className="space-y-3 font-body-sm text-[var(--color-text-subtle)]">
+          <ul className="space-y-3 font-body-sm text-[var(--color-text-subtle)] text-xs md:text-sm">
             <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold w-20 shrink-0">Q3 2026:</span> <span>Steady, organic onboarding across our initial local partner venues and community networks.</span></li>
             <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold w-20 shrink-0">Q4 2026:</span> <span>Gradual word-of-mouth expansion and adoption across regional ethical communities.</span></li>
             <li className="flex items-start gap-2"><span className="text-[var(--color-secondary)] font-bold w-20 shrink-0">Jun 2027:</span> <span>Hit <strong>1,000 active monthly users</strong>, comfortably achieving full commercial independence within our 12-month cash reserve.</span></li>
@@ -1362,82 +1203,82 @@ const slides = [
     </div>
   </div>,
 
-  // Slide 8.5: The 5% Math: Highly Profitable
-  <div key="slide-5-percent-math" className="glass-surface p-12 rounded-3xl flex flex-col justify-center h-full">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The 5% Math: Highly Profitable</h2>
+  // Slide 8.5: The 5% Math
+  <div key="slide-5-percent-math" className="glass-surface p-6 md:p-12 rounded-3xl flex flex-col justify-center h-full overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">The 5% Math: Highly Profitable</h2>
     
-    <div className="grid grid-cols-2 gap-12 items-center">
-      <div className="space-y-3 font-body-md">
-        <div className="flex justify-between items-center p-4 bg-white/10 rounded-xl border border-white/20 shadow-sm">
-          <span className="text-[var(--color-secondary)]">Merchant Monthly Volume</span>
-          <span className="font-bold text-2xl text-[var(--color-secondary)]">$10,000</span>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+      <div className="space-y-3 font-body-sm md:font-body-md">
+        <div className="flex justify-between items-center p-3 md:p-4 bg-white/10 rounded-xl border border-white/20 shadow-sm">
+          <span className="text-[var(--color-secondary)] text-xs md:text-base">Merchant Monthly Volume</span>
+          <span className="font-bold text-lg md:text-2xl text-[var(--color-secondary)]">$10,000</span>
         </div>
         
-        <div className="flex justify-between items-center p-4 bg-[var(--color-primary)]/10 rounded-xl border border-[var(--color-primary)]/30 shadow-sm">
-          <span className="text-[var(--color-primary)] font-bold">DIANA 5% Cut (Revenue)</span>
-          <span className="font-bold text-2xl text-[var(--color-primary)]">$500</span>
+        <div className="flex justify-between items-center p-3 md:p-4 bg-[var(--color-primary)]/10 rounded-xl border border-[var(--color-primary)]/30 shadow-sm">
+          <span className="text-[var(--color-primary)] font-bold text-xs md:text-base">DIANA 5% Cut (Revenue)</span>
+          <span className="font-bold text-lg md:text-2xl text-[var(--color-primary)]">$500</span>
         </div>
         
-        <div className="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/10 ml-8 shadow-sm">
-          <span className="text-[var(--color-text-subtle)] text-sm">Skin in the Game Sanctuary Pledge (5% of DIANA&apos;s $500 cut)</span>
-          <span className="font-bold text-[var(--color-text-subtle)]">-$25</span>
+        <div className="flex justify-between items-center p-2.5 md:p-3 bg-white/5 rounded-xl border border-white/10 ml-4 md:ml-8 shadow-sm">
+          <span className="text-[var(--color-text-subtle)] text-xs md:text-sm">Skin in the Game Sanctuary Pledge (5% of DIANA&apos;s $500 cut)</span>
+          <span className="font-bold text-[var(--color-text-subtle)] text-xs md:text-base">-$25</span>
         </div>
         
-        <div className="flex justify-between items-center p-4 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/30 ml-8 shadow-sm">
-          <span className="text-[var(--color-secondary)] font-bold text-sm">Gross Margin Before Fees</span>
-          <span className="font-bold text-lg text-[var(--color-secondary)]">$475</span>
+        <div className="flex justify-between items-center p-3 md:p-4 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/30 ml-4 md:ml-8 shadow-sm">
+          <span className="text-[var(--color-secondary)] font-bold text-xs md:text-sm">Gross Margin Before Fees</span>
+          <span className="font-bold text-base md:text-lg text-[var(--color-secondary)]">$475</span>
         </div>
 
-        <div className="flex justify-between items-center p-3 bg-white/5 rounded-xl border border-white/10 ml-16 shadow-sm">
-          <span className="text-[var(--color-text-subtle)] text-sm">Payment Processing &amp; Transfers</span>
-          <span className="font-bold text-[var(--color-text-subtle)]">-$225</span>
+        <div className="flex justify-between items-center p-2.5 md:p-3 bg-white/5 rounded-xl border border-white/10 ml-8 md:ml-16 shadow-sm">
+          <span className="text-[var(--color-text-subtle)] text-xs md:text-sm">Payment Processing &amp; Transfers</span>
+          <span className="font-bold text-[var(--color-text-subtle)] text-xs md:text-base">-$225</span>
         </div>
 
-        <div className="flex justify-between items-center p-5 bg-[var(--color-primary)] rounded-xl text-[var(--color-background)] shadow-lg shadow-[var(--color-primary)]/30 mt-6 transform hover:scale-[1.02] transition-transform">
-          <span className="font-bold text-lg">Net Profit Margin (~50%)</span>
-          <span className="font-headline-lg text-3xl">$250</span>
+        <div className="flex justify-between items-center p-4 md:p-5 bg-[var(--color-primary)] rounded-xl text-[var(--color-background)] shadow-lg shadow-[var(--color-primary)]/30 mt-4 md:mt-6 transform hover:scale-[1.02] transition-transform">
+          <span className="font-bold text-base md:text-lg">Net Profit Margin (~50%)</span>
+          <span className="font-headline-lg text-2xl md:text-3xl">$250</span>
         </div>
       </div>
 
-      <div className="space-y-6">
-        <div className="space-y-5 font-body-sm text-[var(--color-text-subtle)] mt-2">
+      <div className="space-y-4 md:space-y-6">
+        <div className="space-y-3 md:space-y-6 font-body-sm text-[var(--color-text-subtle)] mt-2 md:mt-4 text-xs md:text-sm">
           <div className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-            <span className="leading-relaxed"><strong>Why $10,000?</strong> A conservative monthly volume for an average mid-sized ethical partner business using DIANA daily.</span>
+            <span className="leading-relaxed"><strong>Why $10,000?</strong> A conservative monthly volume for an average mid-sized ethical café using DIANA daily.</span>
           </div>
           <div className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-            <span className="leading-relaxed"><strong>Why $225 in Fees?</strong> This ~2.25% deduction completely covers all user wallet top-up gateway charges, batched merchant bank settlements, and sanctuary funding transfers.</span>
+            <span className="leading-relaxed"><strong>Why $225 in Fees?</strong> Adding money to wallets and sending combined bank payments out to merchants costs just ~2.25% in total payment processing fees.</span>
           </div>
           <div className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-            <span className="leading-relaxed"><strong>High Net Yield:</strong> The remaining 2.5% ($250) is clean profit to cover fixed overhead, salaries, and eventual dividends.</span>
+            <span className="leading-relaxed"><strong>High Net Yield:</strong> The remaining 2.5% ($250) is pure profit to cover fixed overhead, salaries, and eventual dividends.</span>
           </div>
           <div className="flex items-start gap-3">
             <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-            <span className="leading-relaxed"><strong>Massive Scaling:</strong> With our fixed serverless infrastructure, multiplying this $250 net yield across thousands of global merchants unlocks exponential revenue.</span>
+            <span className="leading-relaxed"><strong>Massive Scaling:</strong> With our fixed infrastructure, multiplying this $250 net yield across thousands of global merchants unlocks exponential revenue.</span>
           </div>
         </div>
       </div>
     </div>
   </div>,
 
-  // Slide 8.75: Why 1,000 Active Users? / The $5,000/Month Plan
-  <div key="slide-1000-users" className="glass-surface p-12 rounded-3xl flex flex-col justify-center h-full space-y-8">
+  // Slide 8.75: Why 1,000 Active Users?
+  <div key="slide-1000-users" className="glass-surface p-6 md:p-12 rounded-3xl flex flex-col justify-center h-full space-y-6 md:space-y-8 overflow-y-auto">
     <div>
-      <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">Why 1,000 Active Users?</h2>
-      <p className="font-body-md text-[var(--color-text-subtle)]">Here is the exact logic behind that number, in plain terms.</p>
+      <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-2">Why 1,000 Active Users?</h2>
+      <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)]">Here is the exact logic behind that number, in plain terms.</p>
     </div>
 
     {/* Step-by-step math */}
-    <div className="grid grid-cols-2 gap-8">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
       {/* Left: The Math */}
       <div className="space-y-4">
         <div className="flex items-center gap-4 p-4 bg-white/40 rounded-2xl border border-white/30 shadow-sm">
           <span className="w-9 h-9 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 flex items-center justify-center font-bold text-[var(--color-primary)] text-sm shrink-0">1</span>
           <div>
             <p className="font-label-caps text-xs text-[var(--color-text-subtle)] tracking-widest mb-0.5">Average User Spends Per Month</p>
-            <p className="font-body-md text-[var(--color-text)]">A typical active user pays for coffees, meals, and ethical products through DIANA regularly, averaging around <strong>$200 AUD/month</strong> across our partner businesses.</p>
+            <p className="font-body-sm md:font-body-md text-[var(--color-text)]">A typical active user pays for coffees, meals, and ethical products through DIANA regularly, averaging around <strong>$200/month</strong> across our partner businesses.</p>
           </div>
         </div>
 
@@ -1445,7 +1286,7 @@ const slides = [
           <span className="w-9 h-9 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 flex items-center justify-center font-bold text-[var(--color-primary)] text-sm shrink-0">2</span>
           <div>
             <p className="font-label-caps text-xs text-[var(--color-text-subtle)] tracking-widest mb-0.5">Total Monthly Volume at 1,000 Users</p>
-            <p className="font-body-md text-[var(--color-text)]">1,000 users × $200 AUD = <strong>$200,000 AUD processed</strong> through DIANA in a single month.</p>
+            <p className="font-body-sm md:font-body-md text-[var(--color-text)]">1,000 users × $200 = <strong>$200,000 processed</strong> through DIANA in a single month.</p>
           </div>
         </div>
 
@@ -1453,7 +1294,7 @@ const slides = [
           <span className="w-9 h-9 rounded-full bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 flex items-center justify-center font-bold text-[var(--color-primary)] text-sm shrink-0">3</span>
           <div>
             <p className="font-label-caps text-xs text-[var(--color-text-subtle)] tracking-widest mb-0.5">Our Net Profit From That Volume</p>
-            <p className="font-body-md text-[var(--color-text)]">At our 2.5% net margin (proven on the previous slide), that is <strong>$5,000 AUD/month</strong> in clear profit.</p>
+            <p className="font-body-sm md:font-body-md text-[var(--color-text)]">At our 2.5% net margin (proven on the previous slide), that is <strong>$5,000 per month</strong> in clear profit.</p>
           </div>
         </div>
       </div>
@@ -1461,38 +1302,42 @@ const slides = [
       {/* Right: What we do with it */}
       <div className="flex flex-col gap-4">
         <div className="p-6 bg-[var(--color-primary)]/10 rounded-2xl border-2 border-[var(--color-primary)]/30 flex-1">
-          <p className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest mb-3">The $5,000 AUD/Month Plan</p>
-          <p className="font-body-md text-[var(--color-text)] mb-4">Because DIANA is built on modern serverless architecture, our verified technical overhead is only <strong>~$150 AUD/month</strong>. The software pays for itself at just 30 users. Here is what happens at our 1,000-user milestone ($5,000 AUD/month net profit):</p>
-          <div className="space-y-2 text-sm text-[var(--color-text-subtle)]">
+          <p className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest mb-3">The $5,000/Month Plan</p>
+          <p className="font-body-sm md:font-body-md text-[var(--color-text)] mb-4">$5,000 per month comfortably covers all of DIANA&apos;s fixed monthly costs: servers, software licenses, and admin. <strong>The business pays for itself.</strong></p>
+          <div className="space-y-2 text-xs md:text-sm text-[var(--color-text-subtle)]">
             <div className="flex items-start gap-2">
               <span className="text-[var(--color-primary)] font-bold mt-0.5">•</span>
-              <span><strong>Month 1 onwards:</strong> At just 30 users (~$150 AUD/month profit), software hosting is 100% self-funding—eliminating tech cash burn immediately.</span>
+              <span><strong>Month 1 onwards:</strong> Profit stays in the business bank account. No payouts yet.</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-[var(--color-primary)] font-bold mt-0.5">•</span>
-              <span><strong>At 1,000 Users ($5,000 AUD/month Net Yield):</strong> ~$150 pays tech bills, leaving <strong>~$4,850 AUD/month</strong> (a 97% net cash margin!) flooding directly into corporate bank reserves.</span>
+              <span><strong>Once 6 months of expenses are saved:</strong> The business has a full safety net and can weather any slow period.</span>
             </div>
             <div className="flex items-start gap-2">
               <span className="text-[var(--color-primary)] font-bold mt-0.5">•</span>
-              <span><strong>Early Investor Dividends:</strong> Because we prioritize company protection above all else, we bank 100% of net profits during our growth climb to build a robust 6-month safety net—<strong>allowing us to begin distributing monthly cash dividends to shareholders between Month 6 and Month 12!</strong></span>
+              <span><strong>After the safety net is built:</strong> Monthly profits are distributed as cash dividends to you and the founder.</span>
             </div>
           </div>
+        </div>
+        <div className="p-4 bg-[var(--color-secondary)]/10 rounded-2xl border border-[var(--color-secondary)]/30 text-center">
+          <p className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest mb-1">The Core Promise</p>
+          <p className="font-body-sm md:font-body-md text-[var(--color-text)] font-semibold">Your money is protected first. Payouts only begin once the business has proven it can sustain itself independently.</p>
         </div>
       </div>
     </div>
   </div>,
 
   // Slide 9: How We Easily Protect Our 5% Profit
-  <div key="slide-unit-economics-protect" className="glass-surface p-12 rounded-3xl space-y-6 h-full flex flex-col justify-center">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">How We Protect Our Profit Margin</h2>
-    <p className="font-body-md text-[var(--color-secondary)]">Most apps lose half their revenue to credit card processing fees. Here is how DIANA keeps our operating costs near zero so we become profitable fast.</p>
+  <div key="slide-unit-economics-protect" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 h-full flex flex-col justify-center overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">How We Protect Our Profit Margin</h2>
+    <p className="font-body-sm md:font-body-md text-[var(--color-secondary)]">Most apps lose half their revenue to credit card processing fees. Here is how DIANA keeps our operating costs near zero so we become profitable fast.</p>
     
-    <div className="grid grid-cols-3 gap-6 mt-4">
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 mt-4">
       {/* Pillar 1 */}
-      <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
+      <div className="bg-white/40 p-5 md:p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
         <div>
           <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-2">1. $0 Cost App Transactions</span>
-          <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-3">No Card Swipes Inside</h3>
+          <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] mb-3">No Card Swipes In-App</h3>
           <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
             When users shop at ethical businesses, watch ad double-ups, or send gifts to sanctuaries inside the app, we don&apos;t swipe a credit card every time. We simply adjust digital balances inside our system, which means our daily transaction cost is $0.00.
           </p>
@@ -1500,104 +1345,98 @@ const slides = [
       </div>
 
       {/* Pillar 2 */}
-      <div className="bg-white/40 p-6 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
+      <div className="bg-white/40 p-5 md:p-6 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
         <div>
           <span className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest block mb-2">2. Cheap Wallet Loading</span>
-          <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-3">Simple Bank Transfers</h3>
+          <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-primary)] mb-3">Simple Bank Transfers</h3>
           <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            Instead of paying expensive 3% credit card fees when users load money into their wallet, we encourage simple local bank transfers (like PayID in Australia or GCash in Asia). Loading $50 only costs us a tiny ~10¢–20¢ flat rate.
+            Instead of paying expensive 3% credit card fees when users load money into their wallet, we encourage simple local bank transfers. Loading $50 only costs us a tiny ~10¢–20¢ flat rate.
           </p>
         </div>
       </div>
 
       {/* Pillar 3 */}
-      <div className="bg-[var(--color-primary)]/10 p-6 rounded-2xl border-2 border-[var(--color-primary)] flex flex-col justify-between shadow-md">
+      <div className="bg-[var(--color-primary)]/10 p-5 md:p-6 rounded-2xl border-2 border-[var(--color-primary)] flex flex-col justify-between shadow-md">
         <div>
           <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-2">3. Combined Monthly Payouts</span>
-          <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-3">Pure Profit Margin</h3>
+          <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-primary)] mb-3">Pure Profit Margin</h3>
           <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            Instead of sending thousands of tiny bank transfers every day, we send one combined bank payout to merchants and sanctuaries every two weeks or monthly. A $1 bank fee on a $500 payout is practically nothing, leaving our revenue intact as pure profit!
+            Instead of sending thousands of tiny bank transfers every day, we send one combined bank payout to merchants and sanctuaries every month. A $1 bank fee on a $500 payout is practically nothing, leaving our revenue intact as pure profit!
           </p>
         </div>
       </div>
     </div>
   </div>,
 
-  // Slide 7: Valuation Breakdown
+  // Slide 10: Valuation Breakdown
   <WhatWeHaveBuiltSlide key="slide-7" />,
 
-  // Slide 8: Valuation Methodology & Independent Validation
+  // Slide 11: Valuation Methodology & Independent Validation
   <ValuationCheckSlide key="slide-8-math" />,
 
-  // Slide 9: Total Valuation (Interactive Growth Target)
+  // Slide 12: Total Valuation (Interactive Growth Target)
   <FinalValuationSlide key="slide-8-total" />,
 
-  // Slide 10: Seed Capital Allocation (Interactive Expandable Cards)
+  // Slide 13: Seed Capital Allocation (Interactive Expandable Cards)
   <SeedAllocationSlide key="slide-10-alloc" />,
 
-  // Slide 11: Flagship Launch Case Study (The 2026 Bali Nemoralia)
-  <NemoraliaCaseStudySlide key="slide-nemoralia" />,
-
-  // Slide 12: The Financial Engine (Reinvestment & Dividends)
-  <FinancialStrategySlide key="slide-financial-engine" />,
-
-  // Slide 13: ESIC
-  <div key="slide-9" className="glass-surface p-10 md:p-12 rounded-3xl flex flex-col justify-between gap-8 h-full">
-    <div>
-      <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">The ESIC Tax Offset</h2>
-      <p className="font-body-lg text-[var(--color-secondary)]">The future corporate entity is designed to qualify as an Australian Early Stage Innovation Company (ESIC).</p>
+  // Slide 14: The Tax Advantage (ESIC)
+  <div key="slide-9" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">The Tax Advantage (ESIC)</h2>
+    <div className="space-y-4 md:space-y-6">
+      <p className="font-body-sm md:font-body-md text-[var(--color-secondary)]">The future corporate entity is designed to qualify as an Australian Early Stage Innovation Company (ESIC).</p>
     </div>
-    <div className="grid grid-cols-2 gap-8 items-stretch">
-      <div className="p-8 rounded-xl bg-white/50 border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
-        <h3 className="font-impact-stat text-4xl text-[var(--color-primary)] mb-4">20%</h3>
-        <p className="font-body-md text-[var(--color-text-subtle)]"><strong>Non-Refundable Tax Offset:</strong> The Australian Tax Office effectively subsidizes 20% of your investment, claimable on your tax return for the financial year the investment is made.</p>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+      <div className="p-6 md:p-8 rounded-xl bg-white/50 border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
+        <h3 className="font-impact-stat text-3xl md:text-4xl text-[var(--color-primary)] mb-2 md:mb-4">20%</h3>
+        <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)]"><strong>Non-Refundable Tax Offset:</strong> The Australian Tax Office effectively subsidizes 20% of your investment, claimable on your tax return for the financial year the investment is made.</p>
       </div>
-      <div className="p-8 rounded-xl bg-white/50 border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
-        <h3 className="font-impact-stat text-4xl text-[var(--color-secondary)] mb-4">0%</h3>
-        <p className="font-body-md text-[var(--color-text-subtle)]"><strong>Capital Gains Tax (CGT):</strong> If you hold the shares for between 1 and 10 years, all future profits on the sale of those shares are 100% tax-free.</p>
+      <div className="p-6 md:p-8 rounded-xl bg-white/50 border-t-4 border-[var(--color-secondary)] flex flex-col justify-between shadow-sm">
+        <h3 className="font-impact-stat text-3xl md:text-4xl text-[var(--color-secondary)] mb-2 md:mb-4">0%</h3>
+        <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)]"><strong>Capital Gains Tax (CGT):</strong> If you hold the shares for between 1 and 10 years, all future profits on the sale of those shares are 100% tax-free.</p>
       </div>
     </div>
   </div>,
 
-  // Slide 12: Your Investment, Protected
+  // Slide 15: Your Investment, Protected
   <CapitalStrategySlide key="slide-12-capital" />,
 
-  // Slide 13: The Equity Proposal
-  <div key="slide-10-equity" className="glass-surface p-12 rounded-3xl space-y-8">
-    <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-8">The Equity Proposal</h2>
-    <div className="grid grid-cols-2 gap-12 items-center">
-      <div className="space-y-6 text-left">
-        <div className="bg-white/40 p-6 rounded-xl border-l-4 border-[var(--color-text-subtle)]">
-          <p className="font-label-caps text-[var(--color-text-subtle)] mb-2">Mathematical Equity</p>
-          <p className="font-body-md">At the $635,000 base valuation, a $50,000 capital injection mathematically equates to <strong>~7.8%</strong> equity.</p>
+  // Slide 16: The Equity Proposal
+  <div key="slide-10-equity" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">The Equity Proposal</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12 items-center">
+      <div className="space-y-4 md:space-y-6 text-left">
+        <div className="bg-white/40 p-5 md:p-6 rounded-xl border-l-4 border-[var(--color-text-subtle)]">
+          <p className="font-label-caps text-xs md:text-sm text-[var(--color-text-subtle)] mb-1 md:mb-2">Mathematical Equity</p>
+          <p className="font-body-sm md:font-body-md">At the $635,000 base valuation, a $50,000 capital injection mathematically equates to <strong>~7.8%</strong> equity.</p>
         </div>
-        <div className="bg-[var(--color-primary)]/10 p-6 rounded-xl border-l-4 border-[var(--color-primary)]">
-          <p className="font-label-caps text-[var(--color-primary)] mb-2">The Catalyst Discount</p>
-          <p className="font-body-md text-[var(--color-text-subtle)]">Because a previous argument between us was the direct spark that led to the creation of DIANA, I am assigning a &quot;Catalyst Discount&quot; to this seed round.</p>
+        <div className="bg-[var(--color-primary)]/10 p-5 md:p-6 rounded-xl border-l-4 border-[var(--color-primary)]">
+          <p className="font-label-caps text-xs md:text-sm text-[var(--color-primary)] mb-1 md:mb-2">The Catalyst Discount</p>
+          <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)]">Because a previous argument between us was the direct spark that led to the creation of DIANA, I am assigning a &quot;Catalyst Discount&quot; to this seed round.</p>
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center p-8 bg-white/50 rounded-2xl border-2 border-[var(--color-secondary)] text-center shadow-lg transform hover:scale-105 transition-transform">
-        <span className="font-label-caps block mb-4 text-[var(--color-text-subtle)]">The Final Offer</span>
-        <span className="font-impact-stat text-7xl text-[#ff0099] mb-2">10%</span>
-        <span className="font-body-lg text-[var(--color-primary)] font-bold">Ordinary Equity</span>
-        <span className="block mt-4 text-sm text-[var(--color-text-subtle)] bg-[var(--color-secondary)]/10 px-4 py-2 rounded-full">For $50,000 Seed Capital</span>
+      <div className="flex flex-col items-center justify-center p-6 md:p-8 bg-white/50 rounded-2xl border-2 border-[var(--color-secondary)] text-center shadow-lg transform hover:scale-105 transition-transform">
+        <span className="font-label-caps text-xs md:text-sm block mb-2 md:mb-4 text-[var(--color-text-subtle)]">The Final Offer</span>
+        <span className="font-impact-stat text-4xl md:text-7xl text-[#ff0099] mb-2">10%</span>
+        <span className="font-body-md md:font-body-lg text-[var(--color-primary)] font-bold">Ordinary Equity</span>
+        <span className="block mt-4 text-xs md:text-sm text-[var(--color-text-subtle)] bg-[var(--color-secondary)]/10 px-4 py-2 rounded-full">For $50,000 Seed Capital</span>
       </div>
     </div>
   </div>,
 
-  // Slide 14: The Ask
-  <div key="slide-11" className="glass-surface p-12 rounded-3xl space-y-8 text-center">
-    <h2 className="font-headline-lg text-5xl text-[var(--color-primary)] mb-4">The Ask</h2>
-    <p className="font-body-lg text-[var(--color-secondary)] max-w-xl mx-auto">Two sequential commitments. One to open the door. One to walk through it.</p>
-    <div className="h-px w-24 bg-[var(--color-primary)] mx-auto my-8 opacity-50"></div>
-    <div className="grid grid-cols-2 gap-8 text-left mt-8">
-      <div className="space-y-4 p-8 bg-white/40 rounded-xl">
-        <h3 className="font-label-caps text-xl text-[var(--color-primary)]">Step 1: The Foundation Loan</h3>
-        <p className="font-body-md text-[var(--color-text-subtle)]">A small Director&apos;s Loan to cover ASIC incorporation and legal setup fees. This establishes the entity legally so it can receive your capital. Repaid from the first tranche of the seed round.</p>
+  // Slide 17: The Ask
+  <div key="slide-11" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 text-center overflow-y-auto">
+    <h2 className="font-headline-lg text-3xl md:text-5xl text-[var(--color-primary)] mb-2 md:mb-4">The Ask</h2>
+    <p className="font-body-md md:font-body-lg text-[var(--color-secondary)] max-w-xl mx-auto">Two sequential commitments. One to open the door. One to walk through it.</p>
+    <div className="h-px w-24 bg-[var(--color-primary)] mx-auto my-6 md:my-8 opacity-50"></div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 text-left mt-6 md:mt-8">
+      <div className="space-y-3 md:space-y-4 p-6 md:p-8 bg-white/40 rounded-xl">
+        <h3 className="font-label-caps text-lg md:text-xl text-[var(--color-primary)]">Step 1: The Foundation Loan</h3>
+        <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)]">A small Director&apos;s Loan to cover ASIC incorporation and legal setup fees. This establishes the entity legally so it can receive your capital. Repaid from the first tranche of the seed round.</p>
       </div>
-      <div className="space-y-4 p-8 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 rounded-xl">
-        <h3 className="font-label-caps text-xl text-[var(--color-primary)]">Step 2: The Seed Investment</h3>
-        <p className="font-body-md text-[var(--color-secondary)]">$50,000 into the newly established entity in exchange for 10% ordinary equity, formally documented in a shareholders agreement and allocated directly to the marketing, launch, and legal setup plans.</p>
+      <div className="space-y-3 md:space-y-4 p-6 md:p-8 bg-[var(--color-primary)]/10 border border-[var(--color-primary)]/30 rounded-xl">
+        <h3 className="font-label-caps text-lg md:text-xl text-[var(--color-primary)]">Step 2: The Seed Investment</h3>
+        <p className="font-body-sm md:font-body-md text-[var(--color-secondary)]">$50,000 into the newly established entity in exchange for 10% ordinary equity, formally documented in a shareholders agreement and allocated directly to the marketing, launch, and legal setup plans.</p>
       </div>
     </div>
   </div>,
