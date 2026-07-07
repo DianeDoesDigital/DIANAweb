@@ -68,7 +68,7 @@ export default function PitchDeck() {
       onTouchEnd={handleTouchEnd}
     >
       {/* MOBILE VIEW: Continuous Vertical Scrolling Investor Memo (< 768px) */}
-      <div className="block md:hidden w-full py-6 px-3 space-y-10 [&>section//*]:!max-h-none [&>section//*]:!h-auto [&>section//*]:!overflow-visible">
+      <div className="block md:hidden w-full py-6 px-3 space-y-10 [&>section_*]:!max-h-none [&>section_*]:!h-auto [&>section_*]:!overflow-visible">
         {slides.map((slide, idx) => (
           <section key={idx} className="w-full transition-all duration-500">
             {slide}
