@@ -686,44 +686,44 @@ function WhatWeHaveBuiltSlide() {
                     The Community Pipeline Value
                   </h3>
                 </div>
-                <span className="font-impact-stat text-3xl md:text-4xl text-[var(--color-secondary)]">$185,000</span>
+                <span className="font-impact-stat text-3xl md:text-4xl text-[var(--color-secondary)]">$200,000</span>
               </div>
 
               <div className="space-y-3 my-2 text-[11px] md:text-xs text-[var(--color-text)] leading-relaxed">
                 <p className="font-medium text-[var(--color-secondary)] text-[10px] md:text-[11px] lg:text-xs tracking-tight">
-                  Why would it cost well over $185,000 in cash to recreate the brand assets and pipeline we bring to launch day? Here are the exact industry costs:
+                  Why would it cost well over $200,000 in cash to recreate the brand assets and pipeline we bring to launch day? Here are the exact industry costs:
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-3 my-2">
                   <div className="p-3 bg-white/90 rounded-xl border border-gray-200 flex flex-col justify-between">
                     <div>
-                      <strong className="text-[var(--color-secondary)] block mb-1">1. Targeted Social Audience: ~$65,000</strong>
-                      <span className="block mt-1"><strong>What we have: </strong>~29,000 followers across brand channels, plus peer access to ~145,000 niche network members.</span>
-                      <span className="block mt-1"><strong>What it costs to buy: </strong>Running paid ad campaigns on Instagram, Facebook, and LinkedIn to acquire real, high-intent followers costs $3 to $6 per follower.</span>
+                      <strong className="text-[var(--color-secondary)] block mb-1">1. Social &amp; abillion Pipeline: ~$75,000</strong>
+                      <span className="block mt-1"><strong>What we have: </strong>~29k followers, ~145k network reach, and an active migration pipeline of displaced daily abillion users.</span>
+                      <span className="block mt-1"><strong>What it costs to buy: </strong>Paid ad campaigns on Instagram, Facebook, and LinkedIn to acquire real, high-intent users cost $3–$6/user.</span>
                     </div>
-                    <span className="block mt-2 pt-2 border-t border-gray-100 text-[var(--color-secondary)] font-medium"><strong>The Math: </strong>~20k–25k engaged followers via ads = ~$65,000.</span>
+                    <span className="block mt-2 pt-2 border-t border-gray-100 text-[var(--color-secondary)] font-medium"><strong>The Math: </strong>~20k–25k followers + migration pipeline = ~$75,000.</span>
                   </div>
 
                   <div className="p-3 bg-white/90 rounded-xl border border-gray-200 flex flex-col justify-between">
                     <div>
                       <strong className="text-[var(--color-secondary)] block mb-1">2. PR &amp; Celebrity Access: ~$70,000</strong>
                       <span className="block mt-1"><strong>What we have: </strong>Direct relationships with celebrity advocates (~48M reach), tier-1 media editors, and peer founders.</span>
-                      <span className="block mt-1"><strong>What it costs to buy: </strong>Retaining a specialized PR agency to open doors and run press outreach costs $8,000 to $10,000/month.</span>
+                      <span className="block mt-1"><strong>What it costs to buy: </strong>Retaining a specialized PR agency to open doors and run targeted press outreach costs $8k–$10k/month.</span>
                     </div>
                     <span className="block mt-2 pt-2 border-t border-gray-100 text-[var(--color-secondary)] font-medium"><strong>The Math: </strong>7–8 month launch retainer = ~$70,000.</span>
                   </div>
 
                   <div className="p-3 bg-white/90 rounded-xl border border-gray-200 flex flex-col justify-between">
                     <div>
-                      <strong className="text-[var(--color-secondary)] block mb-1">3. B2B Merchant Leads: ~$50,000</strong>
-                      <span className="block mt-1"><strong>What we have: </strong>Established relationships and personal friendships with numerous vegan business owners globally.</span>
-                      <span className="block mt-1"><strong>What it costs to buy: </strong>Hiring lead-gen agencies or sales reps to source, pitch, and qualify merchant leads averages $200 to $250 per qualified lead.</span>
+                      <strong className="text-[var(--color-secondary)] block mb-1">3. B2B Merchant Leads: ~$55,000</strong>
+                      <span className="block mt-1"><strong>What we have: </strong>Global relationships with vegan business owners, reinforced by our Anchor Angel ($50k committed).</span>
+                      <span className="block mt-1"><strong>What it costs to buy: </strong>Lead-gen agencies or sales reps to source, pitch, and qualify ready merchant leads average $200–$250/lead.</span>
                     </div>
-                    <span className="block mt-2 pt-2 border-t border-gray-100 text-[var(--color-secondary)] font-medium"><strong>The Math: </strong>Immediate warm access to ready merchants saves ~$50,000.</span>
+                    <span className="block mt-2 pt-2 border-t border-gray-100 text-[var(--color-secondary)] font-medium"><strong>The Math: </strong>Immediate warm access + anchor validation = ~$55,000.</span>
                   </div>
                 </div>
 
                 <div className="p-3 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/20 text-center font-bold text-xs md:text-sm text-[var(--color-secondary)] mt-3">
-                  Social Ads ($65K) + PR Retainer ($70K) + B2B Lead Gen ($50K) = $185,000
+                  Social &amp; abillion ($75K) + PR Retainer ($70K) + B2B Leads ($55K) = $200,000
                 </div>
               </div>
             </div>
@@ -748,10 +748,10 @@ function WhatWeHaveBuiltSlide() {
             >
               <div className="flex flex-col">
                 <h4 className="font-label-caps text-2xl text-[var(--color-secondary)] mb-2">Community Pipeline Value</h4>
-                <span className="font-impact-stat text-5xl text-[var(--color-secondary)]">$185,000</span>
+                <span className="font-impact-stat text-5xl text-[var(--color-secondary)]">$200,000</span>
               </div>
               <p className="font-body-lg text-[var(--color-text-subtle)] leading-relaxed">
-                We come to launch with an established social media presence across brand and personal accounts, genuine relationships with vegan business owners across multiple markets, and a wide network of well-known advocates in the space. Building all of this from scratch through paid ads and outreach would cost well over $185,000.
+                We come to launch with an established social media presence across brand and personal accounts, genuine relationships with vegan business owners across multiple markets, and a wide network of well-known advocates in the space. Building all of this from scratch through paid ads and outreach would cost well over $200,000.
               </p>
             </div>
           </div>
@@ -768,7 +768,7 @@ function ValuationCheckSlide() {
     <div className="glass-surface p-10 md:p-12 rounded-3xl flex flex-col justify-between gap-6 h-full">
       <div>
         <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-2">Valuation Check</h2>
-        <p className="font-body-md text-[var(--color-secondary)]">How did we make sure our $635,000 AUD valuation is fair? We checked it against two widely used ways of valuing early-stage businesses.</p>
+        <p className="font-body-md text-[var(--color-secondary)]">How did we make sure our $650,000 AUD valuation is fair? We checked it against two widely used ways of valuing early-stage businesses.</p>
       </div>
 
       <div className={`flex flex-col gap-6 min-h-0 overflow-y-auto ${activeCard !== null ? 'flex-1 justify-between' : 'justify-center'}`}>
@@ -805,7 +805,7 @@ function ValuationCheckSlide() {
                 </div>
 
                 <div className="p-2.5 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/20 text-center font-bold text-xs md:text-sm text-[var(--color-secondary)] mt-1.5">
-                  Our agreed baseline of $635,000 AUD sits $115,000 below this benchmark.
+                  Our agreed baseline of $650,000 AUD sits $100,000 below this benchmark.
                 </div>
               </div>
             </div>
@@ -842,7 +842,7 @@ function ValuationCheckSlide() {
                 </div>
 
                 <div className="p-3 bg-gray-100 rounded-xl border border-gray-300 text-center font-bold text-xs md:text-sm text-gray-700 mt-3">
-                  Our agreed baseline of $635,000 AUD sits $45,000 below even this heavily discounted calculation.
+                  Our agreed baseline of $650,000 AUD sits $30,000 below even this heavily discounted calculation.
                 </div>
               </div>
             </div>
@@ -854,9 +854,9 @@ function ValuationCheckSlide() {
             >
               <div>
                 <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-1">Our Agreed Baseline</span>
-                <span className="font-impact-stat text-4xl text-[var(--color-primary)] block mb-3">$635,000</span>
+                <span className="font-impact-stat text-4xl text-[var(--color-primary)] block mb-3">$650,000</span>
                 <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-                  Based on two real, concrete things: what it would cost someone else to build the same software ($450K), plus the value of our community assets, social following, and advocate network ($185K).
+                  Based on two real, concrete things: what it would cost someone else to build the same software ($450K), plus the value of our community assets, social following, and advocate network ($200K).
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-[var(--color-primary)]/20 font-bold text-xs text-[var(--color-primary)] text-center">
@@ -876,7 +876,7 @@ function ValuationCheckSlide() {
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-[var(--color-secondary)]/20 font-bold text-xs text-[var(--color-secondary)] text-center">
-                +$115k Above Our Ask
+                +$100k Above Our Ask
               </div>
             </div>
 
@@ -892,7 +892,7 @@ function ValuationCheckSlide() {
                 </p>
               </div>
               <div className="mt-4 pt-3 border-t border-gray-300 font-bold text-xs text-gray-600 text-center">
-                +$45k Above Our Ask
+                +$30k Above Our Ask
               </div>
             </div>
           </div>
@@ -916,7 +916,7 @@ function FinalValuationSlide() {
             <div className="mb-5 border-b border-gray-200 pb-3">
               <span className="text-xs font-label-caps text-[var(--color-text-subtle)] block mb-0.5">Valuation Math Explainer</span>
               <h3 className="font-headline-lg text-3xl font-bold text-[var(--color-primary)]">
-                How the $925,000 Growth Target is Calculated
+                How the $940,000 Growth Target is Calculated
               </h3>
             </div>
 
@@ -924,7 +924,7 @@ function FinalValuationSlide() {
               <div className="flex items-start gap-3.5 text-sm md:text-base text-[var(--color-text)] leading-relaxed">
                 <span className="w-7 h-7 rounded-full bg-[var(--color-primary)]/10 text-[var(--color-primary)] font-bold flex items-center justify-center text-xs shrink-0 mt-0.5">1</span>
                 <div>
-                  <strong className="text-[var(--color-primary)]">Base Asset Value ($635,000 AUD):</strong> The starting valuation of DIANA today—covering our fully built web and mobile platform, proprietary code, brand IP, and market setup before paying users arrive.
+                  <strong className="text-[var(--color-primary)]">Base Asset Value ($650,000 AUD):</strong> The starting valuation of DIANA today—covering our fully built web and mobile platform, proprietary code, brand IP, and market setup before paying users arrive.
                 </div>
               </div>
 
@@ -943,7 +943,7 @@ function FinalValuationSlide() {
               </div>
 
               <div className="p-4 bg-[var(--color-primary)]/10 rounded-xl border border-[var(--color-primary)]/20 mt-4 text-center font-bold text-base text-[var(--color-primary)]">
-                $635,000 Base Assets + $290,000 Earning Power = AUD $925,000 Total Valuation
+                $650,000 Base Assets + $290,000 Earning Power = AUD $940,000 Total Valuation
               </div>
             </div>
           </div>
@@ -953,7 +953,7 @@ function FinalValuationSlide() {
           <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-4">The Final Valuation</h2>
           <div className="w-full max-w-2xl text-center p-12 bg-[var(--color-primary)]/10 rounded-3xl border-2 border-[var(--color-primary)]/30 transform hover:scale-105 transition-transform shadow-sm">
             <span className="font-label-caps block mb-4 text-[var(--color-text-subtle)] tracking-widest">Total Platform &amp; Brand Value</span>
-            <span className="font-impact-stat text-7xl text-[var(--color-primary)]">AUD $635,000</span>
+            <span className="font-impact-stat text-7xl text-[var(--color-primary)]">AUD $650,000</span>
             <span className="block mt-4 font-body-lg text-[var(--color-secondary)] font-bold">Base Case Total</span>
           </div>
           <div
@@ -961,7 +961,7 @@ function FinalValuationSlide() {
             className="mt-6 bg-white/60 hover:bg-white p-5 rounded-2xl max-w-lg cursor-pointer border border-white/40 shadow-sm transition-all duration-200 transform hover:-translate-y-1"
           >
             <p className="font-body-md text-[var(--color-text)] font-bold text-lg">
-              Growth Target: <span className="text-[var(--color-primary)]">AUD $925,000</span>
+              Growth Target: <span className="text-[var(--color-primary)]">AUD $940,000</span>
             </p>
           </div>
         </>
@@ -1553,11 +1553,11 @@ const slides = [
   // Slide 14: The Seed Round
   <div key="slide-round" className="glass-surface p-12 rounded-3xl space-y-6 flex flex-col justify-center h-full">
     <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">The Seed Round</h2>
-    <p className="font-body-md text-[var(--color-secondary)]">DIANA is raising a total of $365,000 AUD to reach a post-money valuation of $1,000,000 AUD. Tranche 1 is already committed, leaving $315,000 AUD open to qualified backers.</p>
+    <p className="font-body-md text-[var(--color-secondary)]">DIANA is raising a total of $350,000 AUD to reach a post-money valuation of $1,000,000 AUD. Tranche 1 is already committed, leaving $300,000 AUD open to qualified backers.</p>
     <div className="bg-white/40 rounded-2xl p-6 border border-white/60">
       <div className="flex justify-between items-center mb-3">
         <span className="font-label-caps text-xs text-[var(--color-text-subtle)]">Pre-Money Valuation</span>
-        <span className="font-impact-stat text-xl text-[var(--color-secondary)]">AUD $635,000</span>
+        <span className="font-impact-stat text-xl text-[var(--color-secondary)]">AUD $650,000</span>
       </div>
       <div className="flex justify-between items-center mb-3">
         <span className="font-label-caps text-xs text-[var(--color-primary)]">Tranche 1 — Committed</span>
@@ -1565,7 +1565,7 @@ const slides = [
       </div>
       <div className="flex justify-between items-center mb-3">
         <span className="font-label-caps text-xs text-[var(--color-secondary)]">Open Allocation</span>
-        <span className="font-impact-stat text-xl text-[var(--color-secondary)]">+ AUD $315,000</span>
+        <span className="font-impact-stat text-xl text-[var(--color-secondary)]">+ AUD $300,000</span>
       </div>
       <div className="h-px bg-[var(--color-primary)]/20 my-4" />
       <div className="flex justify-between items-center">
@@ -1579,25 +1579,25 @@ const slides = [
   // Slide 14: Investment Tiers
   <div key="slide-tiers" className="glass-surface p-12 rounded-3xl space-y-6 flex flex-col justify-center h-full">
     <h2 className="font-headline-lg text-4xl text-[var(--color-primary)] mb-1">Seed Round Tiers</h2>
-    <p className="font-body-md text-[var(--color-secondary)]">The $315,000 AUD open allocation is available across three entry points. All investors receive ordinary equity, proportional to the $1,000,000 AUD post-money valuation.</p>
+    <p className="font-body-md text-[var(--color-secondary)]">The $300,000 AUD open allocation is available across three entry points. All investors receive ordinary equity, proportional to the $1,000,000 AUD post-money valuation.</p>
     <div className="grid grid-cols-3 gap-5 mt-2">
       <div className="bg-white/50 p-6 rounded-2xl border-t-4 border-[var(--color-text-subtle)] flex flex-col shadow-sm">
         <span className="font-label-caps text-xs text-[var(--color-text-subtle)] tracking-widest mb-2">Tier 1</span>
         <h3 className="font-headline-md text-xl text-[var(--color-secondary)] mb-1">Aligned Angel</h3>
-        <p className="font-impact-stat text-3xl text-[var(--color-secondary)] mb-3">1% – 2.5%</p>
-        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed flex-grow">For $10,000 – $25,000 AUD. Funds localized launch marketing and community activation events in target markets.</p>
+        <p className="font-impact-stat text-3xl text-[var(--color-secondary)] mb-3">1% – 5%</p>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed flex-grow">For $10,000 – $50,000 AUD. Funds localized launch marketing and community activation events in target markets.</p>
       </div>
       <div className="bg-white/50 p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col shadow-md transform hover:-translate-y-1 transition-transform">
         <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest mb-2">Tier 2</span>
         <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-1">Strategic Builder</h3>
-        <p className="font-impact-stat text-3xl text-[var(--color-primary)] mb-3">2.5% – 5%</p>
-        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed flex-grow">For $25,000 – $50,000 AUD. Funds partner merchant activation materials, tech infrastructure, and early operational runway.</p>
+        <p className="font-impact-stat text-3xl text-[var(--color-primary)] mb-3">6% – 10%</p>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed flex-grow">For $60,000 – $100,000 AUD. Funds partner merchant activation materials, tech infrastructure, and early operational runway.</p>
       </div>
       <div className="bg-[var(--color-primary)]/10 p-6 rounded-2xl border-2 border-[var(--color-primary)] flex flex-col shadow-lg">
         <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest mb-2">Tier 3</span>
         <h3 className="font-headline-md text-xl text-[var(--color-primary)] mb-1">Lead Syndicate</h3>
-        <p className="font-impact-stat text-3xl text-[#ff0099] mb-3">5% – 31.5%</p>
-        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed flex-grow">For $50,000 – $315,000 AUD. Funds the full seed plan including regional legal setup, compliance, and a full-year operational buffer.</p>
+        <p className="font-impact-stat text-3xl text-[#ff0099] mb-3">11% – 30%</p>
+        <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed flex-grow">For $110,000 – $300,000 AUD. Funds the full seed plan including regional legal setup, compliance, and a full-year operational buffer.</p>
       </div>
     </div>
   </div>,
