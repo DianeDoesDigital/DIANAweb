@@ -1,12 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, ChevronLeft, Maximize, Minimize } from 'lucide-react';
+import { ChevronRight, ChevronLeft } from 'lucide-react';
 import { submitSignature } from '@/app/actions/submitForm';
 
 export default function PitchDeck() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isFullscreen, setIsFullscreen] = useState(false);
 
   const totalSlides = slides.length + 2;
 
@@ -17,28 +16,6 @@ export default function PitchDeck() {
   const prevSlide = () => {
     if (currentSlide > 0) setCurrentSlide(currentSlide - 1);
   };
-
-  const toggleFullscreen = () => {
-    if (!document.fullscreenElement) {
-      document.documentElement.requestFullscreen().catch((err) => {
-        console.error(`Error attempting to enable fullscreen: ${err.message}`);
-      });
-      setIsFullscreen(true);
-    } else {
-      if (document.exitFullscreen) {
-        document.exitFullscreen();
-        setIsFullscreen(false);
-      }
-    }
-  };
-
-  useEffect(() => {
-    const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
-    };
-    document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
-  }, []);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -54,18 +31,6 @@ export default function PitchDeck() {
 
   return (
     <div className="relative w-full min-h-screen bg-ambient-glow overflow-x-hidden flex flex-col items-center justify-center py-12 md:py-0">
-      {/* Top Right Fullscreen Toggle */}
-      <div className="absolute top-4 right-4 md:top-6 md:right-6 z-30">
-        <button
-          onClick={toggleFullscreen}
-          className="flex items-center gap-2 px-3.5 py-2 md:px-4 md:py-2 rounded-full glass-surface text-[var(--color-primary)] font-label-caps text-xs md:text-sm hover:scale-105 transition-all shadow-md border border-[var(--color-primary)]/30"
-          title="Toggle Fullscreen"
-        >
-          {isFullscreen ? <Minimize className="w-4 h-4" /> : <Maximize className="w-4 h-4" />}
-          <span>{isFullscreen ? 'Exit Fullscreen' : 'Fullscreen'}</span>
-        </button>
-      </div>
-
       {/* Slide Content */}
       <div className="w-full max-w-5xl px-3 md:px-8 z-10 transition-all duration-500 ease-in-out h-[82vh] md:h-[80vh] [&>div]:h-full [&>div]:max-h-[82vh] md:[&>div]:max-h-[80vh] [&>div]:overflow-y-auto [&>div]:flex [&>div]:flex-col [&>div]:justify-center">
         {currentSlide === slides.length ? (
