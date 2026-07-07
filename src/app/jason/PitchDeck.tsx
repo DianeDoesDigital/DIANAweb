@@ -1173,7 +1173,7 @@ const slides = [
     </div>
     <div className="h-px w-24 bg-[var(--color-primary)] mx-auto my-8 opacity-50"></div>
     <h2 className="font-headline-md text-3xl">Investment Proposition</h2>
-    <p className="font-body-lg text-[var(--color-text-subtle)]">Prepared for Jason Teague • June 2026</p>
+    <p className="font-body-lg text-[var(--color-text-subtle)]">Prepared for Jason Teague • July 2026</p>
   </div>,
 
   // Slide 2: The Problem & Solution
