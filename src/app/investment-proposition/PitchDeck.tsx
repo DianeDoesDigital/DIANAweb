@@ -103,7 +103,7 @@ export default function PitchDeck() {
       </div>
 
       {/* Slide Content */}
-      <div className="w-full max-w-5xl px-3 md:px-8 z-10 transition-all duration-500 ease-in-out h-[82vh] md:h-[80vh] [&>div]:h-full [&>div]:max-h-[82vh] md:[&>div]:max-h-[80vh] [&>div]:overflow-y-auto [&>div]:flex [&>div]:flex-col [&>div]:justify-center">
+      <div className="w-full max-w-5xl px-3 md:px-8 z-10 transition-all duration-500 ease-in-out h-[82vh] md:h-[80vh] [&>div]:h-full [&>div]:max-h-[82vh] md:[&>div]:max-h-[80vh] [&>div]:overflow-y-auto [&>div]:flex [&>div]:flex-col [&>div]:[justify-content:safe_center]">
         {currentSlide === slides.length ? (
           <ConclusionSlide onSecretClick={() => setCurrentSlide(totalSlides - 1)} />
         ) : currentSlide === slides.length + 1 ? (
@@ -189,51 +189,51 @@ function InteractiveDemoSlide() {
   const [showExplainer, setShowExplainer] = React.useState(true);
 
   return (
-    <div className="glass-surface p-5 md:p-12 rounded-3xl space-y-4 overflow-y-auto">
-      <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-2">Already Built. Ready to Launch.</h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-center">
-        <div className="space-y-4 md:space-y-6">
-          <p className="font-body-lg text-[var(--color-secondary)]">
+    <div className="glass-surface p-4 md:p-8 rounded-3xl space-y-4 overflow-y-auto">
+      <h2 className="font-headline-lg text-xl md:text-3xl text-[var(--color-primary)] mb-2">Already Built. Ready to Launch.</h2>
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
+        <div className="md:col-span-7 space-y-3 md:space-y-4">
+          <p className="font-body-sm md:font-body-md text-[var(--color-secondary)]">
             DIANA is already built and finished. There is no waiting around for months of development, and no enormous build bill to pay later. <strong className="text-[var(--color-primary)]">You can even try it yourself right now.</strong>
           </p>
-          <div className="space-y-3">
-            <div className="flex items-start gap-3 bg-[var(--color-primary)]/5 px-4 py-3 rounded-xl border border-[var(--color-primary)]/20">
-              <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-              <span className="font-body-md text-[var(--color-text-subtle)]"><strong>100,000+ Lines of Code:</strong> A complete, finished product built from scratch and ready to launch right now, on any device.</span>
+          <div className="space-y-2 md:space-y-3">
+            <div className="flex items-start gap-2.5 bg-[var(--color-primary)]/5 px-3 py-2 md:px-4 md:py-2.5 rounded-xl border border-[var(--color-primary)]/20">
+              <span className="text-[var(--color-primary)] font-bold text-base mt-0.5">•</span>
+              <span className="font-body-xs md:font-body-sm text-[var(--color-text-subtle)]"><strong>100,000+ Lines of Code:</strong> Complete, finished product ready to launch right now on any device.</span>
             </div>
-            <div className="flex items-start gap-3 bg-[var(--color-primary)]/5 px-4 py-3 rounded-xl border border-[var(--color-primary)]/20">
-              <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-              <span className="font-body-md text-[var(--color-text-subtle)]"><strong>DIANA Web Platform:</strong> High-speed global marketing funnel, interactive calculator, &amp; brand hub.</span>
+            <div className="flex items-start gap-2.5 bg-[var(--color-primary)]/5 px-3 py-2 md:px-4 md:py-2.5 rounded-xl border border-[var(--color-primary)]/20">
+              <span className="text-[var(--color-primary)] font-bold text-base mt-0.5">•</span>
+              <span className="font-body-xs md:font-body-sm text-[var(--color-text-subtle)]"><strong>DIANA Web Platform:</strong> High-speed global marketing funnel, interactive calculator, &amp; brand hub.</span>
             </div>
-            <div className="flex items-start gap-3 bg-[var(--color-primary)]/5 px-4 py-3 rounded-xl border border-[var(--color-primary)]/20">
-              <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5">•</span>
-              <span className="font-body-md text-[var(--color-text-subtle)]"><strong>DIANA Mobile App:</strong> Cross-platform iOS &amp; Android marketplace for consumers &amp; partner merchants.</span>
+            <div className="flex items-start gap-2.5 bg-[var(--color-primary)]/5 px-3 py-2 md:px-4 md:py-2.5 rounded-xl border border-[var(--color-primary)]/20">
+              <span className="text-[var(--color-primary)] font-bold text-base mt-0.5">•</span>
+              <span className="font-body-xs md:font-body-sm text-[var(--color-text-subtle)]"><strong>DIANA Mobile App:</strong> Cross-platform iOS &amp; Android marketplace for consumers &amp; partner merchants.</span>
             </div>
           </div>
         </div>
-        <div className="flex justify-center items-center h-full">
-          <div className="relative w-[260px] h-[520px] bg-[#0A0507] rounded-[40px] border-[6px] border-[#0A0507] overflow-hidden">
+        <div className="md:col-span-5 flex justify-center items-center h-full py-1">
+          <div className="relative w-[200px] h-[400px] md:w-[230px] md:h-[460px] lg:w-[250px] lg:h-[500px] bg-[#0A0507] rounded-[32px] md:rounded-[36px] border-[4px] md:border-[5px] border-[#0A0507] overflow-hidden shrink-0 shadow-lg">
             {showExplainer && (
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-[#0A0507] rounded-b-2xl z-40"></div>
+              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-4 bg-[#0A0507] rounded-b-xl z-40"></div>
             )}
             
             {showExplainer && (
-              <div className="absolute inset-0 z-30 bg-[#FFDDEE] flex flex-col items-center justify-center p-4 text-center overflow-hidden">
-                <div className="bg-white/80 backdrop-blur-sm rounded-[24px] p-5 w-[90%] flex flex-col items-center shadow-sm border border-white/50">
-                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-3">
+              <div className="absolute inset-0 z-30 bg-[#FFDDEE] flex flex-col items-center justify-center p-3 text-center overflow-hidden">
+                <div className="bg-white/90 backdrop-blur-sm rounded-[20px] p-4 w-[92%] flex flex-col items-center shadow-sm border border-white/60">
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center mb-2">
                     <img src="/diana-logo.png" alt="DIANA" className="w-full h-full object-contain drop-shadow-md" />
                   </div>
-                  <h3 className="font-headline-lg text-[22px] text-primary mb-3" style={{ fontFamily: 'Playfair Display' }}>App Demo</h3>
-                  <p className="font-body-sm text-secondary font-medium leading-tight mb-4 text-xs">
+                  <h3 className="font-headline-lg text-[18px] text-primary mb-2" style={{ fontFamily: 'Playfair Display' }}>App Demo</h3>
+                  <p className="font-body-sm text-secondary font-medium leading-tight mb-3 text-[11px]">
                     Try any feature first-hand without entering personal or payment details.
                   </p>
                   <button
                     onClick={() => setShowExplainer(false)}
-                    className="w-full py-3 bg-primary text-white rounded-full font-label-caps tracking-[0.2em] text-xs uppercase hover:scale-105 transition-transform shadow-[0_4px_14px_rgba(255,0,153,0.39)]"
+                    className="w-full py-2.5 bg-primary text-white rounded-full font-label-caps tracking-[0.15em] text-[10px] uppercase hover:scale-105 transition-transform shadow-[0_4px_14px_rgba(255,0,153,0.39)]"
                   >
                     LET'S GO!
                   </button>
-                  <p className="text-[8px] text-text-muted mt-4 leading-tight px-1 font-body-sm">
+                  <p className="text-[8px] text-text-muted mt-2.5 leading-tight px-1 font-body-sm">
                     Data is for demo purposes only. Risk-free exploration.
                   </p>
                 </div>
@@ -242,16 +242,8 @@ function InteractiveDemoSlide() {
 
             <iframe
               src="https://appdemo.dianafortheanimals.org/nexus"
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: 'calc(100% / 0.7)',
-                height: 'calc(100% / 0.7)',
-                transform: 'scale(0.7)',
-                transformOrigin: 'top left',
-                border: 'none',
-              }}
+              className="absolute top-0 left-0 w-[340px] h-[680px] origin-top-left scale-[0.588] md:scale-[0.676] lg:scale-[0.735]"
+              style={{ border: 'none' }}
               loading="eager"
               title="DIANA App Demo"
             />
@@ -1325,35 +1317,37 @@ const slides = [
   </div>,
 
   // Slide 6: The Founder Edge
-  <div key="slide-founder" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 overflow-y-auto">
-    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">The Founder Edge</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
-      <div className="space-y-4 md:space-y-6">
+  <div key="slide-founder" className="glass-surface p-4 md:p-8 rounded-3xl space-y-4 md:space-y-6 overflow-y-auto">
+    <h2 className="font-headline-lg text-xl md:text-3xl text-[var(--color-primary)] mb-2 md:mb-4">The Founder Edge</h2>
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
+      <div className="md:col-span-7 space-y-3 md:space-y-4">
         <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)]">
           What makes DIANA a safer bet is that the founder can build the technology herself and deeply understands the people she is building it for.
         </p>
-        <ul className="space-y-3 md:space-y-4 font-body-sm md:font-body-md text-[var(--color-text-subtle)]">
-          <li className="flex items-start gap-3">
-            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
+        <ul className="space-y-2 md:space-y-3 font-body-xs md:font-body-sm text-[var(--color-text-subtle)]">
+          <li className="flex items-start gap-2.5 bg-white/40 p-2.5 md:p-3 rounded-xl border border-white/60">
+            <span className="text-[var(--color-primary)] font-bold mt-0.5">•</span>
             <span><strong>Built in-House:</strong> Diane built the complete web platform and mobile app herself, saving what a software agency would have charged: over $450,000.</span>
           </li>
-          <li className="flex items-start gap-3">
+          <li className="flex items-start gap-2.5 bg-white/40 p-2.5 md:p-3 rounded-xl border border-white/60">
             <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
             <span><strong>Real Market Understanding:</strong> Diane founded the first all-vegan pizzeria in the Philippines. She knows firsthand what ethical business owners actually need, and she has been a conscious consumer herself for over a decade.</span>
           </li>
-          <li className="flex items-start gap-3">
+          <li className="flex items-start gap-2.5 bg-white/40 p-2.5 md:p-3 rounded-xl border border-white/60">
             <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
             <span><strong>Trusted Relationships:</strong> Genuine friendships and collaborations with well-known vegan advocates, business owners, and community leaders who are ready to support and champion our launch.</span>
           </li>
         </ul>
       </div>
-      <div className="relative h-full flex flex-col items-center justify-center p-6 md:p-8 bg-[var(--color-background)] rounded-2xl border border-[var(--color-primary)]/20 overflow-hidden">
+      <div className="md:col-span-5 relative flex flex-row md:flex-col items-center justify-start md:justify-center p-3.5 md:p-6 bg-[var(--color-background)] rounded-2xl border border-[var(--color-primary)]/20 overflow-hidden gap-3.5 md:gap-2 shadow-sm">
         <div className="absolute inset-0 bg-[var(--color-primary)]/5 z-0"></div>
-        <img src="/diane-founder.jpg" alt="Diane" className="w-36 h-36 md:w-48 md:h-48 rounded-full border-4 border-[#ff0099] mb-4 md:mb-6 shadow-[0_0_30px_rgba(255,0,153,0.3)] relative z-10 object-cover" />
-        <span className="font-headline-lg text-3xl md:text-4xl text-[#ff0099] relative z-10">DIANE</span>
-        <span className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] relative z-10 mb-2 md:mb-4">Diana Rose G. Mejilla</span>
-        <span className="font-body-sm text-xs md:text-sm text-[var(--color-secondary)] text-center relative z-10 mb-4 px-4">The visionary, the builder, and the target market, all in one.</span>
-        <span className="font-label-caps text-lg md:text-xl text-[#ff0099] relative z-10">Founder &amp; CEO</span>
+        <img src="/diane-founder.jpg" alt="Diane" className="w-20 h-20 md:w-36 md:h-36 lg:w-40 lg:h-40 rounded-full border-3 md:border-4 border-[#ff0099] shadow-[0_0_20px_rgba(255,0,153,0.3)] relative z-10 object-cover shrink-0" />
+        <div className="flex flex-col items-start md:items-center relative z-10 text-left md:text-center">
+          <span className="font-headline-lg text-xl md:text-3xl text-[#ff0099] leading-tight">DIANE</span>
+          <span className="font-headline-md text-xs md:text-base text-[var(--color-secondary)] mb-1">Diana Rose G. Mejilla</span>
+          <span className="font-label-caps text-[10px] md:text-sm text-[#ff0099] mb-1">Founder &amp; CEO</span>
+          <span className="font-body-sm text-[10px] md:text-xs text-[var(--color-text-subtle)] md:px-2 leading-snug">The visionary, the builder, and the target market, all in one.</span>
+        </div>
       </div>
     </div>
   </div>,
