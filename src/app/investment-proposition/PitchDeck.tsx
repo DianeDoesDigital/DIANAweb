@@ -68,7 +68,7 @@ export default function PitchDeck() {
       onTouchEnd={handleTouchEnd}
     >
       {/* MOBILE VIEW: Continuous Vertical Scrolling Investor Memo (< 768px) */}
-      <div className="block md:hidden w-full py-6 px-3 space-y-10 [&>section_*]:!max-h-none [&>section_*]:!h-auto [&>section_*]:!overflow-visible">
+      <div className="block md:hidden w-full py-6 px-3 space-y-10">
         {slides.map((slide, idx) => (
           <section key={idx} className="w-full transition-all duration-500">
             {slide}
@@ -109,7 +109,7 @@ export default function PitchDeck() {
         )}
 
         {/* Slide Content Container */}
-        <div className="w-full max-w-5xl z-10 transition-all duration-500 ease-in-out h-[80vh] [&>div]:h-full [&>div]:max-h-[80vh] [&>div]:overflow-y-auto [&>div]:flex [&>div]:flex-col [&>div]:[justify-content:safe_center]">
+        <div className="w-full max-w-5xl z-10 transition-all duration-500 ease-in-out h-[80vh] [&>div]:h-full [&>div]:max-h-[80vh] [&>div]:overflow-y-auto [&>div]:flex [&>div]:flex-col [&>div]:justify-center">
           {currentSlide === slides.length ? (
             <ConclusionSlide onSecretClick={() => setCurrentSlide(totalSlides - 1)} />
           ) : currentSlide === slides.length + 1 ? (
