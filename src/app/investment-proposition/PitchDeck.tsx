@@ -68,7 +68,7 @@ export default function PitchDeck() {
       onTouchEnd={handleTouchEnd}
     >
       {/* MOBILE VIEW: Continuous Vertical Scrolling Investor Memo (< 768px) */}
-      <div className="block md:hidden w-full py-8 px-4 space-y-16 [&>section>div]:!bg-transparent [&>section>div]:!border-0 [&>section>div]:!shadow-none [&>section>div]:!backdrop-blur-none [&>section>div]:!p-0 [&>section>div]:!rounded-none [&>section//*]:!max-h-none [&>section//*]:!h-auto [&>section//*]:!overflow-visible">
+      <div className="block md:hidden w-full py-6 px-3 space-y-10 [&>section//*]:!max-h-none [&>section//*]:!h-auto [&>section//*]:!overflow-visible">
         {slides.map((slide, idx) => (
           <section key={idx} className="w-full transition-all duration-500">
             {slide}
@@ -188,41 +188,39 @@ function InteractiveDemoSlide() {
           </div>
         </div>
         <div className="md:col-span-5 flex justify-center items-center h-full py-1">
-          <div className="relative w-[200px] h-[400px] md:w-[230px] md:h-[460px] lg:w-[250px] lg:h-[500px] bg-[#0A0507] rounded-[32px] md:rounded-[36px] border-[4px] md:border-[5px] border-[#0A0507] overflow-hidden shrink-0 shadow-lg">
+          <div className="relative w-[280px] h-[560px] md:w-[290px] md:h-[580px] lg:w-[300px] lg:h-[600px] bg-[#0A0507] rounded-[36px] md:rounded-[40px] border-[5px] md:border-[6px] border-[#0A0507] overflow-hidden shrink-0 shadow-2xl">
+            <iframe
+              src="https://appdemo.dianafortheanimals.org/nexus"
+              className="absolute top-0 left-0 w-[340px] h-[680px] origin-top-left scale-[0.8235] md:scale-[0.853] lg:scale-[0.882] z-10"
+              style={{ border: 'none' }}
+              loading="eager"
+              title="DIANA App Demo"
+            />
+
             {showExplainer && (
-              <div className="absolute top-0 left-1/2 -translate-x-1/2 w-20 h-4 bg-[#0A0507] rounded-b-xl z-40"></div>
-            )}
-            
-            {showExplainer && (
-              <div className="absolute inset-0 z-30 bg-[#FFDDEE] flex flex-col items-center justify-center p-3 text-center overflow-hidden">
-                <div className="bg-white/90 backdrop-blur-sm rounded-[20px] p-4 w-[92%] flex flex-col items-center shadow-sm border border-white/60">
-                  <div className="w-10 h-10 rounded-full flex items-center justify-center mb-2">
+              <div className="absolute inset-0 z-30 bg-[#FFDDEE] flex flex-col items-center justify-center p-4 text-center overflow-hidden">
+                <div className="bg-white/95 backdrop-blur-md rounded-[24px] p-5 w-[88%] flex flex-col items-center shadow-lg border border-white/80">
+                  <div className="w-12 h-12 rounded-full flex items-center justify-center mb-2">
                     <img src="/diana-logo.png" alt="DIANA" className="w-full h-full object-contain drop-shadow-md" />
                   </div>
-                  <h3 className="font-headline-lg text-[18px] text-primary mb-2" style={{ fontFamily: 'Playfair Display' }}>App Demo</h3>
-                  <p className="font-body-sm text-secondary font-medium leading-tight mb-3 text-[11px]">
+                  <h3 className="font-headline-lg text-[20px] text-primary mb-2" style={{ fontFamily: 'Playfair Display' }}>App Demo</h3>
+                  <p className="font-body-sm text-secondary font-medium leading-tight mb-4 text-[12px]">
                     Try any feature first-hand without entering personal or payment details.
                   </p>
                   <button
                     onClick={() => setShowExplainer(false)}
-                    className="w-full py-2.5 bg-primary text-white rounded-full font-label-caps tracking-[0.15em] text-[10px] uppercase hover:scale-105 transition-transform shadow-[0_4px_14px_rgba(255,0,153,0.39)]"
+                    className="w-full py-3 bg-primary text-white rounded-full font-label-caps tracking-[0.15em] text-[11px] uppercase hover:scale-105 transition-transform shadow-[0_4px_14px_rgba(255,0,153,0.39)]"
                   >
                     LET'S GO!
                   </button>
-                  <p className="text-[8px] text-text-muted mt-2.5 leading-tight px-1 font-body-sm">
+                  <p className="text-[9px] text-text-muted mt-3 leading-tight px-1 font-body-sm">
                     Data is for demo purposes only. Risk-free exploration.
                   </p>
                 </div>
               </div>
             )}
 
-            <iframe
-              src="https://appdemo.dianafortheanimals.org/nexus"
-              className="absolute top-0 left-0 w-[340px] h-[680px] origin-top-left scale-[0.588] md:scale-[0.676] lg:scale-[0.735]"
-              style={{ border: 'none' }}
-              loading="eager"
-              title="DIANA App Demo"
-            />
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-28 h-5 bg-[#0A0507] rounded-b-xl z-40 pointer-events-none"></div>
           </div>
         </div>
       </div>
@@ -1205,7 +1203,7 @@ function CapitalStrategySlide() {
 
 const slides = [
   // Slide 1: Welcome
-  <div key="slide-1" className="glass-surface p-6 md:p-16 rounded-3xl text-center space-y-4 md:space-y-6 transform overflow-y-auto">
+  <div key="slide-1" className="glass-surface p-6 md:p-16 rounded-3xl text-center space-y-4 md:space-y-6 transform overflow-y-auto min-h-[85vh] md:min-h-0 flex flex-col justify-center">
     <img src="/diana-logo.png" alt="DIANA Logo" className="h-32 md:h-48 w-auto mx-auto mb-2 drop-shadow-md" />
     <h1 className="font-headline-lg text-4xl md:text-6xl text-[var(--color-primary)] mb-4">DIANA</h1>
     <p className="font-label-caps text-sm md:text-xl text-[var(--color-secondary)] tracking-widest mb-2">Digital Infrastructure for Animal Networks & Advocacy</p>
@@ -1256,7 +1254,7 @@ const slides = [
           </li>
         </ul>
       </div>
-      <div className="bg-[var(--color-background)] p-6 md:p-8 rounded-2xl border border-[var(--color-primary)]/20 text-center flex flex-col justify-center h-full">
+      <div className="bg-white/80 backdrop-blur-md p-6 md:p-8 rounded-2xl border border-white/60 shadow-lg text-center flex flex-col justify-center h-full">
         <span className="font-label-caps text-[var(--color-text-subtle)] mb-2 md:mb-4 text-xs md:text-sm">The Lifestyle Feature</span>
         <span className="font-impact-stat text-3xl md:text-5xl text-[var(--color-primary)] mb-2 md:mb-4">One Wallet.</span>
         <span className="font-impact-stat text-3xl md:text-5xl text-[var(--color-secondary)]">Global Access.</span>
