@@ -248,12 +248,12 @@ function InteractiveDemoSlide() {
               src="https://appdemo.dianafortheanimals.org/nexus"
               style={{
                 position: 'absolute',
-                top: '50%',
-                left: '50%',
-                width: '360px',
-                height: '720px',
-                transform: 'translate(-50%, -50%) scale(0.75)',
-                transformOrigin: 'center center',
+                top: 0,
+                left: 0,
+                width: 'calc(100% / 0.7)',
+                height: 'calc(100% / 0.7)',
+                transform: 'scale(0.7)',
+                transformOrigin: 'top left',
                 border: 'none',
               }}
               loading="eager"
@@ -688,7 +688,9 @@ function NemoraliaCaseStudySlide() {
                       <span className="text-2xl md:text-3xl">⚡</span>
                       <h3 className="font-headline-md text-lg md:text-xl font-bold text-[var(--color-secondary)]">Home Activation</h3>
                     </div>
-                    <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-primary)] uppercase tracking-wider shrink-0">AUG 2 &amp; 9 • MANILA</span>
+                    <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-primary)] uppercase tracking-wider shrink-0">
+                      AUG 2 &amp; 9 • <span className="md:hidden">MNL</span><span className="hidden md:inline">MANILA</span>
+                    </span>
                   </div>
                   <p className="font-body-sm text-[var(--color-text)] leading-relaxed text-xs md:text-[13.5px]">
                     Our official home launch at Good Food Sundays, Manila&apos;s premier 100% vegan weekend market where Diane herself used to be a merchant. Leveraging our deep community roots, we pre-onboard trusted vendor peers so that on market day, attendees can download the app and instantly complete their first live DIANA transactions.
@@ -1275,14 +1277,14 @@ function CapitalStrategySlide() {
 
 const slides = [
   // Slide 1: Welcome
-  <div key="slide-1" className="glass-surface p-6 md:p-12 rounded-3xl text-center space-y-2 md:space-y-3 transform overflow-y-auto min-h-[85vh] md:min-h-0 flex flex-col justify-center">
-    <img src="/diana-logo.png" alt="DIANA Logo" className="h-28 md:h-44 w-auto mx-auto mb-1 drop-shadow-md" />
-    <h1 className="font-headline-lg text-4xl md:text-6xl text-[var(--color-primary)] mb-1">DIANA</h1>
+  <div key="slide-1" className="glass-surface p-6 md:p-12 rounded-3xl text-center space-y-5 md:space-y-3 transform overflow-y-auto min-h-[85vh] md:min-h-0 flex flex-col justify-center">
+    <img src="/diana-logo.png" alt="DIANA Logo" className="h-28 md:h-44 w-auto mx-auto mb-3 md:mb-1 drop-shadow-md" />
+    <h1 className="font-headline-lg text-4xl md:text-6xl text-[var(--color-primary)] mb-2 md:mb-1">DIANA</h1>
     <p className="font-label-caps text-sm md:text-xl text-[var(--color-secondary)] tracking-widest">Digital Infrastructure for Animal Networks & Advocacy</p>
     <div className="font-body-lg text-sm md:text-base italic">
       <span className="block text-[var(--color-primary)]">the global currency of compassion and celebration</span>
     </div>
-    <div className="h-px w-24 bg-[var(--color-primary)] mx-auto my-3 md:my-5 opacity-50"></div>
+    <div className="h-px w-24 bg-[var(--color-primary)] mx-auto my-6 md:my-5 opacity-50"></div>
     <h2 className="font-headline-md text-xl md:text-3xl">Investment Proposition</h2>
     <p className="font-body-lg text-[var(--color-text-subtle)]">Prepared July 2026</p>
   </div>,
