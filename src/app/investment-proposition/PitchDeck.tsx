@@ -7,6 +7,10 @@ import { submitSignature } from '@/app/actions/submitForm';
 export default function PitchDeck() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchStartY, setTouchStartY] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
+  const [touchEndY, setTouchEndY] = useState<number | null>(null);
 
   const totalSlides = slides.length + 2;
 
@@ -16,6 +20,33 @@ export default function PitchDeck() {
 
   const prevSlide = () => {
     if (currentSlide > 0) setCurrentSlide(currentSlide - 1);
+  };
+
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchEndX(null);
+    setTouchEndY(null);
+    setTouchStartX(e.targetTouches[0].clientX);
+    setTouchStartY(e.targetTouches[0].clientY);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+    setTouchEndY(e.targetTouches[0].clientY);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX || !touchStartY || !touchEndY) return;
+    const distanceX = touchStartX - touchEndX;
+    const distanceY = touchStartY - touchEndY;
+    const minSwipeDistance = 50;
+
+    if (Math.abs(distanceX) > Math.abs(distanceY) && Math.abs(distanceX) > minSwipeDistance) {
+      if (distanceX > 0) {
+        nextSlide();
+      } else {
+        prevSlide();
+      }
+    }
   };
 
   const toggleFullscreen = () => {
@@ -53,7 +84,12 @@ export default function PitchDeck() {
   const isEndSlide = currentSlide >= totalSlides - 2;
 
   return (
-    <div className="relative w-full min-h-screen bg-ambient-glow overflow-x-hidden flex flex-col items-center justify-center py-12 md:py-0">
+    <div
+      className="relative w-full min-h-screen bg-ambient-glow overflow-x-hidden flex flex-col items-center justify-center py-12 md:py-0"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       {/* Top Right Fullscreen Toggle */}
       <div className="absolute top-4 right-4 md:top-6 md:right-6 z-30">
         <button
@@ -80,21 +116,22 @@ export default function PitchDeck() {
       </div>
 
       {/* Navigation Controls */}
-      <div className={`absolute bottom-4 md:bottom-8 left-0 right-0 flex justify-between items-center px-4 md:px-12 z-20 transition-opacity duration-500 ${showNav ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`absolute bottom-3 md:bottom-8 left-0 right-0 flex justify-between items-center px-3 md:px-12 z-20 transition-opacity duration-500 gap-2 ${showNav ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <button
           onClick={prevSlide}
           disabled={currentSlide === 0}
-          className={`p-3 rounded-full glass-surface transition-opacity ${currentSlide === 0 ? 'opacity-30 cursor-not-allowed' : 'opacity-100 hover:scale-110'}`}
+          className={`p-2 md:p-3 rounded-full glass-surface transition-opacity shrink-0 ${currentSlide === 0 ? 'opacity-30 cursor-not-allowed' : 'opacity-100 hover:scale-110'}`}
         >
-          <ChevronLeft className="w-8 h-8 text-[var(--color-primary)]" />
+          <ChevronLeft className="w-6 h-6 md:w-8 md:h-8 text-[var(--color-primary)]" />
         </button>
 
-        <div className="flex gap-2">
+        <div className="flex items-center gap-1 md:gap-2 max-w-[55vw] md:max-w-none overflow-x-auto py-1 px-2 no-scrollbar">
           {Array.from({ length: totalSlides - 1 }).map((_, idx) => (
             <div
               key={idx}
-              className={`h-2 rounded-full transition-all duration-300 ${
-                idx === currentSlide ? 'w-8 bg-[var(--color-primary)]' : 'w-2 bg-[var(--color-border-main)]'
+              onClick={() => setCurrentSlide(idx)}
+              className={`h-1.5 md:h-2 rounded-full transition-all duration-300 cursor-pointer shrink-0 ${
+                idx === currentSlide ? 'w-5 md:w-8 bg-[var(--color-primary)]' : 'w-1.5 md:w-2 bg-[var(--color-border-main)]'
               }`}
             />
           ))}
@@ -103,9 +140,9 @@ export default function PitchDeck() {
         <button
           onClick={nextSlide}
           disabled={isEndSlide}
-          className={`p-3 rounded-full glass-surface transition-opacity ${isEndSlide ? 'opacity-0 cursor-default pointer-events-none' : 'opacity-100 hover:scale-110'}`}
+          className={`p-2 md:p-3 rounded-full glass-surface transition-opacity shrink-0 ${isEndSlide ? 'opacity-0 cursor-default pointer-events-none' : 'opacity-100 hover:scale-110'}`}
         >
-          <ChevronRight className="w-8 h-8 text-[var(--color-primary)]" />
+          <ChevronRight className="w-6 h-6 md:w-8 md:h-8 text-[var(--color-primary)]" />
         </button>
       </div>
     </div>
