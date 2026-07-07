@@ -191,15 +191,13 @@ function InteractiveDemoSlide() {
   const [showExplainer, setShowExplainer] = React.useState(true);
 
   return (
-    <div className="glass-surface p-6 md:p-6 rounded-3xl flex flex-col justify-center h-full overflow-y-auto">
-      <div className="grid grid-cols-1 md:grid-cols-12 gap-6 md:gap-8 items-center">
-        <div className="md:col-span-7 space-y-4 text-left">
-          <div>
-            <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-2">Already Built. Ready to Launch.</h2>
-            <p className="font-body-sm md:font-body-md text-[var(--color-secondary)] leading-relaxed">
-              DIANA is already built and finished. There is no waiting around for months of development, and no enormous build bill to pay later. <strong className="text-[var(--color-primary)]">You can even try it yourself right now.</strong>
-            </p>
-          </div>
+    <div className="glass-surface p-6 md:p-10 rounded-3xl flex flex-col justify-center h-full overflow-y-auto">
+      <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 text-left">Already Built. Ready to Launch.</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
+        <div className="space-y-4 text-left">
+          <p className="font-body-sm md:font-body-md text-[var(--color-secondary)] leading-relaxed">
+            DIANA is already built and finished. There is no waiting around for months of development, and no enormous build bill to pay later. <strong className="text-[var(--color-primary)]">You can even try it yourself right now.</strong>
+          </p>
           <div className="space-y-3 pt-1">
             <div className="flex items-start gap-3 bg-[var(--color-primary)]/5 px-4 py-3 rounded-xl border border-[var(--color-primary)]/20 shadow-sm">
               <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5 shrink-0">•</span>
@@ -215,8 +213,8 @@ function InteractiveDemoSlide() {
             </div>
           </div>
         </div>
-        <div className="md:col-span-5 flex justify-center items-center h-full py-2">
-          <div className="relative w-[260px] h-[520px] md:w-[230px] md:h-[460px] bg-[#0A0507] rounded-[36px] md:rounded-[40px] border-[5px] md:border-[6px] border-[#0A0507] overflow-hidden shrink-0 shadow-2xl" style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)', transform: 'translateZ(0)' }}>
+        <div className="flex justify-center items-center h-full py-2">
+          <div className="relative w-[260px] h-[520px] md:w-[250px] md:h-[500px] bg-[#0A0507] rounded-[36px] md:rounded-[40px] border-[5px] md:border-[6px] border-[#0A0507] overflow-hidden shrink-0 shadow-2xl" style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)', transform: 'translateZ(0)' }}>
             {showExplainer && (
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-[#0A0507] rounded-b-2xl z-40"></div>
             )}
@@ -273,7 +271,7 @@ function InteractiveDemoSlide() {
                   left: '50%',
                   width: '360px',
                   height: '720px',
-                  transform: 'translate(-50%, -50%) scale(0.64)',
+                  transform: 'translate(-50%, -50%) scale(0.695)',
                   transformOrigin: 'center center',
                   border: 'none',
                 }}
