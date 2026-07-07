@@ -746,7 +746,7 @@ function NemoraliaCaseStudySlide() {
                     <span className="text-xl md:text-2xl">🌍</span>
                     <h3 className="font-headline-md text-lg md:text-xl font-bold text-[var(--color-primary)]">Global Replication</h3>
                   </div>
-                  <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider shrink-0">Q3 2026 ONWARDS • ASIA AND BEYOND</span>
+                  <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider shrink-0 ml-7 md:ml-0">Q3 2026 ONWARDS • ASIA AND BEYOND</span>
                 </div>
                 <p className="font-body-sm text-[var(--color-text)] leading-relaxed text-xs md:text-[13.5px]">
                   We take this low-cost grassroots model and scale by partnering with existing vegan markets, eco-festivals, and sanctuaries worldwide. This turns established community gatherings into continuous onboarding and transaction engines, culminating in an expanding annual Nemoralia celebration every August.
