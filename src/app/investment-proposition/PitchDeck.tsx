@@ -206,7 +206,7 @@ function InteractiveDemoSlide() {
           </div>
         </div>
         <div className="md:col-span-5 flex justify-center items-center h-full py-2">
-          <div className="relative w-[240px] h-[480px] lg:w-[250px] lg:h-[500px] bg-[#0A0507] rounded-[36px] md:rounded-[40px] border-[5px] md:border-[6px] border-[#0A0507] overflow-hidden shrink-0 shadow-2xl">
+          <div className="relative w-[240px] h-[480px] lg:w-[250px] lg:h-[500px] bg-[#0A0507] rounded-[36px] md:rounded-[40px] border-[5px] md:border-[6px] border-[#0A0507] overflow-hidden shrink-0 shadow-2xl" style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)', transform: 'translateZ(0)' }}>
             {showExplainer && (
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-[#0A0507] rounded-b-2xl z-40"></div>
             )}
@@ -240,8 +240,8 @@ function InteractiveDemoSlide() {
                 position: 'absolute',
                 top: '50%',
                 left: '50%',
-                width: 'calc(100% / 0.7)',
-                height: 'calc(100% / 0.7)',
+                width: '358px',
+                height: '715px',
                 transform: 'translate(-50%, -50%) scale(0.7)',
                 transformOrigin: 'center center',
                 border: 'none',
@@ -425,15 +425,15 @@ function ConclusionSlide({ onSecretClick }: { onSecretClick: () => void }) {
       
       <div className="mt-12 space-y-4">
         <p className="font-label-caps tracking-widest text-[var(--color-secondary)]">NEXT STEPS</p>
-        <div className="flex justify-center gap-4">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-4 w-full max-w-lg mx-auto">
           <div 
             onClick={onSecretClick}
-            className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-primary)] font-medium flex items-center select-none"
+            className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-primary)] font-medium flex items-center justify-center select-none w-full md:w-auto"
           >
             1. Confirm Seed Commitment
           </div>
-          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center">2. Initiate Equity Setup</div>
-          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center">3. Execute Onboarding Sprint</div>
+          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto">2. Initiate Equity Setup</div>
+          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto">3. Execute Onboarding Sprint</div>
         </div>
       </div>
     </div>
@@ -556,7 +556,95 @@ function NemoraliaCaseStudySlide() {
         </div>
       </div>
 
-      <div className="flex flex-col gap-4 flex-1 justify-between min-h-0 overflow-y-auto">
+      {/* Mobile Modal Overlay */}
+      {activeCard !== null && (
+        <div className="md:hidden fixed inset-0 z-50 bg-[#FFDDEE]/98 backdrop-blur-xl p-5 overflow-y-auto flex flex-col justify-between animate-fadeIn">
+          <div className="flex flex-col gap-4 my-auto">
+            {activeCard === 'home' ? (
+              <div
+                onClick={() => setActiveCard(null)}
+                className="bg-white/95 p-5 rounded-2xl border-t-8 border-[var(--color-secondary)] shadow-2xl flex flex-col justify-between w-full text-left cursor-pointer"
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-2.5 border-b border-gray-200 pb-2 flex-wrap gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl md:text-2xl">⚡</span>
+                      <h3 className="font-headline-lg text-lg md:text-xl font-bold text-[var(--color-secondary)]">
+                        Home Activation: Good Food Sundays
+                      </h3>
+                    </div>
+                    <div>
+                      <span className="font-impact-stat text-base md:text-lg text-[var(--color-primary)]">~$100 AUD</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-2.5 my-2 text-xs md:text-sm text-[var(--color-text)] leading-relaxed">
+                    <div>
+                      <strong className="text-[var(--color-secondary)]">The Venue &amp; Roots: </strong>Good Food Sundays at Mandala Park, Mandaluyong, Manila&apos;s premier 100% vegan weekend market where Diane herself used to be a merchant. On August 2nd, Diane visits as a returning peer to reconnect and pre-onboard vendors before market day.
+                    </div>
+                    <div>
+                      <strong className="text-[var(--color-secondary)]">The Booth, Standees &amp; Meals: </strong>The GFS booth fee is only 800 PHP (~$20 AUD, including table, chairs, and electricity). We budget ~$80 AUD across both Sundays for transport, booth decor, printed QR standees, and eating meals directly through DIANA to support our vendor peers.
+                    </div>
+                    <div>
+                      <strong className="text-[var(--color-secondary)]">The Onboarding &amp; Live Demo Day: </strong>On August 9th, we host our official booth with a live app demo and interactive Q&amp;A! When attendees visit us, they scan our QR standees, download the app, and instantly complete their first live DIANA transaction with our partner vendors, experiencing fee-free compassionate commerce in real time.
+                    </div>
+                    <div className="p-3 md:p-3.5 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/20 font-medium text-center text-xs md:text-sm text-[var(--color-secondary)] mt-3 shadow-sm">
+                      Manila is where our roots are. By launching at Good Food Sundays first, we prove that DIANA is built from the ground up, igniting live compassionate commerce at home before taking it to the world.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div
+                onClick={() => setActiveCard(null)}
+                className="bg-white/95 p-5 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-2xl flex flex-col justify-between w-full text-left cursor-pointer"
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-2 border-b border-gray-200 pb-1.5 flex-wrap gap-2">
+                    <div className="flex items-center gap-2">
+                      <span className="text-xl md:text-2xl">🔥</span>
+                      <h3 className="font-headline-lg text-base md:text-lg font-bold text-[var(--color-primary)]">
+                        Launch Festival: The Nemoralia
+                      </h3>
+                    </div>
+                    <div>
+                      <span className="font-impact-stat text-base md:text-lg text-[var(--color-secondary)]">~$2K–$4K AUD</span>
+                    </div>
+                  </div>
+
+                  <div className="space-y-1.5 my-1 text-[10.5px] md:text-[11.5px] text-[var(--color-text)] leading-relaxed">
+                    <div>
+                      <strong className="text-[var(--color-primary)]">Why The Nemoralia? </strong>
+                      This ancient Roman Nemoralia was held every August 13–15 to honor Diana, protector of the wild. It was a time when hunting was strictly forbidden and animals roamed under her divine protection. We revive this 3-day tradition in Asia&apos;s vegan capital through modern financial infrastructure that protects animals permanently.
+                    </div>
+                    <div>
+                      <ul className="list-disc pl-4 space-y-1 text-[10.5px] md:text-[11.5px]">
+                        <li><strong className="text-[var(--color-primary)]">Aug 13 - The Gathering &amp; Founding Dinner: </strong>An intimate dinner with invited guests to set our shared purpose and pledge our commitments to animal protection, mirroring the ancient tradition where pilgrims lit torches and tied wishes to trees in Diana&apos;s grove, setting the tone for the market days ahead.</li>
+                        <li><strong className="text-[var(--color-primary)]">Aug 14 - The Live Cashless Market: </strong>Our 100% vegan market opens to the public! Attendees pay merchants exclusively through the DIANA app. This serves as a live product demo and revenue generator, proving our 5% platform model while the real-time impact counter routes funds to animal sanctuaries.</li>
+                        <li><strong className="text-[var(--color-primary)]">Aug 15 - The Celebration &amp; Impact Reveal: </strong>Our live cashless market continues in full swing all day and transitions into an all-night celebration! All food, drinks, and evening activities continue to be transacted exclusively through the DIANA app while our real-time impact counter reveals the total funding generated for animal sanctuaries.</li>
+                        <li><strong className="text-[var(--color-primary)]">Aug 16 - Post-Event Villa Kitty Visit: </strong>A special visit to Bali&apos;s most famous cat sanctuary to attend their Sunday vegan lunch, honoring Diana&apos;s historical association with cats and animal rescue.</li>
+                      </ul>
+                    </div>
+                    <div className="text-[10.5px] md:text-[11.5px] pt-0.5">
+                      <strong className="text-[var(--color-primary)]">Budget Breakdown: </strong>
+                      Partnered Villa ($0 hire / ~$1,500–$1,800 paid contingency), Food &amp; Bar Top-Up (~$515), Entertainment &amp; Performers (~$470), Local Photo/Video (~$610–$800), Local Flowers &amp; Decor (~$170), Contingency (~$280).
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+          <button
+            onClick={(e) => { e.stopPropagation(); setActiveCard(null); }}
+            className="mt-4 w-full py-3.5 px-6 rounded-full bg-[var(--color-primary)] text-white font-bold text-center shadow-lg active:scale-95 transition-transform shrink-0"
+          >
+            Close / Back to Overview
+          </button>
+        </div>
+      )}
+
+      {/* Desktop In-Place Expansion */}
+      <div className="hidden md:flex flex-col gap-4 flex-1 justify-between min-h-0 overflow-y-auto">
         {activeCard === 'home' ? (
           <div
             onClick={() => setActiveCard(null)}
@@ -686,6 +774,62 @@ function NemoraliaCaseStudySlide() {
           </>
         )}
       </div>
+
+      {/* Mobile Always-Unexpanded Grid */}
+      <div className="flex md:hidden flex-col gap-4 flex-1 justify-between min-h-0 overflow-y-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 items-stretch flex-1">
+          <div 
+            onClick={() => setActiveCard('home')}
+            className="bg-white/60 hover:bg-white/90 p-4 md:p-5 rounded-2xl border-t-8 border-[var(--color-secondary)] shadow-md hover:shadow-lg flex flex-col justify-between transition-all duration-200 cursor-pointer transform hover:-translate-y-1"
+          >
+            <div>
+              <div className="flex justify-between items-center mb-2 flex-wrap gap-1.5">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-2xl md:text-3xl">⚡</span>
+                  <h3 className="font-headline-md text-lg md:text-xl font-bold text-[var(--color-secondary)]">Home Activation</h3>
+                </div>
+                <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-primary)] uppercase tracking-wider shrink-0">AUG 2 &amp; 9 • MANILA</span>
+              </div>
+              <p className="font-body-sm text-[var(--color-text)] leading-relaxed text-xs md:text-[13.5px]">
+                Our official home launch at Good Food Sundays, Manila&apos;s premier 100% vegan weekend market where Diane herself used to be a merchant. Leveraging our deep community roots, we pre-onboard trusted vendor peers so that on market day, attendees can download the app and instantly complete their first live DIANA transactions.
+              </p>
+            </div>
+          </div>
+
+          <div 
+            onClick={() => setActiveCard('bali')}
+            className="bg-white/60 hover:bg-white/90 p-4 md:p-5 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-md hover:shadow-lg flex flex-col justify-between transition-all duration-200 cursor-pointer transform hover:-translate-y-1"
+          >
+            <div>
+              <div className="flex justify-between items-center mb-2 flex-wrap gap-1.5">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-xl md:text-2xl">🔥</span>
+                  <h3 className="font-headline-md text-lg md:text-xl font-bold text-[var(--color-primary)]">Launch Festival</h3>
+                </div>
+                <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-secondary)] uppercase tracking-wider shrink-0">AUG 13–15 • BALI</span>
+              </div>
+              <p className="font-body-sm text-[var(--color-text)] leading-relaxed text-xs md:text-[13.5px]">
+                Our official international debut in Asia&apos;s vegan capital comes to life as The Nemoralia, a 3-day gathering patterned after the ancient Roman festival honoring the goddess Diana on these exact dates. Attendees pay our curated founding merchants exclusively through DIANA, proving our 5% revenue model live while building global community momentum.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div className="bg-[var(--color-primary)]/10 p-4 md:p-5 rounded-2xl border-2 border-[var(--color-primary)] shadow-md">
+          <div>
+            <div className="flex justify-between items-center mb-2 flex-wrap gap-1.5">
+              <div className="flex items-center gap-1.5">
+                <span className="text-xl md:text-2xl">🌍</span>
+                <h3 className="font-headline-md text-lg md:text-xl font-bold text-[var(--color-primary)]">Global Replication</h3>
+              </div>
+              <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider shrink-0">Q3 2026 ONWARDS • ASIA AND BEYOND</span>
+            </div>
+            <p className="font-body-sm text-[var(--color-text)] leading-relaxed text-xs md:text-[13.5px]">
+              We take this low-cost grassroots model and scale by partnering with existing vegan markets, eco-festivals, and sanctuaries worldwide. This turns established community gatherings into continuous onboarding and transaction engines, culminating in an expanding annual Nemoralia celebration every August.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
@@ -700,7 +844,113 @@ function WhatWeHaveBuiltSlide() {
         <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] border-b border-[var(--color-primary)]/30 pb-2">Valuation Breakdown</h3>
       </div>
 
-      <div className={`flex flex-col gap-4 min-h-0 overflow-y-auto ${activeCard !== null ? 'flex-1 justify-between' : 'justify-center'}`}>
+      {/* Mobile Modal Overlay */}
+      {activeCard !== null && (
+        <div className="md:hidden fixed inset-0 z-50 bg-[#FFDDEE]/98 backdrop-blur-xl p-5 overflow-y-auto flex flex-col justify-between animate-fadeIn">
+          <div className="flex flex-col gap-4 my-auto">
+            {activeCard === 'software' ? (
+              <div
+                onClick={() => setActiveCard(null)}
+                className="bg-white/95 p-5 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-2xl flex flex-col justify-between w-full text-left cursor-pointer"
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-2 border-b border-gray-200 pb-1.5">
+                    <div>
+                      <h3 className="font-headline-lg text-xl md:text-2xl font-bold text-[var(--color-primary)]">
+                        The Software Build Value
+                      </h3>
+                    </div>
+                    <span className="font-impact-stat text-2xl md:text-3xl text-[var(--color-primary)]">$450,000</span>
+                  </div>
+
+                  <div className="space-y-3 my-3 text-xs md:text-sm text-[var(--color-text)] leading-relaxed">
+                    <div>
+                      <strong className="text-[var(--color-primary)]">The Scale: </strong>DIANA is a complete, production-ready universal digital ecosystem consisting of over 100,000 lines of code across the web platform and cross-platform mobile application (iOS &amp; Android).
+                    </div>
+                    <div>
+                      <strong className="text-[var(--color-primary)]">The Time &amp; Labor: </strong>It required 1,800+ hours of intensive full-stack engineering, UI/UX architecture, database design, and financial software structuring to build the Multi-Impact settlement engine, live multi-currency conversion, role-based account architecture (switching between user, merchant, sanctuary, and admin profiles), and AI integrations from scratch.
+                    </div>
+                    <div className="space-y-2 pt-1">
+                      <div>
+                        <strong className="text-[var(--color-primary)]">The Replacement Cost: </strong>Hiring an established Australian software or FinTech agency today to architect and write 100,000 lines of production-ready code at a standard blended agency rate of $250 AUD/hour:
+                      </div>
+                      <div className="p-3 bg-[var(--color-primary)]/10 rounded-xl font-mono font-bold text-center my-2 text-[var(--color-primary)] text-xs md:text-sm shadow-sm">
+                        1,800 Hours × $250/hour = $450,000 AUD
+                      </div>
+                      <div className="text-xs md:text-[13px] pt-0.5">
+                        This is the direct, verifiable replacement cost of the software sitting in our hands today.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div
+                onClick={() => setActiveCard(null)}
+                className="bg-white/95 p-5 rounded-2xl border-t-8 border-[var(--color-secondary)] shadow-2xl flex flex-col justify-between w-full text-left cursor-pointer"
+              >
+                <div>
+                  <div className="flex justify-between items-center mb-2 border-b border-gray-200 pb-1.5">
+                    <div>
+                      <h3 className="font-headline-lg text-xl md:text-2xl font-bold text-[var(--color-secondary)]">
+                        The Community Pipeline Value
+                      </h3>
+                    </div>
+                    <span className="font-impact-stat text-2xl md:text-3xl text-[var(--color-secondary)]">$200,000</span>
+                  </div>
+
+                  <div className="space-y-2 my-1.5 text-[11px] md:text-xs text-[var(--color-text)] leading-normal">
+                    <p className="font-semibold text-[var(--color-secondary)] text-xs">
+                      Why would it cost well over $200,000 in cash to recreate the brand assets and pipeline we bring to launch day? Here are the exact industry costs:
+                    </p>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-2.5 md:gap-3 my-1.5">
+                      <div className="p-3 bg-white/90 rounded-xl border border-gray-200 flex flex-col justify-between shadow-sm">
+                        <div className="space-y-1">
+                          <strong className="text-[var(--color-secondary)] font-bold text-xs block mb-0.5">1. Social &amp; abillion Pipeline: ~$75,000</strong>
+                          <span className="block"><strong>What we have: </strong>~29k followers, ~145k network reach, and an active migration pipeline of displaced daily abillion users.</span>
+                          <span className="block"><strong>What it costs to buy: </strong>Paid ad campaigns on Instagram, Facebook, and LinkedIn to acquire real, high-intent users cost $3–$6/user.</span>
+                        </div>
+                        <span className="block mt-1.5 pt-1.5 border-t border-gray-100 text-[var(--color-secondary)] font-semibold text-[11px] md:text-xs"><strong>The Math: </strong>~20k–25k followers + migration pipeline = ~$75,000.</span>
+                      </div>
+
+                      <div className="p-3 bg-white/90 rounded-xl border border-gray-200 flex flex-col justify-between shadow-sm">
+                        <div className="space-y-1">
+                          <strong className="text-[var(--color-secondary)] font-bold text-xs block mb-0.5">2. PR &amp; Celebrity Access: ~$70,000</strong>
+                          <span className="block"><strong>What we have: </strong>Direct relationships with celebrity advocates (~48M reach), tier-1 media editors, and peer founders.</span>
+                          <span className="block"><strong>What it costs to buy: </strong>Retaining a specialized PR agency to open doors and run targeted press outreach costs $8k–$10k/month.</span>
+                        </div>
+                        <span className="block mt-1.5 pt-1.5 border-t border-gray-100 text-[var(--color-secondary)] font-semibold text-[11px] md:text-xs"><strong>The Math: </strong>7–8 month launch retainer = ~$70,000.</span>
+                      </div>
+
+                      <div className="p-3 bg-white/90 rounded-xl border border-gray-200 flex flex-col justify-between shadow-sm">
+                        <div className="space-y-1">
+                          <strong className="text-[var(--color-secondary)] font-bold text-xs block mb-0.5">3. B2B Merchant Leads: ~$55,000</strong>
+                          <span className="block"><strong>What we have: </strong>Global relationships with vegan business owners, reinforced by our Anchor Angel ($50k committed).</span>
+                          <span className="block"><strong>What it costs to buy: </strong>Lead-gen agencies or sales reps to source, pitch, and qualify ready merchant leads average $200–$250/lead.</span>
+                        </div>
+                        <span className="block mt-1.5 pt-1.5 border-t border-gray-100 text-[var(--color-secondary)] font-semibold text-[11px] md:text-xs"><strong>The Math: </strong>Immediate warm access + anchor validation = ~$55,000.</span>
+                      </div>
+                    </div>
+
+                    <div className="p-2.5 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/20 text-center font-bold text-xs text-[var(--color-secondary)] mt-2 shadow-sm">
+                      Social &amp; abillion ($75K) + PR Retainer ($70K) + B2B Leads ($55K) = $200,000
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+          <button
+            onClick={(e) => { e.stopPropagation(); setActiveCard(null); }}
+            className="mt-4 w-full py-3.5 px-6 rounded-full bg-[var(--color-primary)] text-white font-bold text-center shadow-lg active:scale-95 transition-transform shrink-0"
+          >
+            Close / Back to Overview
+          </button>
+        </div>
+      )}
+
+      {/* Desktop In-Place Expansion */}
+      <div className={`hidden md:flex flex-col gap-4 min-h-0 overflow-y-auto ${activeCard !== null ? 'flex-1 justify-between' : 'justify-center'}`}>
         {activeCard === 'software' ? (
           <div
             onClick={() => setActiveCard(null)}
@@ -819,6 +1069,36 @@ function WhatWeHaveBuiltSlide() {
             </div>
           </div>
         )}
+      </div>
+
+      {/* Mobile Always-Unexpanded Grid */}
+      <div className="flex md:hidden flex-col gap-4 min-h-0 overflow-y-auto justify-center">
+        <div className="grid grid-cols-1 gap-4 items-stretch overflow-y-auto">
+          <div
+            onClick={() => setActiveCard('software')}
+            className="bg-white/40 hover:bg-white/80 p-4 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-start gap-2 shadow-sm hover:shadow-md transition-all cursor-pointer"
+          >
+            <div className="flex flex-col">
+              <h4 className="font-label-caps text-lg text-[var(--color-primary)] mb-0.5">Software Build Value</h4>
+              <span className="font-impact-stat text-3xl text-[var(--color-primary)]">$450,000</span>
+            </div>
+            <p className="font-body-xs text-[var(--color-text-subtle)] leading-normal">
+              A complete, finished digital product covering both the web platform and the mobile app. It took over 1,800 hours of dedicated work to build from scratch, covering everything from the user experience to the payment system underneath. Hiring an outside software agency to build this from scratch would cost at least $450,000.
+            </p>
+          </div>
+          <div
+            onClick={() => setActiveCard('community')}
+            className="bg-white/40 hover:bg-white/80 p-4 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col justify-start gap-2 shadow-sm hover:shadow-md transition-all cursor-pointer"
+          >
+            <div className="flex flex-col">
+              <h4 className="font-label-caps text-lg text-[var(--color-secondary)] mb-0.5">Community Pipeline Value</h4>
+              <span className="font-impact-stat text-3xl text-[var(--color-secondary)]">$200,000</span>
+            </div>
+            <p className="font-body-xs text-[var(--color-text-subtle)] leading-normal">
+              We come to launch with an established social media presence across brand and personal accounts, genuine relationships with vegan business owners across multiple markets, and a wide network of well-known advocates in the space. Building all of this from scratch through paid ads and outreach would cost well over $200,000.
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
