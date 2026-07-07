@@ -1003,6 +1003,199 @@ function FinalValuationSlide() {
   );
 }
 
+function SeedAllocationSlide() {
+  const [expandedIndex, setExpandedIndex] = React.useState<number | null>(null);
+
+  const categories = [
+    {
+      title: "1. Partner Activation",
+      percent: "35%",
+      borderColor: "border-[var(--color-primary)]",
+      headerColor: "text-[var(--color-primary)]",
+      shortDesc: "Physical display kits, ethical vetting, and hands-on onboarding to activate our first 1,000+ partner merchants.",
+      items: [
+        "Custom acrylic QR table stands, tabletop cards, and welcome flyers so customers can scan, learn, and pay instantly at the counter.",
+        "Eye-catching storefront window stickers advertising that at least 5% of purchases go directly to animal sanctuaries.",
+        "International shipping and delivery of physical display materials to partner merchants in multiple countries.",
+        "Dedicated ethical vetting, verification systems, and hands-on setup assistance to activate new partner merchants."
+      ]
+    },
+    {
+      title: "2. Marketing & Launch Events",
+      percent: "20%",
+      borderColor: "border-[var(--color-secondary)]",
+      headerColor: "text-[var(--color-secondary)]",
+      shortDesc: "Launch events and creator partnerships across our initial markets to ignite global buzz and early consumer adoption.",
+      items: [
+        "Sponsoring and hosting ethical community gatherings and popup market spaces across key locations.",
+        "Eye-catching physical banners, signage, and printed guides for real-world community events.",
+        "Creator co-marketing partnerships, welcome packages, and grassroots referral rewards that incentivize organic word-of-mouth growth.",
+        "Press releases and media outreach to vegan, travel, and ethical business news outlets globally."
+      ]
+    },
+    {
+      title: "3. Working Capital",
+      percent: "25%",
+      borderColor: "border-[var(--color-primary)]",
+      headerColor: "text-[var(--color-primary)]",
+      shortDesc: "A safety buffer for unexpected expenses and operational costs, ensuring the business stays stable during its first year.",
+      items: [
+        "Dedicated emergency reserve buffer to absorb unexpected operational or launch costs without financial stress.",
+        "Professional annual corporate bookkeeping, tax preparation, and statutory compliance.",
+        "Flexible budget to engage freelance specialists and project contractors for specific tasks as needed without adding permanent fixed payroll.",
+        "Modest founder stipend supporting full-time platform management across all possible roles during the pre-profit launch sprint."
+      ]
+    },
+    {
+      title: "4. Legal & Brand Protection",
+      percent: "10%",
+      borderColor: "border-[var(--color-secondary)]",
+      headerColor: "text-[var(--color-secondary)]",
+      shortDesc: "Trademark registration across key global markets and essential platform legal documentation.",
+      items: [
+        "International trademark registrations to legally lock in the DIANA name across multiple global markets at once.",
+        "Official company share certificates and simple corporate paperwork setting up ownership properly.",
+        "Standard legal terms for partner merchants joining the platform to keep both the business and our partners protected.",
+        "Clear privacy policies and user terms inside the app that meet international consumer protection laws."
+      ]
+    },
+    {
+      title: "5. Initial Transaction Float",
+      percent: "5%",
+      borderColor: "border-[var(--color-primary)]",
+      headerColor: "text-[var(--color-primary)]",
+      shortDesc: "Covers payment processing fees for early wallet top-ups before merchant transaction revenue offsets the costs.",
+      items: [
+        "Paying the small bank processing charge when users add money using local bank transfers.",
+        "Making sure users can load funds quickly without getting hit by surprise deposit fees.",
+        "Bridging the short timeline between when a user loads money into their wallet and when a merchant receives a payout.",
+        "Operating a self-sustaining pool that naturally refills itself as regular merchant transaction fees roll in."
+      ]
+    },
+    {
+      title: "6. Tech Infrastructure",
+      percent: "5%",
+      borderColor: "border-[var(--color-secondary)]",
+      headerColor: "text-[var(--color-secondary)]",
+      shortDesc: "12 months of secure cloud hosting, operational software tools, and essential platform subscriptions.",
+      items: [
+        "Commercial cloud hosting so our web platform and mobile app load instantly from anywhere.",
+        "Official annual developer licenses to keep our app live on the Apple App Store and Google Play Store.",
+        "AI subscriptions and automated backend tools powering live app features.",
+        "Essential communication suites, helpdesk infrastructure, and automated backups ensuring secure daily operations."
+      ]
+    }
+  ];
+
+  return (
+    <div className="glass-surface p-5 md:p-10 rounded-3xl space-y-4 flex flex-col justify-center h-full overflow-y-auto">
+      <div className="flex justify-between items-center">
+        <div>
+          <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">Seed Capital Allocation</h2>
+          <p className="font-body-md text-[var(--color-secondary)]">Because the software is fully built, your money goes directly into getting the product in front of people and making sure the business is set up properly and legally protected.</p>
+        </div>
+      </div>
+
+      {expandedIndex !== null ? (
+        <div
+          onClick={() => setExpandedIndex(null)}
+          className={`bg-white/95 p-8 rounded-2xl border-t-8 ${categories[expandedIndex].borderColor} shadow-2xl flex flex-col justify-between flex-1 cursor-pointer animate-fadeIn transition-all mt-2`}
+        >
+          <div>
+            <div className="flex justify-between items-center mb-5 border-b border-gray-200 pb-3">
+              <div>
+                <span className="text-xs font-label-caps text-[var(--color-text-subtle)] block mb-0.5">Itemized Allocation Breakdown</span>
+                <h3 className={`font-headline-lg text-3xl font-bold ${categories[expandedIndex].headerColor}`}>
+                  {categories[expandedIndex].title}
+                </h3>
+              </div>
+              <span className={`font-impact-stat text-5xl ${categories[expandedIndex].headerColor}`}>
+                {categories[expandedIndex].percent}
+              </span>
+            </div>
+
+            <div className="space-y-3.5 my-4">
+              {categories[expandedIndex].items.map((item, itemIdx) => (
+                <div key={itemIdx} className="flex items-start gap-3 text-sm md:text-base text-[var(--color-text)] leading-relaxed font-medium">
+                  <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5 shrink-0">•</span>
+                  <span>{item}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="space-y-4 mt-2">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {categories.map((cat, idx) => (
+              <div
+                key={idx}
+                onClick={() => setExpandedIndex(idx)}
+                className={`bg-white/60 p-4 rounded-xl border-t-4 ${cat.borderColor} flex flex-col shadow-sm cursor-pointer transition-all duration-200 hover:-translate-y-1 hover:bg-white/90 hover:shadow-md`}
+              >
+                <div className="flex justify-between items-center mb-2 border-b border-gray-200 pb-1.5">
+                  <h3 className={`font-label-caps text-xs font-bold ${cat.headerColor}`}>{cat.title}</h3>
+                  <span className={`font-impact-stat text-lg ${cat.headerColor}`}>{cat.percent}</span>
+                </div>
+                <p className="font-body-xs text-xs text-[var(--color-text-subtle)] leading-relaxed">
+                  {cat.shortDesc}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* Lifecycle Budget Shift Banner */}
+          <div className="p-4 bg-gradient-to-r from-[var(--color-primary)]/15 to-[var(--color-secondary)]/15 rounded-2xl border-2 border-[var(--color-primary)]/40 shadow-sm animate-fadeIn">
+            <div className="flex items-center gap-2 mb-1.5">
+              <span className="text-lg">🚀</span>
+              <h4 className="font-headline-md text-sm text-[var(--color-primary)] font-bold">The Lifecycle Budget Shift: From Rocket Fuel to Dividend Engine</h4>
+            </div>
+            <p className="font-body-sm text-xs text-[var(--color-text)] leading-relaxed">
+              Your seed investment acts as upfront rocket fuel. Once we cross 1,000 users, early startup costs naturally drop to near-zero—shifting all freed-up cash flow directly into scaling marketing adoption and paying shareholder dividends.
+            </p>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
+
+function CapitalStrategySlide() {
+  return (
+    <div className="glass-surface p-5 md:p-12 rounded-3xl flex flex-col justify-between gap-6 md:gap-8 h-full overflow-y-auto">
+      <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)]">Your Investment, Protected</h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
+        <div className="flex flex-col gap-4 h-full">
+          <div className="bg-white/40 p-8 rounded-xl border-t-4 border-[var(--color-primary)] flex flex-col flex-1">
+            <h3 className="font-label-caps text-xl text-[var(--color-secondary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Government Grants Won&apos;t Dilute You</h3>
+            <p className="font-body-md text-[var(--color-text-subtle)]">
+              We are actively applying for government grants and innovation funding. If we receive any, that money goes directly into the business. It does <strong>not</strong> come with new shareholders attached. Your ownership percentage stays exactly the same.
+            </p>
+          </div>
+          <div className="bg-[var(--color-secondary)]/10 p-4 rounded-xl border border-[var(--color-secondary)]/20 min-h-[80px] flex items-center justify-center">
+            <p className="text-base md:text-lg font-bold text-[var(--color-text)] italic text-center">
+              Every grant we receive grows the business and makes your share more valuable, without reducing it.
+            </p>
+          </div>
+        </div>
+        <div className="flex flex-col gap-4 h-full">
+          <div className="bg-white/40 p-8 rounded-xl border-t-4 border-[var(--color-secondary)] flex flex-col flex-1">
+            <h3 className="font-label-caps text-xl text-[var(--color-primary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Future Investors Treated Equally</h3>
+            <p className="font-body-md text-[var(--color-text-subtle)]">
+              If DIANA ever brings in additional investors down the track, you and the founder are treated exactly the same. Nobody gets a secret deal or special advantage over you. If new investors come in and everyone&apos;s share gets a little smaller to make room, yours and the founder&apos;s shrink by the same percentage.
+            </p>
+          </div>
+          <div className="bg-[var(--color-primary)]/10 p-4 rounded-xl border border-[var(--color-primary)]/20 min-h-[80px] flex items-center justify-center">
+            <p className="text-base md:text-lg font-bold text-[var(--color-text)] italic text-center">
+              The goal is always to grow the overall value of the business so everyone&apos;s share is worth more, not less.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 const slides = [
   // Slide 1: Welcome
   <div key="slide-1" className="glass-surface p-6 md:p-16 rounded-3xl text-center space-y-4 md:space-y-6 transform overflow-y-auto">
