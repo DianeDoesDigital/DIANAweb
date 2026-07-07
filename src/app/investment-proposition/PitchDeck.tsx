@@ -216,7 +216,7 @@ function InteractiveDemoSlide() {
           </div>
         </div>
         <div className="md:col-span-5 flex justify-center items-center h-full py-2">
-          <div className="relative w-[270px] h-[540px] bg-[#0A0507] rounded-[36px] md:rounded-[40px] border-[5px] md:border-[6px] border-[#0A0507] overflow-hidden shrink-0 shadow-2xl" style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)', transform: 'translateZ(0)' }}>
+          <div className="relative w-[260px] h-[520px] md:w-[270px] md:h-[540px] bg-[#0A0507] rounded-[36px] md:rounded-[40px] border-[5px] md:border-[6px] border-[#0A0507] overflow-hidden shrink-0 shadow-2xl" style={{ WebkitMaskImage: '-webkit-radial-gradient(white, black)', transform: 'translateZ(0)' }}>
             {showExplainer && (
               <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-5 bg-[#0A0507] rounded-b-2xl z-40"></div>
             )}
@@ -244,21 +244,43 @@ function InteractiveDemoSlide() {
               </div>
             )}
 
-            <iframe
-              src="https://appdemo.dianafortheanimals.org/nexus"
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: 'calc(100% / 0.7)',
-                height: 'calc(100% / 0.7)',
-                transform: 'scale(0.7)',
-                transformOrigin: 'top left',
-                border: 'none',
-              }}
-              loading="eager"
-              title="DIANA App Demo"
-            />
+            {/* Mobile-only iframe (fixed for mobile bezel/safe area) */}
+            <div className="block md:hidden w-full h-full relative">
+              <iframe
+                src="https://appdemo.dianafortheanimals.org/nexus"
+                style={{
+                  position: 'absolute',
+                  top: 0,
+                  left: 0,
+                  width: 'calc(100% / 0.7)',
+                  height: 'calc(100% / 0.7)',
+                  transform: 'scale(0.7)',
+                  transformOrigin: 'top left',
+                  border: 'none',
+                }}
+                loading="eager"
+                title="DIANA App Demo Mobile"
+              />
+            </div>
+
+            {/* Desktop-only iframe (100% untouched original desktop styling) */}
+            <div className="hidden md:block w-full h-full relative">
+              <iframe
+                src="https://appdemo.dianafortheanimals.org/nexus"
+                style={{
+                  position: 'absolute',
+                  top: '50%',
+                  left: '50%',
+                  width: '360px',
+                  height: '720px',
+                  transform: 'translate(-50%, -50%) scale(0.75)',
+                  transformOrigin: 'center center',
+                  border: 'none',
+                }}
+                loading="eager"
+                title="DIANA App Demo Desktop"
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -470,15 +492,15 @@ function ConclusionSlide({ onSecretClick }: { onSecretClick: () => void }) {
       
       <div className="mt-12 space-y-4">
         <p className="font-label-caps tracking-widest text-[var(--color-secondary)]">NEXT STEPS</p>
-        <div className="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-4 w-full max-w-lg mx-auto">
+        <div className="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-6 w-full max-w-5xl mx-auto">
           <div 
             onClick={onSecretClick}
-            className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-primary)] font-medium flex items-center justify-center select-none w-full md:w-auto"
+            className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-primary)] font-medium flex items-center justify-center select-none w-full md:w-auto whitespace-nowrap"
           >
             1. Confirm Seed Commitment
           </div>
-          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto">2. Initiate Equity Setup</div>
-          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto">3. Execute Onboarding Sprint</div>
+          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto whitespace-nowrap">2. Initiate Equity Setup</div>
+          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto whitespace-nowrap">3. Execute Onboarding Sprint</div>
         </div>
       </div>
     </div>
