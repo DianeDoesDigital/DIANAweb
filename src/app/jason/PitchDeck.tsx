@@ -30,13 +30,13 @@ export default function PitchDeck() {
   const isEndSlide = currentSlide >= totalSlides - 2;
 
   return (
-    <div className="relative w-full h-screen bg-ambient-glow overflow-hidden flex flex-col items-center justify-center">
+    <div className="relative w-full min-h-screen bg-ambient-glow overflow-x-hidden flex flex-col items-center justify-center py-16 md:py-0">
       {/* Slide Content */}
-      <div className="w-full max-w-5xl px-8 z-10 transition-all duration-500 ease-in-out h-[80vh] [&>div]:h-full [&>div]:flex [&>div]:flex-col [&>div]:justify-center">
+      <div className="w-full max-w-5xl px-4 md:px-8 z-10 transition-all duration-500 ease-in-out min-h-[75vh] md:h-[80vh] [&>div]:min-h-full md:[&>div]:h-full [&>div]:flex [&>div]:flex-col [&>div]:justify-center">
         {currentSlide === slides.length ? (
           <ConclusionSlide onSecretClick={() => setCurrentSlide(totalSlides - 1)} />
         ) : currentSlide === slides.length + 1 ? (
-          <div className="glass-surface p-16 rounded-3xl text-center space-y-8 transform flex flex-col items-center justify-center h-[80vh]">
+          <div className="glass-surface p-6 md:p-16 rounded-3xl text-center space-y-6 md:space-y-8 transform flex flex-col items-center justify-center min-h-[75vh] md:h-[80vh]">
             <DealCloser />
           </div>
         ) : (
@@ -45,7 +45,7 @@ export default function PitchDeck() {
       </div>
 
       {/* Navigation Controls */}
-      <div className={`absolute bottom-8 left-0 right-0 flex justify-between items-center px-12 z-20 transition-opacity duration-500 ${showNav ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+      <div className={`absolute bottom-4 md:bottom-8 left-0 right-0 flex justify-between items-center px-4 md:px-12 z-20 transition-opacity duration-500 ${showNav ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
         <button
           onClick={prevSlide}
           disabled={currentSlide === 0}
