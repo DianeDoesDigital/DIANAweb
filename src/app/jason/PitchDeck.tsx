@@ -1530,7 +1530,7 @@ const slides = [
       <div className="bg-white/40 p-5 md:p-6 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
         <div>
           <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-2">1. $0 Cost App Transactions</span>
-          <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] mb-3">No Card Swipes In-App</h3>
+          <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] mb-3">No Card Swipes Inside</h3>
           <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
             When users shop at ethical businesses, watch ad double-ups, or send gifts to sanctuaries inside the app, we don&apos;t swipe a credit card every time. We simply adjust digital balances inside our system, which means our daily transaction cost is $0.00.
           </p>
@@ -1543,7 +1543,7 @@ const slides = [
           <span className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest block mb-2">2. Cheap Wallet Loading</span>
           <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-primary)] mb-3">Simple Bank Transfers</h3>
           <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            Instead of paying expensive 3% credit card fees when users load money into their wallet, we encourage simple local bank transfers. Loading $50 only costs us a tiny ~10¢–20¢ flat rate.
+            Instead of paying expensive 3% credit card fees when users load money into their wallet, we encourage simple local bank transfers (like PayID in Australia or GCash in Asia). Loading $50 only costs us a tiny ~10¢–20¢ flat rate.
           </p>
         </div>
       </div>
@@ -1554,7 +1554,7 @@ const slides = [
           <span className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest block mb-2">3. Combined Monthly Payouts</span>
           <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-primary)] mb-3">Pure Profit Margin</h3>
           <p className="font-body-xs text-[var(--color-text-subtle)] leading-relaxed text-xs">
-            Instead of sending thousands of tiny bank transfers every day, we send one combined bank payout to merchants and sanctuaries every month. A $1 bank fee on a $500 payout is practically nothing, leaving our revenue intact as pure profit!
+            Instead of sending thousands of tiny bank transfers every day, we send one combined bank payout to merchants and sanctuaries every two weeks or monthly. A $1 bank fee on a $500 payout is practically nothing, leaving our revenue intact as pure profit!
           </p>
         </div>
       </div>
@@ -1573,7 +1573,13 @@ const slides = [
   // Slide 13: Seed Capital Allocation (Interactive Expandable Cards)
   <SeedAllocationSlide key="slide-10-alloc" />,
 
-  // Slide 14: The Tax Advantage (ESIC)
+  // Slide 14: Flagship Launch Case Study (The 2026 Bali Nemoralia)
+  <NemoraliaCaseStudySlide key="slide-nemoralia" />,
+
+  // Slide 15: The Financial Engine (Reinvestment & Dividends)
+  <FinancialStrategySlide key="slide-financial-engine" />,
+
+  // Slide 16: The Tax Advantage (ESIC)
   <div key="slide-9" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 overflow-y-auto">
     <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">The Tax Advantage (ESIC)</h2>
     <div className="space-y-4 md:space-y-6">
