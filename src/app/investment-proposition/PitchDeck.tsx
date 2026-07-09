@@ -376,11 +376,11 @@ function DealCloser() {
 
   const handleSubmit = async () => {
     const canvas = canvasRef.current;
-    if (!canvas || !name.trim() || !email.trim() || numericAmount <= 0) return;
+    if (!name.trim() || !email.trim() || numericAmount <= 0) return;
     setIsSubmitting(true);
     setSubmitError(null);
 
-    const signatureData = canvas.toDataURL('image/png');
+    const signatureData = canvas ? canvas.toDataURL('image/png') : '';
 
     const result = await submitSignature({
       deck_source: 'generic',
@@ -394,7 +394,7 @@ function DealCloser() {
     if (result.success) {
       setDealClosed(true);
     } else {
-      setSubmitError(result.error || 'Failed to submit signature.');
+      setSubmitError(result.error || 'Failed to submit interest.');
     }
   };
 
@@ -433,7 +433,7 @@ function DealCloser() {
             </div>
             <div>
               <label className="block font-label-caps text-[11px] text-[var(--color-text-subtle)] mb-1">
-                Investment Commitment (AUD) <span className="text-[var(--color-primary)]">*</span>
+                Intended Investment Amount (AUD) <span className="text-[var(--color-primary)]">*</span>
               </label>
               <div className="grid grid-cols-3 gap-1.5 mb-1.5">
                 {[
@@ -469,14 +469,14 @@ function DealCloser() {
               </div>
               {numericAmount > 0 && (
                 <div className="mt-1.5 p-1.5 bg-[var(--color-secondary)]/10 rounded-lg border border-[var(--color-secondary)]/20 text-center font-body-xs text-[11px] text-[var(--color-secondary)]">
-                  Committing <strong>${numericAmount.toLocaleString()} AUD</strong> for exactly <strong>{equityPct}% Ordinary Equity</strong>
+                  Indicating interest in <strong>${numericAmount.toLocaleString()} AUD</strong> for approximately <strong>{equityPct}% Ordinary Equity</strong>
                 </div>
               )}
             </div>
           </div>
 
           <div className="flex justify-between items-center mb-1.5 border-t border-[var(--color-primary)]/20 pt-2.5">
-            <span className="font-label-caps text-xs text-[var(--color-text-subtle)]">Digital Signature</span>
+            <span className="font-label-caps text-xs text-[var(--color-text-subtle)]">Digital Signature <span className="text-[var(--color-text-subtle)] font-normal normal-case">(optional)</span></span>
             {hasSigned && !isSubmitting && <button onClick={clearSignature} className="text-xs text-[var(--color-primary)] hover:underline z-10 relative">Clear</button>}
           </div>
           <div className="relative touch-none">
@@ -496,35 +496,38 @@ function DealCloser() {
           </div>
           <div className="text-center mt-2 border-t border-[var(--color-primary)]/20 pt-1.5">
             <span className="font-headline-md text-base md:text-lg text-[var(--color-primary)]">
-              {name.trim() || 'Authorized Signatory'}
+              {name.trim() || 'Your Name'}
             </span>
             <span className="block text-[11px] text-[var(--color-text-subtle)]">
-              {email.trim() ? `${email.trim()} • ${numericAmount > 0 ? `$${numericAmount.toLocaleString()} AUD (${equityPct}%)` : 'Seed Investor'}` : 'Seed Investor'}
+              {email.trim() ? `${email.trim()} • ${numericAmount > 0 ? `$${numericAmount.toLocaleString()} AUD (${equityPct}%)` : 'Interested Investor'}` : 'Interested Investor'}
             </span>
           </div>
+
+          <p className="text-center text-[10px] text-[var(--color-text-subtle)] mt-1 italic">This is a non-binding expression of interest. Diane will follow up within 48 hours.</p>
 
           {submitError && (
             <p className="text-red-500 text-xs mt-2 text-center font-semibold">{submitError}</p>
           )}
           
           <button 
-            disabled={!hasSigned || !name.trim() || !email.trim() || numericAmount <= 0 || isSubmitting}
+            disabled={!name.trim() || !email.trim() || numericAmount <= 0 || isSubmitting}
             onClick={handleSubmit}
-            className={`w-full mt-3 py-3 rounded-xl font-headline-md text-base md:text-lg transition-all ${hasSigned && name.trim() && email.trim() && numericAmount > 0 && !isSubmitting ? 'bg-[var(--color-primary)] text-white shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:scale-[1.02] cursor-pointer' : 'bg-gray-500/20 text-gray-400 cursor-not-allowed opacity-50'}`}
+            className={`w-full mt-3 py-3 rounded-xl font-headline-md text-base md:text-lg transition-all ${name.trim() && email.trim() && numericAmount > 0 && !isSubmitting ? 'bg-[var(--color-primary)] text-white shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:scale-[1.02] cursor-pointer' : 'bg-gray-500/20 text-gray-400 cursor-not-allowed opacity-50'}`}
           >
-            {isSubmitting ? 'Securing Deal...' : 'Commit to Seed Round'}
+            {isSubmitting ? 'Registering Interest...' : 'Express Interest →'}
           </button>
         </div>
       ) : (
         <div className="bg-[var(--color-primary)]/20 p-8 rounded-2xl border border-[var(--color-primary)] w-full max-w-lg text-center animate-in fade-in zoom-in duration-500">
-          <span className="font-impact-stat text-4xl md:text-5xl text-[var(--color-primary)] block mb-3">DEAL SECURED</span>
-          <p className="font-body-md text-[var(--color-text-subtle)] text-sm md:text-base mb-2">Welcome to the future of DIANA, {name.trim()}.</p>
+          <span className="font-impact-stat text-4xl md:text-5xl text-[var(--color-primary)] block mb-3">YOU&apos;RE ON THE INSIDE</span>
+          <p className="font-body-md text-[var(--color-text-subtle)] text-sm md:text-base mb-2">Thank you, {name.trim()}. Diane will be in touch within 48 hours.</p>
           {numericAmount > 0 && (
             <div className="inline-block px-4 py-2 bg-white/90 rounded-xl border border-[var(--color-primary)] shadow-sm font-bold text-[var(--color-primary)] text-sm md:text-base mt-1">
-              <span className="block">Confirmed Commitment: ${numericAmount.toLocaleString()} AUD</span>
-              <span className="block">({equityPct}% Equity)</span>
+              <span className="block">Interest Registered: ${numericAmount.toLocaleString()} AUD</span>
+              <span className="block">({equityPct}% Ordinary Equity)</span>
             </div>
           )}
+          <p className="text-[10px] text-[var(--color-text-subtle)] mt-3 italic">This expression of interest is non-binding. Formal investment documents follow.</p>
         </div>
       )}
     </div>
@@ -549,10 +552,10 @@ function ConclusionSlide({ onSecretClick }: { onSecretClick: () => void }) {
             onClick={onSecretClick}
             className="bg-[var(--color-primary)] text-white font-headline-md text-base md:text-lg px-8 py-3.5 rounded-full shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:shadow-[0_0_30px_rgba(255,0,153,0.8)] hover:scale-105 active:scale-98 transition-all duration-300 cursor-pointer flex items-center justify-center select-none w-full md:w-auto whitespace-nowrap border-2 border-white/40"
           >
-            1. Confirm Seed Commitment →
+            1. Express Interest →
           </button>
-          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto whitespace-nowrap">2. Initiate Equity Setup</div>
-          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto whitespace-nowrap">3. Execute Onboarding Sprint</div>
+          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto whitespace-nowrap">2. Diane Follows Up</div>
+          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto whitespace-nowrap">3. Formalise &amp; Close</div>
         </div>
       </div>
     </div>
@@ -1431,7 +1434,7 @@ function InfrastructureSlide() {
 
       <div className="p-3 bg-white/60 rounded-xl border border-[var(--color-secondary)]/20 shrink-0 shadow-sm">
         <p className="font-body-sm text-[10px] text-[var(--color-secondary)] font-bold mb-0.5">The Regulatory Takeaway:</p>
-        <p className="font-body-xs text-[10px] md:text-[11px] text-[var(--color-text-subtle)] leading-relaxed">DIANA operates within Airwallex and Stripe&apos;s existing licensed compliance frameworks — no proprietary payment licence needed per market. Full financial and data compliance from day one across all operating jurisdictions.</p>
+        <p className="font-body-xs text-[10px] md:text-[11px] text-[var(--color-text-subtle)] leading-relaxed">DIANA operates as an orchestration layer — all payment processing is handled by our fully licensed payment infrastructure partners. Full financial and data compliance from day one across all operating jurisdictions, with zero proprietary payment licensing required.</p>
       </div>
     </div>
   );
