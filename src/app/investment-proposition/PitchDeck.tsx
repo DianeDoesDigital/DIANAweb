@@ -600,7 +600,7 @@ function DividendTriggerSlide() {
             <span className="text-2xl shrink-0">💸</span>
             <div>
               <p className="font-label-caps text-[10px] text-[var(--color-secondary)] tracking-wider mb-1">Result</p>
-              <p className="font-body-sm text-sm text-[var(--color-text)] font-semibold mb-1">Dividends Begin</p>
+              <p className="font-body-sm text-sm text-[var(--color-text)] font-semibold mb-1">You Start Receiving Dividends</p>
               <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">Whichever milestone is reached first triggers the payout engine — cash hits shareholder accounts.</p>
             </div>
           </div>
