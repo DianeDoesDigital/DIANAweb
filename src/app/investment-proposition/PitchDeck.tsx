@@ -1488,56 +1488,67 @@ function InfrastructureSlide() {
 
 function TamSlide() {
   return (
-    <div className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 flex flex-col justify-center h-full relative border-4 border-[var(--color-primary)]/40 overflow-y-auto">
+    <div className="glass-surface p-6 md:p-12 rounded-3xl space-y-4 md:space-y-5 flex flex-col justify-center h-full relative border-4 border-[var(--color-primary)]/40 overflow-y-auto">
       <div>
-        <span className="font-label-caps text-xs md:text-sm text-[var(--color-secondary)] tracking-widest uppercase block mb-1">Market Scope &amp; Ceiling</span>
-        <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)]">Total Addressable Market</h2>
-        <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)] mt-1 max-w-3xl leading-relaxed">
+        <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">Total Addressable Market</h2>
+        <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)] leading-relaxed max-w-3xl">
           Across Australia, the Philippines, and Indonesia, over <strong>15 million active ethical and plant-based consumers</strong> spend tens of billions annually. Our initial 1,000-user commercial target represents <strong>less than 0.01%</strong> of our primary addressable audience.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        <div className="bg-white/70 p-5 rounded-2xl border border-[var(--color-border-main)] flex flex-col justify-between shadow-sm">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+        <div className="bg-white/70 p-4 md:p-5 rounded-2xl border border-[var(--color-border-main)] flex flex-col justify-between shadow-sm">
           <div>
-            <span className="text-2xl mb-2 block">🇦🇺</span>
-            <span className="font-label-caps text-[11px] text-[var(--color-primary)] tracking-wider">Australia</span>
-            <h3 className="font-impact-stat text-2xl md:text-3xl text-[var(--color-text)] my-1">2.8M+ Consumers</h3>
+            <div className="flex items-center justify-between border-b border-gray-100 pb-2 mb-2.5">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">🇦🇺</span>
+                <span className="font-headline-md text-base md:text-lg text-[var(--color-primary)] font-bold">Australia</span>
+              </div>
+              <span className="text-[10px] font-bold text-[var(--color-secondary)] uppercase tracking-wider bg-[var(--color-secondary)]/10 px-2 py-0.5 rounded-full">High ARPU</span>
+            </div>
+            <h3 className="font-impact-stat text-2xl md:text-3xl text-[var(--color-text)] mb-1.5">2.8M+ Consumers</h3>
             <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">Consistently ranked in the world&apos;s top 3 markets for vegan and ethical living, with exceptionally high average per-capita discretionary spend.</p>
           </div>
-          <div className="mt-3 pt-2 border-t border-gray-100 text-[10px] font-bold text-[var(--color-secondary)] uppercase tracking-wider">High ARPU Launch Pad</div>
         </div>
 
-        <div className="bg-white/70 p-5 rounded-2xl border border-[var(--color-border-main)] flex flex-col justify-between shadow-sm">
+        <div className="bg-white/70 p-4 md:p-5 rounded-2xl border border-[var(--color-border-main)] flex flex-col justify-between shadow-sm">
           <div>
-            <span className="text-2xl mb-2 block">🇵🇭</span>
-            <span className="font-label-caps text-[11px] text-[var(--color-primary)] tracking-wider">Philippines</span>
-            <h3 className="font-impact-stat text-2xl md:text-3xl text-[var(--color-text)] my-1">5.5M+ Consumers</h3>
+            <div className="flex items-center justify-between border-b border-gray-100 pb-2 mb-2.5">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">🇵🇭</span>
+                <span className="font-headline-md text-base md:text-lg text-[var(--color-primary)] font-bold">Philippines</span>
+              </div>
+              <span className="text-[10px] font-bold text-[var(--color-secondary)] uppercase tracking-wider bg-[var(--color-secondary)]/10 px-2 py-0.5 rounded-full">Grassroots</span>
+            </div>
+            <h3 className="font-impact-stat text-2xl md:text-3xl text-[var(--color-text)] mb-1.5">5.5M+ Consumers</h3>
             <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">One of Southeast Asia&apos;s fastest-growing ethical consumer movements, anchored by dedicated animal advocacy communities and organic merchant adoption.</p>
           </div>
-          <div className="mt-3 pt-2 border-t border-gray-100 text-[10px] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Grassroots Hub</div>
         </div>
 
-        <div className="bg-white/70 p-5 rounded-2xl border border-[var(--color-border-main)] flex flex-col justify-between shadow-sm">
+        <div className="bg-white/70 p-4 md:p-5 rounded-2xl border border-[var(--color-border-main)] flex flex-col justify-between shadow-sm">
           <div>
-            <span className="text-2xl mb-2 block">🇮🇩</span>
-            <span className="font-label-caps text-[11px] text-[var(--color-primary)] tracking-wider">Indonesia (Bali Hub)</span>
-            <h3 className="font-impact-stat text-2xl md:text-3xl text-[var(--color-text)] my-1">7.0M+ Consumers</h3>
+            <div className="flex items-center justify-between border-b border-gray-100 pb-2 mb-2.5">
+              <div className="flex items-center gap-2">
+                <span className="text-lg">🇮🇩</span>
+                <span className="font-headline-md text-base md:text-lg text-[var(--color-primary)] font-bold">Indonesia</span>
+              </div>
+              <span className="text-[10px] font-bold text-[var(--color-secondary)] uppercase tracking-wider bg-[var(--color-secondary)]/10 px-2 py-0.5 rounded-full">Global Hub</span>
+            </div>
+            <h3 className="font-impact-stat text-2xl md:text-3xl text-[var(--color-text)] mb-1.5">7.0M+ Consumers</h3>
             <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">Bali serves as the global epicenter for international wellness travelers and plant-based tourism, driving continuous borderless payment volume.</p>
           </div>
-          <div className="mt-3 pt-2 border-t border-gray-100 text-[10px] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Global Tourism Gateway</div>
         </div>
       </div>
 
-      <div className="p-4 md:p-5 bg-gradient-to-r from-[var(--color-primary)]/10 to-[var(--color-secondary)]/10 rounded-2xl border border-[var(--color-primary)]/30 flex flex-col md:flex-row items-center justify-between gap-3">
+      <div className="p-3.5 md:p-4 bg-gradient-to-r from-[var(--color-primary)]/10 to-[var(--color-secondary)]/10 rounded-2xl border border-[var(--color-primary)]/30 flex flex-col md:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-3 text-center md:text-left">
-          <span className="text-2xl md:text-3xl shrink-0">🎯</span>
+          <span className="text-2xl shrink-0">🎯</span>
           <div>
             <h4 className="font-headline-md text-sm md:text-base text-[var(--color-primary)] font-bold">The 0.01% Penetration Baseline</h4>
             <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">Even capturing just 1 out of every 15,000 target consumers across our launch regions fully self-sustains our software architecture and generates regular shareholder dividends.</p>
           </div>
         </div>
-        <div className="bg-white/90 px-4 py-2 rounded-xl border border-[var(--color-primary)]/40 font-bold text-center shrink-0">
+        <div className="bg-white/90 px-4 py-1.5 rounded-xl border border-[var(--color-primary)]/40 font-bold text-center shrink-0">
           <span className="block text-xs text-[var(--color-text-subtle)]">Total Scope</span>
           <span className="text-base md:text-lg text-[var(--color-primary)]">15.3M+ Consumers</span>
         </div>
@@ -1548,45 +1559,56 @@ function TamSlide() {
 
 function SanctuaryStandardsSlide() {
   return (
-    <div className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 flex flex-col justify-center h-full relative border-4 border-[var(--color-primary)]/40 overflow-y-auto">
+    <div className="glass-surface p-6 md:p-12 rounded-3xl space-y-4 md:space-y-5 flex flex-col justify-center h-full relative border-4 border-[var(--color-primary)]/40 overflow-y-auto">
       <div>
-        <span className="font-label-caps text-xs md:text-sm text-[var(--color-secondary)] tracking-widest uppercase block mb-1">Impact Accountability</span>
-        <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)]">Sanctuary Vetting &amp; Integrity</h2>
-        <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)] mt-1 max-w-3xl leading-relaxed">
+        <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">Sanctuary Vetting &amp; Integrity</h2>
+        <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)] leading-relaxed max-w-3xl">
           How we guarantee every dollar of the 5% sanctuary pledge reaches frontline animal rescue and lifelong care, never administrative waste.
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-        <div className="bg-white/80 p-5 rounded-2xl border border-[var(--color-primary)]/20 flex flex-col justify-between shadow-sm">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
+        <div className="bg-white/80 p-4 md:p-5 rounded-2xl border border-[var(--color-primary)]/20 flex flex-col justify-between shadow-sm">
           <div>
-            <span className="text-2xl mb-2 block">🛡️</span>
-            <h3 className="font-headline-md text-base md:text-lg text-[var(--color-primary)] mb-2">No Exploitation</h3>
+            <div className="flex items-center justify-between border-b border-[var(--color-primary)]/10 pb-2 mb-2">
+              <div className="flex items-center gap-2">
+                <span className="text-xl">🛡️</span>
+                <h3 className="font-headline-md text-base md:text-lg text-[var(--color-primary)] font-bold">No Exploitation</h3>
+              </div>
+            </div>
             <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">We strictly support havens for rescued animals where residents are always treated with dignity and respect, and never bred, traded, or used as commodities for commercial exploitation.</p>
           </div>
-          <span className="mt-3 pt-2 border-t border-[var(--color-primary)]/10 text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider">Absolute Prerequisite</span>
+          <span className="mt-2.5 pt-2 border-t border-[var(--color-primary)]/10 text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider">Absolute Prerequisite</span>
         </div>
 
-        <div className="bg-white/80 p-5 rounded-2xl border border-[var(--color-secondary)]/20 flex flex-col justify-between shadow-sm">
+        <div className="bg-white/80 p-4 md:p-5 rounded-2xl border border-[var(--color-secondary)]/20 flex flex-col justify-between shadow-sm">
           <div>
-            <span className="text-2xl mb-2 block">❤️</span>
-            <h3 className="font-headline-md text-base md:text-lg text-[var(--color-secondary)] mb-2">Lifetime Care</h3>
+            <div className="flex items-center justify-between border-b border-[var(--color-secondary)]/10 pb-2 mb-2">
+              <div className="flex items-center gap-2">
+                <span className="text-xl">❤️</span>
+                <h3 className="font-headline-md text-base md:text-lg text-[var(--color-secondary)] font-bold">Lifetime Care</h3>
+              </div>
+            </div>
             <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">Our partner sanctuaries must demonstrate a permanent commitment to the lifelong well-being of every resident, providing dedicated veterinary attention, spacious habitat, and daily enrichment.</p>
           </div>
-          <span className="mt-3 pt-2 border-t border-[var(--color-secondary)]/10 text-[10px] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Continuous Standard</span>
+          <span className="mt-2.5 pt-2 border-t border-[var(--color-secondary)]/10 text-[10px] font-bold text-[var(--color-secondary)] uppercase tracking-wider">Continuous Standard</span>
         </div>
 
-        <div className="bg-white/80 p-5 rounded-2xl border border-[var(--color-primary)]/20 flex flex-col justify-between shadow-sm">
+        <div className="bg-white/80 p-4 md:p-5 rounded-2xl border border-[var(--color-primary)]/20 flex flex-col justify-between shadow-sm">
           <div>
-            <span className="text-2xl mb-2 block">🔍</span>
-            <h3 className="font-headline-md text-base md:text-lg text-[var(--color-primary)] mb-2">100% Direct Transparency</h3>
+            <div className="flex items-center justify-between border-b border-[var(--color-primary)]/10 pb-2 mb-2">
+              <div className="flex items-center gap-2">
+                <span className="text-xl">🔍</span>
+                <h3 className="font-headline-md text-base md:text-lg text-[var(--color-primary)] font-bold">100% Direct Transparency</h3>
+              </div>
+            </div>
             <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">Every participating sanctuary undergoes mandatory legal verification of registered non-profit/charitable status in their jurisdiction, with verifiable accounting of direct animal support.</p>
           </div>
-          <span className="mt-3 pt-2 border-t border-[var(--color-primary)]/10 text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider">Verified Governance</span>
+          <span className="mt-2.5 pt-2 border-t border-[var(--color-primary)]/10 text-[10px] font-bold text-[var(--color-primary)] uppercase tracking-wider">Verified Governance</span>
         </div>
       </div>
 
-      <div className="p-4 md:p-5 bg-white/60 rounded-2xl border border-[var(--color-border-main)] flex flex-col md:flex-row items-center justify-between gap-4">
+      <div className="p-3.5 md:p-4 bg-white/60 rounded-2xl border border-[var(--color-border-main)] flex flex-col md:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <span className="text-2xl shrink-0">🏛️</span>
           <div>
@@ -1594,7 +1616,7 @@ function SanctuaryStandardsSlide() {
             <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">Funds aggregate automatically with every network transaction and are transferred directly via verified bank payout at the close of each cycle. Zero intermediary fees or fundraising overhead.</p>
           </div>
         </div>
-        <div className="px-3.5 py-1.5 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-xs font-bold whitespace-nowrap">
+        <div className="px-3 py-1 bg-[var(--color-primary)]/10 text-[var(--color-primary)] rounded-full text-xs font-bold whitespace-nowrap shrink-0">
           Live On-Platform Ledger
         </div>
       </div>
