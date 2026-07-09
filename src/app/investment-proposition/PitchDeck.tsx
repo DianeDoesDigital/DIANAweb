@@ -376,7 +376,7 @@ function DealCloser() {
 
   const handleSubmit = async () => {
     const canvas = canvasRef.current;
-    if (!name.trim() || !email.trim() || numericAmount <= 0) return;
+    if (!name.trim() || !email.trim() || numericAmount <= 0 || !hasSigned) return;
     setIsSubmitting(true);
     setSubmitError(null);
 
@@ -476,7 +476,7 @@ function DealCloser() {
           </div>
 
           <div className="flex justify-between items-center mb-1.5 border-t border-[var(--color-primary)]/20 pt-2.5">
-            <span className="font-label-caps text-xs text-[var(--color-text-subtle)]">Digital Signature <span className="text-[var(--color-text-subtle)] font-normal normal-case">(optional)</span></span>
+            <span className="font-label-caps text-xs text-[var(--color-text-subtle)]">Digital Signature <span className="text-[var(--color-primary)]">*</span></span>
             {hasSigned && !isSubmitting && <button onClick={clearSignature} className="text-xs text-[var(--color-primary)] hover:underline z-10 relative">Clear</button>}
           </div>
           <div className="relative touch-none">
@@ -503,24 +503,25 @@ function DealCloser() {
             </span>
           </div>
 
-          <p className="text-center text-[10px] text-[var(--color-text-subtle)] mt-1 italic">This is a non-binding expression of interest. Diane will follow up within 48 hours.</p>
+          <p className="text-center text-[10px] text-[var(--color-text-subtle)] mt-1 italic">This is a non-binding expression of interest. We&apos;ll be in touch within 48 hours.</p>
 
           {submitError && (
             <p className="text-red-500 text-xs mt-2 text-center font-semibold">{submitError}</p>
           )}
           
           <button 
-            disabled={!name.trim() || !email.trim() || numericAmount <= 0 || isSubmitting}
+            disabled={!name.trim() || !email.trim() || numericAmount <= 0 || !hasSigned || isSubmitting}
             onClick={handleSubmit}
-            className={`w-full mt-3 py-3 rounded-xl font-headline-md text-base md:text-lg transition-all ${name.trim() && email.trim() && numericAmount > 0 && !isSubmitting ? 'bg-[var(--color-primary)] text-white shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:scale-[1.02] cursor-pointer' : 'bg-gray-500/20 text-gray-400 cursor-not-allowed opacity-50'}`}
+            className={`w-full mt-3 py-3 rounded-xl font-headline-md text-base md:text-lg transition-all ${name.trim() && email.trim() && numericAmount > 0 && hasSigned && !isSubmitting ? 'bg-[var(--color-primary)] text-white shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:scale-[1.02] cursor-pointer' : 'bg-gray-500/20 text-gray-400 cursor-not-allowed opacity-50'}`}
           >
-            {isSubmitting ? 'Registering Interest...' : 'Express Interest →'}
+            {isSubmitting ? 'Registering Interest...' : 'Express Interest'}
           </button>
         </div>
       ) : (
         <div className="bg-[var(--color-primary)]/20 p-8 rounded-2xl border border-[var(--color-primary)] w-full max-w-lg text-center animate-in fade-in zoom-in duration-500">
-          <span className="font-impact-stat text-4xl md:text-5xl text-[var(--color-primary)] block mb-3">YOU&apos;RE ON THE INSIDE</span>
-          <p className="font-body-md text-[var(--color-text-subtle)] text-sm md:text-base mb-2">Thank you, {name.trim()}. Diane will be in touch within 48 hours.</p>
+          <img src="/diana-logo.png" alt="DIANA Logo" className="h-16 md:h-20 w-auto mx-auto mb-3 drop-shadow-md" />
+          <span className="font-impact-stat text-3xl md:text-4xl text-[var(--color-primary)] block mb-3">YOU&apos;RE ON THE INSIDE</span>
+          <p className="font-body-md text-[var(--color-text-subtle)] text-sm md:text-base mb-2">Thank you, {name.trim()}. We&apos;ll be in touch within 48 hours.</p>
           {numericAmount > 0 && (
             <div className="inline-block px-4 py-2 bg-white/90 rounded-xl border border-[var(--color-primary)] shadow-sm font-bold text-[var(--color-primary)] text-sm md:text-base mt-1">
               <span className="block">Interest Registered: ${numericAmount.toLocaleString()} AUD</span>
