@@ -614,8 +614,8 @@ function GrowthEngineSlide() {
   return (
     <div className="glass-surface p-6 md:px-12 md:py-8 rounded-3xl flex flex-col justify-between space-y-3 md:space-y-4 h-full relative border-4 border-[var(--color-primary)]/40 overflow-y-auto">
       <div className="shrink-0">
-        <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)]">The 80/20 Growth Engine</h2>
-        <p className="font-body-sm md:font-body-md text-[var(--color-secondary)] mt-1">Net profit projections across three user growth tiers, split between aggressive reinvestment and liquid cash dividends.</p>
+        <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)]">Projected Returns at Scale</h2>
+        <p className="font-body-sm md:font-body-md text-[var(--color-secondary)] mt-1">Net profit projections across three user growth tiers — illustrating how profits split between reinvestment and liquid cash dividends as DIANA scales.</p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 items-stretch shrink-0 my-auto">
@@ -694,10 +694,10 @@ function GrowthEngineSlide() {
 
       <div className="p-3.5 md:p-4 bg-white/60 rounded-xl border border-[var(--color-secondary)]/20 text-left shrink-0 shadow-sm">
         <p className="font-body-sm text-xs text-[var(--color-secondary)] font-bold mb-0.5">
-          The 80/20 Growth Engine Takeaway:
+          The Reinvestment Principle (Illustrative):
         </p>
         <p className="font-body-sm text-xs text-[var(--color-text-subtle)]">
-          80% goes back into growing the app to aggressively drive our total valuation toward $5,000,000+, while 20% is paid out as regular cash hitting shareholder bank accounts ASAP.
+          The majority of profits reinvest into growing the platform — driving our total valuation toward $5,000,000+. The remainder distributes as regular cash dividends to shareholders. Exact percentages are agreed upon at the dividend trigger milestone.
         </p>
       </div>
     </div>
