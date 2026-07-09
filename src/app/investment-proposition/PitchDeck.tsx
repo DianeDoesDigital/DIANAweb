@@ -298,6 +298,7 @@ function DealCloser() {
   const [submitError, setSubmitError] = React.useState<string | null>(null);
   const [name, setName] = React.useState('');
   const [email, setEmail] = React.useState('');
+  const [amount, setAmount] = React.useState('25000');
 
   React.useEffect(() => {
     const canvas = canvasRef.current;
@@ -370,9 +371,12 @@ function DealCloser() {
     setSubmitError(null);
   };
 
+  const numericAmount = parseFloat(amount) || 0;
+  const equityPct = numericAmount > 0 ? Number((numericAmount / 10000).toFixed(2)) : 0;
+
   const handleSubmit = async () => {
     const canvas = canvasRef.current;
-    if (!canvas || !name.trim() || !email.trim()) return;
+    if (!canvas || !name.trim() || !email.trim() || numericAmount <= 0) return;
     setIsSubmitting(true);
     setSubmitError(null);
 
@@ -382,8 +386,8 @@ function DealCloser() {
       deck_source: 'generic',
       investor_label: `${name.trim()} (${email.trim()})`,
       signature_data: signatureData,
-      investment_amount_aud: null,
-      equity_percentage: null
+      investment_amount_aud: numericAmount,
+      equity_percentage: equityPct
     });
 
     setIsSubmitting(false);
@@ -400,7 +404,7 @@ function DealCloser() {
       
       {!dealClosed ? (
         <div className="bg-white/10 p-4 md:p-5 rounded-2xl border border-[var(--color-primary)]/30 w-full max-w-lg">
-          <div className="space-y-2 mb-3 text-left">
+          <div className="space-y-2.5 mb-3 text-left">
             <div>
               <label className="block font-label-caps text-[11px] text-[var(--color-text-subtle)] mb-1">
                 Full Name <span className="text-[var(--color-primary)]">*</span>
@@ -426,6 +430,48 @@ function DealCloser() {
                 disabled={isSubmitting}
                 className="w-full px-3.5 py-1.5 rounded-xl bg-white/80 border border-[var(--color-border-main)] focus:border-[var(--color-primary)] focus:outline-none text-xs md:text-sm text-[var(--color-text)] placeholder-gray-400 font-body-sm transition-colors"
               />
+            </div>
+            <div>
+              <label className="block font-label-caps text-[11px] text-[var(--color-text-subtle)] mb-1">
+                Investment Commitment (AUD) <span className="text-[var(--color-primary)]">*</span>
+              </label>
+              <div className="grid grid-cols-3 gap-1.5 mb-1.5">
+                {[
+                  { label: '$10K (1%)', value: '10000' },
+                  { label: '$25K (2.5%)', value: '25000' },
+                  { label: '$50K (5%)', value: '50000' },
+                ].map((tier) => (
+                  <button
+                    key={tier.value}
+                    type="button"
+                    onClick={() => setAmount(tier.value)}
+                    disabled={isSubmitting}
+                    className={`py-1 px-2 rounded-lg text-xs font-bold font-label-caps transition-all ${
+                      amount === tier.value
+                        ? 'bg-[var(--color-primary)] text-white shadow-sm scale-[1.02]'
+                        : 'bg-white/80 text-[var(--color-text)] border border-[var(--color-border-main)] hover:border-[var(--color-primary)]'
+                    }`}
+                  >
+                    {tier.label}
+                  </button>
+                ))}
+              </div>
+              <div className="relative">
+                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs md:text-sm text-[var(--color-text-subtle)] font-bold">$</span>
+                <input
+                  type="number"
+                  value={amount}
+                  onChange={(e) => setAmount(e.target.value)}
+                  placeholder="Enter amount (AUD)"
+                  disabled={isSubmitting}
+                  className="w-full pl-7 pr-3.5 py-1.5 rounded-xl bg-white/80 border border-[var(--color-border-main)] focus:border-[var(--color-primary)] focus:outline-none text-xs md:text-sm text-[var(--color-text)] placeholder-gray-400 font-body-sm transition-colors"
+                />
+              </div>
+              {numericAmount > 0 && (
+                <div className="mt-1.5 p-1.5 bg-[var(--color-secondary)]/10 rounded-lg border border-[var(--color-secondary)]/20 text-center font-body-xs text-[11px] text-[var(--color-secondary)]">
+                  Committing <strong>${numericAmount.toLocaleString()} AUD</strong> for exactly <strong>{equityPct}% Ordinary Equity</strong>
+                </div>
+              )}
             </div>
           </div>
 
@@ -453,7 +499,7 @@ function DealCloser() {
               {name.trim() || 'Authorized Signatory'}
             </span>
             <span className="block text-[11px] text-[var(--color-text-subtle)]">
-              {email.trim() || 'Seed Investor'}
+              {email.trim() ? `${email.trim()} • ${numericAmount > 0 ? `$${numericAmount.toLocaleString()} AUD (${equityPct}%)` : 'Seed Investor'}` : 'Seed Investor'}
             </span>
           </div>
 
@@ -462,17 +508,22 @@ function DealCloser() {
           )}
           
           <button 
-            disabled={!hasSigned || !name.trim() || !email.trim() || isSubmitting}
+            disabled={!hasSigned || !name.trim() || !email.trim() || numericAmount <= 0 || isSubmitting}
             onClick={handleSubmit}
-            className={`w-full mt-3 py-3 rounded-xl font-headline-md text-base md:text-lg transition-all ${hasSigned && name.trim() && email.trim() && !isSubmitting ? 'bg-[var(--color-primary)] text-white shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:scale-[1.02] cursor-pointer' : 'bg-gray-500/20 text-gray-400 cursor-not-allowed opacity-50'}`}
+            className={`w-full mt-3 py-3 rounded-xl font-headline-md text-base md:text-lg transition-all ${hasSigned && name.trim() && email.trim() && numericAmount > 0 && !isSubmitting ? 'bg-[var(--color-primary)] text-white shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:scale-[1.02] cursor-pointer' : 'bg-gray-500/20 text-gray-400 cursor-not-allowed opacity-50'}`}
           >
             {isSubmitting ? 'Securing Deal...' : 'Commit to Seed Round'}
           </button>
         </div>
       ) : (
         <div className="bg-[var(--color-primary)]/20 p-8 rounded-2xl border border-[var(--color-primary)] w-full max-w-lg text-center animate-in fade-in zoom-in duration-500">
-          <span className="font-impact-stat text-5xl text-[var(--color-primary)] block mb-4">DEAL SECURED</span>
-          <p className="font-body-md text-[var(--color-text-subtle)]">Welcome to the future of DIANA.</p>
+          <span className="font-impact-stat text-4xl md:text-5xl text-[var(--color-primary)] block mb-3">DEAL SECURED</span>
+          <p className="font-body-md text-[var(--color-text-subtle)] text-sm md:text-base mb-2">Welcome to the future of DIANA, {name.trim()}.</p>
+          {numericAmount > 0 && (
+            <div className="inline-block px-4 py-2 bg-white/90 rounded-xl border border-[var(--color-primary)] shadow-sm font-bold text-[var(--color-primary)] text-sm md:text-base mt-1">
+              Confirmed Commitment: ${numericAmount.toLocaleString()} AUD ({equityPct}% Equity)
+            </div>
+          )}
         </div>
       )}
     </div>
@@ -595,7 +646,7 @@ function FinancialStrategySlide() {
         </div>
       </div>
 
-      <div className="p-3.5 md:p-4 bg-white/60 rounded-xl border border-[var(--color-secondary)]/20 text-left shrink-0 shadow-sm">
+      <div className="p-3.5 md:p-4 bg-white/60 rounded-xl border border-[var(--color-secondary)]/20 text-left shrink-0 shadow-sm mt-4 md:mt-0">
         <p className="font-body-sm text-xs text-[var(--color-secondary)] font-bold mb-0.5">
           The 80/20 Growth Engine Takeaway:
         </p>
@@ -631,15 +682,15 @@ function NemoraliaCaseStudySlide() {
             className="bg-white/95 p-4 md:p-5 rounded-2xl border-t-8 border-[var(--color-secondary)] shadow-2xl flex flex-col justify-between w-full h-full text-left cursor-pointer animate-fadeIn transition-all overflow-y-auto"
           >
             <div>
-              <div className="flex justify-between items-center mb-2.5 border-b border-gray-200 pb-2 flex-wrap gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-xl md:text-2xl">⚡</span>
-                  <h3 className="font-headline-lg text-lg md:text-xl font-bold text-[var(--color-secondary)]">
+              <div className="flex justify-between items-center mb-2.5 border-b border-gray-200 pb-2 gap-1 md:gap-2 md:flex-wrap">
+                <div className="flex items-center gap-1 md:gap-2 shrink min-w-0">
+                  <span className="text-lg md:text-2xl shrink-0">⚡</span>
+                  <h3 className="font-headline-lg text-[15px] sm:text-base md:text-xl font-bold text-[var(--color-secondary)] truncate md:overflow-visible">
                     Home Activation: Good Food Sundays
                   </h3>
                 </div>
                 <div>
-                  <span className="font-impact-stat text-base md:text-lg text-[var(--color-primary)]">~$100 AUD</span>
+                  <span className="font-impact-stat text-[13px] md:text-lg text-[var(--color-primary)] whitespace-nowrap shrink-0">~$100 AUD</span>
                 </div>
               </div>
 
@@ -665,15 +716,15 @@ function NemoraliaCaseStudySlide() {
             className="bg-white/95 p-4 md:p-5 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-2xl flex flex-col justify-between w-full h-full text-left cursor-pointer animate-fadeIn transition-all overflow-y-auto"
           >
             <div>
-              <div className="flex justify-between items-center mb-2 border-b border-gray-200 pb-1.5 flex-wrap gap-2">
-                <div className="flex items-center gap-2">
-                  <span className="text-xl md:text-2xl">🔥</span>
-                  <h3 className="font-headline-lg text-base md:text-lg font-bold text-[var(--color-primary)]">
+              <div className="flex justify-between items-center mb-2 border-b border-gray-200 pb-1.5 gap-1 md:gap-2 md:flex-wrap">
+                <div className="flex items-center gap-1 md:gap-2 shrink min-w-0">
+                  <span className="text-lg md:text-2xl shrink-0">🔥</span>
+                  <h3 className="font-headline-lg text-[15px] sm:text-base md:text-lg font-bold text-[var(--color-primary)] truncate md:overflow-visible">
                     Launch Festival: The Nemoralia
                   </h3>
                 </div>
                 <div>
-                  <span className="font-impact-stat text-base md:text-lg text-[var(--color-secondary)]">~$2K–$4K AUD</span>
+                  <span className="font-impact-stat text-[13px] md:text-lg text-[var(--color-secondary)] whitespace-nowrap shrink-0">~$2K–$4K AUD</span>
                 </div>
               </div>
 
@@ -705,12 +756,12 @@ function NemoraliaCaseStudySlide() {
                 className="bg-white/60 hover:bg-white/90 p-3.5 md:p-4 rounded-2xl border-t-8 border-[var(--color-secondary)] shadow-md hover:shadow-lg flex flex-col justify-between transition-all duration-200 cursor-pointer transform hover:-translate-y-1"
               >
                 <div>
-                  <div className="flex justify-between items-center mb-1.5 flex-wrap gap-1.5">
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-2xl md:text-3xl">⚡</span>
-                      <h3 className="font-headline-md text-xl md:text-2xl font-bold text-[var(--color-secondary)]">Home Activation</h3>
+                  <div className="flex justify-between items-center mb-1.5 gap-1 md:gap-1.5 md:flex-wrap">
+                    <div className="flex items-center gap-1 md:gap-1.5 shrink min-w-0">
+                      <span className="text-lg md:text-3xl shrink-0">⚡</span>
+                      <h3 className="font-headline-md text-[15px] sm:text-lg md:text-2xl font-bold text-[var(--color-secondary)] truncate md:overflow-visible">Home Activation</h3>
                     </div>
-                    <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-primary)] uppercase tracking-wider shrink-0">
+                    <span className="text-[9px] md:text-[11px] font-bold text-[var(--color-primary)] uppercase tracking-wider shrink-0 whitespace-nowrap">
                       AUG 2 &amp; 9 • <span className="md:hidden">MNL</span><span className="hidden md:inline">MANILA</span>
                     </span>
                   </div>
@@ -725,12 +776,12 @@ function NemoraliaCaseStudySlide() {
                 className="bg-white/60 hover:bg-white/90 p-3.5 md:p-4 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-md hover:shadow-lg flex flex-col justify-between transition-all duration-200 cursor-pointer transform hover:-translate-y-1"
               >
                 <div>
-                  <div className="flex justify-between items-center mb-1.5 flex-wrap gap-1.5">
-                    <div className="flex items-center gap-1.5">
-                      <span className="text-xl md:text-2xl">🔥</span>
-                      <h3 className="font-headline-md text-xl md:text-2xl font-bold text-[var(--color-primary)]">Launch Festival</h3>
+                  <div className="flex justify-between items-center mb-1.5 gap-1 md:gap-1.5 md:flex-wrap">
+                    <div className="flex items-center gap-1 md:gap-1.5 shrink min-w-0">
+                      <span className="text-lg md:text-2xl shrink-0">🔥</span>
+                      <h3 className="font-headline-md text-[15px] sm:text-lg md:text-2xl font-bold text-[var(--color-primary)] truncate md:overflow-visible">Launch Festival</h3>
                     </div>
-                    <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-secondary)] uppercase tracking-wider shrink-0">AUG 13–15 • BALI</span>
+                    <span className="text-[9px] md:text-[11px] font-bold text-[var(--color-secondary)] uppercase tracking-wider shrink-0 whitespace-nowrap">AUG 13–15 • BALI</span>
                   </div>
                   <p className="font-body-sm text-[12px] md:text-[13px] text-[var(--color-text)] leading-relaxed">
                     Our official international debut in Asia&apos;s vegan capital comes to life as The Nemoralia, a 3-day gathering patterned after the ancient Roman festival honoring the goddess Diana on these exact dates. Attendees pay our curated founding merchants exclusively through DIANA, proving our 5% revenue model live while building global community momentum.
@@ -741,12 +792,12 @@ function NemoraliaCaseStudySlide() {
 
             <div className="bg-[var(--color-primary)]/10 p-3.5 md:p-4 rounded-2xl border-2 border-[var(--color-primary)] shadow-md shrink-0 mt-auto">
               <div>
-                <div className="flex justify-between items-center mb-1.5 flex-wrap gap-1.5">
-                  <div className="flex items-center gap-1.5">
-                    <span className="text-xl md:text-2xl">🌍</span>
-                    <h3 className="font-headline-md text-xl md:text-2xl font-bold text-[var(--color-primary)]">Global Replication</h3>
+                <div className="flex justify-between items-center mb-1.5 gap-1 md:gap-1.5 md:flex-wrap">
+                  <div className="flex items-center gap-1 md:gap-1.5 shrink min-w-0">
+                    <span className="text-lg md:text-2xl shrink-0">🌍</span>
+                    <h3 className="font-headline-md text-[15px] sm:text-lg md:text-2xl font-bold text-[var(--color-primary)] truncate md:overflow-visible">Global Replication</h3>
                   </div>
-                  <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider shrink-0 ml-7 md:ml-0">Q3 2026 ONWARDS • ASIA AND BEYOND</span>
+                  <span className="text-[9px] md:text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider shrink-0 whitespace-nowrap">Q3 2026 ONWARDS • ASIA AND BEYOND</span>
                 </div>
                 <p className="font-body-sm text-[12px] md:text-[13px] text-[var(--color-text)] leading-relaxed">
                   We take this low-cost grassroots model and scale by partnering with existing vegan markets, eco-festivals, and sanctuaries worldwide. This turns established community gatherings into continuous onboarding and transaction engines, culminating in an expanding annual Nemoralia celebration every August.
@@ -1351,23 +1402,26 @@ function InfrastructureSlide() {
       {/* Payment Flow */}
       <div className="bg-[var(--color-primary)]/5 p-3 rounded-2xl border border-[var(--color-primary)]/20 shrink-0">
         <p className="font-label-caps text-[9px] text-[var(--color-primary)] tracking-widest mb-2">How a Transaction Flows</p>
-        <div className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] md:text-[11px] font-medium text-[var(--color-text)]">
-          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm">
+        <div className="flex flex-col md:flex-row md:flex-wrap items-center justify-center gap-1.5 text-[10px] md:text-[11px] font-medium text-[var(--color-text)]">
+          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm w-full md:w-auto">
             <p className="text-[8px] text-[var(--color-text-subtle)] font-label-caps tracking-widest mb-0.5">1 · User</p>
             <p>Tops up wallet</p>
           </div>
-          <span className="text-[var(--color-primary)] font-bold">→</span>
-          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm">
+          <span className="text-[var(--color-primary)] font-bold hidden md:inline">→</span>
+          <span className="text-[var(--color-primary)] font-bold md:hidden">↓</span>
+          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm w-full md:w-auto">
             <p className="text-[8px] text-[var(--color-text-subtle)] font-label-caps tracking-widest mb-0.5">2 · Airwallex</p>
             <p>Converts &amp; holds</p>
           </div>
-          <span className="text-[var(--color-primary)] font-bold">→</span>
-          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm">
+          <span className="text-[var(--color-primary)] font-bold hidden md:inline">→</span>
+          <span className="text-[var(--color-primary)] font-bold md:hidden">↓</span>
+          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm w-full md:w-auto">
             <p className="text-[8px] text-[var(--color-text-subtle)] font-label-caps tracking-widest mb-0.5">3 · DIANA Ledger</p>
             <p>$0-fee transaction</p>
           </div>
-          <span className="text-[var(--color-primary)] font-bold">→</span>
-          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm">
+          <span className="text-[var(--color-primary)] font-bold hidden md:inline">→</span>
+          <span className="text-[var(--color-primary)] font-bold md:hidden">↓</span>
+          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm w-full md:w-auto">
             <p className="text-[8px] text-[var(--color-text-subtle)] font-label-caps tracking-widest mb-0.5">4 · Batch Payout</p>
             <p>Merchant + Sanctuary</p>
           </div>
@@ -1453,12 +1507,12 @@ const slides = [
 
     {/* Transaction split */}
     <div className="bg-white/50 p-4 md:p-6 rounded-xl border border-[var(--color-primary)]/20 shrink-0">
-      <div className="grid grid-cols-3 gap-3 md:gap-4 font-label-caps text-sm text-center items-start">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-4 font-label-caps text-sm text-center items-center md:items-start">
         <div className="flex flex-col items-center justify-start">
           <span className="block text-3xl md:text-4xl text-[var(--color-secondary)] mb-1">~90%</span>
           <span className="text-[var(--color-text-subtle)] text-xs md:text-sm">Merchant Keeps</span>
         </div>
-        <div className="flex flex-col items-center justify-start border-l border-r border-gray-200 px-2">
+        <div className="flex flex-col items-center justify-start border-t border-b md:border-t-0 md:border-b-0 md:border-l md:border-r border-gray-200 py-3.5 md:py-0 md:px-2 my-1 md:my-0">
           <span className="block text-3xl md:text-4xl text-[var(--color-primary)] mb-1">5%</span>
           <span className="text-[var(--color-text-subtle)] text-xs md:text-sm">DIANA Revenue</span>
           <span className="text-[10px] text-[var(--color-primary)]/70 mt-1 tracking-normal font-body-xs">(incl. 5% to sanctuaries)</span>
@@ -1835,20 +1889,20 @@ const slides = [
     <div className="bg-white/40 rounded-2xl p-5 md:p-6 border border-white/60">
       <div className="flex justify-between items-center mb-3">
         <span className="font-label-caps text-xs text-[var(--color-text-subtle)]">Pre-Money Valuation</span>
-        <span className="font-impact-stat text-lg md:text-xl text-[var(--color-secondary)]">AUD $650,000</span>
+        <span className="font-impact-stat text-lg md:text-xl text-[var(--color-secondary)]">$650,000</span>
       </div>
       <div className="flex justify-between items-center mb-3">
         <span className="font-label-caps text-xs text-[var(--color-primary)]">Tranche 1 — Committed</span>
-        <span className="font-impact-stat text-lg md:text-xl text-[var(--color-primary)]">+ AUD $50,000</span>
+        <span className="font-impact-stat text-lg md:text-xl text-[var(--color-primary)]">+ $50,000</span>
       </div>
       <div className="flex justify-between items-center mb-3">
         <span className="font-label-caps text-xs text-[var(--color-secondary)]">Open Allocation</span>
-        <span className="font-impact-stat text-lg md:text-xl text-[var(--color-secondary)]">+ AUD $300,000</span>
+        <span className="font-impact-stat text-lg md:text-xl text-[var(--color-secondary)]">+ $300,000</span>
       </div>
       <div className="h-px bg-[var(--color-primary)]/20 my-3 md:my-4" />
       <div className="flex justify-between items-center">
         <span className="font-label-caps text-xs md:text-sm text-[var(--color-primary)] font-bold">Post-Money Target</span>
-        <span className="font-impact-stat text-2xl md:text-3xl text-[#ff0099]">AUD $1,000,000</span>
+        <span className="font-impact-stat text-2xl md:text-3xl text-[#ff0099]">$1,000,000</span>
       </div>
     </div>
     <p className="font-body-sm text-[var(--color-text-subtle)] text-center text-xs md:text-sm">At the $1M post-money valuation, every $10,000 AUD invested secures exactly <strong>1%</strong> ordinary equity.</p>
