@@ -595,7 +595,10 @@ function DividendTriggerSlide() {
               <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">The company holds enough reserves to operate safely for 6 full months without new revenue.</p>
             </div>
           </div>
-          <div className="hidden md:flex items-center justify-center shrink-0 font-bold text-[var(--color-primary)] text-xl">→</div>
+          <div className="flex items-center justify-center shrink-0 font-bold text-[var(--color-primary)] text-xl">
+            <span className="hidden md:inline">→</span>
+            <span className="md:hidden">↓</span>
+          </div>
           <div className="flex-1 bg-[var(--color-secondary)]/10 rounded-xl p-4 md:p-5 border border-[var(--color-secondary)]/30 flex items-start gap-3">
             <span className="text-2xl shrink-0">💸</span>
             <div>
