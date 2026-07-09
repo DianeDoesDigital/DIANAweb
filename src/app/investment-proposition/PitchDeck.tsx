@@ -570,7 +570,7 @@ function DividendTriggerSlide() {
           The Financial Engine: Reinvestment &amp; Dividends
         </h2>
         <p className="font-body-sm md:font-body-md text-[var(--color-secondary)] mt-2 max-w-4xl leading-relaxed">
-          How we balance rapid global scaling with regular liquid cash returns. The exact percentage of dividends to be distributed will be agreed upon later on as we scale. To demonstrate how this wealth-building engine works, we illustrate an example reinvestment and dividend split across our growth tiers.
+          How we balance rapid global scaling with regular liquid cash returns. The exact percentage of dividends to be distributed will be agreed upon later on as we scale.
         </p>
       </div>
 
