@@ -403,7 +403,7 @@ function DealCloser() {
       {dealClosed && <Confetti />}
       
       {!dealClosed ? (
-        <div className="bg-white/10 p-4 md:p-5 rounded-2xl border border-[var(--color-primary)]/30 w-full max-w-lg">
+        <div className="w-full max-w-lg">
           <div className="space-y-2.5 mb-3 text-left">
             <div>
               <label className="block font-label-caps text-[11px] text-[var(--color-text-subtle)] mb-1">
@@ -521,7 +521,8 @@ function DealCloser() {
           <p className="font-body-md text-[var(--color-text-subtle)] text-sm md:text-base mb-2">Welcome to the future of DIANA, {name.trim()}.</p>
           {numericAmount > 0 && (
             <div className="inline-block px-4 py-2 bg-white/90 rounded-xl border border-[var(--color-primary)] shadow-sm font-bold text-[var(--color-primary)] text-sm md:text-base mt-1">
-              Confirmed Commitment: ${numericAmount.toLocaleString()} AUD ({equityPct}% Equity)
+              <span className="block">Confirmed Commitment: ${numericAmount.toLocaleString()} AUD</span>
+              <span className="block">({equityPct}% Equity)</span>
             </div>
           )}
         </div>
@@ -792,12 +793,12 @@ function NemoraliaCaseStudySlide() {
 
             <div className="bg-[var(--color-primary)]/10 p-3.5 md:p-4 rounded-2xl border-2 border-[var(--color-primary)] shadow-md shrink-0 mt-auto">
               <div>
-                <div className="flex justify-between items-center mb-1.5 gap-1 md:gap-1.5 md:flex-wrap">
+                <div className="flex flex-col md:flex-row md:justify-between md:items-center mb-1.5 gap-0.5 md:gap-1.5">
                   <div className="flex items-center gap-1 md:gap-1.5 shrink min-w-0">
                     <span className="text-lg md:text-2xl shrink-0">🌍</span>
-                    <h3 className="font-headline-md text-[15px] sm:text-lg md:text-2xl font-bold text-[var(--color-primary)] truncate md:overflow-visible">Global Replication</h3>
+                    <h3 className="font-headline-md text-[17px] sm:text-lg md:text-2xl font-bold text-[var(--color-primary)]">Global Replication</h3>
                   </div>
-                  <span className="text-[9px] md:text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider shrink-0 whitespace-nowrap">Q3 2026 ONWARDS • ASIA AND BEYOND</span>
+                  <span className="text-[9px] md:text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider shrink-0 ml-7 md:ml-0">Q3 2026 ONWARDS • ASIA AND BEYOND</span>
                 </div>
                 <p className="font-body-sm text-[12px] md:text-[13px] text-[var(--color-text)] leading-relaxed">
                   We take this low-cost grassroots model and scale by partnering with existing vegan markets, eco-festivals, and sanctuaries worldwide. This turns established community gatherings into continuous onboarding and transaction engines, culminating in an expanding annual Nemoralia celebration every August.
