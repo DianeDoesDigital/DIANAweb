@@ -1599,7 +1599,7 @@ function SanctuaryStandardsSlide() {
             <div className="flex items-center justify-between border-b border-[var(--color-primary)]/10 pb-2 mb-2">
               <div className="flex items-center gap-2">
                 <span className="text-xl">🔍</span>
-                <h3 className="font-headline-md text-base md:text-lg text-[var(--color-primary)] font-bold">100% Direct Transparency</h3>
+                <h3 className="font-headline-md text-base md:text-lg text-[var(--color-primary)] font-bold">100% Transparency</h3>
               </div>
             </div>
             <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">Every participating sanctuary undergoes mandatory legal verification of registered non-profit/charitable status in their jurisdiction, with verifiable accounting of direct animal support.</p>
