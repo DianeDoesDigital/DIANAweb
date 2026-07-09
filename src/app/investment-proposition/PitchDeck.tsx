@@ -1748,7 +1748,7 @@ const slides = [
           </li>
           <li className="flex items-start gap-2 bg-[var(--color-primary)]/5 p-2 md:p-2.5 rounded-xl border border-[var(--color-primary)]/20">
             <span className="text-[var(--color-primary)] font-bold mt-0.5 shrink-0">•</span>
-            <span><strong>Intentionally Lean to Start:</strong> The seed funds a market launch, not a team build. Diane consolidates tech lead, researcher, and community manager into one. First specialist hires activate post-1,000 user milestone, funded entirely by operational profit.</span>
+            <span><strong>Transitioning from Solo Build to Team Scale:</strong> Having built the entire multi-platform architecture alone since January, seed capital funds our market launch and enables onboarding our first specialist hires and community coordinators to assist with scaling.</span>
           </li>
         </ul>
       </div>
