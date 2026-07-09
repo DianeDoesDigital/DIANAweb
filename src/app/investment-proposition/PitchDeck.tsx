@@ -1654,8 +1654,8 @@ const slides = [
     <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1 md:mb-2">Our Early Advantages</h2>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 font-body-xs md:font-body-sm text-[var(--color-text-subtle)]">
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Ready Partners</h3>
-        <p className="flex-grow text-[11px] md:text-xs">Close personal connections with ethical business owners and sanctuary leaders who are excited to be our first partner venues and beneficiaries immediately upon launch.</p>
+        <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Confirmed Partner Waitlist</h3>
+        <p className="flex-grow text-[11px] md:text-xs">Over 40 ethical businesses signed up on our launch waitlist — including confirmed partner merchants across our initial markets like Harmony Hill (ID), Progressive Gains Fitness (AU), and Namnamsam (PH).</p>
       </div>
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Organic Word-of-Mouth</h3>
