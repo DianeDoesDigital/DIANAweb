@@ -22,7 +22,7 @@ export default function PitchDeck() {
   const totalSlides = slides.length + 2;
 
   const nextSlide = () => {
-    if (currentSlide < totalSlides - 1) setCurrentSlide(currentSlide + 1);
+    if (currentSlide < slides.length) setCurrentSlide(currentSlide + 1);
   };
 
   const prevSlide = () => {
@@ -87,7 +87,7 @@ export default function PitchDeck() {
         </section>
         {showMobileSignature && (
           <section ref={mobileSigRef} className="w-full transition-all duration-500 animate-fadeIn">
-            <div className="glass-surface p-6 rounded-3xl text-center space-y-6">
+            <div className="glass-surface p-4 md:p-6 rounded-3xl text-center space-y-3">
               <DealCloser />
             </div>
           </section>
@@ -139,7 +139,7 @@ export default function PitchDeck() {
           {currentSlide === slides.length ? (
             <ConclusionSlide onSecretClick={() => setCurrentSlide(totalSlides - 1)} />
           ) : currentSlide === slides.length + 1 ? (
-            <div className="glass-surface p-16 rounded-3xl text-center space-y-8 transform flex flex-col items-center justify-center max-h-[80vh] overflow-y-auto">
+            <div className="glass-surface p-6 md:p-8 rounded-3xl text-center space-y-3 transform flex flex-col items-center justify-center max-h-[80vh] overflow-y-auto w-full max-w-lg mx-auto">
               <DealCloser />
             </div>
           ) : (
@@ -395,14 +395,14 @@ function DealCloser() {
   };
 
   return (
-    <div className="w-full flex flex-col items-center mt-8 space-y-6">
+    <div className="w-full flex flex-col items-center my-auto space-y-2">
       {dealClosed && <Confetti />}
       
       {!dealClosed ? (
-        <div className="bg-white/10 p-6 rounded-2xl border border-[var(--color-primary)]/30 w-full max-w-lg">
-          <div className="space-y-3 mb-5 text-left">
+        <div className="bg-white/10 p-4 md:p-5 rounded-2xl border border-[var(--color-primary)]/30 w-full max-w-lg">
+          <div className="space-y-2 mb-3 text-left">
             <div>
-              <label className="block font-label-caps text-xs text-[var(--color-text-subtle)] mb-1">
+              <label className="block font-label-caps text-[11px] text-[var(--color-text-subtle)] mb-1">
                 Full Name <span className="text-[var(--color-primary)]">*</span>
               </label>
               <input
@@ -411,11 +411,11 @@ function DealCloser() {
                 onChange={(e) => setName(e.target.value)}
                 placeholder="e.g. Sarah Jenkins"
                 disabled={isSubmitting}
-                className="w-full px-4 py-2.5 rounded-xl bg-white/80 border border-[var(--color-border-main)] focus:border-[var(--color-primary)] focus:outline-none text-sm text-[var(--color-text)] placeholder-gray-400 font-body-sm transition-colors"
+                className="w-full px-3.5 py-1.5 rounded-xl bg-white/80 border border-[var(--color-border-main)] focus:border-[var(--color-primary)] focus:outline-none text-xs md:text-sm text-[var(--color-text)] placeholder-gray-400 font-body-sm transition-colors"
               />
             </div>
             <div>
-              <label className="block font-label-caps text-xs text-[var(--color-text-subtle)] mb-1">
+              <label className="block font-label-caps text-[11px] text-[var(--color-text-subtle)] mb-1">
                 Email Address <span className="text-[var(--color-primary)]">*</span>
               </label>
               <input
@@ -424,21 +424,21 @@ function DealCloser() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="e.g. sarah@example.com"
                 disabled={isSubmitting}
-                className="w-full px-4 py-2.5 rounded-xl bg-white/80 border border-[var(--color-border-main)] focus:border-[var(--color-primary)] focus:outline-none text-sm text-[var(--color-text)] placeholder-gray-400 font-body-sm transition-colors"
+                className="w-full px-3.5 py-1.5 rounded-xl bg-white/80 border border-[var(--color-border-main)] focus:border-[var(--color-primary)] focus:outline-none text-xs md:text-sm text-[var(--color-text)] placeholder-gray-400 font-body-sm transition-colors"
               />
             </div>
           </div>
 
-          <div className="flex justify-between items-center mb-4 border-t border-[var(--color-primary)]/20 pt-4">
-            <span className="font-label-caps text-sm text-[var(--color-text-subtle)]">Digital Signature</span>
+          <div className="flex justify-between items-center mb-1.5 border-t border-[var(--color-primary)]/20 pt-2.5">
+            <span className="font-label-caps text-xs text-[var(--color-text-subtle)]">Digital Signature</span>
             {hasSigned && !isSubmitting && <button onClick={clearSignature} className="text-xs text-[var(--color-primary)] hover:underline z-10 relative">Clear</button>}
           </div>
           <div className="relative touch-none">
             <canvas
               ref={canvasRef}
               width={500}
-              height={150}
-              className="bg-white/80 rounded-xl cursor-crosshair w-full h-[150px] border border-dashed border-[var(--color-text-subtle)]"
+              height={105}
+              className="bg-white/80 rounded-xl cursor-crosshair w-full h-[105px] border border-dashed border-[var(--color-text-subtle)]"
               onMouseDown={startDrawing}
               onMouseMove={draw}
               onMouseUp={stopDrawing}
@@ -448,23 +448,23 @@ function DealCloser() {
               onTouchEnd={stopDrawing}
             />
           </div>
-          <div className="text-center mt-4 border-t border-[var(--color-primary)]/20 pt-2">
-            <span className="font-headline-md text-lg text-[var(--color-primary)]">
+          <div className="text-center mt-2 border-t border-[var(--color-primary)]/20 pt-1.5">
+            <span className="font-headline-md text-base md:text-lg text-[var(--color-primary)]">
               {name.trim() || 'Authorized Signatory'}
             </span>
-            <span className="block text-xs text-[var(--color-text-subtle)]">
+            <span className="block text-[11px] text-[var(--color-text-subtle)]">
               {email.trim() || 'Seed Investor'}
             </span>
           </div>
 
           {submitError && (
-            <p className="text-red-500 text-xs mt-3 text-center font-semibold">{submitError}</p>
+            <p className="text-red-500 text-xs mt-2 text-center font-semibold">{submitError}</p>
           )}
           
           <button 
             disabled={!hasSigned || !name.trim() || !email.trim() || isSubmitting}
             onClick={handleSubmit}
-            className={`w-full mt-6 py-4 rounded-xl font-headline-md text-xl transition-all ${hasSigned && name.trim() && email.trim() && !isSubmitting ? 'bg-[var(--color-primary)] text-white shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:scale-[1.02] cursor-pointer' : 'bg-gray-500/20 text-gray-400 cursor-not-allowed opacity-50'}`}
+            className={`w-full mt-3 py-3 rounded-xl font-headline-md text-base md:text-lg transition-all ${hasSigned && name.trim() && email.trim() && !isSubmitting ? 'bg-[var(--color-primary)] text-white shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:scale-[1.02] cursor-pointer' : 'bg-gray-500/20 text-gray-400 cursor-not-allowed opacity-50'}`}
           >
             {isSubmitting ? 'Securing Deal...' : 'Commit to Seed Round'}
           </button>
@@ -493,12 +493,12 @@ function ConclusionSlide({ onSecretClick }: { onSecretClick: () => void }) {
       <div className="mt-12 space-y-4">
         <p className="font-label-caps tracking-widest text-[var(--color-secondary)]">NEXT STEPS</p>
         <div className="flex flex-col md:flex-row justify-center items-center gap-3 md:gap-6 w-full max-w-5xl mx-auto">
-          <div 
+          <button 
             onClick={onSecretClick}
-            className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-primary)] font-medium flex items-center justify-center select-none w-full md:w-auto whitespace-nowrap"
+            className="bg-[var(--color-primary)] text-white font-headline-md text-base md:text-lg px-8 py-3.5 rounded-full shadow-[0_0_20px_rgba(255,0,153,0.4)] hover:shadow-[0_0_30px_rgba(255,0,153,0.8)] hover:scale-105 active:scale-98 transition-all duration-300 cursor-pointer flex items-center justify-center select-none w-full md:w-auto whitespace-nowrap border-2 border-white/40"
           >
-            1. Confirm Seed Commitment
-          </div>
+            1. Confirm Seed Commitment →
+          </button>
           <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto whitespace-nowrap">2. Initiate Equity Setup</div>
           <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto whitespace-nowrap">3. Execute Onboarding Sprint</div>
         </div>
@@ -509,7 +509,7 @@ function ConclusionSlide({ onSecretClick }: { onSecretClick: () => void }) {
 
 function FinancialStrategySlide() {
   return (
-    <div className="glass-surface p-5 md:p-8 rounded-3xl flex flex-col justify-between gap-3 md:gap-4 h-full relative border-4 border-[var(--color-primary)]/40 overflow-y-auto">
+    <div className="glass-surface p-6 md:px-12 md:py-8 rounded-3xl flex flex-col justify-between space-y-3 md:space-y-4 h-full relative border-4 border-[var(--color-primary)]/40 overflow-y-auto">
       <div className="flex justify-between items-start shrink-0">
         <div>
           <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)]">
@@ -521,7 +521,7 @@ function FinancialStrategySlide() {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4 items-stretch flex-1 min-h-0">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5 items-stretch shrink-0 my-auto">
         {/* Tier 1: 1,000 to 2,500 Users */}
         <div className="bg-white/40 p-4 md:p-5 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col justify-between shadow-sm">
           <div>
@@ -611,7 +611,7 @@ function NemoraliaCaseStudySlide() {
   const [activeCard, setActiveCard] = React.useState<'home' | 'bali' | null>(null);
 
   return (
-    <div className="glass-surface p-5 md:p-8 rounded-3xl space-y-3 md:space-y-4 flex flex-col justify-between h-full relative border-4 border-[var(--color-secondary)]/40 overflow-hidden">
+    <div className="glass-surface p-6 md:p-12 rounded-3xl flex flex-col justify-between space-y-4 md:space-y-6 h-full relative border-4 border-[var(--color-secondary)]/40 overflow-hidden">
       <div className="flex justify-between items-start shrink-0">
         <div>
           <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)]">
@@ -624,7 +624,7 @@ function NemoraliaCaseStudySlide() {
       </div>
 
       {/* In-Place Expansion */}
-      <div className="flex flex-col gap-4 flex-1 justify-between min-h-0 overflow-y-auto">
+      <div className="flex flex-col min-h-0 overflow-y-auto flex-1 justify-between gap-4">
         {activeCard === 'home' ? (
           <div
             onClick={() => setActiveCard(null)}
@@ -643,9 +643,9 @@ function NemoraliaCaseStudySlide() {
                 </div>
               </div>
 
-              <div className="space-y-2.5 my-2 text-xs md:text-sm text-[var(--color-text)] leading-relaxed">
+              <div className="space-y-1.5 my-1 text-xs md:text-sm text-[var(--color-text)] leading-snug">
                 <div>
-                  <strong className="text-[var(--color-secondary)]">The Venue &amp; Roots: </strong>Good Food Sundays at Mandala Park, Mandaluyong, Manila&apos;s premier 100% vegan weekend market where Diane herself used to be a merchant. On August 2nd, Diane visits as a returning peer to reconnect and pre-onboard vendors before market day.
+                  <strong className="text-[var(--color-secondary)]">The Venue &amp; Roots: </strong>Good Food Sundays at Mandala Park, Mandaluyong, Manila&apos;s premier and only 100% vegan weekend market where Diane herself used to be a merchant. On August 2nd, Diane visits as a returning peer to reconnect and pre-onboard vendors before market day.
                 </div>
                 <div>
                   <strong className="text-[var(--color-secondary)]">The Booth, Standees &amp; Meals: </strong>The GFS booth fee is only 800 PHP (~$20 AUD, including table, chairs, and electricity). We budget ~$80 AUD across both Sundays for transport, booth decor, printed QR standees, and eating meals directly through DIANA to support our vendor peers.
@@ -653,7 +653,7 @@ function NemoraliaCaseStudySlide() {
                 <div>
                   <strong className="text-[var(--color-secondary)]">The Onboarding &amp; Live Demo Day: </strong>On August 9th, we host our official booth with a live app demo and interactive Q&amp;A! When attendees visit us, they scan our QR standees, download the app, and instantly complete their first live DIANA transaction with our partner vendors, experiencing fee-free compassionate commerce in real time.
                 </div>
-                <div className="p-3 md:p-3.5 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/20 font-medium text-center text-xs md:text-sm text-[var(--color-secondary)] mt-3 shadow-sm">
+                <div className="p-2 md:p-2.5 bg-[var(--color-secondary)]/10 rounded-xl border border-[var(--color-secondary)]/20 font-medium text-center text-xs md:text-sm text-[var(--color-secondary)] mt-1.5 shadow-sm">
                   Manila is where our roots are. By launching at Good Food Sundays first, we prove that DIANA is built from the ground up, igniting live compassionate commerce at home before taking it to the world.
                 </div>
               </div>
@@ -677,20 +677,20 @@ function NemoraliaCaseStudySlide() {
                 </div>
               </div>
 
-              <div className="space-y-1.5 my-1 text-[10.5px] md:text-[11.5px] text-[var(--color-text)] leading-relaxed">
+              <div className="space-y-1 my-0.5 text-[11px] md:text-[11.5px] text-[var(--color-text)] leading-snug">
                 <div>
                   <strong className="text-[var(--color-primary)]">Why The Nemoralia? </strong>
                   This ancient Roman Nemoralia was held every August 13–15 to honor Diana, protector of the wild. It was a time when hunting was strictly forbidden and animals roamed under her divine protection. We revive this 3-day tradition in Asia&apos;s vegan capital through modern financial infrastructure that protects animals permanently.
                 </div>
                 <div>
-                  <ul className="list-disc pl-4 space-y-1 text-[10.5px] md:text-[11.5px]">
+                  <ul className="list-disc pl-4 space-y-0.5 text-[11px] md:text-[11.5px]">
                     <li><strong className="text-[var(--color-primary)]">Aug 13 - The Gathering &amp; Founding Dinner: </strong>An intimate dinner with invited guests to set our shared purpose and pledge our commitments to animal protection, mirroring the ancient tradition where pilgrims lit torches and tied wishes to trees in Diana&apos;s grove, setting the tone for the market days ahead.</li>
                     <li><strong className="text-[var(--color-primary)]">Aug 14 - The Live Cashless Market: </strong>Our 100% vegan market opens to the public! Attendees pay merchants exclusively through the DIANA app. This serves as a live product demo and revenue generator, proving our 5% platform model while the real-time impact counter routes funds to animal sanctuaries.</li>
                     <li><strong className="text-[var(--color-primary)]">Aug 15 - The Celebration &amp; Impact Reveal: </strong>Our live cashless market continues in full swing all day and transitions into an all-night celebration! All food, drinks, and evening activities continue to be transacted exclusively through the DIANA app while our real-time impact counter reveals the total funding generated for animal sanctuaries.</li>
                     <li><strong className="text-[var(--color-primary)]">Aug 16 - Post-Event Villa Kitty Visit: </strong>A special visit to Bali&apos;s most famous cat sanctuary to attend their Sunday vegan lunch, honoring Diana&apos;s historical association with cats and animal rescue.</li>
                   </ul>
                 </div>
-                <div className="text-[10.5px] md:text-[11.5px] pt-0.5">
+                <div className="text-[11px] md:text-[11.5px] pt-0.5">
                   <strong className="text-[var(--color-primary)]">Budget Breakdown: </strong>
                   Partnered Villa ($0 hire / ~$1,500–$1,800 paid contingency), Food &amp; Bar Top-Up (~$515), Entertainment &amp; Performers (~$470), Local Photo/Video (~$610–$800), Local Flowers &amp; Decor (~$170), Contingency (~$280).
                 </div>
@@ -699,56 +699,56 @@ function NemoraliaCaseStudySlide() {
           </div>
         ) : (
           <>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 items-stretch flex-1">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 items-stretch shrink-0">
               <div 
                 onClick={() => setActiveCard('home')}
-                className="bg-white/60 hover:bg-white/90 p-4 md:p-5 rounded-2xl border-t-8 border-[var(--color-secondary)] shadow-md hover:shadow-lg flex flex-col justify-between transition-all duration-200 cursor-pointer transform hover:-translate-y-1"
+                className="bg-white/60 hover:bg-white/90 p-3.5 md:p-4 rounded-2xl border-t-8 border-[var(--color-secondary)] shadow-md hover:shadow-lg flex flex-col justify-between transition-all duration-200 cursor-pointer transform hover:-translate-y-1"
               >
                 <div>
-                  <div className="flex justify-between items-center mb-2 flex-wrap gap-1.5">
+                  <div className="flex justify-between items-center mb-1.5 flex-wrap gap-1.5">
                     <div className="flex items-center gap-1.5">
                       <span className="text-2xl md:text-3xl">⚡</span>
-                      <h3 className="font-headline-md text-lg md:text-xl font-bold text-[var(--color-secondary)]">Home Activation</h3>
+                      <h3 className="font-headline-md text-xl md:text-2xl font-bold text-[var(--color-secondary)]">Home Activation</h3>
                     </div>
                     <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-primary)] uppercase tracking-wider shrink-0">
                       AUG 2 &amp; 9 • <span className="md:hidden">MNL</span><span className="hidden md:inline">MANILA</span>
                     </span>
                   </div>
-                  <p className="font-body-sm text-[var(--color-text)] leading-relaxed text-xs md:text-[13.5px]">
-                    Our official home launch at Good Food Sundays, Manila&apos;s premier 100% vegan weekend market where Diane herself used to be a merchant. Leveraging our deep community roots, we pre-onboard trusted vendor peers so that on market day, attendees can download the app and instantly complete their first live DIANA transactions.
+                  <p className="font-body-sm text-[12px] md:text-[13px] text-[var(--color-text)] leading-relaxed">
+                    Our official home launch at Good Food Sundays, Manila&apos;s premier and only 100% vegan weekend market where Diane herself used to be a merchant. Leveraging our deep community roots, we pre-onboard trusted vendor peers so that on market day, attendees can download the app and instantly complete their first live DIANA transactions.
                   </p>
                 </div>
               </div>
 
               <div 
                 onClick={() => setActiveCard('bali')}
-                className="bg-white/60 hover:bg-white/90 p-4 md:p-5 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-md hover:shadow-lg flex flex-col justify-between transition-all duration-200 cursor-pointer transform hover:-translate-y-1"
+                className="bg-white/60 hover:bg-white/90 p-3.5 md:p-4 rounded-2xl border-t-8 border-[var(--color-primary)] shadow-md hover:shadow-lg flex flex-col justify-between transition-all duration-200 cursor-pointer transform hover:-translate-y-1"
               >
                 <div>
-                  <div className="flex justify-between items-center mb-2 flex-wrap gap-1.5">
+                  <div className="flex justify-between items-center mb-1.5 flex-wrap gap-1.5">
                     <div className="flex items-center gap-1.5">
                       <span className="text-xl md:text-2xl">🔥</span>
-                      <h3 className="font-headline-md text-lg md:text-xl font-bold text-[var(--color-primary)]">Launch Festival</h3>
+                      <h3 className="font-headline-md text-xl md:text-2xl font-bold text-[var(--color-primary)]">Launch Festival</h3>
                     </div>
                     <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-secondary)] uppercase tracking-wider shrink-0">AUG 13–15 • BALI</span>
                   </div>
-                  <p className="font-body-sm text-[var(--color-text)] leading-relaxed text-xs md:text-[13.5px]">
+                  <p className="font-body-sm text-[12px] md:text-[13px] text-[var(--color-text)] leading-relaxed">
                     Our official international debut in Asia&apos;s vegan capital comes to life as The Nemoralia, a 3-day gathering patterned after the ancient Roman festival honoring the goddess Diana on these exact dates. Attendees pay our curated founding merchants exclusively through DIANA, proving our 5% revenue model live while building global community momentum.
                   </p>
                 </div>
               </div>
             </div>
 
-            <div className="bg-[var(--color-primary)]/10 p-4 md:p-5 rounded-2xl border-2 border-[var(--color-primary)] shadow-md">
+            <div className="bg-[var(--color-primary)]/10 p-3.5 md:p-4 rounded-2xl border-2 border-[var(--color-primary)] shadow-md shrink-0 mt-auto">
               <div>
-                <div className="flex justify-between items-center mb-2 flex-wrap gap-1.5">
+                <div className="flex justify-between items-center mb-1.5 flex-wrap gap-1.5">
                   <div className="flex items-center gap-1.5">
                     <span className="text-xl md:text-2xl">🌍</span>
-                    <h3 className="font-headline-md text-lg md:text-xl font-bold text-[var(--color-primary)]">Global Replication</h3>
+                    <h3 className="font-headline-md text-xl md:text-2xl font-bold text-[var(--color-primary)]">Global Replication</h3>
                   </div>
                   <span className="text-[10px] md:text-[11px] font-bold text-[var(--color-text-subtle)] uppercase tracking-wider shrink-0 ml-7 md:ml-0">Q3 2026 ONWARDS • ASIA AND BEYOND</span>
                 </div>
-                <p className="font-body-sm text-[var(--color-text)] leading-relaxed text-xs md:text-[13.5px]">
+                <p className="font-body-sm text-[12px] md:text-[13px] text-[var(--color-text)] leading-relaxed">
                   We take this low-cost grassroots model and scale by partnering with existing vegan markets, eco-festivals, and sanctuaries worldwide. This turns established community gatherings into continuous onboarding and transaction engines, culminating in an expanding annual Nemoralia celebration every August.
                 </p>
               </div>
@@ -764,7 +764,7 @@ function WhatWeHaveBuiltSlide() {
   const [activeCard, setActiveCard] = React.useState<'software' | 'community' | null>(null);
 
   return (
-    <div className={`glass-surface p-5 md:p-10 rounded-3xl flex flex-col h-full relative overflow-hidden ${activeCard !== null ? 'space-y-3 md:space-y-4 justify-between' : 'gap-4 md:gap-6 justify-center'}`}>
+    <div className={`glass-surface p-6 md:p-12 rounded-3xl flex flex-col h-full relative overflow-hidden ${activeCard !== null ? 'space-y-3 md:space-y-4 justify-between' : 'gap-5 md:gap-6 justify-center'}`}>
       <div className="shrink-0">
         <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">What We Have Built</h2>
         <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] border-b border-[var(--color-primary)]/30 pb-2">Valuation Breakdown</h3>
@@ -899,13 +899,13 @@ function ValuationCheckSlide() {
   const [activeCard, setActiveCard] = React.useState<'berkus' | 'scorecard' | null>(null);
 
   return (
-    <div className="glass-surface p-5 md:p-12 rounded-3xl flex flex-col justify-between gap-6 h-full overflow-y-auto">
+    <div className="glass-surface p-6 md:p-12 rounded-3xl flex flex-col justify-between gap-6 h-full overflow-y-auto">
       <div>
         <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-2">Valuation Check</h2>
         <p className="font-body-md text-[var(--color-secondary)]">How did we make sure our $650,000 AUD valuation is fair? We checked it against two widely used ways of valuing early-stage businesses.</p>
       </div>
 
-      <div className={`flex flex-col gap-6 min-h-0 overflow-y-auto ${activeCard !== null ? 'flex-1 justify-between' : 'justify-center'}`}>
+      <div className={`flex flex-col gap-6 min-h-0 overflow-y-auto ${activeCard !== null ? 'flex-1 justify-between' : 'justify-center flex-1'}`}>
         {activeCard === 'berkus' ? (
           <div
             onClick={() => setActiveCard(null)}
@@ -982,7 +982,7 @@ function ValuationCheckSlide() {
             </div>
           </div>
         ) : (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-stretch">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 items-stretch my-auto">
             <div
               className="bg-[var(--color-primary)]/10 p-6 rounded-2xl border-2 border-[var(--color-primary)] flex flex-col justify-between shadow-md"
             >
@@ -1040,7 +1040,7 @@ function FinalValuationSlide() {
   const [showExplainer, setShowExplainer] = React.useState(false);
 
   return (
-    <div className="glass-surface p-5 md:p-12 rounded-3xl space-y-6 md:space-y-8 flex flex-col items-center justify-center text-center h-full overflow-y-auto">
+    <div className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 flex flex-col items-center justify-center text-center h-full overflow-y-auto">
       {showExplainer ? (
         <div
           onClick={() => setShowExplainer(false)}
@@ -1189,7 +1189,7 @@ function SeedAllocationSlide() {
   ];
 
   return (
-    <div className="glass-surface p-6 md:p-14 rounded-3xl space-y-3 flex flex-col justify-center h-full overflow-y-auto">
+    <div className="glass-surface p-6 md:p-12 md:py-6 rounded-3xl flex flex-col justify-between gap-3 h-full overflow-y-auto">
       <div className="flex justify-between items-center">
         <div>
           <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">Seed Capital Allocation</h2>
@@ -1226,8 +1226,8 @@ function SeedAllocationSlide() {
           </div>
         </div>
       ) : (
-        <div className="space-y-3 mt-1">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+        <div className="flex flex-col justify-between gap-3 flex-1 mt-1">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 my-auto">
             {categories.map((cat, idx) => (
               <div
                 key={idx}
@@ -1263,14 +1263,14 @@ function SeedAllocationSlide() {
 
 function CapitalStrategySlide() {
   return (
-    <div className="glass-surface p-5 md:p-12 rounded-3xl flex flex-col justify-between gap-6 md:gap-8 h-full overflow-y-auto">
+    <div className="glass-surface p-6 md:p-12 rounded-3xl flex flex-col justify-between gap-6 md:gap-8 h-full overflow-y-auto">
       <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)]">Your Investment, Protected</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-stretch">
         <div className="flex flex-col gap-4 h-full">
           <div className="bg-white/40 p-8 rounded-xl border-t-4 border-[var(--color-primary)] flex flex-col flex-1">
-            <h3 className="font-label-caps text-xl text-[var(--color-secondary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Government Grants Won&apos;t Dilute You</h3>
+            <h3 className="font-label-caps text-xl text-[var(--color-secondary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Grants Won&apos;t Dilute You</h3>
             <p className="font-body-md text-[var(--color-text-subtle)]">
-              We are actively applying for government grants and innovation funding. If we receive any, that money goes directly into the business. It does <strong>not</strong> come with new shareholders attached. Your ownership percentage stays exactly the same.
+              We are actively applying for non-dilutive grants, competitions, and innovation funding worldwide. When we win and receive funding awards, that capital goes directly into growing the business without adding new shareholders. Your ownership percentage stays exactly where it is while company value increases.
             </p>
           </div>
           <div className="bg-[var(--color-secondary)]/10 p-4 rounded-xl border border-[var(--color-secondary)]/20 min-h-[80px] flex items-center justify-center">
@@ -1283,7 +1283,7 @@ function CapitalStrategySlide() {
           <div className="bg-white/40 p-8 rounded-xl border-t-4 border-[var(--color-secondary)] flex flex-col flex-1">
             <h3 className="font-label-caps text-xl text-[var(--color-primary)] mb-4 border-b border-[var(--color-primary)]/20 pb-4">Future Investors Treated Equally</h3>
             <p className="font-body-md text-[var(--color-text-subtle)]">
-              If DIANA ever brings in additional investors down the track, you and the founder are treated exactly the same. Nobody gets a secret deal or special advantage over you. If new investors come in and everyone&apos;s share gets a little smaller to make room, yours and the founder&apos;s shrink by the same percentage.
+              If DIANA brings in additional investors during future rounds, you and the founder are treated exactly the same. Nobody gets a secret equity deal or special advantage. If new capital enters and shares adjust to make room, both yours and the founder&apos;s ownership adjust by the same exact percentage.
             </p>
           </div>
           <div className="bg-[var(--color-primary)]/10 p-4 rounded-xl border border-[var(--color-primary)]/20 min-h-[80px] flex items-center justify-center">
@@ -1292,6 +1292,91 @@ function CapitalStrategySlide() {
             </p>
           </div>
         </div>
+      </div>
+    </div>
+  );
+}
+
+function InfrastructureSlide() {
+  return (
+    <div className="glass-surface p-6 md:p-12 rounded-3xl flex flex-col justify-center gap-4 md:gap-5 h-full border-4 border-[var(--color-primary)]/40 overflow-y-auto">
+      <div className="shrink-0">
+        <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">
+          Powered by Global Infrastructure
+        </h2>
+        <p className="font-body-xs md:font-body-sm text-[var(--color-secondary)] mt-0.5 leading-relaxed">
+          DIANA rides on world-class licensed payment processors — no proprietary rails, full compliance from day one.
+        </p>
+      </div>
+
+      {/* Processor Cards */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-3 shrink-0">
+        <div className="bg-white/80 p-4 rounded-2xl border-t-4 border-[var(--color-primary)] flex flex-col gap-1.5 shadow-sm">
+          <div className="flex items-center gap-2.5 mb-0.5">
+            <div className="w-8 h-8 rounded-xl bg-[#0E1E3F] flex items-center justify-center shrink-0">
+              <span className="text-white font-bold text-[10px] tracking-tight">AW</span>
+            </div>
+            <div>
+              <p className="font-headline-md text-sm md:text-base font-bold text-[var(--color-text)]">Airwallex</p>
+              <p className="font-label-caps text-[9px] text-[var(--color-primary)] tracking-widest">Multi-Currency Wallet &amp; FX Engine</p>
+            </div>
+          </div>
+          <ul className="space-y-1 text-[10px] md:text-[11px] text-[var(--color-text-subtle)] leading-relaxed">
+            <li className="flex items-start gap-1.5"><span className="text-[var(--color-primary)] font-bold shrink-0 mt-0.5">•</span><span>Licensed in <strong>Australia, Philippines, Indonesia, Singapore &amp; 50+ countries</strong></span></li>
+            <li className="flex items-start gap-1.5"><span className="text-[var(--color-primary)] font-bold shrink-0 mt-0.5">•</span><span>Accepts PayID, GCash &amp; bank transfers with local payouts in each market</span></li>
+            <li className="flex items-start gap-1.5"><span className="text-[var(--color-primary)] font-bold shrink-0 mt-0.5">•</span><span>FX absorbed in Airwallex&apos;s spread — <strong>zero FX risk for DIANA</strong></span></li>
+            <li className="flex items-start gap-1.5"><span className="text-[var(--color-primary)] font-bold shrink-0 mt-0.5">•</span><span>Powers wallet balances, ledger &amp; cross-border merchant payouts</span></li>
+          </ul>
+        </div>
+
+        <div className="bg-white/80 p-4 rounded-2xl border-t-4 border-[var(--color-secondary)] flex flex-col gap-1.5 shadow-sm">
+          <div className="flex items-center gap-2.5 mb-0.5">
+            <div className="w-8 h-8 rounded-xl bg-[#635BFF] flex items-center justify-center shrink-0">
+              <span className="text-white font-bold text-[10px] tracking-tight">S/</span>
+            </div>
+            <div>
+              <p className="font-headline-md text-sm md:text-base font-bold text-[var(--color-text)]">Stripe</p>
+              <p className="font-label-caps text-[9px] text-[var(--color-secondary)] tracking-widest">Global Payment Processing</p>
+            </div>
+          </div>
+          <ul className="space-y-1 text-[10px] md:text-[11px] text-[var(--color-text-subtle)] leading-relaxed">
+            <li className="flex items-start gap-1.5"><span className="text-[var(--color-secondary)] font-bold shrink-0 mt-0.5">•</span><span>World&apos;s most trusted processor — Amazon, Google, and 1M+ businesses</span></li>
+            <li className="flex items-start gap-1.5"><span className="text-[var(--color-secondary)] font-bold shrink-0 mt-0.5">•</span><span>Handles card-based wallet top-ups where local bank transfer is unavailable</span></li>
+            <li className="flex items-start gap-1.5"><span className="text-[var(--color-secondary)] font-bold shrink-0 mt-0.5">•</span><span>PCI-DSS compliant — zero liability for DIANA on card data</span></li>
+            <li className="flex items-start gap-1.5"><span className="text-[var(--color-secondary)] font-bold shrink-0 mt-0.5">•</span><span>Built-in fraud protection and dispute handling across all markets</span></li>
+          </ul>
+        </div>
+      </div>
+
+      {/* Payment Flow */}
+      <div className="bg-[var(--color-primary)]/5 p-3 rounded-2xl border border-[var(--color-primary)]/20 shrink-0">
+        <p className="font-label-caps text-[9px] text-[var(--color-primary)] tracking-widest mb-2">How a Transaction Flows</p>
+        <div className="flex flex-wrap items-center justify-center gap-1.5 text-[10px] md:text-[11px] font-medium text-[var(--color-text)]">
+          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm">
+            <p className="text-[8px] text-[var(--color-text-subtle)] font-label-caps tracking-widest mb-0.5">1 · User</p>
+            <p>Tops up wallet</p>
+          </div>
+          <span className="text-[var(--color-primary)] font-bold">→</span>
+          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm">
+            <p className="text-[8px] text-[var(--color-text-subtle)] font-label-caps tracking-widest mb-0.5">2 · Airwallex</p>
+            <p>Converts &amp; holds</p>
+          </div>
+          <span className="text-[var(--color-primary)] font-bold">→</span>
+          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm">
+            <p className="text-[8px] text-[var(--color-text-subtle)] font-label-caps tracking-widest mb-0.5">3 · DIANA Ledger</p>
+            <p>$0-fee transaction</p>
+          </div>
+          <span className="text-[var(--color-primary)] font-bold">→</span>
+          <div className="bg-white px-2.5 py-1.5 rounded-lg border border-[var(--color-primary)]/20 text-center shadow-sm">
+            <p className="text-[8px] text-[var(--color-text-subtle)] font-label-caps tracking-widest mb-0.5">4 · Batch Payout</p>
+            <p>Merchant + Sanctuary</p>
+          </div>
+        </div>
+      </div>
+
+      <div className="p-3 bg-white/60 rounded-xl border border-[var(--color-secondary)]/20 shrink-0 shadow-sm">
+        <p className="font-body-sm text-[10px] text-[var(--color-secondary)] font-bold mb-0.5">The Regulatory Takeaway:</p>
+        <p className="font-body-xs text-[10px] md:text-[11px] text-[var(--color-text-subtle)] leading-relaxed">DIANA operates within Airwallex and Stripe&apos;s existing licensed compliance frameworks — no proprietary payment licence needed per market. Full financial and data compliance from day one across all operating jurisdictions.</p>
       </div>
     </div>
   );
@@ -1360,52 +1445,90 @@ const slides = [
   </div>,
 
   // Slide 5: Multi-Impact Financial Engine
-  <div key="slide-4" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 overflow-y-auto">
-    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">How the Money Works</h2>
-    <div className="space-y-4 md:space-y-6 font-body-md md:font-body-lg">
-      <p>A simple system where every dollar spent automatically creates good. The money is divided the moment a purchase is made, with no extra steps required from anyone.</p>
-      
-      <div className="bg-white/50 p-6 md:p-8 rounded-xl border border-[var(--color-primary)]/20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4 font-label-caps text-sm text-center items-start">
-          <div className="flex flex-col items-center justify-start">
-            <span className="block text-3xl md:text-4xl text-[var(--color-secondary)] mb-2">Max 90%</span>
-            <span className="text-[var(--color-text-subtle)]">Merchant Keeps</span>
+  <div key="slide-4" className="glass-surface p-6 md:p-12 rounded-3xl flex flex-col justify-center h-full gap-4 overflow-y-auto">
+    <div className="shrink-0">
+      <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">How the Money Works</h2>
+      <p className="font-body-sm md:font-body-md text-[var(--color-secondary)]">Every purchase automatically creates good — the money splits the moment a transaction is made, with no extra steps for anyone.</p>
+    </div>
+
+    {/* Transaction split */}
+    <div className="bg-white/50 p-4 md:p-6 rounded-xl border border-[var(--color-primary)]/20 shrink-0">
+      <div className="grid grid-cols-3 gap-3 md:gap-4 font-label-caps text-sm text-center items-start">
+        <div className="flex flex-col items-center justify-start">
+          <span className="block text-3xl md:text-4xl text-[var(--color-secondary)] mb-1">~90%</span>
+          <span className="text-[var(--color-text-subtle)] text-xs md:text-sm">Merchant Keeps</span>
+        </div>
+        <div className="flex flex-col items-center justify-start border-l border-r border-gray-200 px-2">
+          <span className="block text-3xl md:text-4xl text-[var(--color-primary)] mb-1">5%</span>
+          <span className="text-[var(--color-text-subtle)] text-xs md:text-sm">DIANA Revenue</span>
+          <span className="text-[10px] text-[var(--color-primary)]/70 mt-1 tracking-normal font-body-xs">(incl. 5% to sanctuaries)</span>
+        </div>
+        <div className="flex flex-col items-center justify-start">
+          <span className="block text-3xl md:text-4xl text-[var(--color-secondary)] mb-1">Min 5%</span>
+          <span className="text-[var(--color-text-subtle)] text-xs md:text-sm">Sanctuary Pledge</span>
+          <span className="text-[10px] text-[var(--color-primary)]/70 mt-1 tracking-normal font-body-xs">(from merchant + DIANA)</span>
+        </div>
+      </div>
+    </div>
+
+    {/* Dual-source sanctuary funding + regional routing */}
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 shrink-0">
+      <div className="bg-[var(--color-secondary)]/10 p-4 rounded-xl border border-[var(--color-secondary)]/30">
+        <p className="font-label-caps text-xs text-[var(--color-secondary)] tracking-widest mb-2">Sanctuary Income: Two Sources</p>
+        <div className="space-y-1.5 text-xs text-[var(--color-text)]">
+          <div className="flex justify-between items-baseline">
+            <span className="font-medium">Merchant&apos;s direct pledge (min 5% of GMV)</span>
+            <strong className="text-[var(--color-secondary)] ml-2 shrink-0">$500</strong>
           </div>
-          <div className="flex flex-col items-center justify-start border-t md:border-t-0 pt-4 md:pt-0 border-gray-200">
-            <span className="block text-3xl md:text-4xl text-[var(--color-primary)] mb-2">5%</span>
-            <span className="text-[var(--color-text-subtle)]">DIANA Revenue</span>
-            <span className="text-xs text-[var(--color-primary)]/80 mt-2 tracking-normal">(- 5% to Sanctuary)</span>
+          <div className="flex justify-between items-baseline">
+            <span className="font-medium">DIANA&apos;s skin-in-the-game (5% of DIANA&apos;s cut)</span>
+            <strong className="text-[var(--color-secondary)] ml-2 shrink-0">+ $25</strong>
           </div>
-          <div className="flex flex-col items-center justify-start border-t md:border-t-0 pt-4 md:pt-0 border-gray-200">
-            <span className="block text-3xl md:text-4xl text-[var(--color-secondary)] mb-2">Min 5%</span>
-            <span className="text-[var(--color-text-subtle)]">Sanctuary Funding</span>
-            <span className="text-xs text-[var(--color-primary)]/80 mt-2 tracking-normal">(+ DIANA's 5%)</span>
+          <div className="flex justify-between items-baseline border-t border-[var(--color-secondary)]/20 pt-1.5 mt-1">
+            <span className="font-bold text-[var(--color-secondary)]">Total per $10K merchant month</span>
+            <strong className="text-[var(--color-secondary)] ml-2 shrink-0 text-sm">$525</strong>
           </div>
+        </div>
+        <p className="text-[10px] text-[var(--color-text-subtle)] mt-2 font-body-xs">That&apos;s ~5.25% of all GMV flowing to animal sanctuaries — passively, on every single transaction.</p>
+      </div>
+
+      <div className="bg-[var(--color-primary)]/10 p-4 rounded-xl border border-[var(--color-primary)]/30">
+        <p className="font-label-caps text-xs text-[var(--color-primary)] tracking-widest mb-2">Regional Impact Routing</p>
+        <p className="text-xs text-[var(--color-text)] leading-relaxed mb-2">Sanctuary funding is allocated on a per-region basis — so the impact stays local and verifiable:</p>
+        <div className="space-y-1.5 text-xs text-[var(--color-text-subtle)] font-medium">
+          <div className="flex items-center gap-2"><span>🇵🇭</span> <span>Philippine transactions → Philippine sanctuaries</span></div>
+          <div className="flex items-center gap-2"><span>🇦🇺</span> <span>Australian transactions → Australian sanctuaries</span></div>
+          <div className="flex items-center gap-2"><span>🇮🇩</span> <span>Indonesian transactions → Indonesian sanctuaries</span></div>
+          <div className="flex items-center gap-2"><span>🌍</span> <span>And so on, globally — impact stays where it&apos;s earned</span></div>
         </div>
       </div>
     </div>
   </div>,
 
   // Slide 6: The Founder Edge
-  <div key="slide-founder" className="glass-surface p-4 md:p-8 rounded-3xl space-y-4 md:space-y-6 overflow-y-auto">
-    <h2 className="font-headline-lg text-xl md:text-3xl text-[var(--color-primary)] mb-2 md:mb-4">The Founder Edge</h2>
-    <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 items-center">
-      <div className="md:col-span-7 space-y-3 md:space-y-4">
-        <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)]">
+  <div key="slide-founder" className="glass-surface p-6 md:p-12 rounded-3xl space-y-4 md:space-y-6 flex flex-col justify-center h-full overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1 md:mb-2">The Founder Edge</h2>
+    <div className="grid grid-cols-1 md:grid-cols-12 gap-3 md:gap-5 items-center">
+      <div className="md:col-span-7 space-y-2 md:space-y-3">
+        <p className="font-body-xs md:font-body-sm text-[var(--color-text-subtle)]">
           What makes DIANA a safer bet is that the founder can build the tech herself and deeply understands the people she is building it for.
         </p>
-        <ul className="space-y-2 md:space-y-3 font-body-xs md:font-body-sm text-[var(--color-text-subtle)]">
-          <li className="flex items-start gap-2.5 bg-white/40 p-2.5 md:p-3 rounded-xl border border-white/60">
-            <span className="text-[var(--color-primary)] font-bold mt-0.5">•</span>
+        <ul className="space-y-1.5 md:space-y-2 font-body-xs text-[var(--color-text-subtle)] text-[11px] md:text-xs">
+          <li className="flex items-start gap-2 bg-white/40 p-2 md:p-2.5 rounded-xl border border-white/60">
+            <span className="text-[var(--color-primary)] font-bold mt-0.5 shrink-0">•</span>
             <span><strong>Built in-House:</strong> Diane built the complete web platform and mobile app herself, saving what a software agency would have charged: over $450,000.</span>
           </li>
-          <li className="flex items-start gap-2.5 bg-white/40 p-2.5 md:p-3 rounded-xl border border-white/60">
-            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
-            <span><strong>Real Market Understanding:</strong> Diane founded the first all-vegan pizzeria in the Philippines. She knows firsthand what ethical business owners actually need, and she has been a conscious consumer herself for over a decade.</span>
+          <li className="flex items-start gap-2 bg-white/40 p-2 md:p-2.5 rounded-xl border border-white/60">
+            <span className="text-[var(--color-primary)] font-bold mt-0.5 shrink-0">•</span>
+            <span><strong>Real Market Understanding:</strong> Diane founded the first all-vegan pizzeria in the Philippines. She knows firsthand what ethical business owners need, and has been a conscious consumer herself for over a decade.</span>
           </li>
-          <li className="flex items-start gap-2.5 bg-white/40 p-2.5 md:p-3 rounded-xl border border-white/60">
-            <span className="text-[var(--color-primary)] font-bold mt-1">•</span>
-            <span><strong>Trusted Relationships:</strong> Genuine friendships and collaborations with well-known vegan advocates, business owners, and community leaders who are ready to support and champion our launch.</span>
+          <li className="flex items-start gap-2 bg-white/40 p-2 md:p-2.5 rounded-xl border border-white/60">
+            <span className="text-[var(--color-primary)] font-bold mt-0.5 shrink-0">•</span>
+            <span><strong>Trusted Relationships:</strong> Genuine friendships with well-known vegan advocates, business owners, and community leaders who are ready to champion our launch.</span>
+          </li>
+          <li className="flex items-start gap-2 bg-[var(--color-primary)]/5 p-2 md:p-2.5 rounded-xl border border-[var(--color-primary)]/20">
+            <span className="text-[var(--color-primary)] font-bold mt-0.5 shrink-0">•</span>
+            <span><strong>Intentionally Lean to Start:</strong> The seed funds a market launch, not a team build. Diane consolidates tech lead, researcher, and community manager into one. First specialist hires activate post-1,000 user milestone, funded entirely by operational profit.</span>
           </li>
         </ul>
       </div>
@@ -1423,25 +1546,36 @@ const slides = [
   </div>,
 
   // Slide 7: Our Early Advantages
-  <div key="slide-5" className="glass-surface p-6 md:p-12 rounded-3xl space-y-6 md:space-y-8 overflow-y-auto">
-    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-4 md:mb-8">Our Early Advantages</h2>
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 font-body-sm md:font-body-md text-[var(--color-text-subtle)]">
-      <div className="glass-surface p-5 md:p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] mb-2">Ready Partners</h3>
-        <p className="flex-grow">Close personal connections with ethical business owners and sanctuary leaders who are excited to be our first partner venues and beneficiaries immediately upon launch.</p>
+  <div key="slide-5" className="glass-surface p-6 md:p-12 rounded-3xl space-y-4 md:space-y-6 flex flex-col justify-center h-full overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1 md:mb-2">Our Early Advantages</h2>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 font-body-xs md:font-body-sm text-[var(--color-text-subtle)]">
+      <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Ready Partners</h3>
+        <p className="flex-grow text-[11px] md:text-xs">Close personal connections with ethical business owners and sanctuary leaders who are excited to be our first partner venues and beneficiaries immediately upon launch.</p>
       </div>
-      <div className="glass-surface p-5 md:p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] mb-2">Organic Word-of-Mouth</h3>
-        <p className="flex-grow">Our network of advocate friends and community partners reaches thousands of dedicated animal lovers globally, attracting our initial user base without spending on paid ads.</p>
+      <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Organic Word-of-Mouth</h3>
+        <p className="flex-grow text-[11px] md:text-xs">Our network of advocate friends and community partners reaches thousands of dedicated animal lovers globally, attracting our initial user base without spending on paid ads.</p>
       </div>
-      <div className="glass-surface p-5 md:p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] mb-2">Capturing Displaced Users</h3>
-        <p className="flex-grow">The major ethical review platform abillion recently closed down, leaving a massive community of active daily users searching for a trusted new platform upon our launch.</p>
+      <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Capturing Displaced Users</h3>
+        <p className="flex-grow text-[11px] md:text-xs">The major ethical review platform abillion recently closed down, leaving a massive community of active daily users searching for a trusted new platform upon our launch.</p>
       </div>
-      <div className="glass-surface p-5 md:p-6 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-lg md:text-xl text-[var(--color-secondary)] mb-2">Self-Reinforcing Sanctuary Network</h3>
-        <p className="flex-grow">Because 5% of every transaction funds animal sanctuaries, sanctuary leaders and their passionate supporters naturally become active ambassadors, driving continuous user growth.</p>
+      <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
+        <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Self-Reinforcing Sanctuary Network</h3>
+        <p className="flex-grow text-[11px] md:text-xs">Because 5% of every transaction funds animal sanctuaries, sanctuary leaders and their passionate supporters naturally become active ambassadors, driving continuous user growth.</p>
       </div>
+    </div>
+
+    {/* Competitive Moat Banner */}
+    <div className="p-3 md:p-4 bg-gradient-to-r from-[var(--color-primary)]/10 to-[var(--color-secondary)]/10 rounded-2xl border-2 border-[var(--color-primary)]/30 shadow-sm">
+      <div className="flex items-center gap-2 mb-1">
+        <span className="text-sm">🛡️</span>
+        <h4 className="font-headline-md text-xs md:text-sm text-[var(--color-primary)] font-bold">Why the Moat Deepens Over Time</h4>
+      </div>
+      <p className="font-body-xs text-[10px] md:text-xs text-[var(--color-text)] leading-relaxed">
+        No mainstream VC chases a niche that looks too small. No generic fintech builds for a culture it doesn&apos;t inhabit. That&apos;s exactly why this gap exists — and why DIANA&apos;s real moat is not the technology but the <strong>decade of community trust</strong> Diane has built. Once sanctuaries earn payouts, they advocate permanently. Once merchants go live, their customers follow. A compounding flywheel no copycat can buy.
+      </p>
     </div>
   </div>,
 
@@ -1500,8 +1634,8 @@ const slides = [
   </div>,
 
   // Slide 8.5: The 5% Math
-  <div key="slide-5-percent-math" className="glass-surface p-5 md:p-8 rounded-3xl flex flex-col justify-center h-full overflow-y-auto">
-    <h2 className="font-headline-lg text-xl md:text-3xl text-[var(--color-primary)] mb-3 md:mb-6">The 5% Math: Highly Profitable</h2>
+  <div key="slide-5-percent-math" className="glass-surface p-6 md:p-12 rounded-3xl flex flex-col justify-center h-full overflow-y-auto">
+    <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-3 md:mb-6">The 5% Math: Highly Profitable</h2>
     
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-10 items-center">
       <div className="space-y-1.5 md:space-y-2 font-body-sm">
@@ -1564,6 +1698,9 @@ const slides = [
     <div>
       <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">Why 1,000 Active Users?</h2>
       <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)]">Here is the exact logic behind that number, in plain terms.</p>
+      <p className="font-body-xs text-xs text-[var(--color-text-subtle)] mt-1 leading-relaxed">
+        The <strong>$200/month average spend</strong> reflects published research on ethical consumer spending in our launch markets, and is deliberately conservative. Users who download a purpose-driven payment app self-select as frequent, committed buyers — actively choosing to pay more consciously, more often. At $50 per week (one café visit and a few grocery purchases), this is a realistic baseline for anyone who has already opted into conscious consumption.
+      </p>
     </div>
 
     {/* Step-by-step math */}
@@ -1666,6 +1803,9 @@ const slides = [
     </div>
   </div>,
 
+
+  // Slide 10: Payment Infrastructure & Compliance
+  <InfrastructureSlide key="slide-infrastructure" />,
 
   // Slide 7: Valuation Breakdown
   <WhatWeHaveBuiltSlide key="slide-7" />,

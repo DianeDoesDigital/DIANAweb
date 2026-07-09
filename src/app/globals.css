@@ -3,6 +3,7 @@
 
 @theme {
   --color-primary: #FF0099;
+  --color-primary-dark: #CC007A;
   --color-secondary: #0A0507;
   --color-background: #FFDDEE;
   --color-surface: rgba(10, 5, 7, 0.04);
