@@ -372,7 +372,9 @@ function DealCloser() {
   };
 
   const numericAmount = parseFloat(amount) || 0;
-  const equityPct = numericAmount > 0 ? Number((numericAmount / 10000).toFixed(2)) : 0;
+  const rawEquityPct = numericAmount > 0 ? numericAmount / 10000 : 0;
+  const isCapped = rawEquityPct > 35;
+  const equityPct = isCapped ? 35 : Number(rawEquityPct.toFixed(2));
 
   const handleSubmit = async () => {
     const canvas = canvasRef.current;
@@ -469,7 +471,11 @@ function DealCloser() {
               </div>
               {numericAmount > 0 && (
                 <div className="mt-1.5 p-1.5 bg-[var(--color-secondary)]/10 rounded-lg border border-[var(--color-secondary)]/20 text-center font-body-xs text-[11px] text-[var(--color-secondary)]">
-                  Indicating interest in <strong>${numericAmount.toLocaleString()} AUD</strong> for approximately <strong>{equityPct}% Ordinary Equity</strong>
+                  {isCapped ? (
+                    <span>Indicating interest in <strong>${numericAmount.toLocaleString()} AUD</strong> • <strong className="text-[var(--color-primary)]">35% Ordinary Equity (Cap)</strong><br/><span className="text-[10px] text-[var(--color-text-subtle)]">For investments &gt; $350,000 AUD, let&apos;s discuss custom terms directly.</span></span>
+                  ) : (
+                    <span>Indicating interest in <strong>${numericAmount.toLocaleString()} AUD</strong> for approximately <strong>{equityPct}% Ordinary Equity</strong></span>
+                  )}
                 </div>
               )}
             </div>
@@ -499,7 +505,7 @@ function DealCloser() {
               {name.trim() || 'Your Name'}
             </span>
             <span className="block text-[11px] text-[var(--color-text-subtle)]">
-              {email.trim() ? `${email.trim()} • ${numericAmount > 0 ? `$${numericAmount.toLocaleString()} AUD (${equityPct}%)` : 'Interested Investor'}` : 'Interested Investor'}
+              {email.trim() ? `${email.trim()} • ${numericAmount > 0 ? `$${numericAmount.toLocaleString()} AUD (${isCapped ? '35% Cap + Custom Terms' : `${equityPct}%`})` : 'Interested Investor'}` : 'Interested Investor'}
             </span>
           </div>
 
@@ -1801,7 +1807,7 @@ const slides = [
       </div>
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Capturing Displaced Users</h3>
-        <p className="flex-grow text-[11px] md:text-xs">The major ethical review platform abillion recently closed down, leaving a massive community of active daily users searching for a trusted new platform upon our launch.</p>
+        <p className="flex-grow text-[11px] md:text-xs">The major ethical review platform abillion (1M+ registered users) recently closed down, leaving a massive community of active daily users searching for a trusted new platform upon our launch.</p>
       </div>
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Self-Reinforcing Sanctuary Network</h3>
@@ -1841,7 +1847,7 @@ const slides = [
           </div>
           <ul className="space-y-2 md:space-y-2.5 font-body-sm text-[var(--color-text-subtle)] text-[11px] md:text-xs leading-relaxed">
             <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-16 md:w-20 shrink-0">Aug 2026:</span> <span>App launch and onboarding our waitlisted partner businesses and early community members.</span></li>
-            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-16 md:w-20 shrink-0">Q3 2026:</span> <span>Rapid welcome and migration of displaced active community members from abillion.</span></li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-16 md:w-20 shrink-0">Q3 2026:</span> <span>Rapid welcome and migration of displaced active community members from abillion (a major vegan discovery app with 1M+ registered users that recently closed).</span></li>
             <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-16 md:w-20 shrink-0">Dec 2026:</span> <span>Hit <strong>1,000 active monthly users</strong>, unlocking our full commercial target and generating clean monthly cash flow for shareholder dividends.</span></li>
           </ul>
         </div>
@@ -1944,7 +1950,7 @@ const slides = [
       <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">Why 1,000 Active Users?</h2>
       <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)]">Here is the exact logic behind that number, in plain terms.</p>
       <p className="font-body-xs text-xs text-[var(--color-text-subtle)] mt-1 leading-relaxed">
-        The <strong>$200/month average spend</strong> reflects published research on ethical consumer spending in our launch markets, and is deliberately conservative. Users who download a purpose-driven payment app self-select as frequent, committed buyers — actively choosing to pay more consciously, more often. At $50 per week (one café visit and a few grocery purchases), this is a realistic baseline for anyone who has already opted into conscious consumption.
+        The <strong>$200/month average spend</strong> reflects published research on ethical consumer spending in our launch markets (e.g., Nielsen ethical consumer insights &amp; GFI plant-based market data showing $220–$280+ monthly average spend across AU and Southeast Asia), and is deliberately conservative. Users who download a purpose-driven payment app self-select as frequent, committed buyers — actively choosing to pay more consciously, more often. At $50 per week (one café visit and a few grocery purchases), this is a realistic baseline for anyone who has already opted into conscious consumption.
       </p>
     </div>
 
