@@ -554,7 +554,7 @@ function ConclusionSlide({ onSecretClick }: { onSecretClick: () => void }) {
           >
             1. Express Interest →
           </button>
-          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto whitespace-nowrap">2. Diane Follows Up</div>
+          <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto whitespace-nowrap">2. Founder Follow Up</div>
           <div className="bg-white/40 px-6 py-3 rounded-full text-[var(--color-secondary)] font-medium flex items-center justify-center w-full md:w-auto whitespace-nowrap">3. Formalise &amp; Close</div>
         </div>
       </div>
@@ -573,6 +573,39 @@ function FinancialStrategySlide() {
           <p className="font-body-sm md:font-body-md text-[var(--color-secondary)] mt-1 max-w-4xl leading-relaxed">
             How we balance rapid global scaling with regular liquid cash returns. The exact percentage of dividends to be distributed will be agreed upon later on as we scale. To demonstrate how this wealth-building engine works, we illustrate a clean 80/20 reinvestment and dividend split across our growth tiers.
           </p>
+        </div>
+      </div>
+
+      {/* Dividend Trigger Callout */}
+      <div className="bg-[var(--color-primary)]/8 border border-[var(--color-primary)]/30 rounded-2xl p-3 md:p-4 shrink-0">
+        <p className="font-label-caps text-[10px] text-[var(--color-primary)] tracking-widest mb-2">When Do Dividends Begin?</p>
+        <div className="flex flex-col md:flex-row items-stretch gap-2 md:gap-3">
+          <div className="flex-1 bg-white/80 rounded-xl p-2.5 border border-[var(--color-primary)]/20 flex items-start gap-2">
+            <span className="text-lg shrink-0">👥</span>
+            <div>
+              <p className="font-label-caps text-[10px] text-[var(--color-primary)] tracking-wider">Condition A</p>
+              <p className="font-body-sm text-xs text-[var(--color-text)] font-semibold">1,000 Active Users Reached</p>
+              <p className="text-[10px] text-[var(--color-text-subtle)] mt-0.5">The platform proves sustainable daily transaction volume.</p>
+            </div>
+          </div>
+          <div className="flex items-center justify-center shrink-0 font-bold text-[var(--color-text-subtle)] text-sm">OR</div>
+          <div className="flex-1 bg-white/80 rounded-xl p-2.5 border border-[var(--color-secondary)]/20 flex items-start gap-2">
+            <span className="text-lg shrink-0">🏦</span>
+            <div>
+              <p className="font-label-caps text-[10px] text-[var(--color-secondary)] tracking-wider">Condition B</p>
+              <p className="font-body-sm text-xs text-[var(--color-text)] font-semibold">6-Month Operating Buffer Secured</p>
+              <p className="text-[10px] text-[var(--color-text-subtle)] mt-0.5">The company holds enough reserves to operate safely for 6 months.</p>
+            </div>
+          </div>
+          <div className="hidden md:flex items-center justify-center shrink-0 font-bold text-[var(--color-text-subtle)] text-sm">→</div>
+          <div className="flex-1 bg-[var(--color-secondary)]/10 rounded-xl p-2.5 border border-[var(--color-secondary)]/30 flex items-start gap-2">
+            <span className="text-lg shrink-0">💸</span>
+            <div>
+              <p className="font-label-caps text-[10px] text-[var(--color-secondary)] tracking-wider">Result</p>
+              <p className="font-body-sm text-xs text-[var(--color-text)] font-semibold">Dividends Begin</p>
+              <p className="text-[10px] text-[var(--color-text-subtle)] mt-0.5">Whichever milestone is reached first triggers the payout engine.</p>
+            </div>
+          </div>
         </div>
       </div>
 
