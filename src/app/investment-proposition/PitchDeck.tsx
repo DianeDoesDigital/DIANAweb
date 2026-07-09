@@ -211,7 +211,7 @@ function InteractiveDemoSlide() {
             </div>
             <div className="flex items-start gap-3 bg-[var(--color-primary)]/5 px-4 py-3 rounded-xl border border-[var(--color-primary)]/20 shadow-sm">
               <span className="text-[var(--color-primary)] font-bold text-lg mt-0.5 shrink-0">•</span>
-              <span className="font-body-xs md:font-body-sm text-[var(--color-text-subtle)] leading-snug"><strong>DIANA Web Platform &amp; Mobile App:</strong> Cross-platform iOS &amp; Android marketplace for consumers &amp; partner merchants.</span>
+              <span className="font-body-xs md:font-body-sm text-[var(--color-text-subtle)] leading-snug"><strong>DIANA Mobile App:</strong> Cross-platform iOS &amp; Android marketplace for consumers &amp; partner merchants.</span>
             </div>
           </div>
         </div>
@@ -564,44 +564,44 @@ function ConclusionSlide({ onSecretClick }: { onSecretClick: () => void }) {
 
 function DividendTriggerSlide() {
   return (
-    <div className="glass-surface p-6 md:px-12 md:py-10 rounded-3xl flex flex-col justify-center gap-6 md:gap-8 h-full relative border-4 border-[var(--color-primary)]/40 overflow-y-auto">
+    <div className="glass-surface p-6 md:px-12 md:py-10 rounded-3xl flex flex-col justify-center gap-8 md:gap-12 h-full relative border-4 border-[var(--color-primary)]/40 overflow-y-auto">
       <div className="shrink-0">
         <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)]">
           The Financial Engine: Reinvestment &amp; Dividends
         </h2>
-        <p className="font-body-sm md:font-body-md text-[var(--color-secondary)] mt-1 max-w-4xl leading-relaxed">
-          How we balance rapid global scaling with regular liquid cash returns. The exact percentage of dividends to be distributed will be agreed upon later on as we scale. To demonstrate how this wealth-building engine works, we illustrate a clean 80/20 reinvestment and dividend split across our growth tiers.
+        <p className="font-body-sm md:font-body-md text-[var(--color-secondary)] mt-2 max-w-4xl leading-relaxed">
+          How we balance rapid global scaling with regular liquid cash returns. The exact percentage of dividends to be distributed will be agreed upon later on as we scale. To demonstrate how this wealth-building engine works, we illustrate an example reinvestment and dividend split across our growth tiers.
         </p>
       </div>
 
       {/* Dividend Trigger Callout */}
-      <div className="bg-[var(--color-primary)]/8 border border-[var(--color-primary)]/30 rounded-2xl p-4 md:p-6 shrink-0">
-        <p className="font-label-caps text-[10px] text-[var(--color-primary)] tracking-widest mb-3">When Do Dividends Begin?</p>
-        <div className="flex flex-col md:flex-row items-stretch gap-3 md:gap-4">
-          <div className="flex-1 bg-white/80 rounded-xl p-3 md:p-4 border border-[var(--color-primary)]/20 flex items-start gap-3">
+      <div className="bg-[var(--color-primary)]/8 border border-[var(--color-primary)]/30 rounded-2xl p-5 md:p-8 shrink-0">
+        <p className="font-label-caps text-[10px] text-[var(--color-primary)] tracking-widest mb-4">When Do Dividends Begin?</p>
+        <div className="flex flex-col md:flex-row items-stretch gap-4 md:gap-5">
+          <div className="flex-1 bg-white/80 rounded-xl p-4 md:p-5 border border-[var(--color-primary)]/20 flex items-start gap-3">
             <span className="text-2xl shrink-0">👥</span>
             <div>
-              <p className="font-label-caps text-[10px] text-[var(--color-primary)] tracking-wider mb-0.5">Condition A</p>
-              <p className="font-body-sm text-sm text-[var(--color-text)] font-semibold">1,000 Active Users Reached</p>
-              <p className="text-xs text-[var(--color-text-subtle)] mt-1">The platform proves sustainable daily transaction volume across our launch markets.</p>
+              <p className="font-label-caps text-[10px] text-[var(--color-primary)] tracking-wider mb-1">Condition A</p>
+              <p className="font-body-sm text-sm text-[var(--color-text)] font-semibold mb-1">1,000 Active Users Reached</p>
+              <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">The platform proves sustainable daily transaction volume across our launch markets.</p>
             </div>
           </div>
           <div className="flex items-center justify-center shrink-0 font-bold text-[var(--color-text-subtle)] text-base md:text-lg">OR</div>
-          <div className="flex-1 bg-white/80 rounded-xl p-3 md:p-4 border border-[var(--color-secondary)]/20 flex items-start gap-3">
+          <div className="flex-1 bg-white/80 rounded-xl p-4 md:p-5 border border-[var(--color-secondary)]/20 flex items-start gap-3">
             <span className="text-2xl shrink-0">🏦</span>
             <div>
-              <p className="font-label-caps text-[10px] text-[var(--color-secondary)] tracking-wider mb-0.5">Condition B</p>
-              <p className="font-body-sm text-sm text-[var(--color-text)] font-semibold">6-Month Operating Buffer Secured</p>
-              <p className="text-xs text-[var(--color-text-subtle)] mt-1">The company holds enough reserves to operate safely for 6 full months without new revenue.</p>
+              <p className="font-label-caps text-[10px] text-[var(--color-secondary)] tracking-wider mb-1">Condition B</p>
+              <p className="font-body-sm text-sm text-[var(--color-text)] font-semibold mb-1">6-Month Operating Buffer Secured</p>
+              <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">The company holds enough reserves to operate safely for 6 full months without new revenue.</p>
             </div>
           </div>
           <div className="hidden md:flex items-center justify-center shrink-0 font-bold text-[var(--color-primary)] text-xl">→</div>
-          <div className="flex-1 bg-[var(--color-secondary)]/10 rounded-xl p-3 md:p-4 border border-[var(--color-secondary)]/30 flex items-start gap-3">
+          <div className="flex-1 bg-[var(--color-secondary)]/10 rounded-xl p-4 md:p-5 border border-[var(--color-secondary)]/30 flex items-start gap-3">
             <span className="text-2xl shrink-0">💸</span>
             <div>
-              <p className="font-label-caps text-[10px] text-[var(--color-secondary)] tracking-wider mb-0.5">Result</p>
-              <p className="font-body-sm text-sm text-[var(--color-text)] font-semibold">Dividends Begin</p>
-              <p className="text-xs text-[var(--color-text-subtle)] mt-1">Whichever milestone is reached first triggers the payout engine — cash hits shareholder accounts.</p>
+              <p className="font-label-caps text-[10px] text-[var(--color-secondary)] tracking-wider mb-1">Result</p>
+              <p className="font-body-sm text-sm text-[var(--color-text)] font-semibold mb-1">Dividends Begin</p>
+              <p className="text-xs text-[var(--color-text-subtle)] leading-relaxed">Whichever milestone is reached first triggers the payout engine — cash hits shareholder accounts.</p>
             </div>
           </div>
         </div>
