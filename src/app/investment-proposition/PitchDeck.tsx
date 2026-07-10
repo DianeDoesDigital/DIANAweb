@@ -1614,35 +1614,6 @@ function SanctuaryStandardsSlide() {
         </div>
       </div>
 
-      <div className="p-3.5 md:p-4 bg-white/5 rounded-2xl border border-[var(--color-border-main)] space-y-2.5">
-        <div className="flex items-center gap-2">
-          <span className="text-base">🌿</span>
-          <h4 className="font-headline-md text-xs md:text-sm text-[var(--color-primary)] font-bold">Launch-Market Sanctuary Partners (In Active Conversation)</h4>
-        </div>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
-          <div className="bg-white/80 rounded-xl px-3 py-2 border border-[var(--color-primary)]/15 text-center">
-            <span className="text-base block">🇦🇺</span>
-            <span className="text-[10px] font-bold text-[var(--color-primary)] block leading-tight">A Better Life</span>
-            <span className="text-[9px] text-[var(--color-text-subtle)]">Australia</span>
-          </div>
-          <div className="bg-white/80 rounded-xl px-3 py-2 border border-[var(--color-primary)]/15 text-center">
-            <span className="text-base block">🇦🇺</span>
-            <span className="text-[10px] font-bold text-[var(--color-primary)] block leading-tight">Possum Valley</span>
-            <span className="text-[9px] text-[var(--color-text-subtle)]">Australia</span>
-          </div>
-          <div className="bg-white/80 rounded-xl px-3 py-2 border border-[var(--color-secondary)]/15 text-center">
-            <span className="text-base block">🇵🇭</span>
-            <span className="text-[10px] font-bold text-[var(--color-secondary)] block leading-tight">PART</span>
-            <span className="text-[9px] text-[var(--color-text-subtle)]">Philippines</span>
-          </div>
-          <div className="bg-white/80 rounded-xl px-3 py-2 border border-[var(--color-primary)]/15 text-center">
-            <span className="text-base block">🇮🇩</span>
-            <span className="text-[10px] font-bold text-[var(--color-primary)] block leading-tight">Villa Kitty</span>
-            <span className="text-[9px] text-[var(--color-text-subtle)]">Indonesia</span>
-          </div>
-        </div>
-      </div>
-
       <div className="p-3.5 md:p-4 bg-white/60 rounded-2xl border border-[var(--color-border-main)] flex flex-col md:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <span className="text-2xl shrink-0">🏛️</span>
