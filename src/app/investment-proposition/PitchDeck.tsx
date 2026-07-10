@@ -1614,6 +1614,35 @@ function SanctuaryStandardsSlide() {
         </div>
       </div>
 
+      <div className="p-3.5 md:p-4 bg-white/5 rounded-2xl border border-[var(--color-border-main)] space-y-2.5">
+        <div className="flex items-center gap-2">
+          <span className="text-base">🌿</span>
+          <h4 className="font-headline-md text-xs md:text-sm text-[var(--color-primary)] font-bold">Launch-Market Sanctuary Partners (In Active Conversation)</h4>
+        </div>
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
+          <div className="bg-white/80 rounded-xl px-3 py-2 border border-[var(--color-primary)]/15 text-center">
+            <span className="text-base block">🇦🇺</span>
+            <span className="text-[10px] font-bold text-[var(--color-primary)] block leading-tight">A Better Life</span>
+            <span className="text-[9px] text-[var(--color-text-subtle)]">Australia</span>
+          </div>
+          <div className="bg-white/80 rounded-xl px-3 py-2 border border-[var(--color-primary)]/15 text-center">
+            <span className="text-base block">🇦🇺</span>
+            <span className="text-[10px] font-bold text-[var(--color-primary)] block leading-tight">Possum Valley</span>
+            <span className="text-[9px] text-[var(--color-text-subtle)]">Australia</span>
+          </div>
+          <div className="bg-white/80 rounded-xl px-3 py-2 border border-[var(--color-secondary)]/15 text-center">
+            <span className="text-base block">🇵🇭</span>
+            <span className="text-[10px] font-bold text-[var(--color-secondary)] block leading-tight">PART</span>
+            <span className="text-[9px] text-[var(--color-text-subtle)]">Philippines</span>
+          </div>
+          <div className="bg-white/80 rounded-xl px-3 py-2 border border-[var(--color-primary)]/15 text-center">
+            <span className="text-base block">🇮🇩</span>
+            <span className="text-[10px] font-bold text-[var(--color-primary)] block leading-tight">Villa Kitty</span>
+            <span className="text-[9px] text-[var(--color-text-subtle)]">Indonesia</span>
+          </div>
+        </div>
+      </div>
+
       <div className="p-3.5 md:p-4 bg-white/60 rounded-2xl border border-[var(--color-border-main)] flex flex-col md:flex-row items-center justify-between gap-3">
         <div className="flex items-center gap-3">
           <span className="text-2xl shrink-0">🏛️</span>
@@ -1798,8 +1827,8 @@ const slides = [
     <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1 md:mb-2">Our Early Advantages</h2>
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 font-body-xs md:font-body-sm text-[var(--color-text-subtle)]">
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
-        <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Confirmed Partner Waitlist</h3>
-        <p className="flex-grow text-[11px] md:text-xs">Over 40 ethical businesses signed up on our launch waitlist — including confirmed partner merchants across our initial markets like Harmony Hill (ID), Progressive Gains Fitness (AU), and Namnamsam (PH).</p>
+        <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Global Waitlist — Targeted Launch</h3>
+        <p className="flex-grow text-[11px] md:text-xs">Merchants and users from across the globe are already on our waitlist. We are launching in targeted markets first — not because demand is limited, but because quality partner activation takes time. Confirmed AU/PH/ID merchants include Harmony Hill (ID), Progressive Gains Fitness (AU), and Namnamsam (PH).</p>
       </div>
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Organic Word-of-Mouth</h3>
