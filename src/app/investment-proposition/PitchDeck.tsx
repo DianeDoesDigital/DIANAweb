@@ -1828,19 +1828,19 @@ const slides = [
     <div className="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4 font-body-xs md:font-body-sm text-[var(--color-text-subtle)]">
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Global Waitlist — Targeted Launch</h3>
-        <p className="flex-grow text-[11px] md:text-xs">Merchants and users from across the globe are already on our waitlist. We are launching in targeted markets first — not because demand is limited, but because quality partner activation takes time. Confirmed AU/PH/ID merchants include Harmony Hill (ID), Progressive Gains Fitness (AU), and Namnamsam (PH).</p>
+        <p className="flex-grow text-[11px] md:text-xs">Merchants and users from across the globe are already waiting. We are launching in AU, PH, and ID first by design — targeted, event-driven activation produces higher-quality early adoption than trying to be everywhere at once from day one.</p>
       </div>
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Organic Word-of-Mouth</h3>
-        <p className="flex-grow text-[11px] md:text-xs">Our network of advocate friends and community partners reaches thousands of dedicated animal lovers globally, attracting our initial user base without spending on paid ads.</p>
+        <p className="flex-grow text-[11px] md:text-xs">Diane&apos;s network of animal advocates, community partners, and celebrity supporters reaches tens of thousands of dedicated ethical consumers globally — generating real user interest without spending a cent on paid advertising.</p>
       </div>
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Capturing Displaced Users</h3>
-        <p className="flex-grow text-[11px] md:text-xs">The major ethical review platform abillion (1M+ registered users) recently closed down, leaving a massive community of active daily users searching for a trusted new platform upon our launch.</p>
+        <p className="flex-grow text-[11px] md:text-xs">The major ethical review platform abillion (1M+ registered users) recently shut down, leaving an active, purpose-driven community with nowhere to go. DIANA launches directly into that gap, at exactly the right moment.</p>
       </div>
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Self-Reinforcing Sanctuary Network</h3>
-        <p className="flex-grow text-[11px] md:text-xs">Because 5% of every transaction funds animal sanctuaries, sanctuary leaders and their passionate supporters naturally become active ambassadors, driving continuous user growth.</p>
+        <p className="flex-grow text-[11px] md:text-xs">Because 5% of every transaction funds animal sanctuaries, the sanctuaries themselves become permanent brand ambassadors — their staff, donors, and supporters all have a direct reason to use and promote DIANA, compounding growth organically.</p>
       </div>
     </div>
 
