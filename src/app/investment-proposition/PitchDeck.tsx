@@ -1836,7 +1836,7 @@ const slides = [
       </div>
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Capturing Displaced Users</h3>
-        <p className="flex-grow text-[11px] md:text-xs">The major ethical review platform abillion (1M+ registered users) recently shut down, leaving an active, purpose-driven community with nowhere to go. DIANA launches directly into that gap, at exactly the right moment.</p>
+        <p className="flex-grow text-[11px] md:text-xs">The major ethical review platform abillion (1M+ registered users) recently shut down, leaving an active, purpose-driven community with nowhere to go. These are exactly the high-intent, values-aligned users DIANA is built for — and they are actively searching for a trusted alternative right now.</p>
       </div>
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Self-Reinforcing Sanctuary Network</h3>
