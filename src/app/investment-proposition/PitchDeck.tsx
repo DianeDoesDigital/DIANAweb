@@ -1832,7 +1832,7 @@ const slides = [
       </div>
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Organic Word-of-Mouth</h3>
-        <p className="flex-grow text-[11px] md:text-xs">Diane&apos;s network of animal advocates, community partners, and celebrity supporters reaches tens of thousands of dedicated ethical consumers globally — generating real user interest without spending a cent on paid advertising.</p>
+        <p className="flex-grow text-[11px] md:text-xs">Our network of animal advocates, community partners, and celebrity supporters reaches tens of thousands of dedicated ethical consumers globally — generating real user interest without spending a cent on paid advertising.</p>
       </div>
       <div className="glass-surface p-3 md:p-4 rounded-xl border border-white/40 flex flex-col">
         <h3 className="font-headline-md text-xs md:text-sm text-[var(--color-secondary)] mb-1">Capturing Displaced Users</h3>
