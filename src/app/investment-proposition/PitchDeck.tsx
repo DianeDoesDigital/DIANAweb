@@ -1496,9 +1496,9 @@ function TamSlide() {
   return (
     <div className="glass-surface p-6 md:p-12 rounded-3xl space-y-4 md:space-y-5 flex flex-col justify-center h-full relative border-4 border-[var(--color-primary)]/40 overflow-y-auto">
       <div>
-        <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">Total Addressable Market</h2>
+        <h2 className="font-headline-lg text-2xl md:text-4xl text-[var(--color-primary)] mb-1">Global Market &amp; Initial Launch Corridors</h2>
         <p className="font-body-sm md:font-body-md text-[var(--color-text-subtle)] leading-relaxed max-w-3xl">
-          Across Australia, the Philippines, and Indonesia, over <strong>15 million active ethical and plant-based consumers</strong> spend tens of billions annually. Our initial 1,000-user commercial target represents <strong>less than 0.01%</strong> of our primary addressable audience.
+          While DIANA is built for borderless global utility across over 100 million ethical consumers worldwide (<strong>Total Addressable Market</strong>), our initial commercial rollout anchors across three high-growth launch corridors totaling over <strong>15 million active consumers (Serviceable Addressable Market)</strong>. Our initial 1,000-user break-even target represents <strong>less than 0.01%</strong> of this primary launch audience.
         </p>
       </div>
 
