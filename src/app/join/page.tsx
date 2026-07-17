@@ -3,18 +3,18 @@
 import React, { useState, useEffect } from 'react';
 import TopNav from '@/components/layout/TopNav';
 import Link from 'next/link';
-import { Heart, ShieldCheck, ArrowRight, CheckCircle2, Eye, EyeClosed } from 'lucide-react';
+import { ShieldCheck, ArrowRight, CheckCircle2, Eye, EyeClosed, Cat } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
 export default function JoinPage() {
-  const [referrer, setReferrer] = useState('');
+  const [referrer, setReferrer] = useState<string | null>(null);
 
   useEffect(() => {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
-      const refParam = params.get('ref') || '';
+      const refParam = params.get('ref');
       if (refParam) {
-        setReferrer(refParam.trim().replace(/^@/, '').toLowerCase());
+        setReferrer(refParam.trim().toLowerCase().replace(/^@/, ''));
       }
     }
   }, []);
@@ -116,7 +116,7 @@ export default function JoinPage() {
         <div className="flex flex-col items-center text-center z-10 relative">
           {referrer ? (
             <div className="inline-flex items-center gap-2 bg-[#FF0099]/10 border border-[#FF0099]/30 px-4 py-1.5 rounded-full mb-6">
-              <Heart className="w-4 h-4 text-[#FF0099] fill-[#FF0099]" />
+              <Cat className="w-4 h-4 text-[#FF0099]" />
               <span className="text-xs sm:text-sm font-bold tracking-wider text-[#FF0099] uppercase">
                 Invited by @{referrer}
               </span>
