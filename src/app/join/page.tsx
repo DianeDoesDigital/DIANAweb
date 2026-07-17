@@ -1,15 +1,22 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import React, { useState, useEffect } from 'react';
 import TopNav from '@/components/layout/TopNav';
 import Link from 'next/link';
-import { Heart, ShieldCheck, Sparkles, ArrowRight, CheckCircle2, Copy } from 'lucide-react';
+import { Heart, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
 
-function JoinContent() {
-  const searchParams = useSearchParams();
-  const refParam = searchParams?.get('ref') || '';
-  const referrer = refParam.trim().replace(/^@/, '').toLowerCase();
+export default function JoinPage() {
+  const [referrer, setReferrer] = useState('');
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const params = new URLSearchParams(window.location.search);
+      const refParam = params.get('ref') || '';
+      if (refParam) {
+        setReferrer(refParam.trim().replace(/^@/, '').toLowerCase());
+      }
+    }
+  }, []);
 
   const [handle, setHandle] = useState('');
   const [name, setName] = useState('');
@@ -30,7 +37,7 @@ function JoinContent() {
   };
 
   return (
-    <main className="min-h-screen bg-[#FFF0F7] text-[#0A0507] pt-24 pb-20 px-6 sm:px-12 flex flex-col items-center justify-center">
+    <main className="snap-start min-h-screen bg-[#FFF0F7] text-[#0A0507] pt-24 pb-20 px-6 sm:px-12 flex flex-col items-center justify-center">
       <TopNav />
       
       <div className="max-w-2xl w-full bg-white/80 backdrop-blur-xl border border-[#FF0099]/20 rounded-3xl p-8 sm:p-12 shadow-2xl shadow-[#FF0099]/5 relative overflow-hidden">
@@ -70,26 +77,23 @@ function JoinContent() {
           )}
 
           {submitted ? (
-            <div className="w-full bg-[#FFF0F8] border border-[#FF0099]/30 rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center">
-              <CheckCircle2 className="w-12 h-12 text-[#FF0099] mb-4" />
-              <h3 className="font-['Outfit'] text-xl font-bold text-[#0A0507] mb-2">
-                Welcome to DIANA, {name}!
-              </h3>
-              <p className="font-['Inter'] text-sm text-[#0A0507]/70 max-w-md mb-6 leading-relaxed">
-                Your handle <span className="font-bold text-[#FF0099]">@{handle || name.toLowerCase().replace(/\s+/g, '')}</span> has been reserved under our Early Access protocol{referrer ? ` and attributed to @${referrer}` : ''}.
+            <div className="bg-[#FFF0F8] border border-[#FF0099]/30 rounded-2xl p-6 sm:p-8 w-full max-w-md flex flex-col items-center gap-4 animate-fade-in">
+              <div className="w-12 h-12 bg-[#FF0099]/10 rounded-full flex items-center justify-center text-[#FF0099]">
+                <CheckCircle2 className="w-6 h-6" />
+              </div>
+              <h3 className="font-['Outfit'] text-xl font-bold text-[#0A0507]">Handle Reserved!</h3>
+              <p className="font-['Inter'] text-xs sm:text-sm text-[#0A0507]/80 text-center leading-relaxed">
+                You are on the priority entry list as <span className="font-bold text-[#FF0099]">@{handle || name.toLowerCase().replace(/\s+/g, '')}</span>. We will notify <span className="font-semibold text-[#0A0507]">{email}</span> the instant your portal unlocks.
               </p>
-              <div className="flex flex-col sm:flex-row gap-3 w-full justify-center">
+              <div className="mt-4 pt-4 border-t border-[#FF0099]/10 w-full flex flex-col items-center gap-2">
+                <span className="text-[11px] uppercase tracking-wider font-bold text-[#FF0099]">Next Step</span>
                 <Link
-                  href="/sanctuaries"
-                  className="bg-[#FF0099] text-white font-['Outfit'] font-bold text-sm px-6 py-3.5 rounded-xl hover:bg-[#D4007D] transition-colors flex items-center justify-center gap-2"
+                  href="https://expo.dev/artifacts/eas/jY6Yd8zV1aGZ2K4Vb6uD8k.apk"
+                  target="_blank"
+                  className="w-full bg-[#FF0099] hover:bg-[#D4007D] text-white font-['Outfit'] font-bold text-sm py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2"
                 >
-                  Explore Sanctuaries <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link
-                  href="/merchants"
-                  className="bg-white text-[#0A0507] border border-[#FF0099]/30 font-['Outfit'] font-bold text-sm px-6 py-3.5 rounded-xl hover:bg-[#FFF0F8] transition-colors flex items-center justify-center"
-                >
-                  Discover 100% Vegan Merchants
+                  <span>Download DIANA Android APK</span>
+                  <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
             </div>
@@ -97,16 +101,32 @@ function JoinContent() {
             <form onSubmit={handleSubmit} className="w-full max-w-md flex flex-col gap-4 text-left">
               <div>
                 <label className="block font-['Outfit'] text-xs font-bold uppercase tracking-wider text-[#0A0507]/70 mb-1.5">
-                  Your Name
+                  Full Name or Organisation Name
                 </label>
                 <input
                   type="text"
                   required
+                  placeholder="e.g. Diane Rose"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  placeholder="Diane"
-                  className="w-full bg-white border border-[#FF0099]/20 rounded-xl px-4 py-3 font-['Inter'] text-sm text-[#0A0507] placeholder-[#0A0507]/30 focus:outline-none focus:border-[#FF0099] transition-colors"
+                  className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507]"
                 />
+              </div>
+
+              <div>
+                <label className="block font-['Outfit'] text-xs font-bold uppercase tracking-wider text-[#0A0507]/70 mb-1.5">
+                  Desired Handle (@username)
+                </label>
+                <div className="relative flex items-center">
+                  <span className="absolute left-4 text-[#0A0507]/40 font-bold">@</span>
+                  <input
+                    type="text"
+                    placeholder="diane"
+                    value={handle}
+                    onChange={(e) => setHandle(e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ''))}
+                    className="w-full bg-white border border-[#0A0507]/15 rounded-xl pl-8 pr-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507]"
+                  />
+                </div>
               </div>
 
               <div>
@@ -116,27 +136,11 @@ function JoinContent() {
                 <input
                   type="email"
                   required
+                  placeholder="diane@dianafortheanimals.org"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  placeholder="diane@dianafortheanimals.org"
-                  className="w-full bg-white border border-[#FF0099]/20 rounded-xl px-4 py-3 font-['Inter'] text-sm text-[#0A0507] placeholder-[#0A0507]/30 focus:outline-none focus:border-[#FF0099] transition-colors"
+                  className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507]"
                 />
-              </div>
-
-              <div>
-                <label className="block font-['Outfit'] text-xs font-bold uppercase tracking-wider text-[#0A0507]/70 mb-1.5">
-                  Desired Handle (@username)
-                </label>
-                <div className="relative flex items-center">
-                  <span className="absolute left-4 font-['Outfit'] font-bold text-sm text-[#FF0099]">@</span>
-                  <input
-                    type="text"
-                    value={handle}
-                    onChange={(e) => setHandle(e.target.value.replace(/\s+/g, '').toLowerCase())}
-                    placeholder="diane"
-                    className="w-full bg-white border border-[#FF0099]/20 rounded-xl pl-8 pr-4 py-3 font-['Inter'] text-sm text-[#0A0507] placeholder-[#0A0507]/30 focus:outline-none focus:border-[#FF0099] transition-colors"
-                  />
-                </div>
               </div>
 
               {referrer && (
@@ -158,13 +162,5 @@ function JoinContent() {
         </div>
       </div>
     </main>
-  );
-}
-
-export default function JoinPage() {
-  return (
-    <Suspense fallback={<div className="min-h-screen bg-[#FFF0F7] flex items-center justify-center text-[#FF0099] font-['Outfit'] font-bold">Loading DIANA Network...</div>}>
-      <JoinContent />
-    </Suspense>
   );
 }
