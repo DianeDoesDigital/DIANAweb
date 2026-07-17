@@ -42,6 +42,13 @@ export default function JoinPage() {
         ? handle.trim().toLowerCase().replace(/[^a-z0-9_]/g, '')
         : name.toLowerCase().replace(/[^a-z0-9_]/g, '') || `user_${Math.floor(1000 + Math.random() * 9000)}`;
 
+      const forbiddenHandles = ['diana', 'd1ana', 'admin', 'system', 'root', 'support', 'official', 'help', 'drgm', 'moderator', 'staff', 'security'];
+      if (forbiddenHandles.includes(cleanHandle) || cleanHandle.includes('diana') || cleanHandle.includes('d1ana')) {
+        setErrorMessage(`The handle "@${cleanHandle}" is reserved for official DIANA system identity and cannot be registered. Please choose another handle.`);
+        setLoading(false);
+        return;
+      }
+
       // 1. Create real Supabase Auth user
       const { data, error } = await supabase.auth.signUp({
         email: email.trim(),
@@ -169,7 +176,7 @@ export default function JoinPage() {
 
               <div>
                 <label className="block font-['Outfit'] text-xs font-bold uppercase tracking-wider text-[#0A0507]/70 mb-1">
-                  Your Full Name (Advocate Profile)
+                  Your Name (Advocate Profile)
                 </label>
                 <p className="font-['Inter'] text-[11px] text-[#0A0507]/60 mb-2 leading-tight">
                   All users must start with an individual Advocate account. Representing a Sanctuary or Business? You can list and verify your organisation directly from your Profile once inside the app.
@@ -177,7 +184,7 @@ export default function JoinPage() {
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Diane Rose"
+                  placeholder="e.g. Maya Lin"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507]"
@@ -192,7 +199,7 @@ export default function JoinPage() {
                   <span className="absolute left-4 text-[#0A0507]/40 font-bold">@</span>
                   <input
                     type="text"
-                    placeholder="diane"
+                    placeholder="maya"
                     value={handle}
                     onChange={(e) => setHandle(e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ''))}
                     className="w-full bg-white border border-[#0A0507]/15 rounded-xl pl-8 pr-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507]"
@@ -207,7 +214,7 @@ export default function JoinPage() {
                 <input
                   type="email"
                   required
-                  placeholder="diane@dianafortheanimals.org"
+                  placeholder="maya@compassionate.org"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507]"
