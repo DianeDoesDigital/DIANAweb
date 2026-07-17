@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import TopNav from '@/components/layout/TopNav';
 import Link from 'next/link';
-import { Heart, ShieldCheck, ArrowRight, CheckCircle2, Eye, EyeOff } from 'lucide-react';
+import { Heart, ShieldCheck, ArrowRight, CheckCircle2, Eye, EyeClosed } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
 export default function JoinPage() {
@@ -234,7 +234,7 @@ export default function JoinPage() {
                   className="absolute right-3.5 top-3.5 text-[#0A0507]/45 hover:text-[#FF0099] transition-colors focus:outline-none"
                   aria-label={showPassword ? "Hide password" : "Show password"}
                 >
-                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                  {showPassword ? <EyeClosed className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
                 </button>
                 {(passwordFocused || (password.length > 0 && (password.length < 6 || !/[A-Z]/.test(password) || !/\d/.test(password) || !/[!@#$%^&*(),.?":{}|<>\-_+=\/\\[\]~']/.test(password)))) && (
                   <div className="absolute bottom-full left-0 right-0 mb-3 bg-white/95 backdrop-blur-xl border border-[#FF0099]/30 rounded-2xl p-4 flex flex-col gap-2.5 shadow-2xl shadow-[#FF0099]/10 z-50 transition-all animate-fade-in text-left text-[#0A0507]">
