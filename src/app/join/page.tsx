@@ -23,6 +23,7 @@ export default function JoinPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordFocused, setPasswordFocused] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
@@ -184,7 +185,7 @@ export default function JoinPage() {
                 <input
                   type="text"
                   required
-                  placeholder="Your Name (Advocate Profile)"
+                  placeholder="Your Name"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                   className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3.5 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507] placeholder:text-[#0A0507]/45"
@@ -208,7 +209,7 @@ export default function JoinPage() {
                 <input
                   type="email"
                   required
-                  placeholder="yourname@dianafortheanimals.org"
+                  placeholder="Email address (you@d1ana.app)"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3.5 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507] placeholder:text-[#0A0507]/45"
@@ -219,11 +220,30 @@ export default function JoinPage() {
                 <input
                   type="password"
                   required
-                  placeholder="Create Password (Min. 6 characters)"
+                  placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
+                  onFocus={() => setPasswordFocused(true)}
+                  onBlur={() => setPasswordFocused(false)}
                   className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3.5 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507] placeholder:text-[#0A0507]/45"
                 />
+                {(passwordFocused || password.length > 0) && (
+                  <div className="mt-2 bg-white/95 backdrop-blur-md border border-[#FF0099]/20 rounded-xl px-3.5 py-2.5 flex items-center justify-between shadow-sm transition-all animate-fade-in">
+                    <div className="flex items-center gap-2">
+                      <div className={`w-4 h-4 rounded-full flex items-center justify-center transition-colors ${password.length >= 6 ? 'bg-[#FF0099] text-white' : 'bg-[#0A0507]/15 text-[#0A0507]/50'}`}>
+                        <CheckCircle2 className="w-3 h-3" />
+                      </div>
+                      <span className={`font-['Inter'] text-xs font-medium transition-colors ${password.length >= 6 ? 'text-[#0A0507] font-bold' : 'text-[#0A0507]/70'}`}>
+                        At least 6 characters
+                      </span>
+                    </div>
+                    {password.length >= 6 && (
+                      <span className="font-['Outfit'] text-[10px] uppercase font-bold text-[#FF0099] tracking-wider">
+                        Valid
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
 
               <button
