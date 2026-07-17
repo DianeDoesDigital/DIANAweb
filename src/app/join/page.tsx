@@ -121,14 +121,7 @@ export default function JoinPage() {
                 Invited by @{referrer}
               </span>
             </div>
-          ) : (
-            <div className="inline-flex items-center gap-2 bg-[#FF0099]/10 border border-[#FF0099]/30 px-4 py-1.5 rounded-full mb-6">
-              <ShieldCheck className="w-4 h-4 text-[#FF0099]" />
-              <span className="text-xs sm:text-sm font-bold tracking-wider text-[#FF0099] uppercase">
-                Early Access Portal
-              </span>
-            </div>
-          )}
+          ) : null}
 
           <h1 className="font-['Outfit'] text-3xl sm:text-5xl font-bold tracking-tight text-[#0A0507] mb-4">
             Join the Compassionate Network
