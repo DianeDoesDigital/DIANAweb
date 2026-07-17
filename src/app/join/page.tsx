@@ -13,8 +13,21 @@ export default function JoinPage() {
     if (typeof window !== 'undefined') {
       const params = new URLSearchParams(window.location.search);
       const refParam = params.get('ref');
+      const emailParam = params.get('email') || params.get('e');
+      const nameParam = params.get('name') || params.get('n');
+
       if (refParam) {
         setReferrer(refParam.trim().toLowerCase().replace(/^@/, ''));
+      } else if (emailParam) {
+        // All waitlist blast subscribers were invited by Diane
+        setReferrer('diane');
+      }
+
+      if (emailParam) {
+        setEmail(emailParam.trim().toLowerCase());
+      }
+      if (nameParam) {
+        setName(nameParam.trim());
       }
     }
   }, []);
@@ -77,7 +90,7 @@ export default function JoinPage() {
           username: cleanHandle,
           type: 'personal',
           preferred_currency: 'PHP',
-          referred_by: referrer || null,
+          referred_by: referrer || 'diane',
         });
 
         // 3. Trigger Welcome Email asynchronously
