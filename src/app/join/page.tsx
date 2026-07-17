@@ -164,17 +164,21 @@ export default function JoinPage() {
               <p className="font-['Inter'] text-xs sm:text-sm text-[#0A0507]/80 text-center leading-relaxed">
                 You are officially registered on the DIANA network as <span className="font-bold text-[#FF0099]">@{handle || name.toLowerCase().replace(/\s+/g, '')}</span> with your email <span className="font-semibold text-[#0A0507]">{email}</span>.
               </p>
-              <div className="mt-4 pt-4 border-t border-[#FF0099]/10 w-full flex flex-col items-center gap-2">
-                <span className="text-[11px] uppercase tracking-wider font-bold text-[#FF0099]">Next Step: Open DIANA</span>
-                <p className="font-['Inter'] text-[11px] text-[#0A0507]/70 text-center mb-1">
-                  Download the Android APK, tap <strong className="text-[#FF0099]">Log In</strong>, and enter your exact email and password!
+              <div className="mt-4 pt-4 border-t border-[#FF0099]/10 w-full flex flex-col items-center gap-3">
+                <span className="text-[11px] uppercase tracking-wider font-bold text-[#FF0099] bg-[#FF0099]/10 px-3 py-1 rounded-full">
+                  You&apos;re All Set! 🎉
+                </span>
+                <p className="font-['Inter'] text-xs text-[#0A0507]/80 text-center leading-relaxed">
+                  Your profile credentials and unique handle <strong className="text-[#FF0099]">@{handle || name.toLowerCase().replace(/\s+/g, '')}</strong> are securely locked into the DIANA cloud.
+                </p>
+                <p className="font-['Inter'] text-xs text-[#0A0507]/65 text-center leading-relaxed">
+                  Keep an eye on your inbox—we will notify you the moment our iOS and Android apps are ready for download. See you soon on the app! 😻
                 </p>
                 <Link
-                  href="https://expo.dev/artifacts/eas/jY6Yd8zV1aGZ2K4Vb6uD8k.apk"
-                  target="_blank"
-                  className="w-full bg-[#FF0099] hover:bg-[#D4007D] text-white font-['Outfit'] font-bold text-sm py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2"
+                  href="/"
+                  className="w-full bg-[#0A0507] hover:bg-[#1A0D14] text-white font-['Outfit'] font-bold text-sm py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 mt-2"
                 >
-                  <span>Download DIANA Android APK</span>
+                  <span>Explore DIANA Ecosystem</span>
                   <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
