@@ -133,14 +133,20 @@ export default function JoinPage() {
           </h1>
 
           {referrer ? (
-            <p className="font-['Inter'] text-sm sm:text-base text-[#0A0507]/80 max-w-lg mb-8 leading-relaxed">
+            <p className="font-['Inter'] text-sm sm:text-base text-[#0A0507]/80 max-w-lg mb-4 leading-relaxed">
               You have been personally invited by <span className="font-bold text-[#FF0099]">@{referrer}</span> to claim your identity on DIANA — our global digital infrastructure supporting verified animal sanctuaries and 100% vegan ethical businesses.
             </p>
           ) : (
-            <p className="font-['Inter'] text-sm sm:text-base text-[#0A0507]/80 max-w-lg mb-8 leading-relaxed">
+            <p className="font-['Inter'] text-sm sm:text-base text-[#0A0507]/80 max-w-lg mb-4 leading-relaxed">
               Reserve your unique <span className="font-bold text-[#FF0099]">@handle</span> today. Connect with conscious consumers, ethical merchants, and animal sanctuaries worldwide.
             </p>
           )}
+
+          <div className="bg-[#FF0099]/10 border border-[#FF0099]/25 rounded-2xl p-4 max-w-lg mb-8 text-center shadow-sm">
+            <p className="font-['Inter'] text-xs sm:text-sm text-[#0A0507]/90 leading-relaxed font-medium">
+              All users must start with an individual Advocate account. Representing a Sanctuary or Business? You can list and verify your organisation directly from your Profile once inside the app.
+            </p>
+          </div>
 
           {submitted ? (
             <div className="bg-[#FFF0F8] border border-[#FF0099]/30 rounded-2xl p-6 sm:p-8 w-full max-w-md flex flex-col items-center gap-4 animate-fade-in">
@@ -175,63 +181,48 @@ export default function JoinPage() {
               ) : null}
 
               <div>
-                <label className="block font-['Outfit'] text-xs font-bold uppercase tracking-wider text-[#0A0507]/70 mb-1">
-                  Your Name (Advocate Profile)
-                </label>
-                <p className="font-['Inter'] text-[11px] text-[#0A0507]/60 mb-2 leading-tight">
-                  All users must start with an individual Advocate account. Representing a Sanctuary or Business? You can list and verify your organisation directly from your Profile once inside the app.
-                </p>
                 <input
                   type="text"
                   required
-                  placeholder="e.g. Maya Lin"
+                  placeholder="Your Name (Advocate Profile)"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507]"
+                  className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3.5 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507] placeholder:text-[#0A0507]/45"
                 />
               </div>
 
               <div>
-                <label className="block font-['Outfit'] text-xs font-bold uppercase tracking-wider text-[#0A0507]/70 mb-1.5">
-                  Desired Handle (@username)
-                </label>
                 <div className="relative flex items-center">
-                  <span className="absolute left-4 text-[#0A0507]/40 font-bold">@</span>
+                  <span className="absolute left-4 text-[#0A0507]/45 font-bold font-['Inter'] text-sm">@</span>
                   <input
                     type="text"
-                    placeholder="maya"
+                    placeholder="yourhandle"
                     value={handle}
                     onChange={(e) => setHandle(e.target.value.toLowerCase().replace(/[^a-z0-9_]/g, ''))}
-                    className="w-full bg-white border border-[#0A0507]/15 rounded-xl pl-8 pr-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507]"
+                    className="w-full bg-white border border-[#0A0507]/15 rounded-xl pl-8 pr-4 py-3.5 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507] placeholder:text-[#0A0507]/45"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="block font-['Outfit'] text-xs font-bold uppercase tracking-wider text-[#0A0507]/70 mb-1.5">
-                  Email Address
-                </label>
                 <input
                   type="email"
                   required
-                  placeholder="maya@compassionate.org"
+                  placeholder="yourname@dianafortheanimals.org"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507]"
+                  className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3.5 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507] placeholder:text-[#0A0507]/45"
                 />
               </div>
 
               <div>
-                <label className="block font-['Outfit'] text-xs font-bold uppercase tracking-wider text-[#0A0507]/70 mb-1.5">
-                  Create Password (Min. 6 characters)
-                </label>
                 <input
                   type="password"
                   required
-                  placeholder="••••••••"
+                  placeholder="Create Password (Min. 6 characters)"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507]"
+                  className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3.5 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507] placeholder:text-[#0A0507]/45"
                 />
               </div>
 

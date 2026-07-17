@@ -27,7 +27,7 @@ export default function AdvocateJoinForm() {
     if (!email.trim()) {
       newErrors.email = 'Please enter your email address.';
     } else if (!emailRegex.test(email)) {
-      newErrors.email = 'Please enter a valid email address (e.g., diana@example.com).';
+      newErrors.email = 'Please enter a valid email address (e.g., yourname@dianafortheanimals.org).';
     }
 
     setErrors(newErrors);
@@ -97,7 +97,7 @@ export default function AdvocateJoinForm() {
             setEmail(e.target.value);
             if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
           }}
-          placeholder="Email Address (e.g., diana@example.com)"
+          placeholder="Email Address (e.g., yourname@dianafortheanimals.org)"
           className={`bg-surface border rounded-lg px-4 py-3.5 text-secondary font-body-md placeholder:text-text-muted/70 focus:outline-none transition-colors ${
             errors.email ? 'border-red-500 focus:border-red-500' : 'border-border-main focus:border-primary'
           }`}
