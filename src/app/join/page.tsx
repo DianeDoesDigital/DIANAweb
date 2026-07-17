@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import TopNav from '@/components/layout/TopNav';
 import Link from 'next/link';
-import { Heart, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { Heart, ShieldCheck, ArrowRight, CheckCircle2, Eye, EyeOff } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
 
 export default function JoinPage() {
@@ -23,6 +23,7 @@ export default function JoinPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
   const [passwordFocused, setPasswordFocused] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -218,22 +219,30 @@ export default function JoinPage() {
 
               <div className="relative">
                 <input
-                  type="password"
+                  type={showPassword ? "text" : "password"}
                   required
                   placeholder="Password"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   onFocus={() => setPasswordFocused(true)}
                   onBlur={() => setPasswordFocused(false)}
-                  className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3.5 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507] placeholder:text-[#0A0507]/45"
+                  className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 pr-12 py-3.5 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507] placeholder:text-[#0A0507]/45"
                 />
+                <button
+                  type="button"
+                  onClick={() => setShowPassword(!showPassword)}
+                  className="absolute right-3.5 top-3.5 text-[#0A0507]/45 hover:text-[#FF0099] transition-colors focus:outline-none"
+                  aria-label={showPassword ? "Hide password" : "Show password"}
+                >
+                  {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
+                </button>
                 {(passwordFocused || (password.length > 0 && (password.length < 6 || !/[A-Z]/.test(password) || !/\d/.test(password) || !/[!@#$%^&*(),.?":{}|<>\-_+=\/\\[\]~']/.test(password)))) && (
-                  <div className="absolute bottom-full left-0 right-0 mb-3 bg-[#0A0507]/95 backdrop-blur-xl border border-[#FF0099]/40 rounded-2xl p-4 flex flex-col gap-2.5 shadow-2xl z-50 transition-all animate-fade-in text-left text-white">
+                  <div className="absolute bottom-full left-0 right-0 mb-3 bg-white/95 backdrop-blur-xl border border-[#FF0099]/30 rounded-2xl p-4 flex flex-col gap-2.5 shadow-2xl shadow-[#FF0099]/10 z-50 transition-all animate-fade-in text-left text-[#0A0507]">
                     {/* Tooltip arrow pointing down to the input */}
-                    <div className="absolute -bottom-2 left-8 w-4 h-4 bg-[#0A0507]/95 border-b border-r border-[#FF0099]/40 transform rotate-45 pointer-events-none" />
+                    <div className="absolute -bottom-2 left-8 w-4 h-4 bg-white/95 border-b border-r border-[#FF0099]/30 transform rotate-45 pointer-events-none" />
 
-                    <div className="flex items-center justify-between border-b border-white/10 pb-1.5 z-10 relative">
-                      <span className="font-['Outfit'] text-[11px] uppercase tracking-wider font-bold text-[#FFDDEE]">
+                    <div className="flex items-center justify-between border-b border-[#0A0507]/10 pb-1.5 z-10 relative">
+                      <span className="font-['Outfit'] text-[11px] uppercase tracking-wider font-bold text-[#0A0507]/70">
                         Password Requirements
                       </span>
                       <span className="font-['Outfit'] text-[10px] uppercase font-bold text-[#FF0099]">
@@ -243,45 +252,45 @@ export default function JoinPage() {
 
                     <div className="flex flex-col gap-1.5 z-10 relative">
                       <div className="flex items-center gap-2">
-                        <div className={`w-4 h-4 rounded-full flex items-center justify-center transition-colors ${password.length >= 6 ? 'bg-[#FF0099] text-white' : 'bg-white/10 text-white/40'}`}>
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center transition-colors ${password.length >= 6 ? 'bg-[#FF0099] text-white' : 'bg-[#0A0507]/10 text-[#0A0507]/40'}`}>
                           <CheckCircle2 className="w-3 h-3" />
                         </div>
-                        <span className={`font-['Inter'] text-xs font-medium transition-colors ${password.length >= 6 ? 'text-white font-bold' : 'text-white/70'}`}>
+                        <span className={`font-['Inter'] text-xs font-medium transition-colors ${password.length >= 6 ? 'text-[#0A0507] font-bold' : 'text-[#0A0507]/65'}`}>
                           At least 6 characters
                         </span>
                       </div>
 
                       <div className="flex items-center gap-2">
-                        <div className={`w-4 h-4 rounded-full flex items-center justify-center transition-colors ${/[A-Z]/.test(password) ? 'bg-[#FF0099] text-white' : 'bg-white/10 text-white/40'}`}>
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center transition-colors ${/[A-Z]/.test(password) ? 'bg-[#FF0099] text-white' : 'bg-[#0A0507]/10 text-[#0A0507]/40'}`}>
                           <CheckCircle2 className="w-3 h-3" />
                         </div>
-                        <span className={`font-['Inter'] text-xs font-medium transition-colors ${/[A-Z]/.test(password) ? 'text-white font-bold' : 'text-white/70'}`}>
+                        <span className={`font-['Inter'] text-xs font-medium transition-colors ${/[A-Z]/.test(password) ? 'text-[#0A0507] font-bold' : 'text-[#0A0507]/65'}`}>
                           At least 1 uppercase letter (A-Z)
                         </span>
                       </div>
 
                       <div className="flex items-center gap-2">
-                        <div className={`w-4 h-4 rounded-full flex items-center justify-center transition-colors ${/\d/.test(password) ? 'bg-[#FF0099] text-white' : 'bg-white/10 text-white/40'}`}>
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center transition-colors ${/\d/.test(password) ? 'bg-[#FF0099] text-white' : 'bg-[#0A0507]/10 text-[#0A0507]/40'}`}>
                           <CheckCircle2 className="w-3 h-3" />
                         </div>
-                        <span className={`font-['Inter'] text-xs font-medium transition-colors ${/\d/.test(password) ? 'text-white font-bold' : 'text-white/70'}`}>
+                        <span className={`font-['Inter'] text-xs font-medium transition-colors ${/\d/.test(password) ? 'text-[#0A0507] font-bold' : 'text-[#0A0507]/65'}`}>
                           At least 1 number (0-9)
                         </span>
                       </div>
 
                       <div className="flex items-center gap-2">
-                        <div className={`w-4 h-4 rounded-full flex items-center justify-center transition-colors ${/[!@#$%^&*(),.?":{}|<>\-_+=\/\\[\]~']/.test(password) ? 'bg-[#FF0099] text-white' : 'bg-white/10 text-white/40'}`}>
+                        <div className={`w-4 h-4 rounded-full flex items-center justify-center transition-colors ${/[!@#$%^&*(),.?":{}|<>\-_+=\/\\[\]~']/.test(password) ? 'bg-[#FF0099] text-white' : 'bg-[#0A0507]/10 text-[#0A0507]/40'}`}>
                           <CheckCircle2 className="w-3 h-3" />
                         </div>
-                        <span className={`font-['Inter'] text-xs font-medium transition-colors ${/[!@#$%^&*(),.?":{}|<>\-_+=\/\\[\]~']/.test(password) ? 'text-white font-bold' : 'text-white/70'}`}>
+                        <span className={`font-['Inter'] text-xs font-medium transition-colors ${/[!@#$%^&*(),.?":{}|<>\-_+=\/\\[\]~']/.test(password) ? 'text-[#0A0507] font-bold' : 'text-[#0A0507]/65'}`}>
                           At least 1 special character (!, @, #, $, %, etc.)
                         </span>
                       </div>
                     </div>
 
                     {password.length >= 6 && /[A-Z]/.test(password) && /\d/.test(password) && /[!@#$%^&*(),.?":{}|<>\-_+=\/\\[\]~']/.test(password) && (
-                      <div className="mt-1 pt-2 border-t border-white/10 flex items-center justify-between animate-fade-in z-10 relative">
-                        <span className="font-['Inter'] text-xs text-[#FFDDEE] font-bold">Secure Password Ready</span>
+                      <div className="mt-1 pt-2 border-t border-[#0A0507]/10 flex items-center justify-between animate-fade-in z-10 relative">
+                        <span className="font-['Inter'] text-xs text-[#0A0507]/80 font-bold">Secure Password Ready</span>
                         <span className="font-['Outfit'] text-[10px] uppercase font-bold bg-[#FF0099] text-white px-2.5 py-1 rounded-full tracking-wider shadow-sm">
                           Valid & Strong
                         </span>
