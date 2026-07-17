@@ -139,7 +139,7 @@ export default function JoinPage() {
             </p>
           ) : (
             <p className="font-['Inter'] text-sm sm:text-base text-[#0A0507]/80 max-w-lg mb-4 leading-relaxed">
-              Reserve your unique <span className="font-bold text-[#FF0099]">@handle</span> today. Connect with conscious consumers, ethical merchants, and animal sanctuaries worldwide.
+              Reserve your unique <span className="font-bold text-[#FF0099]">@handle</span> today. Connect with animal sanctuaries, conscious consumers, and ethical merchants worldwide.
             </p>
           )}
 
