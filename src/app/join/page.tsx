@@ -210,7 +210,7 @@ export default function JoinPage() {
                 <input
                   type="email"
                   required
-                  placeholder="Email address (you@d1ana.app)"
+                  placeholder="Email address (example@d1ana.app)"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3.5 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507] placeholder:text-[#0A0507]/45"

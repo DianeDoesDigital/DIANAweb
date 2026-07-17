@@ -97,7 +97,7 @@ export default function AdvocateJoinForm() {
             setEmail(e.target.value);
             if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
           }}
-          placeholder="Email Address (e.g., yourname@dianafortheanimals.org)"
+          placeholder="Email Address (example@d1ana.app)"
           className={`bg-surface border rounded-lg px-4 py-3.5 text-secondary font-body-md placeholder:text-text-muted/70 focus:outline-none transition-colors ${
             errors.email ? 'border-red-500 focus:border-red-500' : 'border-border-main focus:border-primary'
           }`}
