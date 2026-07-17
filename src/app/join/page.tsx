@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react';
 import TopNav from '@/components/layout/TopNav';
 import Link from 'next/link';
 import { Heart, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
+import { supabase } from '@/lib/supabase';
 
 export default function JoinPage() {
   const [referrer, setReferrer] = useState('');
@@ -21,23 +22,81 @@ export default function JoinPage() {
   const [handle, setHandle] = useState('');
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !name) return;
+    if (!email || !name || !password) return;
+    if (password.length < 6) {
+      setErrorMessage('Password must be at least 6 characters.');
+      return;
+    }
     setLoading(true);
+    setErrorMessage('');
 
-    // Simulate saving to early access queue / attribution tracking
-    setTimeout(() => {
+    try {
+      const cleanHandle = handle && handle.trim().length > 0
+        ? handle.trim().toLowerCase().replace(/[^a-z0-9_]/g, '')
+        : name.toLowerCase().replace(/[^a-z0-9_]/g, '') || `user_${Math.floor(1000 + Math.random() * 9000)}`;
+
+      // 1. Create real Supabase Auth user
+      const { data, error } = await supabase.auth.signUp({
+        email: email.trim(),
+        password: password,
+        options: {
+          data: {
+            name: name.trim(),
+            role: 'personal',
+          },
+        },
+      });
+
+      if (error && !error.message.toLowerCase().includes('already registered')) {
+        throw error;
+      }
+
+      const userId = data?.user?.id;
+      if (userId) {
+        // 2. Insert real Advocate Profile with referral attribution
+        await supabase.from('profiles').upsert({
+          id: userId,
+          email: email.trim().toLowerCase(),
+          name: name.trim(),
+          username: cleanHandle,
+          type: 'personal',
+          preferred_currency: 'PHP',
+          referred_by: referrer || null,
+        });
+
+        // 3. Trigger Welcome Email asynchronously
+        try {
+          await supabase.functions.invoke('welcome-email', {
+            body: {
+              record: {
+                email: email.trim(),
+                name: name.trim() || 'Advocate',
+                role: 'personal',
+              },
+            },
+          });
+        } catch (invErr) {
+          console.warn('Welcome email trigger warning:', invErr);
+        }
+      }
+
       setLoading(false);
       setSubmitted(true);
-    }, 600);
+    } catch (err: any) {
+      setLoading(false);
+      setErrorMessage(err?.message || 'Something went wrong while creating your profile. Please try again.');
+    }
   };
 
   return (
-    <main className="snap-start min-h-screen bg-[#FFF0F7] text-[#0A0507] pt-24 pb-20 px-6 sm:px-12 flex flex-col items-center justify-center">
+    <main className="snap-start min-h-screen bg-[#ffddee] text-[#0A0507] pt-24 pb-20 px-6 sm:px-12 flex flex-col items-center justify-center">
       <TopNav />
       
       <div className="max-w-2xl w-full bg-white/80 backdrop-blur-xl border border-[#FF0099]/20 rounded-3xl p-8 sm:p-12 shadow-2xl shadow-[#FF0099]/5 relative overflow-hidden">
@@ -81,12 +140,15 @@ export default function JoinPage() {
               <div className="w-12 h-12 bg-[#FF0099]/10 rounded-full flex items-center justify-center text-[#FF0099]">
                 <CheckCircle2 className="w-6 h-6" />
               </div>
-              <h3 className="font-['Outfit'] text-xl font-bold text-[#0A0507]">Handle Reserved!</h3>
+              <h3 className="font-['Outfit'] text-xl font-bold text-[#0A0507]">Account Created & Handle Reserved!</h3>
               <p className="font-['Inter'] text-xs sm:text-sm text-[#0A0507]/80 text-center leading-relaxed">
-                You are on the priority entry list as <span className="font-bold text-[#FF0099]">@{handle || name.toLowerCase().replace(/\s+/g, '')}</span>. We will notify <span className="font-semibold text-[#0A0507]">{email}</span> the instant your portal unlocks.
+                You are officially registered on the DIANA network as <span className="font-bold text-[#FF0099]">@{handle || name.toLowerCase().replace(/\s+/g, '')}</span> with your email <span className="font-semibold text-[#0A0507]">{email}</span>.
               </p>
               <div className="mt-4 pt-4 border-t border-[#FF0099]/10 w-full flex flex-col items-center gap-2">
-                <span className="text-[11px] uppercase tracking-wider font-bold text-[#FF0099]">Next Step</span>
+                <span className="text-[11px] uppercase tracking-wider font-bold text-[#FF0099]">Next Step: Open DIANA</span>
+                <p className="font-['Inter'] text-[11px] text-[#0A0507]/70 text-center mb-1">
+                  Download the Android APK, tap <strong className="text-[#FF0099]">Log In</strong>, and enter your exact email and password!
+                </p>
                 <Link
                   href="https://expo.dev/artifacts/eas/jY6Yd8zV1aGZ2K4Vb6uD8k.apk"
                   target="_blank"
@@ -99,10 +161,19 @@ export default function JoinPage() {
             </div>
           ) : (
             <form onSubmit={handleSubmit} className="w-full max-w-md flex flex-col gap-4 text-left">
+              {errorMessage ? (
+                <div className="bg-red-50 border border-red-200 text-red-600 px-4 py-3 rounded-xl font-['Inter'] text-xs font-semibold">
+                  {errorMessage}
+                </div>
+              ) : null}
+
               <div>
-                <label className="block font-['Outfit'] text-xs font-bold uppercase tracking-wider text-[#0A0507]/70 mb-1.5">
-                  Full Name or Organisation Name
+                <label className="block font-['Outfit'] text-xs font-bold uppercase tracking-wider text-[#0A0507]/70 mb-1">
+                  Your Full Name (Advocate Profile)
                 </label>
+                <p className="font-['Inter'] text-[11px] text-[#0A0507]/60 mb-2 leading-tight">
+                  All users must start with an individual Advocate account. Representing a Sanctuary or Business? You can list and verify your organisation directly from your Profile once inside the app.
+                </p>
                 <input
                   type="text"
                   required
@@ -143,19 +214,26 @@ export default function JoinPage() {
                 />
               </div>
 
-              {referrer && (
-                <div className="bg-[#FFF0F8] border border-[#FF0099]/20 rounded-xl px-4 py-2.5 flex items-center justify-between">
-                  <span className="font-['Inter'] text-xs text-[#0A0507]/70">Attributing connection to:</span>
-                  <span className="font-['Outfit'] font-bold text-xs text-[#FF0099]">@{referrer}</span>
-                </div>
-              )}
+              <div>
+                <label className="block font-['Outfit'] text-xs font-bold uppercase tracking-wider text-[#0A0507]/70 mb-1.5">
+                  Create Password (Min. 6 characters)
+                </label>
+                <input
+                  type="password"
+                  required
+                  placeholder="••••••••"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="w-full bg-white border border-[#0A0507]/15 rounded-xl px-4 py-3 font-['Inter'] text-sm focus:outline-none focus:border-[#FF0099] focus:ring-2 focus:ring-[#FF0099]/10 transition-all text-[#0A0507]"
+                />
+              </div>
 
               <button
                 type="submit"
                 disabled={loading}
                 className="w-full mt-2 bg-[#FF0099] hover:bg-[#D4007D] disabled:opacity-50 text-white font-['Outfit'] font-bold text-sm sm:text-base py-4 rounded-xl shadow-lg shadow-[#FF0099]/25 transition-all transform active:scale-[0.98] flex items-center justify-center gap-2"
               >
-                {loading ? 'Reserving Identity...' : 'Reserve Handle & Join Early Access'}
+                {loading ? 'Creating Account & Reserving Handle...' : 'Create Advocate Account & Reserve Handle'}
               </button>
             </form>
           )}
