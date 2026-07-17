@@ -90,7 +90,7 @@ export default function JoinPage() {
           username: cleanHandle,
           type: 'personal',
           preferred_currency: 'PHP',
-          referred_by: referrer || 'diane',
+          referred_by: referrer || null,
         });
 
         // 3. Trigger Welcome Email asynchronously
