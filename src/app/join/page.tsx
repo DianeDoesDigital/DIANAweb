@@ -172,11 +172,11 @@ export default function JoinPage() {
                   Your profile credentials and unique handle <strong className="text-[#FF0099]">@{handle || name.toLowerCase().replace(/\s+/g, '')}</strong> are securely locked into the DIANA cloud.
                 </p>
                 <p className="font-['Inter'] text-xs text-[#0A0507]/65 text-center leading-relaxed">
-                  Keep an eye on your inbox—we will notify you the moment our iOS and Android apps are ready for download. See you soon on the app! 😻
+                  Keep an eye on your inbox—we will notify you the moment our iOS and Android mobile releases are ready for download. See you inside the Nexus soon! 😻
                 </p>
                 <Link
                   href="/"
-                  className="w-full bg-[#0A0507] hover:bg-[#1A0D14] text-white font-['Outfit'] font-bold text-sm py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 mt-2"
+                  className="w-full bg-[#FF0099] hover:bg-[#D4007D] text-white font-['Outfit'] font-bold text-sm py-3.5 rounded-xl transition-all shadow-md flex items-center justify-center gap-2 mt-2"
                 >
                   <span>Explore DIANA Ecosystem</span>
                   <ArrowRight className="w-4 h-4" />
