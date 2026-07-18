@@ -20,7 +20,7 @@ export default function MissionBody() {
             {/* Content Side */}
             <ScrollReveal>
               <h2 className="font-headline-lg font-[var(--text-headline-lg--font-weight)] text-[28px] md:text-[56px] leading-tight mb-8 select-none tracking-tight text-center lg:text-left">
-                <span className="text-secondary block whitespace-nowrap">Where Compassion</span>
+                <span className="text-secondary block whitespace-nowrap">Where Compassion </span>
                 <span className="text-primary block whitespace-nowrap">is the Default</span>
               </h2>
               <div className="space-y-6 font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted">
