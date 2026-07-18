@@ -65,6 +65,10 @@ export default function JoinPage() {
       }
 
       // 1. Create real Supabase Auth user
+      // Ensure no previous session is active, otherwise signUp won't auto-login the new user and RLS will block the profiles upsert!
+      await supabase.auth.signOut();
+      
+      // We store the username and referrer securely in user_metadata so it is NEVER lost, even if profiles table insert fails
       const { data, error } = await supabase.auth.signUp({
         email: email.trim(),
         password: password,
@@ -72,6 +76,8 @@ export default function JoinPage() {
           data: {
             name: name.trim(),
             role: 'personal',
+            username: cleanHandle,
+            referred_by: referrer || null,
           },
         },
       });
@@ -83,15 +89,18 @@ export default function JoinPage() {
       const userId = data?.user?.id;
       if (userId) {
         // 2. Insert real Advocate Profile with referral attribution
-        await supabase.from('profiles').upsert({
+        const { error: profileError } = await supabase.from('profiles').upsert({
           id: userId,
-          email: email.trim().toLowerCase(),
           name: name.trim(),
           username: cleanHandle,
           type: 'personal',
           preferred_currency: 'PHP',
           referred_by: referrer || null,
         });
+
+        if (profileError) {
+          console.error('Warning: Profile insert failed (likely RLS/Session delay). Handle is safely stored in auth metadata.', profileError);
+        }
 
         // 3. Trigger Welcome Email asynchronously
         try {

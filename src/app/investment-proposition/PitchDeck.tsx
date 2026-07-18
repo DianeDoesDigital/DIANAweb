@@ -434,40 +434,30 @@ function DealCloser() {
               />
             </div>
             <div>
-              <label className="block font-label-caps text-[11px] text-[var(--color-text-subtle)] mb-1">
-                Intended Investment Amount (AUD) <span className="text-[var(--color-primary)]">*</span>
-              </label>
-              <div className="grid grid-cols-3 gap-1.5 mb-1.5">
-                {[
-                  { label: '$10K (1%)', value: '10000' },
-                  { label: '$25K (2.5%)', value: '25000' },
-                  { label: '$50K (5%)', value: '50000' },
-                ].map((tier) => (
-                  <button
-                    key={tier.value}
-                    type="button"
-                    onClick={() => setAmount(tier.value)}
-                    disabled={isSubmitting}
-                    className={`py-1 px-2 rounded-lg text-xs font-bold font-label-caps transition-all ${
-                      amount === tier.value
-                        ? 'bg-[var(--color-primary)] text-white shadow-sm scale-[1.02]'
-                        : 'bg-white/80 text-[var(--color-text)] border border-[var(--color-border-main)] hover:border-[var(--color-primary)]'
-                    }`}
-                  >
-                    {tier.label}
-                  </button>
-                ))}
+              <div className="flex justify-between items-center mb-1.5">
+                <label className="block font-label-caps text-[11px] text-[var(--color-text-subtle)]">
+                  Intended Investment Amount (AUD) <span className="text-[var(--color-primary)]">*</span>
+                </label>
+                <span className="font-headline-md text-xs md:text-sm font-bold text-[var(--color-primary)]">
+                  ${numericAmount.toLocaleString()} AUD
+                </span>
               </div>
-              <div className="relative">
-                <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-xs md:text-sm text-[var(--color-text-subtle)] font-bold">$</span>
+              <div className="py-1">
                 <input
-                  type="number"
+                  type="range"
+                  min="10000"
+                  max="300000"
+                  step="10000"
                   value={amount}
                   onChange={(e) => setAmount(e.target.value)}
-                  placeholder="Enter amount (AUD)"
                   disabled={isSubmitting}
-                  className="w-full pl-7 pr-3.5 py-1.5 rounded-xl bg-white/80 border border-[var(--color-border-main)] focus:border-[var(--color-primary)] focus:outline-none text-xs md:text-sm text-[var(--color-text)] placeholder-gray-400 font-body-sm transition-colors"
+                  className="w-full accent-[#ff0099] h-2 bg-[var(--color-primary)]/15 rounded-lg appearance-none cursor-pointer focus:outline-none"
                 />
+                <div className="flex justify-between items-center mt-1 font-label-caps text-[10px] text-[var(--color-text-subtle)]">
+                  <span>$10K</span>
+                  <span>$150K</span>
+                  <span>$300K</span>
+                </div>
               </div>
               {numericAmount > 0 && (
                 <div className="mt-1.5 p-1.5 bg-[var(--color-secondary)]/10 rounded-lg border border-[var(--color-secondary)]/20 text-center font-body-xs text-[11px] text-[var(--color-secondary)]">
@@ -496,20 +486,9 @@ function DealCloser() {
               onMouseUp={stopDrawing}
               onMouseOut={stopDrawing}
               onTouchStart={startDrawing}
-              onTouchMove={draw}
               onTouchEnd={stopDrawing}
             />
           </div>
-          <div className="text-center mt-2 border-t border-[var(--color-primary)]/20 pt-1.5">
-            <span className="font-headline-md text-base md:text-lg text-[var(--color-primary)]">
-              {name.trim() || 'Your Name'}
-            </span>
-            <span className="block text-[11px] text-[var(--color-text-subtle)]">
-              {email.trim() ? `${email.trim()} • ${numericAmount > 0 ? `$${numericAmount.toLocaleString()} AUD (${isCapped ? '35% Cap + Custom Terms' : `${equityPct}%`})` : 'Interested Investor'}` : 'Interested Investor'}
-            </span>
-          </div>
-
-          <p className="text-center text-[10px] text-[var(--color-text-subtle)] mt-1 italic">This is a non-binding expression of interest. We&apos;ll be in touch within 48 hours.</p>
 
           {submitError && (
             <p className="text-red-500 text-xs mt-2 text-center font-semibold">{submitError}</p>
@@ -522,6 +501,7 @@ function DealCloser() {
           >
             {isSubmitting ? 'Registering Interest...' : 'Express Interest'}
           </button>
+          <p className="text-center text-[10px] text-[var(--color-text-subtle)] mt-2 italic">This is a non-binding expression of interest. We&apos;ll be in touch within 48 hours.</p>
         </div>
       ) : (
         <div className="bg-[var(--color-primary)]/20 p-8 rounded-2xl border border-[var(--color-primary)] w-full max-w-lg text-center animate-in fade-in zoom-in duration-500">
@@ -1847,7 +1827,7 @@ const slides = [
           </div>
           <ul className="space-y-2 md:space-y-2.5 font-body-sm text-[var(--color-text-subtle)] text-[11px] md:text-xs leading-relaxed">
             <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-16 md:w-20 shrink-0">Aug 2026:</span> <span>App launch and onboarding our waitlisted partner businesses and early community members.</span></li>
-            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-16 md:w-20 shrink-0">Q3 2026:</span> <span>Rapid welcome and migration of displaced active community members from abillion (a major vegan discovery app with 1M+ registered users that recently closed).</span></li>
+            <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-16 md:w-20 shrink-0">Q3 2026:</span> <span>Rapid scaling driven by waitlist activation, word-of-mouth, and abillion migration.</span></li>
             <li className="flex items-start gap-2"><span className="text-[var(--color-primary)] font-bold w-16 md:w-20 shrink-0">Dec 2026:</span> <span>Hit <strong>1,000 active monthly users</strong>, unlocking our full commercial target and generating clean monthly cash flow for shareholder dividends.</span></li>
           </ul>
         </div>
