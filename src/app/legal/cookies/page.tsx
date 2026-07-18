@@ -71,7 +71,7 @@ const sections = [
     heading: 'No Advertising or Retargeting',
     body: [
       'DIANA does not use advertising cookies or retargeting pixels on the website. We will not track your visit to DIANA in order to show you ads elsewhere on the internet.',
-      'If we ever introduce advertising or retargeting in the future, this policy will be updated with clear notice before any such cookies are set, and we will seek your consent where required by law.',
+      'While DIANA features native brand sponsorships, these are contextual, privacy-first placements built directly into our ecosystem. We do not use third-party advertising cookies, we do not track you across the internet, we do not retarget you on other platforms, and we absolutely do not sell your data to data brokers.',
     ],
   },
   {

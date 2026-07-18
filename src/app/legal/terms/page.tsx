@@ -74,6 +74,16 @@ const sections = [
     ],
   },
   {
+    id: 'wallet',
+    heading: 'DIANA Wallet & Transactions',
+    body: [
+      'Advocates may load funds into a digital DIANA Wallet to seamlessly facilitate purchases at participating Ethical Merchants.',
+      'Funds loaded into the DIANA Wallet are securely processed and safeguarded by our regulated financial partners. DIANA acts as a technology platform to facilitate these transactions and automated routing, rather than a traditional banking institution.',
+      'Wallet balances are strictly for use within the DIANA ecosystem and cannot be withdrawn as cash, except as explicitly required by consumer law in your jurisdiction.',
+      'By using the Wallet to complete a transaction, you authorize the automated routing of the merchant’s pledged contribution directly to the selected animal sanctuaries.',
+    ],
+  },
+  {
     id: 'prohibited',
     heading: 'Prohibited Conduct',
     body: [
