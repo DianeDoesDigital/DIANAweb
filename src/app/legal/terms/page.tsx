@@ -154,7 +154,7 @@ export default function TermsPage() {
     <>
       <TopNav />
 
-      <main className="bg-background text-secondary">
+      <main className="snap-start bg-background text-secondary">
         {/* Hero */}
         <section className="relative py-24 md:py-36 border-b border-border-main overflow-hidden">
           <div className="relative z-10 max-w-[var(--spacing-container-max-width)] mx-auto px-[var(--spacing-margin-mobile)] md:px-[var(--spacing-margin-desktop)]">
