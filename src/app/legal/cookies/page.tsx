@@ -243,8 +243,8 @@ export default function CookiePolicyPage() {
                   </h2>
                   <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted select-none">
                     If you have questions about how we use cookies, contact us at{' '}
-                    <a href="mailto:privacy@dianafortheanimals.org" className="text-primary hover:underline">
-                      privacy@dianafortheanimals.org
+                    <a href="mailto:hello@dianafortheanimals.org" className="text-primary hover:underline">
+                      hello@dianafortheanimals.org
                     </a>
                     . DRGM DEV PTY LTD (ACN 699 347 861).
                   </p>

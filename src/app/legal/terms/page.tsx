@@ -21,7 +21,7 @@ const sections = [
     id: 'about-diana',
     heading: 'About DIANA',
     body: [
-      'DIANA is a financial infrastructure platform operated by DRGM that connects ethical merchants, individual advocates, and animal sanctuaries. It enables automated pledge-based contributions from merchant transactions to registered animal sanctuaries.',
+      'DIANA is a financial infrastructure platform operated by DRGM DEV PTY LTD (ACN 699 347 861) that connects ethical merchants, individual advocates, and animal sanctuaries. It enables automated pledge-based contributions from merchant transactions to registered animal sanctuaries.',
       'DIANA is not a charity, a donation platform, or a financial institution. It is a technology platform that facilitates and attributes contributions according to merchant and user settings.',
     ],
   },
@@ -42,7 +42,7 @@ const sections = [
     bullets: [
       'Provide accurate and complete information when creating your account.',
       'Keep your login credentials secure and not share them with others.',
-      'Notify us immediately at support@dianafortheanimals.org if you suspect unauthorised access to your account.',
+      'Notify us immediately at hello@dianafortheanimals.org if you suspect unauthorised access to your account.',
       'Accept responsibility for all activity that occurs under your account.',
     ],
   },
@@ -93,7 +93,7 @@ const sections = [
     id: 'intellectual-property',
     heading: 'Intellectual Property',
     body: [
-      'All content on the Platform, including the DIANA name, logo, brand identity, interface design, copy, and functionality, is the intellectual property of DRGM and is protected by applicable copyright, trademark, and design laws.',
+      'All content on the Platform, including the DIANA name, logo, brand identity, interface design, copy, and functionality, is the intellectual property of DRGM DEV PTY LTD (ACN 699 347 861) and is protected by applicable copyright, trademark, and design laws.',
       'You may not copy, reproduce, distribute, modify, or create derivative works from any part of the Platform without our express written permission.',
     ],
   },
@@ -120,7 +120,7 @@ const sections = [
     heading: 'Termination',
     body: [
       'We may suspend or terminate your access to the Platform at any time, with or without notice, if we believe you have violated these Terms or if we are required to do so by law.',
-      'You may close your account at any time by contacting us at support@dianafortheanimals.org. Upon account closure, your data will be handled in accordance with our Privacy Policy.',
+      'You may close your account at any time by contacting us at hello@dianafortheanimals.org. Upon account closure, your data will be handled in accordance with our Privacy Policy.',
     ],
   },
   {

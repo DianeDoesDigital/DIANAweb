@@ -13,8 +13,8 @@ const sections = [
     id: 'who-we-are',
     heading: 'Who We Are',
     body: [
-      'DIANA (Digital Infrastructure for Animal Networks and Advocacy) is a product of DRGM. We operate the DIANA mobile application and website at dianafortheanimals.org.',
-      'If you have any questions about this policy or how we handle your data, you can reach us at privacy@dianafortheanimals.org.',
+      'DIANA (Digital Infrastructure for Animal Networks and Advocacy) is a product of DRGM DEV PTY LTD (ACN 699 347 861). We operate the DIANA mobile application and website at dianafortheanimals.org.',
+      'If you have any questions about this policy or how we handle your data, you can reach us at hello@dianafortheanimals.org.',
     ],
   },
   {
@@ -81,13 +81,13 @@ const sections = [
       'Receive your data in a portable format.',
       'Withdraw consent where processing is based on consent.',
     ],
-    footer: 'To exercise any of these rights, contact us at privacy@dianafortheanimals.org. We will respond within 30 days.',
+    footer: 'To exercise any of these rights, contact us at hello@dianafortheanimals.org. We will respond within 30 days.',
   },
   {
     id: 'cookies',
     heading: 'Cookies',
     body: [
-      'The DIANA website uses cookies only where necessary. Strictly necessary cookies keep the site and your session working. We also use Plausible Analytics, a privacy-first tool that collects no personal data and does not share data with advertising networks.',
+      'The DIANA website uses cookies only where necessary. Strictly necessary cookies keep the site and your session working. We use Vercel Analytics, a privacy-first tool built into our hosting infrastructure that collects no personal data and does not share data with advertising networks.',
       'For a full breakdown of which cookies we set, their purpose, and how long they last, please read our Cookie Policy.',
     ],
     cookieLink: true,
@@ -222,8 +222,8 @@ export default function PrivacyPage() {
                   </h2>
                   <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted select-none">
                     For any privacy-related enquiries or to exercise your rights, contact us at{' '}
-                    <a href="mailto:privacy@dianafortheanimals.org" className="text-primary hover:underline">
-                      privacy@dianafortheanimals.org
+                    <a href="mailto:hello@dianafortheanimals.org" className="text-primary hover:underline">
+                      hello@dianafortheanimals.org
                     </a>
                     . DRGM DEV PTY LTD (ACN 699 347 861).
                   </p>
