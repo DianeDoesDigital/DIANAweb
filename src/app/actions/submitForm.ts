@@ -29,7 +29,11 @@ export async function submitWaitlist(data: BaseSignup) {
     console.error('Supabase Error:', error);
     return { success: false, error: 'CONNECTION FAILED: WE COULD NOT PROCESS YOUR APPLICATION AT THIS TIME. PLEASE TRY AGAIN LATER.' };
   }
-  
+  // Trigger welcome email asynchronously without blocking or relying on a database trigger
+  supabase.functions.invoke('welcome-email', {
+    body: { record: { name: data.name, email: data.email, role: data.role } }
+  }).catch(err => console.error('Failed to trigger welcome email:', err));
+
   return { success: true, id: insertedData.id };
 }
 
