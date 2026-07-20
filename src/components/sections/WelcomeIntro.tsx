@@ -13,7 +13,7 @@ export default function WelcomeIntro() {
           <span className="text-primary">and Advocacy.</span>
         </h1>
         <p className="font-body-lg text-[var(--text-body-lg)] leading-[var(--text-body-lg--line-height)] text-text-muted max-w-2xl mb-12 select-none">
-          DIANA is the financial clearinghouse connecting conscious consumers, ethical merchants, and animal sanctuaries. By merging daily commerce with continuous advocacy, we've built an ecosystem where your ordinary actions quietly support the extraordinary work of saving animals.
+          DIANA is the financial clearinghouse connecting animal sanctuaries to conscious consumers and ethical merchants. By merging daily commerce with continuous advocacy, we've built an ecosystem where your ordinary actions quietly support the extraordinary work of saving animals.
         </p>
 
         <div className="flex flex-col sm:flex-row items-start justify-start gap-6">

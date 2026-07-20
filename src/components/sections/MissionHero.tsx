@@ -145,7 +145,7 @@ function MissionHeroContent({ playVideo = false }: MissionHeroProps) {
           </div>
           
           <p className="font-body-lg text-[var(--text-body-lg)] text-text-main/80 mb-12 select-none font-medium max-w-2xl">
-            DIANA is the financial clearinghouse connecting conscious consumers, ethical merchants, and animal sanctuaries. By merging daily commerce with continuous advocacy, we&apos;ve built an ecosystem where your ordinary actions quietly support the extraordinary work of saving animals.
+            DIANA is the financial clearinghouse connecting animal sanctuaries to conscious consumers and ethical merchants. By merging daily commerce with continuous advocacy, we&apos;ve built an ecosystem where your ordinary actions quietly support the extraordinary work of saving animals.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6">

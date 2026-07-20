@@ -7,7 +7,7 @@ import { Analytics } from '@vercel/analytics/react';
 export const metadata: Metadata = {
   metadataBase: new URL('https://dianafortheanimals.org'),
   title: 'DIANA | Digital Infrastructure for Animal Networks and Advocacy',
-  description: 'DIANA is the Digital Infrastructure for Animal Networks and Advocacy. We are the financial clearinghouse connecting conscious consumers, ethical merchants, and animal sanctuaries. Here, our daily actions quietly support animals.',
+  description: 'DIANA is the Digital Infrastructure for Animal Networks and Advocacy. We are the financial clearinghouse connecting animal sanctuaries to conscious consumers and ethical merchants. Here, our daily actions quietly support animals.',
 };
 
 export default function RootLayout({
